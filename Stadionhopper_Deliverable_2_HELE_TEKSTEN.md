@@ -616,17 +616,45 @@ justere arbeidet underveis.
 
 # 8. Git-workflow
 
-## 8.1 Branching og commits
+Vi bruker GitHub til versjonskontroll, oppgaveadministrasjon, samarbeid og kvalitetssikring av dokumentasjon og kode. Hver oppgave kobles til en issue, en arbeidsbranch og en pull request (PR). Dette gjør det mulig å følge hva som skal gjøres, hvilke endringer som er gjort, og hvem som har gjennomgått arbeidet før det inngår i prosjektets felles versjon.
 
-*(Skrives i issue #29)*
+Strategien bygger på små endringer, kortvarige brancher og hyppig sammenfletting. *Accelerate* fremhever kortvarige brancher og hyppig integrering som praksiser for god programvareleveranse (kapittel 4). *Software Engineering at Google* understreker at små, avgrensede endringer gjør gjennomgangen enklere, og at review bidrar til både kvalitetssikring og kunnskapsdeling (kapittel 9). Vi tilpasser disse prinsippene til en studentgruppe som arbeider med flere fag samtidig.
 
-## 8.2 Pull requests og code review
+### 8.1 Opprette og velge en oppgave
 
-*(Skrives i issue #30)*
+Arbeidet starter med en issue som beskriver ønsket resultat. Dokumentasjonsoppgaver avgrenses normalt til et kapittel eller delkapittel, mens kodeoppgaver avgrenses til en funksjon, feilretting eller annen konkret endring. Oppgavene prioriteres med Must, Should eller Could. Hver issue skal ha en konkret Definition of Done (DoD). Denne beskriver hva som må være på plass før oppgaven kan godkjennes, og brukes som sjekkliste av både forfatteren og revieweren. Oppgaver skal normalt kunne gjennomføres i én arbeidsøkt. Med arbeidsøkt menes omtrent 2-4 timer, som vi anser som sannsynlig arbeidsmengde når man setter seg ned å jobber men en oppgave som student. Dersom omfanget blir større, deler vi oppgaven i mindre issues med tydelige resultater. Vi følger pull-prinsippet: Den som har kapasitet, tildeler seg selv en tilgjengelig issue og setter etiketten «Doing» når arbeidet starter. Hver person har maksimalt én issue med «Doing» og kan ha inntil to avtalte issues tildelt som neste oppgaver.
 
-## 8.3 Samarbeid i GitHub
+### 8.2 Arbeide i en egen branch
 
-*(Skrives i issue #31)*
+`main` inneholder den nyeste gjennomgåtte versjonen av prosjektet. Produktet kan fortsatt være uferdig, men endringene som ligger på `main`, skal være godkjent gjennom arbeidsflyten vår. Når vi starter på en issue, oppretter vi en egen branch fra oppdatert `main` og kobler den til issuen. Branchen navngis `<issuenr>-kort-beskrivelse`, for eksempel `19-ferdigstille-domenemodell`. Vi bruker samme navnemønster for dokumentasjon, funksjoner og feilrettinger. Vi gjør endringene i arbeidsbranchen og lagrer logiske deler av arbeidet som commits. Commit-meldingene skal kort og tydelig beskrive endringen, for eksempel «Legg til relasjoner i domenemodellen». Vi holder branchene kortvarige ved å avgrense oppgavene og sende ferdige endringer til review fortløpende. Dersom oppgaven krever endringer i en del som noen andre arbeider med, avklarer vi dette med vedkommende før vi fortsetter. Vi erstatter ikke filer med eldre kopier som kan fjerne andres endringer. Før vi sender arbeidet til review, kontrollerer vi om `main` har fått nye endringer, og oppdaterer arbeidsbranchen ved behov. Dersom vi oppdager konflikter, tar vi straks kontakt med den andre berørte forfatteren. Vi avklarer sammen hvilke endringer som skal beholdes, før konflikten løses.
+
+### 8.3 Opprette en pull request
+
+Når arbeidet oppfyller issuens DoD, åpner forfatteren en PR fra arbeidsbranchen til `main`. PR-en skal inneholde:
+
+- En kort beskrivelse av hva som er endret og hvorfor.
+- Beskrivelse av hvordan resultatet er kontrollert, inkludert relevante tester når oppgaven gjelder kode.
+- Eventuelle avhengigheter eller forhold revieweren må være oppmerksom på.
+
+Forfatteren gjennomgår selv endringene før PR-en sendes til review, og kontrollerer at den bare inneholder arbeid som hører til oppgaven. Relevante bilder eller skjermbilder kan legges ved når de gjør resultatet lettere å vurdere.
+
+### 8.4 Gjennomgang og godkjenning
+
+Begge de andre gruppemedlemmene kan gjennomgå PR-en; vi tildeler ikke en bestemt reviewer. Minst ett annet gruppemedlem må godkjenne endringen før den flettes inn i `main`.
+
+Revieweren bruker issuens beskrivelse og DoD som grunnlag og kontrollerer at:
+
+- Resultatet oppfyller oppgaven og alle punktene i DoD.
+- Innholdet er forståelig og henger sammen med resten av prosjektet.
+- Nødvendige begrunnelser og dokumentasjon er med.
+- PR-en ikke inneholder utilsiktede endringer i andres arbeid.
+- Relevante kontroller eller tester er gjennomført.
+
+Tilbakemeldinger gis i PR-en slik at vurderinger og avklaringer er tilgjengelige for hele gruppa. Forfatteren følger opp kommentarene og gjør rettelser i samme branch. Ved vesentlige endringer må den oppdaterte versjonen gjennomgås før merge. Uavklarte endringskrav skal være løst før PR-en godkjennes. Vi tar sikte på gjennomgang i løpet av dagen. Dersom en PR blir liggende utover dette, gir forfatteren beskjed i Teams. PR-en venter på godkjenning selv om gjennomgangen blir forsinket.
+
+### 8.5 Merge og avslutning
+
+Et annet gruppemedlem enn forfatteren gjennomfører merge når PR-en er godkjent, nødvendige rettelser er fulgt opp og eventuelle konflikter er løst. Dersom `main` har endret seg under gjennomgangen, kontrollerer vi før merge at endringen fortsatt passer sammen med den nyeste versjonen. Den ferdige arbeidsbranchen slettes deretter. Nye oppgaver får en ny branch fra oppdatert `main`, slik at gamle arbeidsbrancher ikke gjenbrukes. Vi gjør ingen direkte commits til `main`. Alle endringer skal gå gjennom PR og godkjenning fra minst ett annet gruppemedlem. Vi planlegger å beskytte `main` med dette kravet i GitHub. Inntil beskyttelsen er konfigurert, følger gruppa regelen som en felles arbeidsavtale.
 
 # 9. CI/CD-strategi
 
