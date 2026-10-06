@@ -1,11 +1,17 @@
 Stadionhopper
+
 Deliverable 2
+
 Architecture
 
 Av:
+
 Ine Nybø Botterli
+
 Inger Videm
+
 Line Lyngsnes Johansen
+
 Høgskolen i Molde
 
 # 1. Innledning og status siden Deliverable 1
@@ -246,17 +252,32 @@ inn, slik at jeg kan registrere og lagre mine kamp- og stadioninnsjekk.
 
 Med utgangspunkt i oppgavens krav, produktbackloggen og funksjonaliteten i 
 Stadionhopper har vi identifisert syv sentrale domeneentiteter: Bruker, Stadion, 
-Klubb, Kamp, Innsjekking, Innlegg og Arrangement. **Bruker** representerer en 
-registrert bruker med profil og historikk. **Stadion** representerer et fysisk 
-sted hvor kamper og eventuelt arrangementer finner sted. **Klubb** representerer 
-en fotballklubb som kan delta i flere kamper. **Kamp** representerer en konkret 
-fotballkamp mellom to klubber på et bestemt tidspunkt og stadion. **Innsjekking** 
+Klubb, Kamp, Innsjekking, Innlegg og Arrangement.
+
+**Bruker** representerer en 
+registrert bruker med profil og historikk. 
+
+**Stadion** representerer et fysisk 
+sted hvor kamper og eventuelt arrangementer finner sted. 
+
+**Klubb** representerer 
+en fotballklubb som kan delta i flere kamper. 
+
+**Kamp** representerer en konkret 
+fotballkamp mellom to klubber på et bestemt tidspunkt og stadion. 
+
+**Innsjekking** 
 representerer at en bruker har registrert at han eller hun var til stede på en 
 kamp eller et stadion. Innsjekkingen knyttes til brukeren og kampen og brukes 
 blant annet til å bygge opp brukerens personlige historikk over kamper og 
-stadioner. **Innlegg** representerer sosialt innhold publisert av en bruker. 
+stadioner. 
+
+**Innlegg** representerer sosialt innhold publisert av en bruker. 
+
 **Arrangement** representerer et arrangement knyttet til Stadionhopper, et stadion 
-eller en kamp. Disse syv entitetene danner grunnlaget for domenemodellen og 
+eller en kamp. 
+
+Disse syv entitetene danner grunnlaget for domenemodellen og 
 beskriver hvordan brukere, kamper, stadioner, klubber, innsjekkinger, innlegg og 
 arrangementer henger sammen i Stadionhopper.
 
@@ -265,29 +286,33 @@ arrangementer henger sammen i Stadionhopper.
 Entitetene i domenemodellen er knyttet sammen gjennom funksjonene i
 Stadionhopper.
 
-**Bruker 1 : 0..* Innsjekking**
+Bruker 1 : 0..* Innsjekking
 En bruker kan ha null eller mange innsjekkinger.
 En innsjekking tilhører nøyaktig en bruker.
-**Kamp 1 : 0..* Innsjekking**
+
+Kamp 1 : 0..* Innsjekking
 En kamp kan ha null eller mange innsjekkinger, 
 siden flere brukere kan registrere at de har vært 
 til stede på samme kamp. Hver innsjekking er 
 knyttet til en bestemt kamp og en bestemt bruker.
-**Stadion 1 : 0..* Kamp**
+
+Stadion 1 : 0..* Kamp
 En stadion kan ha mange kamper.
 En kamp spilles på en stadion.
-
 Hver kamp er knyttet til to klubber, der den ene er 
 hjemmelag og den andre er bortelag.
-**Klubb (hjemmelag) 1 : 0..* Kamp**
+
+Klubb (hjemmelag) 1 : 0..* Kamp
 En klubb kan delta i null eller mange kamper som hjemmelag.
-**Klubb (bortelag) 1 : 0..* Kamp**
+
+Klubb (bortelag) 1 : 0..* Kamp
 En klubb kan delta i null eller mange kamper som bortelag. 
 
-**Bruker 1 : 0..* Innlegg**
+Bruker 1 : 0..* Innlegg
 En bruker kan opprette mange innlegg.
 Et innlegg opprettes av en bruker.
-**Stadion 1 : 0..* Arrangement**
+
+Stadion 1 : 0..* Arrangement
 En stadion kan ha mange arrangement.
 Et arrangement gjelder en stadion.
 
@@ -304,42 +329,44 @@ Domenemodellen nedenfor visualiserer de sentrale entitetene i
 Stadionhopper og relasjonene mellom dem. Modellen er avgrenset til
 funksjonene som er prioritert i MVP-en.
 
-+-------------+
-|   Bruker    |----
-+-------------+    |
-      |            |
-     0..*         0..*
-      |            |
-      v            v
-+-----------+ +---------+
-| Innsjekk  | | Innlegg |
-+-----------+ +---------+
-      |
-      | 0..*
-      v
-+-------------+
-|     Kamp    |
-+-------------+
-   ^         ^
-   |         |
-hjemmelag bortelag
-   |         |
-+------+ +------+
-|Klubb | |Klubb |
-+------+ +------+
-    |
-    |
-    v
-+----------+
-| Stadion  |
-+----------+
+```
+ +-------------+
+ |   Bruker    |----
+ +-------------+    |
+       |            |
+      0..*         0..*
+       |            |
+       v            v
+ +-----------+ +---------+
+ | Innsjekk  | | Innlegg |
+ +-----------+ +---------+
+       |
+       | 0..*
+       v
+ +-------------+
+ |     Kamp    |
+ +-------------+
+    ^         ^
+    |         |
+ hjemmelag bortelag
+    |         |
+ +------+ +------+
+ |Klubb | |Klubb |
+ +------+ +------+
      |
-    0..*
      |
      v
-+------------+
-|Arrangement |
-+------------+
+ +----------+
+ | Stadion  |
+ +----------+
+      |
+     0..*
+      |
+      v
+ +------------+
+ |Arrangement |
+ +------------+
+ ```
 
 *Figur 1: Domenemodell for Stadionhopper.*
 
