@@ -546,44 +546,46 @@ beholder muligheten til å justere arbeidet underveis.
 
 ## 8.1 Branching og commits
 
-Vi holder `main` som en stabil gren med godkjent arbeid. For hver issue
-oppretter vi én egen branch fra `main` ved å bruke «Create a branch» på
-issuen. Branchen navngis `<issuenr>-kort-beskrivelse`, for eksempel
+Når vi starter på en issue, oppretter vi en egen branch fra `main` ved å
+bruke «Create a branch» på issuen. Branchen navngis
+`<issuenr>-kort-beskrivelse`, for eksempel
 `19-ferdigstille-domenemodell`. Vi holder branchene korte og fletter dem
 ofte, slik at endringene er små og enklere å gjennomgå. Commit-meldinger
-skal være korte og beskrive endringen tydelig. Vi redigerer bare den delen
-av dokumentet som hører til issuen, og laster ikke opp hele filer på nytt
+skal være korte og beskrive endringen tydelig. Vi redigerer bare delen av
+dokumentet som hører til issuen, og laster ikke opp hele filer på nytt
 dersom det kan overskrive andres arbeid. Før vi åpner en pull request,
 henter vi inn endringer som har kommet til `main` ved å bruke «Update
-branch». Vi velger denne arbeidsformen for å isolere arbeid på ulike
-oppgaver og redusere risikoen for konflikter og tap av endringer.
+branch». Slik isolerer vi arbeidet og reduserer risikoen for konflikter
+og tap av endringer.
 
 ## 8.2 Pull requests og code review
 
-Når arbeidet er klart, åpner vi en pull request (PR) fra branchen til
-`main` og knytter den til issuen med «Closes #N». Minst ett annet
-gruppemedlem må godkjenne PR-en før den flettes inn, og forfatteren merger
-ikke sin egen PR. Revieweren kontrollerer at innholdet svarer på
-oppgaven, at viktige valg er begrunnet, og at endringer ikke påvirker
-andres kapitler. Forfatteren løser eventuelle konflikter før merge, slik
-at revieweren kan kontrollere den endelige versjonen. Vi har vurdert å
-committe direkte til `main`, men forkaster dette fordi det gir mindre
-kvalitetssikring og øker risikoen for å overskrive andres arbeid. Vi
-planlegger å beskytte `main` med krav om minst én godkjenning før merge.
+Når endringen er klar, åpner vi en pull request (PR) fra branchen til
+`main`, beskriver kort hva som er gjort og legger til «Closes #N» for
+issuen. Minst ett annet gruppemedlem godkjenner PR-en før merge;
+forfatteren merger ikke sin egen PR. Revieweren sjekker at endringen
+oppfyller issue-beskrivelsen og dens Definition of Done (DoD), at
+begrunnelser er med, og at andres kapitler ikke er endret. Forfatteren
+løser eventuelle konflikter og ber om ny gjennomgang hvis endringen er
+vesentlig. Issue lukkes automatisk når PR-en merges. Vi forkaster direkte
+commits til `main` fordi de gir mindre kvalitetssikring og større risiko
+for å overskrive andres arbeid. Vi planlegger å beskytte `main` med krav
+om minst én godkjenning før merge.
 
 ## 8.3 Samarbeid i GitHub
 
-Vi oppretter en issue for hvert kapittel eller hver oppgave og prioriterer
-dem med Must, Should eller Could. Vi følger pull-prinsippet fra kapittel
-7.2: den som har kapasitet, tildeler seg selv en tilgjengelig issue.
-Når vi starter på en issue, setter vi etiketten «Doing». For å begrense
-samtidig arbeid har hver person maksimalt én issue med «Doing» og kan i
-tillegg ha inntil to avtalte issues tildelt som skal tas etterpå. Dette
-gir en tydelig WIP-grense uten å hindre planlegging av neste oppgave.
-Arbeidet regnes som ferdig når PR-en er godkjent og merget; «Closes #N»
-lukker da issuen automatisk. Denne arbeidsformen er planen for neste
-fase. Vi bruker ikke mer avansert statusstyring nå, men kan vurdere for
-eksempel GitHub Projects senere dersom behovet oppstår.
+Når vi planlegger en innlevering, oppretter vi en issue for hvert kapittel
+eller delkapittel ved behov og prioriterer dem med Must, Should eller
+Could. Hver issue beskriver ønsket resultat og har en konkret DoD som
+viser hva som må være på plass før den kan sendes til review. Vi deler
+oppgaver opp slik at de normalt kan fullføres i én arbeidsøkt; hvis en
+issue blir større, deler vi den i mindre issues. Vi følger
+pull-prinsippet fra kapittel 7.2: den som har kapasitet, tildeler seg
+selv en issue og setter etiketten «Doing» når arbeidet starter. Hver
+person har maksimalt én issue med «Doing» og kan ha inntil to avtalte
+issues tildelt som neste oppgaver. Når DoD er oppfylt, sender vi arbeidet
+til PR. Denne korte syklusen gjør at vi kan flette ofte og oppdage
+problemer tidlig. Mer avansert statusstyring kan vurderes senere.
 
 # 9. CI/CD-strategi
 
