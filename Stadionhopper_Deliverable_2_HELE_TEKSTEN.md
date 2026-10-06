@@ -540,30 +540,50 @@ tekniske utfordringer eller ser at kapasiteten er mindre enn forventet.
 Sprintplanen skal dermed fungere som et arbeidsverktøy, samtidig som vi
 beholder muligheten til å justere arbeidet underveis.
 
-## 7.4 Definition of Done(?) flettes inn i delkap over
+*(Definition of Done skrives her)*
 
 # 8. Git-workflow
 
 ## 8.1 Branching og commits
 
+*(Skrives i issue #29)*
+
 ## 8.2 Pull requests og code review
 
+*(Skrives i issue #30)*
+
 ## 8.3 Samarbeid i GitHub
+
+*(Skrives i issue #31)*
 
 # 9. CI/CD-strategi
 
 ## 9.1 Continuous Integration
 
+*(Skrives i issue #32)*
+
 ## 9.2 Testing og automatisering
+
+*(Skrives i issue #33)*
 
 ## 9.3 Build og deployment
 
+*(Skrives i issue #34)*
+
 # 10. Risiko, avhengigheter og teknisk gjeld
+
+*(Skrives i issue #35)*
 
 # 11. Videre plan mot fungerende prototype
 
+*(Skrives i issue #36)*
+
 # 12. Refleksjon over arbeidsprosess og læring
 
+*(Skrives i issue #37)*
+
 # 13. Referanser
+
+*(Skrives i issue #38)*
 
 Vedlegg
