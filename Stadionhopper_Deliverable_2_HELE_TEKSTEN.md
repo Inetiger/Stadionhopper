@@ -670,16 +670,4 @@ Et annet gruppemedlem enn forfatteren gjennomfører merge når PR-en er godkjent
 
 *(Skrives i issue #34)*
 
-# 11. Videre plan mot fungerende prototype
-
-*(Skrives i issue #36)*
-
-# 12. Refleksjon over arbeidsprosess og læring
-
-*(Skrives i issue #37)*
-
-# 13. Referanser
-
-*(Skrives i issue #38)*
-
 Vedlegg
