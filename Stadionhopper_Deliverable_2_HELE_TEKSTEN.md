@@ -688,11 +688,11 @@ I denne leveransen fokuserer vi først og fremst på å etablere planen for
 build og deployment. Automatisk deployment er derfor ikke et krav for den
 første versjonen. En mulig videre utvikling er å opprette en pipeline som
 automatisk bygger prosjektet og distribuerer det til et test- eller
-produksjonsmiljø etter at endringer er godkjent og merget til `main`.
+produksjonsmiljø etter at endringer er godkjent og merget til main.
 
 Flyten kan dermed beskrives slik:
 
-`Issue → Branch → Pull Request → CI → Review → Merge → Build → Deployment`
+Issue → Branch → Pull Request → CI → Review → Merge → Build → Deployment
 
 Denne arbeidsflyten kobler sammen Git-strategien, CI, testing og levering.
 Målet er at endringer skal kunne gå fra en konkret oppgave til en fungerende
