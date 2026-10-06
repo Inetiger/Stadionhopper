@@ -670,10 +670,6 @@ Et annet gruppemedlem enn forfatteren gjennomfører merge når PR-en er godkjent
 
 *(Skrives i issue #34)*
 
-# 10. Risiko, avhengigheter og teknisk gjeld
-
-*(Skrives i issue #35)*
-
 # 11. Videre plan mot fungerende prototype
 
 *(Skrives i issue #36)*
