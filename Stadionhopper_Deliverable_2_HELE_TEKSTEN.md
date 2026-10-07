@@ -702,7 +702,46 @@ kvalitetskontroller.
 
 ## 9.2 Testing og automatisering
 
-*(Skrives i issue #33)*
+Testing skal være en integrert del av utviklingen av Stadionhopper. Målet er
+å oppdage feil tidlig og sikre at endringer ikke bryter eksisterende
+funksjonalitet. Testingen skal derfor foregå både automatisk gjennom CI og
+manuelt gjennom brukertesting og akseptansetesting.
+
+Vi planlegger å bruke tre hovednivåer av automatiserte tester:
+
+* **Enhetstester** skal brukes til å teste mindre deler av applikasjonen
+  isolert, for eksempel funksjoner som behandler eller validerer data.
+* **Integrasjonstester** skal brukes til å kontrollere at flere deler av
+  systemet fungerer sammen. Dette kan for eksempel være kommunikasjonen
+  mellom backend og filbasert datalagring.
+* **Akseptansetester** skal kontrollere at systemet oppfyller kravene som
+  er beskrevet i user stories og acceptance criteria. Disse testene kan
+  gjennomføres manuelt i starten, men sentrale scenarier kan automatiseres
+  dersom dette er hensiktsmessig.
+
+Automatiserte tester skal kjøres som en del av CI-workflowen. Dersom en test
+feiler, skal workflowen markeres som feilet, og feilen skal undersøkes før
+pull requesten kan merges. På denne måten blir testing en del av den normale
+utviklingsprosessen og ikke noe som gjennomføres først mot slutten av
+prosjektet.
+
+I tillegg til automatiserte tester skal vi gjennomføre manuell testing av
+brukergrensesnittet. Dette er spesielt viktig for funksjoner som kampoversikt,
+kart, innsjekking og brukerprofil, hvor det ikke er tilstrekkelig å kontrollere
+at koden fungerer teknisk. Brukertestingen beskrevet i kapittel 6 skal brukes
+til å undersøke om brukerne faktisk forstår og klarer å gjennomføre de
+viktigste oppgavene.
+
+Testansvaret ligger hos hele gruppen. Den som utvikler en funksjon har ansvar
+for å teste den før pull request opprettes, mens revieweren kontrollerer at
+relevante tester er gjennomført og at acceptance criteria er oppfylt. Dette
+kobles til Definition of Done som beskrives i kapittel 7 og Git-workflowen i
+kapittel 8.
+
+Teststrategien skal tilpasses prosjektets størrelse. Vi prioriterer først
+tester av kjernefunksjonene i MVP-en, særlig innlogging, kampoversikt,
+stadioninformasjon, innsjekking og personlig historikk. Dersom tiden tillater
+det, utvides testdekningen til funksjoner med lavere prioritet.
 
 ## 9.3 Build og deployment
 
