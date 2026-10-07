@@ -423,24 +423,9 @@ funksjonene i MVP-en fremfor kompleks teknisk infrastruktur.
 
 # 6. Wireframes og brukerflyt
 
-Oppgaven stiller krav om wireframes for sentrale deler av løsningen. Vi vil 
-derfor visualisere seks sentrale brukergrensesnitt: login, kampoversikt, 
-innsjekking, profil, sosial feed og arrangementer.
+Wireframene konkretiserer brukerhistoriene og produktbackloggen gjennom seks grensesnitt: login, kampoversikt, innsjekking, profil, sosial feed og arrangementer. De fire første støtter MVP-en. Sosial feed og arrangementer visualiseres i tråd med oppgaveteksten, men inngår ikke i første versjon.
 
-De fire første wireframene er direkte knyttet til funksjonaliteten i MVP-en. 
-Sosial feed og arrangementer er tatt med for å vise hvordan løsningen kan 
-støtte funksjonalitet utover MVP-en. Dette er relevant fordi domenemodellen 
-også inneholder entitetene Innlegg og Arrangement, selv om disse funksjonene 
-ikke er prioritert for første versjon.
-
-## 6.1 Wireframes
-
-Wireframene viser et forslag til hvordan de sentrale delene av den nettbaserte 
-løsningen kan bygges opp. De er basert på brukerhistoriene, MVP-prioriteringene 
-og resultatene fra brukerundersøkelsen.
-
-Wireframene er ikke ment som et ferdig visuelt design, men som et verktøy for 
-å konkretisere funksjonene og undersøke om brukerflyten er forståelig. De kan 
+Nettsiden utformes mobile-first, slik at man kan gjøre om til app uten større visuelle endringer. Én innholdskolonne, tydelige knapper og enkel navigasjon prioriteres. Større skjermer kan utnytte mer plass uten å endre brukerflyten. Skissene skal avklare struktur og handlinger før detaljert visuelt design og implementering.De er ikke ment som et ferdig visuelt design, men som et verktøy for å konkretisere funksjonene og undersøke om brukerflyten er forståelig. De kan 
 derfor endres på bakgrunn av diskusjoner i teamet og tilbakemeldinger fra 
 potensielle brukere.
 
@@ -448,88 +433,61 @@ De følgende wireframene viser hvordan brukeren kan navigere gjennom de viktigst
 av Stadionhopper. Wireframene er basert på brukerhistoriene, MVP-prioriteringene og 
 resultatene fra brukerundersøkelsen.
 
-**Login** viser hvordan brukeren logger inn og får tilgang til sin profil.
-> \[Sett inn wireframes her\]
+**Login** Login gir tilgang til profil, brukerregistrering og utforsking uten innlogging. Innlogging kreves for å lagre besøk. Påbegynt innsjekking skal beholde valgt kamp gjennom innloggingen, slik at brukeren slipper å starte på nytt.
 
-**Kampoversikt** viser kommende kamper og gir brukeren mulighet til å finne relevante kamper.
-> \[Sett inn wireframes her\]
+<img width="430" height="908" alt="01-login" src="https://github.com/user-attachments/assets/f9abb43c-a0a1-482e-898f-4ed59f25c610" />
 
-**Innsjekking** viser hvordan brukeren registrerer at han eller hun har vært til stede på en kamp.
-> \[Sett inn wireframes her\]
+**Kampoversikt** viser lag, dato, klokkeslett og stadion direkte i kampkortene, slik at aktuelle kamper raskt kan vurderes. Brukeren kan åpne kampdetaljer, gå til stadionkartet eller finne tidligere kamper for etterregistrering av besøk.
 
-**Profil** viser brukerens informasjon og personlige historikk over registrerte innsjekkinger.
-> \[Sett inn wireframes her\]
+<img width="430" height="908" alt="02-kampoversikt" src="https://github.com/user-attachments/assets/eba60569-b276-45e6-9250-fe946af2208c" />
 
-**Sosial feed** viser hvordan sosial funksjonalitet kan presenteres dersom dette utvikles senere. 
-Funksjonen er ikke prioritert i MVP-en.
-> \[Sett inn wireframes her\]
+**Innsjekking** viser valgt kamp og stadion før bekreftelse, uten behov for ny innskriving. Registreringen knyttes til innlogget bruker og valgt kamp; stadion følger av kampen. Vellykket lagring bekreftes tydelig. Ved feil beholdes opplysningene, og nytt forsøk tilbys.
 
-**Arrangementer** viser hvordan arrangementer kan presenteres og knyttes til stadioner eller kamper. 
-Også denne funksjonen kan videreutvikles etter MVP-en.
-> \[Sett inn wireframes her\]
+<img width="430" height="908" alt="03-innsjekking" src="https://github.com/user-attachments/assets/eac882a5-19b2-4965-a565-cb63721bec6d" />
 
-*Figur X: Wireframes for sentrale deler av Stadionhopper.*
+**Profil** viser brukerinformasjon, utlogging og personlig historikk med kamp, dato og stadion. En tom historikk skal forklares og gi vei til kampoversikten.
+
+<img width="430" height="908" alt="04-profil" src="https://github.com/user-attachments/assets/c25817c9-c0c9-410b-b726-caf82c6efb42" />
+
+**Sosial feed** villustrerer senere deling av opplevelser gjennom innlegg med forfatter, tidspunkt og innhold. Funksjonen inngår ikke i MVP-en, og innsjekking innebærer derfor ikke automatisk publisering.
+
+<img width="430" height="908" alt="05-sosial-feed" src="https://github.com/user-attachments/assets/b754968b-71eb-494b-9345-369f93701231" />
+
+**Arrangementer** viser mulige aktiviteter med tittel, tidspunkt, stadion og tilgang til detaljer. Skissen følger domenemodellens stadionkobling. En eventuell direkte kampkobling må konkretiseres ved utvikling. Funksjonen inngår ikke i MVP-en.
+
+<img width="430" height="908" alt="06-arrangementer" src="https://github.com/user-attachments/assets/26d0f844-2fed-491c-b0d9-eb9b8e2c8a68" />
+
 
 ## 6.2 Brukerflyt og designvalg
 
-En sentral brukerreise i Stadionhopper starter med at brukeren åpner kampoversikten 
-for å finne en kommende kamp. Brukeren velger en kamp for å se informasjon om 
-kampen og hvor den spilles. Deretter kan brukeren se informasjon om stadionet og 
-registrere en innsjekking etter å ha vært på kampen. Innsjekkingen blir deretter 
-tilgjengelig i brukerens personlige historikk.
+Kjerneflyten er å finne en kamp, se tid og sted, registrere besøket etter deltakelse og finne det igjen i historikken. Kampoversikt, kart, innsjekking og profil skal derfor henge sammen, selv om ikke alle mellomliggende visninger er tegnet.
 
-Denne brukerreisen viser sammenhengen mellom flere av MVP-funksjonene 
-og hvordan funksjonene støtter brukerens hovedbehov: å finne lokale 
-fotballkamper, finne riktig stadion og registrere innsjekkinger og se 
-hvilke kamper og stadioner brukeren har vært på.
+Kjernefunksjonene videreføres fra oppgave 1. Brukerundersøkelsen styrker særlig kampoppdagelse: 9 av 19 respondenter valgte kommende kamper som viktigste funksjon. Kampoversikten konkretiseres derfor som startside. Kart som startside ville fremhevet plassering, men gitt mindre direkte oversikt over tidspunkt og lag. Kartet beholdes som et tilgjengelig alternativ.
 
-Utformingen av wireframene tar utgangspunkt i innsikten fra
-brukerundersøkelsen og prioriteringene i produktbackloggen.
-Undersøkelsen viste særlig behov for å gjøre det enkelt å finne kommende
-lokale kamper. Derfor bør kampoversikten ha en sentral plass i
-løsningen, og brukeren bør enkelt kunne gå videre fra en kamp til
-informasjon om hvor den spilles.
+Innsjekking og historikk beholdes til tross for mindre entydig støtte i undersøkelsen. Funksjonene kan gi personlig verdi utover kampoversikten uten å kreve at venner bruker plattformen. Om brukerne opplever tilstrekkelig nytte, må undersøkes videre.
 
-Wireframene støtter samtidig den delen av konseptet som skiller
-Stadionhopper fra en vanlig kampoversikt. Muligheten til å registrere
-innsjekk og senere se disse i en personlig historikk skal derfor
-være lett tilgjengelig. Mer omfattende sosiale funksjoner og
-konkurranseelementer får mindre plass i denne fasen, i tråd med
-prioriteringen av MVP-en.
+Fotballkretsens tilbakemelding har tydeliggjort merverdien av stadioninformasjon. Utvidede stadionopplysninger er derfor uttrykkelig prioritert som Should i oppgave 2. Navn, plassering og tilknyttede kamper inngår fortsatt i kjerneflyten, mens utvidede opplysninger holdes utenfor minimumsvisningen for å begrense omfanget.
 
-Designet holdes i første omgang enkelt. Formålet er å teste om
-funksjonene og brukerflyten er forståelige, fremfor å bruke mye tid på
-detaljer i det visuelle uttrykket før løsningen er testet på brukere.
+Sosial feed var allerede utsatt i MVP-avgrensningen i oppgave 1. Dette videreføres. Å finne andre brukere er derimot flyttet fra Should til Could. Varierende interesse for sosiale funksjoner begrunner prioriteringen av kampoversikt og personlig historikk. Følging står nå også som Could, men er ikke nødvendig i MVP-flyten.
+
+Utforsking uten innlogging videreføres fra oppgave 1. Obligatorisk innlogging ved oppstart ville skapt en terskel før brukeren ser nytten. Innsjekking får likevel et bekreftelsestrinn: Ett ekstra trykk gir mulighet til å kontrollere kamp og stadion før lagring.
+
+MVP-en har tre navigasjonsvalg: Kamper, Kart og Profil. Utvidet navigasjon i skissene for feed og arrangementer gjelder en senere versjon, slik at utilgjengelige funksjoner ikke presenteres i første versjon.
 
 ## 6.3 Plan for brukertesting og tilbakemeldinger
 
-Wireframene skal testes på potensielle brukere for å undersøke om 
-de viktigste funksjonene og brukerflyten er forståelige. Testingen 
-skal ta utgangspunkt i konkrete oppgaver som å finne en lokal kamp, 
-finne ut hvor kampen spilles og registrere en innsjekking.
+Wireframene skal prøves med potensielle brukere, særlig fotballinteresserte som sjelden besøker lokale kamper. Uten forhåndsforklaring av navigasjonen skal deltakerne:
 
-Under testingen vil vi observere hvordan brukerne navigerer mellom 
-kampoversikt, stadioninformasjon, innsjekking og profil/historikk. 
-Vi vil også undersøke om brukerne forstår hva de kan gjøre på de ulike 
-sidene uten omfattende forklaring.
+- Finne en kommende kamp og oppgi tidspunkt og stadion.
+- Vise hvordan de finner stadionets plassering.
+- Finne en tidligere kamp og registrere besøket.
+- Finne besøket igjen i historikken.
 
-Tilbakemeldinger fra testingen kan brukes til å justere wireframes, 
-brukerhistorier og prioriteringer i produktbackloggen før videre 
-utvikling.
+Vi registrerer fullføring uten hjelp, stoppunkter, feilvalg og tolkning av knapper. Etterpå spør vi om uklarheter og opplevd nytte av oversikt og historikk. Brukervennlighet betyr ikke nødvendigvis at funksjonen er ønsket.
 
-Designet er basert på funnene fra brukerundersøkelsen og prioriteringene 
-i produktbackloggen. Siden «finne kommende kamper» ble valgt som den 
-viktigste funksjonen av flest respondenter, er kampoversikten sentral i 
-brukergrensesnittet.
+Hindringer i kjerneflyten prioriteres før visuelle forbedringer. Hvis tidligere kamper er vanskelige å finne eller lagringsstatus er uklar, justeres navigasjon eller tilbakemelding og prøves på nytt. Funn dokumenteres i GitHub Issues og kan endre wireframes, akseptansekriterier og backlog.
 
-Innsjekking og personlig historikk er også gjort lett tilgjengelig fordi 
-disse funksjonene er sentrale for Stadionhoppers hovedidé. Funksjoner 
-knyttet til sosial aktivitet og konkurranse er mindre fremtredende i 
-MVP-en, siden svarene i undersøkelsen viste større variasjon i interessen 
-for disse funksjonene.
-
-Wireframene er derfor utformet med fokus på en enkel brukerreise fra å 
-finne en kamp, til å finne stadionet og registrere en innsjekking.
+Brukertestingen undersøker forståelse og nytte. Ved implementering suppleres den med tester av lagring på riktig bruker og kamp og korrekt historikk. Dette kobler brukeropplevelsen til domenemodellen, arkitekturen og teststrategien.
 
 # 7. Sprintplan
 
