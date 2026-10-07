@@ -660,7 +660,45 @@ Et annet gruppemedlem enn forfatteren gjennomfører merge når PR-en er godkjent
 
 ## 9.1 Continuous Integration
 
-*(Skrives i issue #32)*
+Vi planlegger å bruke GitHub Actions for Continuous Integration (CI). Formålet
+er å automatisk kontrollere endringer før de kan flettes inn i main. Dette
+skal redusere risikoen for at feil eller endringer som bryter eksisterende
+funksjonalitet blir en del av hovedversjonen av prosjektet.
+
+Når en pull request opprettes eller oppdateres mot main, skal en GitHub
+Actions-workflow starte automatisk. Workflowen skal hente prosjektet, sette
+opp nødvendig miljø og gjennomføre de automatiske kontrollene som er relevante
+for prosjektet. Dette skal blant annet innebære å kontrollere at prosjektet
+kan bygges og at automatiserte tester kan kjøres.
+
+CI-workflowen planlegges å bestå av følgende steg:
+
+1. **Checkout av kode:** Workflowen henter den aktuelle branchen og
+   prosjektfilene.
+2. **Oppsett av miljø:** Nødvendig runtime og eventuelle avhengigheter
+   installeres.
+3. **Build:** Prosjektet bygges eller kontrolleres for syntaks- og
+   kompileringsfeil.
+4. **Automatiserte tester:** Relevante automatiserte tester kjøres.
+5. **Kvalitetskontroller:** Relevante statiske kontroller gjennomføres,
+   eksempelvis linting eller validering av prosjektfiler.
+6. **Resultat:** Workflowen rapporterer om kontrollene er bestått eller
+   feilet.
+
+En pull request skal ikke regnes som klar for merge dersom de obligatoriske
+CI-kontrollene feiler. CI fungerer dermed som en automatisk kvalitetssjekk
+før endringer blir en del av main. Den faglige gjennomgangen av en pull
+request utføres fortsatt av et annet gruppemedlem i henhold til
+Git-workflowen beskrevet i kapittel 8.
+
+CI skal også kjøres når endringer pushes til main, slik at gruppen
+kontinuerlig kan kontrollere at hovedversjonen fortsatt fungerer etter
+sammenfletting. På denne måten kan feil oppdages tidlig i utviklingsprosessen.
+
+I første omgang holdes CI-oppsettet enkelt fordi Stadionhopper er en
+studentbasert MVP med begrenset teknisk kompleksitet. Dersom prosjektet
+utvides, kan workflowen videreutvikles med flere tester og strengere
+kvalitetskontroller.
 
 ## 9.2 Testing og automatisering
 
