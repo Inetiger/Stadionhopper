@@ -39,9 +39,8 @@ kunnskap.
 # 2. Innsikt fra interessenter og brukere
 
 Etter første innlevering ønsket vi å undersøke noen av antakelsene som
-lå til grunn for produktvisjonen og MVP-en. Det ble derfor tatt kontakt
-med Nordmøre og Romsdal Fotballkrets og en gjort brukerundersøkelse
-blant potensielle brukere.
+lå til grunn for produktvisjonen og MVP-en. Det ble derfor tatt kontakt med Nordmøre og Romsdal Fotballkrets og
+gjennomført en brukerundersøkelse blant potensielle brukere.
 
 ## 2.1 Dialog med Nordmøre og Romsdal Fotballkrets
 
@@ -214,7 +213,7 @@ har vært på, slik at jeg kan samle mine kamp- og stadioninnsjekk.
 - Registreringen skal lagres på brukerens profil.
 
 - Stadionet som er knyttet til kampen skal inngå i brukerens
-  innsjekking historikk.
+  innsjekkingshistorikk.
 
 Se personlig historikk
 
@@ -224,7 +223,7 @@ mine.
 
 **Acceptance criteria:**
 
-- Brukeren skal kunne se sine registrerte kamp innsjekk.
+- Brukeren skal kunne se sine registrerte kampinnsjekk.
 
 - Historikken skal vise hvilken kamp og hvilket stadion som ble innsjekket.
 
@@ -370,9 +369,8 @@ Samtidig gir oppdelingen mellom brukergrensesnitt, logikk og data et grunnlag
 for å videreutvikle løsningen dersom funksjonaliteten i Stadionhopper utvides
 senere.
 
-> \(Sett inn arkitekturdiagram\)
+<img width="1536" height="1024" alt="arkitektur (3) (1)" src="https://github.com/user-attachments/assets/c65e9139-8894-4025-b45f-7f2c15075080" />
 
-*Figur X: Overordnet systemarkitektur for Stadionhopper.*
 
 ## 5.2 Frontend, backend og database
 
@@ -425,7 +423,7 @@ funksjonene i MVP-en fremfor kompleks teknisk infrastruktur.
 
 Wireframene konkretiserer brukerhistoriene og produktbackloggen gjennom seks grensesnitt: login, kampoversikt, innsjekking, profil, sosial feed og arrangementer. De fire første støtter MVP-en. Sosial feed og arrangementer visualiseres i tråd med oppgaveteksten, men inngår ikke i første versjon.
 
-Nettsiden utformes mobile-first, slik at man kan gjøre om til app uten større visuelle endringer. Én innholdskolonne, tydelige knapper og enkel navigasjon prioriteres. Større skjermer kan utnytte mer plass uten å endre brukerflyten. Skissene skal avklare struktur og handlinger før detaljert visuelt design og implementering.De er ikke ment som et ferdig visuelt design, men som et verktøy for å konkretisere funksjonene og undersøke om brukerflyten er forståelig. De kan 
+Nettsiden utformes mobile-first, slik at man kan gjøre om til app uten større visuelle endringer. Én innholdskolonne, tydelige knapper og enkel navigasjon prioriteres. Større skjermer kan utnytte mer plass uten å endre brukerflyten. Skissene skal avklare struktur og handlinger før detaljert visuelt design og implementering. De er ikke ment som et ferdig visuelt design, men som et verktøy for å konkretisere funksjonene og undersøke om brukerflyten er forståelig. De kan 
 derfor endres på bakgrunn av diskusjoner i teamet og tilbakemeldinger fra 
 potensielle brukere.
 
@@ -449,7 +447,7 @@ resultatene fra brukerundersøkelsen.
 
 <img width="430" height="908" alt="04-profil" src="https://github.com/user-attachments/assets/c25817c9-c0c9-410b-b726-caf82c6efb42" />
 
-**Sosial feed** villustrerer senere deling av opplevelser gjennom innlegg med forfatter, tidspunkt og innhold. Funksjonen inngår ikke i MVP-en, og innsjekking innebærer derfor ikke automatisk publisering.
+**Sosial feed** illustrerer senere deling av opplevelser gjennom innlegg med forfatter, tidspunkt og innhold. Funksjonen inngår ikke i MVP-en, og innsjekking innebærer derfor ikke automatisk publisering.
 
 <img width="430" height="908" alt="05-sosial-feed" src="https://github.com/user-attachments/assets/b754968b-71eb-494b-9345-369f93701231" />
 
