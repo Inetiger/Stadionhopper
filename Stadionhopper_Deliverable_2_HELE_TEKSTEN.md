@@ -326,49 +326,33 @@ for å lagre den samme informasjonen flere steder.
 ## 4.3 Domenemodell
 
 Domenemodellen nedenfor visualiserer de sentrale entitetene i
-Stadionhopper og relasjonene mellom dem. Modellen er avgrenset til
-funksjonene som er prioritert i MVP-en.
+Stadionhopper og relasjonene mellom dem. Modellen er basert på kravene til
+løsningen, den oppdaterte produktbackloggen og funksjonene som er prioritert
+i MVP-en.
 
-```
- +-------------+
- |   Bruker    |----
- +-------------+    |
-       |            |
-      0..*         0..*
-       |            |
-       v            v
- +-----------+ +---------+
- | Innsjekk  | | Innlegg |
- +-----------+ +---------+
-       |
-       | 0..*
-       v
- +-------------+
- |     Kamp    |
- +-------------+
-    ^         ^
-    |         |
- hjemmelag bortelag
-    |         |
- +------+ +------+
- |Klubb | |Klubb |
- +------+ +------+
-     |
-     |
-     v
- +----------+
- | Stadion  |
- +----------+
-      |
-     0..*
-      |
-      v
- +------------+
- |Arrangement |
- +------------+
- ```
+Domenemodellen er også implementert som en del av prosjektet. For hver av de
+syv sentrale entitetene er det opprettet en egen JSON-fil i prosjektets
+GitHub-repository. Filene representerer henholdsvis users, stadiums,
+clubs, matches, check_ins, posts og events. Disse filene fungerer
+som den foreløpige datamodellen for den filbaserte dataløsningen som er
+beskrevet i systemarkitekturen.
 
-*Figur 1: Domenemodell for Stadionhopper.*
+JSON-filene inneholder foreløpig strukturen for entitetene, der attributtene
+er definert og verdiene satt til None. Dette gjør det mulig å etablere og
+dokumentere hvilke data systemet skal håndtere før den videre
+implementasjonen fyller inn faktiske data. Strukturen kan dermed brukes som
+utgangspunkt for backendens videre arbeid med lagring og behandling av data.
+
+I tillegg er domenemodellen utarbeidet i MySQL Workbench og lagret som en
+.mwb-fil i prosjektet. En PNG-versjon av modellen er også inkludert for å
+gjøre modellen lett tilgjengelig i dokumentasjonen. Den grafiske modellen
+viser både entitetene og relasjonene mellom dem, inkludert forholdet mellom
+brukere, innsjekkinger, kamper, klubber, stadioner, innlegg og arrangementer.
+
+Modellen og JSON-filene utgjør dermed både en visuell og en teknisk
+beskrivelse av domenet. Dette gir gruppen et felles utgangspunkt for videre
+utvikling og gjør det mulig å kontrollere at implementasjonen følger
+modelleringen som gruppen har blitt enige om.
 
 # 5. Systemarkitektur
 
