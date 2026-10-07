@@ -745,6 +745,34 @@ det, utvides testdekningen til funksjoner med lavere prioritet.
 
 ## 9.3 Build og deployment
 
-*(Skrives i issue #34)*
+Build- og deploymentstrategien skal gjøre det mulig å gå fra godkjent
+kildekode til en versjon av Stadionhopper som kan kjøres og testes. Strategien
+holdes enkel fordi løsningen er en webbasert MVP og prosjektet ikke krever
+avansert infrastruktur.
+
+Når en pull request opprettes, skal CI-workflowen kontrollere at prosjektet
+kan bygges og at nødvendige tester og kvalitetskontroller består. Først når
+kontrollene er bestått og pull requesten er godkjent av minst ett annet
+gruppemedlem, kan endringen merges til main.
+
+Etter merge til main skal prosjektet kunne bygges fra den nyeste versjonen.
+Dette gjør main til utgangspunktet for en stabil og kjørbar versjon av
+løsningen. Dersom prosjektet senere settes opp på en ekstern webserver, kan
+en GitHub Actions-workflow utvides til å distribuere den godkjente versjonen
+automatisk.
+
+I denne leveransen fokuserer vi først og fremst på å etablere planen for
+build og deployment. Automatisk deployment er derfor ikke et krav for den
+første versjonen. En mulig videre utvikling er å opprette en pipeline som
+automatisk bygger prosjektet og distribuerer det til et test- eller
+produksjonsmiljø etter at endringer er godkjent og merget til main.
+
+Flyten kan dermed beskrives slik:
+
+Issue → Branch → Pull Request → CI → Review → Merge → Build → Deployment
+
+Denne arbeidsflyten kobler sammen Git-strategien, CI, testing og levering.
+Målet er at endringer skal kunne gå fra en konkret oppgave til en fungerende
+versjon av Stadionhopper gjennom en forutsigbar og kontrollerbar prosess.
 
 Vedlegg
