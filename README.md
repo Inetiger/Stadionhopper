@@ -23,7 +23,7 @@ Serveren leser og skriver de eksisterende filene i `Database/`:
 - `Posts.json` og `Users.json`: lesing av feed og forfatternavn
 - `Events.json`: beholdes for videre event-funksjonalitet
 
-De opprinnelige databasefilene inneholder foreløpig Python-`None` og komma etter siste felt. Serveren normaliserer disse verdiene ved lesing og skriver standard JSON når en tabell lagres. Tomme skjemarader behandles som tomme datasett.
+JSON-filene er nå standard JSON. `Matches.json`, `Clubs.json` og `Stadiums.json` har et lite syntetisk testdatasett for å demonstrere kampoversikten; kampene er eksempeldata og skal ikke oppfattes som verifisert terminliste. `Check_ins.json`, `Posts.json`, `Users.json` og `Events.json` starter tomme. Serveren normaliserer også eldre `None`-verdier og trailing commas ved lesing.
 
 ## API
 
