@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Stadionhopper – finn kamper og registrer stadionbesøk.">
   <title>Stadionhopper</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer crossorigin=""></script>
   <script src="index.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="/">Stadionhopper</a>
-    <nav aria-label="Hovedmeny"><a href="#kamper">Kamper</a><a href="#historikk">Mine besøk</a><a href="#feed">Feed</a></nav>
+    <nav aria-label="Hovedmeny"><a href="#kamper">Kamper</a><a href="#kart">Kart</a><a href="#historikk">Mine besøk</a><a href="#feed">Feed</a></nav>
   </header>
   <main>
     <section class="hero">
@@ -23,6 +25,7 @@
         <div class="filters"><button class="filter-button is-active" data-filter="upcoming">Kommende</button><button class="filter-button" data-filter="past">Tidligere</button></div>
       </div><div id="match-list" class="match-grid" aria-live="polite"></div>
     </section>
+    <section id="kart" class="history-section"><div class="section-heading"><div><p class="eyebrow">Finn stadionet</p><h2>Stadionkart</h2></div></div><div id="stadium-map" role="region" aria-label="Kart over stadioner"></div><p id="map-message" class="storage-note">Kartet viser stadioner som har gyldige koordinater i Database/Stadiums.json.</p></section>
     <section id="historikk" class="history-section"><div class="section-heading"><div><p class="eyebrow">Din reise</p><h2>Mine stadionbesøk</h2></div><span id="visit-count" class="count-pill">0 besøk</span></div><div id="history-list" class="history-list" aria-live="polite"></div></section>
     <section id="feed" class="history-section"><div class="section-heading"><div><p class="eyebrow">Fra fellesskapet</p><h2>Sosial feed</h2></div></div><div id="feed-list" class="history-list" aria-live="polite"></div></section>
   </main>
