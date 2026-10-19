@@ -36,12 +36,16 @@
     list.innerHTML=visible.map(m=>{
       const id=String(m.match_id), checked=visits.some(v=>String(v.match_id)===id);
       const date=m.match_date ? dateLabel(String(m.match_date).slice(0,10)) : "Dato ikke satt";
-      return \`<article class="match-card"><div class="match-banner"><span class="match-date">\${esc(date)}</span></div><div class="match-content">
-        <p class="match-city">\${esc(m.stadium_name||"Stadion ikke satt")}\${m.stadium_address ? " · "+esc(m.stadium_address):""}</p>
-        <h3>\${esc(m.club_name||"Klubb ikke satt")}</h3><p>Status: \${esc(m.status||"Ikke angitt")}</p>
-        <button class="button \${checked?"button-secondary":"button-primary"} button-full" data-checkin="\${esc(id)}" \${checked?"disabled":""}>\${checked?"✓ Besøk registrert":"Registrer besøk"}</button>
-        <button class="text-button" data-details="\${esc(id)}">Vis detaljer</button>
-      </div></article>\`;
+      const time=m.match_time ? " · "+m.match_time : "";
+      const home=m.home_club_name||m.club_name||"Hjemmelag ikke satt";
+      const away=m.away_club_name||"Bortelag ikke satt";
+      return `<article class="match-card"><div class="match-banner"><span class="match-date">${esc(date+time)}</span></div><div class="match-content">
+        <p class="match-city">${esc(m.stadium_name||"Stadion ikke satt")}${m.stadium_address ? " · "+esc(m.stadium_address):""}</p>
+        <div class="teams"><div><strong>${esc(home)}</strong><span>Hjemmelag</span></div><span class="versus">VS</span><div class="away-team"><strong>${esc(away)}</strong><span>Bortelag</span></div></div>
+        <p>Status: ${esc(m.status||"Ikke angitt")}</p>
+        <button class="button ${checked?"button-secondary":"button-primary"} button-full" data-checkin="${esc(id)}" ${checked?"disabled":""}>${checked?"✓ Besøk registrert":"Registrer besøk"}</button>
+        <button class="text-button" data-details="${esc(id)}">Vis detaljer</button>
+      </div></article>`;
     }).join("");
   }
   function renderHistory() {
@@ -49,7 +53,7 @@
     if(!visits.length){historyList.innerHTML='<div class="empty-state"><h3>Ingen registrerte besøk</h3><p>Innsjekkingene dine vises her etter at du registrerer dem.</p></div>';return;}
     historyList.innerHTML=[...visits].sort((a,b)=>String(b.checked_in_at||"").localeCompare(String(a.checked_in_at||""))).map(v=>{
       const m=matches.find(x=>String(x.match_id)===String(v.match_id));
-      return \`<article class="history-item"><div class="history-icon">✓</div><div class="history-details"><strong>\${esc(m?.club_name||"Kamp #"+v.match_id)} · \${esc(m?.stadium_name||"Stadion")}</strong><span>\${esc(v.checked_in_at?dateLabel(String(v.checked_in_at).slice(0,10)):"Dato ikke satt")}</span></div><button class="remove-visit" data-remove="\${esc(v.check_in_id)}">Slett</button></article>\`;
+      return \`<article class="history-item"><div class="history-icon">✓</div><div class="history-details"><strong>\${esc((m?.home_club_name||m?.club_name||"Kamp #"+v.match_id)+(m?.away_club_name ? " – "+m.away_club_name : ""))} · \${esc(m?.stadium_name||"Stadion")}</strong><span>\${esc(v.checked_in_at?dateLabel(String(v.checked_in_at).slice(0,10)):"Dato ikke satt")}</span></div><button class="remove-visit" data-remove="\${esc(v.check_in_id)}">Slett</button></article>\`;
     }).join("");
   }
   async function refresh() {
