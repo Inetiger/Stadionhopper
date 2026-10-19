@@ -1,37 +1,7 @@
 [
   {
-    "stadium_id": 101,
-    "name": "Aker Stadion",
-    "adress": "Molde",
-    "latitude": 62.7375,
-    "longitude": 7.1591
-  },
-  {
-    "stadium_id": 102,
-    "name": "Lerkendal Stadion",
-    "adress": "Trondheim",
-    "latitude": 63.4125,
-    "longitude": 10.4021
-  },
-  {
-    "stadium_id": 103,
-    "name": "Aspmyra Stadion",
-    "adress": "Bodø",
-    "latitude": 67.2804,
-    "longitude": 14.4049
-  },
-  {
-    "stadium_id": 104,
-    "name": "Brann Stadion",
-    "adress": "Bergen",
-    "latitude": 60.3663,
-    "longitude": 5.3555
-  },
-  {
-    "stadium_id": 105,
-    "name": "Lyse Arena",
-    "adress": "Stavanger",
-    "latitude": 58.969,
-    "longitude": 5.733
+    "stadium_id": None,
+    "name": None,
+    "adress": None,
   }
 ]
