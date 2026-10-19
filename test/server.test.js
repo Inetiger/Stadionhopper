@@ -15,7 +15,7 @@ async function fixture() {
     "Matches.json": [{ match_id: 1, match_date: "2026-10-10", status: "scheduled", stadium_id: 5, club_id: 2 }],
     "Check_ins.json": [],
     "Clubs.json": [{ club_id: 2, name: "Molde FK", type: "football" }],
-    "Stadiums.json": [{ stadium_id: 5, name: "Aker Stadion", adress: "Molde" }],
+    "Stadiums.json": [{ stadium_id: 5, name: "Aker Stadion", adress: "Molde", latitude: 62.7375, longitude: 7.1591 }],
     "Users.json": [{ user_id: 3, username: "tester", created_at: "2026-01-01" }],
     "Posts.json": [{ post_id: 1, content: "Kampdag!", created_at: "2026-10-01T10:00:00Z", user_id: 3 }],
     "Events.json": []
@@ -56,6 +56,10 @@ test("matches endpoint joins clubs and stadiums; unknown id returns 404", async 
   const data = await response.json();
   assert.equal(data.matches[0].club_name, "Molde FK");
   assert.equal(data.matches[0].stadium_name, "Aker Stadion");
+  const stadiumResponse = await fetch(base + "/api/stadiums");
+  assert.equal(stadiumResponse.status, 200);
+  const stadiumData = await stadiumResponse.json();
+  assert.equal(stadiumData.stadiums[0].latitude, 62.7375);
   assert.equal((await fetch(base + "/api/matches/999")).status, 404);
 });
 test("check-in validates references, rejects duplicates, persists, and deletes", async t => {
