@@ -1,27 +1,7 @@
 [
   {
-    "club_id": 1,
-    "name": "Molde FK",
-    "type": "football"
-  },
-  {
-    "club_id": 2,
-    "name": "Rosenborg BK",
-    "type": "football"
-  },
-  {
-    "club_id": 3,
-    "name": "Bodø/Glimt",
-    "type": "football"
-  },
-  {
-    "club_id": 4,
-    "name": "SK Brann",
-    "type": "football"
-  },
-  {
-    "club_id": 5,
-    "name": "Viking FK",
-    "type": "football"
+    "club_id": None,
+    "name": None,
+    "type": None,
   }
 ]
