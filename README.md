@@ -34,6 +34,7 @@ JSON-filene er nå standard JSON. `Matches.json`, `Clubs.json` og `Stadiums.json
 - `POST /api/check-ins` med JSON `{ "match_id": 1, "checked_in_at": "2026-10-01T12:00:00.000Z" }`
 - `DELETE /api/check-ins/:check_in_id`
 - `GET /api/posts`
+- `GET /api/stadiums`
 
 ## Begrensninger som må løses før produksjon
 
