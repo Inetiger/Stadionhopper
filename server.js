@@ -176,8 +176,8 @@ function createServer() {
         const stadiums = await readTable("stadiums");
         return json(res, 200, { stadiums: stadiums.filter(item => item.stadium_id != null).map(item => ({
           ...item,
-          latitude: Number.isFinite(Number(item.latitude)) ? Number(item.latitude) : null,
-          longitude: Number.isFinite(Number(item.longitude)) ? Number(item.longitude) : null
+          latitude: item.latitude !== null && item.latitude !== "" && Number.isFinite(Number(item.latitude)) ? Number(item.latitude) : null,
+          longitude: item.longitude !== null && item.longitude !== "" && Number.isFinite(Number(item.longitude)) ? Number(item.longitude) : null
         })) });
       }
       if (req.method === "GET" && url.pathname === "/api/posts") {
