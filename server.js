@@ -94,7 +94,9 @@ async function matchesWithDetails() {
       home_club_name: homeClub?.name ?? null,
       away_club_name: awayClub?.name ?? null,
       stadium_name: stadium?.name ?? null,
-      stadium_address: stadium?.adress ?? stadium?.address ?? null
+      stadium_address: stadium?.adress ?? stadium?.address ?? null,
+      stadium_latitude: stadium?.latitude ?? null,
+      stadium_longitude: stadium?.longitude ?? null
     };
   }).sort((a, b) => String(a.match_date || "").localeCompare(String(b.match_date || "")));
 }
@@ -169,6 +171,14 @@ function createServer() {
         if (next.length === checkIns.length) return json(res, 404, { error: "Fant ikke innsjekkingen." });
         await writeTable("check_ins", next);
         return json(res, 200, { deleted: true });
+      }
+      if (req.method === "GET" && url.pathname === "/api/stadiums") {
+        const stadiums = await readTable("stadiums");
+        return json(res, 200, { stadiums: stadiums.filter(item => item.stadium_id != null).map(item => ({
+          ...item,
+          latitude: Number.isFinite(Number(item.latitude)) ? Number(item.latitude) : null,
+          longitude: Number.isFinite(Number(item.longitude)) ? Number(item.longitude) : null
+        })) });
       }
       if (req.method === "GET" && url.pathname === "/api/posts") {
         return json(res, 200, { posts: await postsWithAuthors() });
