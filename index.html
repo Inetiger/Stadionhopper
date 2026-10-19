@@ -1,14 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>hei på deg, dette er vår nye nettside for stadionhopper</p>
-    <script src="index.js"></script>
-  </body>
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stadionhopper – finn kamper og hold oversikt over stadionbesøkene dine.">
+  <title>Stadionhopper</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Stadionhopper hjem"><span class="brand-mark">S</span> Stadionhopper</a>
+    <nav aria-label="Hovedmeny">
+      <a href="#kamper">Kamper</a>
+      <a href="#historikk">Mine besøk</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Følg laget. Oppdag stadioner.</p>
+        <h1>Hver kamp er<br><span>et nytt eventyr.</span></h1>
+        <p>Finn neste kamp, registrer stadionbesøkene dine og bygg din egen fotballhistorikk.</p>
+        <a class="button button-primary" href="#kamper">Utforsk kamper <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="stadium-glow"></div><div class="stadium-lines"></div>
+        <div class="hero-ball">⚽</div>
+        <div class="hero-tag"><span class="live-dot"></span> Din neste opplevelse venter</div>
+      </div>
+    </section>
+
+    <section class="section" id="kamper">
+      <div class="section-heading">
+        <div><p class="eyebrow">På kalenderen</p><h2>Kamper å utforske</h2></div>
+        <div class="filters" role="group" aria-label="Filtrer kamper">
+          <button class="filter-button is-active" data-filter="upcoming" type="button">Kommende</button>
+          <button class="filter-button" data-filter="past" type="button">Tidligere</button>
+        </div>
+      </div>
+      <div id="match-list" class="match-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="history-section" id="historikk">
+      <div class="section-heading">
+        <div><p class="eyebrow">Din reise</p><h2>Mine stadionbesøk</h2></div>
+        <span class="count-pill" id="visit-count">0 besøk</span>
+      </div>
+      <div id="history-list" class="history-list" aria-live="polite"></div>
+      <p class="storage-note">Dette er en prototype. Besøkene lagres lokalt i denne nettleseren på denne enheten, ikke på en server.</p>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">S</span> Stadionhopper</a><p>Laget for fotballfans som liker å oppleve nye stadioner.</p></footer>
+
+  <dialog id="checkin-dialog" class="checkin-dialog">
+    <form id="checkin-form" method="dialog">
+      <button class="dialog-close" type="button" id="close-dialog" aria-label="Lukk">×</button>
+      <p class="eyebrow">Nytt stadionbesøk</p>
+      <h2 id="dialog-title">Registrer innsjekking</h2>
+      <p id="dialog-match" class="dialog-match"></p>
+      <label for="visit-date">Dato for besøket</label>
+      <input id="visit-date" name="visit-date" type="date" required>
+      <label for="visit-note">Notat <span>(valgfritt)</span></label>
+      <textarea id="visit-note" name="visit-note" rows="3" maxlength="240" placeholder="Hvordan var opplevelsen?"></textarea>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <button class="button button-primary button-full" type="submit">Lagre besøket</button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
 </html>
