@@ -10,7 +10,7 @@
   const matchLabel = document.querySelector("#dialog-match");
   const error = document.querySelector("#form-error");
   const toast = document.querySelector("#toast");
-  let matches = [], visits = [], filter = "upcoming", selectedMatch = null, toastTimer;
+  let matches = [], visits = [], filter = "upcoming", selectedMatch = null, toastTimer, stadiumMap;
   const today = () => {
     const now = new Date();
     return new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
@@ -56,11 +56,44 @@
       return \`<article class="history-item"><div class="history-icon">✓</div><div class="history-details"><strong>\${esc((m?.home_club_name||m?.club_name||"Kamp #"+v.match_id)+(m?.away_club_name ? " – "+m.away_club_name : ""))} · \${esc(m?.stadium_name||"Stadion")}</strong><span>\${esc(v.checked_in_at?dateLabel(String(v.checked_in_at).slice(0,10)):"Dato ikke satt")}</span></div><button class="remove-visit" data-remove="\${esc(v.check_in_id)}">Slett</button></article>\`;
     }).join("");
   }
+  function renderMap(stadiums) {
+    const container = document.querySelector("#stadium-map");
+    const message = document.querySelector("#map-message");
+    if (!container) return;
+    const located = (stadiums || []).filter(s => Number.isFinite(Number(s.latitude)) && s.latitude !== null && s.latitude !== "" && Number.isFinite(Number(s.longitude)) && s.longitude !== null && s.longitude !== "");
+    if (!located.length) {
+      message.textContent = "Ingen stadioner har gyldige koordinater i Database/Stadiums.json.";
+      container.innerHTML = '<p class="map-fallback">Legg til latitude og longitude for å vise stadioner på kartet.</p>';
+      return;
+    }
+    if (!window.L) {
+      message.textContent = "Kartbiblioteket kunne ikke lastes. Stadionene har fortsatt koordinater i JSON-dataene.";
+      container.innerHTML = '<ul class="map-fallback">' + located.map(s => '<li>' + esc(s.name || "Stadion") + ' (' + esc(s.latitude) + ', ' + esc(s.longitude) + ')</li>').join("") + '</ul>';
+      return;
+    }
+    if (stadiumMap) { stadiumMap.remove(); stadiumMap = null; }
+    container.innerHTML = "";
+    stadiumMap = window.L.map(container).setView([64.2, 10.2], 4);
+    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(stadiumMap);
+    const markers = [];
+    located.forEach(s => {
+      const marker = window.L.marker([Number(s.latitude), Number(s.longitude)]).addTo(stadiumMap);
+      marker.bindPopup('<strong>' + esc(s.name || "Stadion") + '</strong><br>' + esc(s.adress || s.address || ""));
+      markers.push(marker);
+    });
+    if (markers.length > 1) stadiumMap.fitBounds(window.L.featureGroup(markers).getBounds().pad(0.15));
+    else if (markers.length === 1) stadiumMap.setView(markers[0].getLatLng(), 13);
+    message.textContent = located.length + " stadion(er) vises. Kartfliser leveres av OpenStreetMap.";
+  }
+
   async function refresh() {
     list.innerHTML='<div class="empty-state"><h3>Laster …</h3></div>';
     try {
-      const [m,c,p]=await Promise.all([api("/api/matches"),api("/api/check-ins"),api("/api/posts")]);
-      matches=m.matches||[]; visits=c.check_ins||[];
+      const [m,c,p,s]=await Promise.all([api("/api/matches"),api("/api/check-ins"),api("/api/posts"),api("/api/stadiums")]);
+      matches=m.matches||[]; visits=c.check_ins||[]; renderMap(s.stadiums||[]);
       renderMatches(); renderHistory();
       const posts=p.posts||[];
       feedList.innerHTML=posts.length?posts.map(post=>\`<article class="history-item"><div class="history-details"><strong>\${esc(post.author||"Ukjent forfatter")}</strong><p>\${esc(post.content)}</p><span>\${esc(post.created_at||"")}</span></div></article>\`).join(""):'<div class="empty-state"><h3>Feeden er tom</h3><p>Ingen innlegg er lagt inn ennå.</p></div>';
