@@ -10,6 +10,157 @@
 <body>
   <header><strong>STADIONHOPPER</strong></header>
   <main>
+    <small>Visningsmodell · fiktive kamper og arrangementer</small>
+
+    <section id="innlogging" class="side">
+      <h1>Logg inn</h1>
+      <p>Logg inn for å se profilen din og lagre kampbesøkene dine.</p>
+      <label for="epost">E-post</label>
+      <input id="epost" type="email" placeholder="navn@eksempel.no">
+      <label for="passord">Passord</label>
+      <input id="passord" type="password" placeholder="Passord">
+      <button class="mork" disabled>Logg inn</button>
+      <button disabled>Opprett bruker</button>
+      <button onclick="visSide('kamper')">Utforsk kamper uten innlogging</button>
+      <small>Innlogging og lagring kobles til senere. Profil viser kun et eksempel.</small>
+    </section>
+
+    <section id="kamper" class="side">
+      <h1>Finn en lokal kamp</h1>
+      <p>Tid og sted, samlet på ett sted.</p>
+      <div class="valg">
+        <button onclick="visKamper('kommende')">Kommende</button>
+        <button onclick="visKamper('tidligere')">Tidligere</button>
+      </div>
+      <div id="kommende">
+        <article>
+          <h3>Molde FK – Eide og Omegn FK</h3>
+          <p>24. oktober 2026 · kl. 15.00<br>Aker Stadion</p>
+          <details>
+            <summary>Se kampdetaljer</summary>
+            <p>Fiktiv treningskamp · Aker Stadion.</p>
+          </details>
+        </article>
+        <article>
+          <h3>Skåla IL – Gossen IL</h3>
+          <p>25. oktober 2026 · kl. 14.00<br>Våganebanen</p>
+          <details>
+            <summary>Se kampdetaljer</summary>
+            <p>Fiktiv treningskamp · Våganebanen.</p>
+          </details>
+        </article>
+      </div>
+      <div id="tidligere">
+        <article>
+          <h3>Eide og Omegn FK – Skåla IL</h3>
+          <p>3. oktober 2026 · kl. 15.00<br>Eide kunstgressbane</p>
+          <button onclick="visKamp('Eide og Omegn FK – Skåla IL', '3. oktober 2026 · kl. 15.00', 'Eide kunstgressbane')">Se besøk →</button>
+        </article>
+        <article>
+          <h3>Gossen IL – Molde FK</h3>
+          <p>26. september 2026 · kl. 14.00<br>Riksfjord Stadion</p>
+          <button onclick="visKamp('Gossen IL – Molde FK', '26. september 2026 · kl. 14.00', 'Riksfjord Stadion')">Se besøk →</button>
+        </article>
+      </div>
+      <button onclick="visSide('kart')">Finn stadion på kart</button>
+      <p>Du kan utforske uten å logge inn.</p>
+    </section>
+
+    <section id="innsjekking" class="side">
+      <h1>Bekreft besøket</h1>
+      <button onclick="visSide('kamper')">← Tilbake til kamper</button>
+      <article>
+        <h3 id="kampnavn"></h3>
+        <p id="kampdato"></p>
+        <p id="stadionnavn"></p>
+      </article>
+      <p>Her skal brukeren kunne bekrefte besøket og lagre det i sin personlige historikk.</p>
+      <p>Ingen automatisk deling til andre.</p>
+      <button class="mork" disabled>Bekreft innsjekking</button>
+      <small>Lagring kobles til senere.</small>
+      <button onclick="visSide('kamper')">Avbryt</button>
+    </section>
+
+    <section id="profil" class="side">
+      <h1>Min profil</h1>
+      <h2>Kari</h2>
+      <p>kari@eksempel.no</p>
+      <button disabled>Logg ut</button>
+      <h2>Mine innsjekkinger</h2>
+      <p>Nyeste besøk først · eksempel</p>
+      <article>
+        <h3>Eide og Omegn FK – Skåla IL</h3>
+        <p>3. oktober 2026<br>Eide kunstgressbane</p>
+        <button onclick="visKamp('Eide og Omegn FK – Skåla IL', '3. oktober 2026 · kl. 15.00', 'Eide kunstgressbane')">Åpne kampen →</button>
+      </article>
+      <article>
+        <h3>Gossen IL – Molde FK</h3>
+        <p>26. september 2026<br>Riksfjord Stadion</p>
+        <button onclick="visKamp('Gossen IL – Molde FK', '26. september 2026 · kl. 14.00', 'Riksfjord Stadion')">Åpne kampen →</button>
+      </article>
+      <button onclick="visSide('innlogging')">Vis innloggingssiden</button>
+    </section>
+
+    <section id="feed" class="side">
+      <h1>Sosial feed</h1>
+      <button class="mork" disabled>Skriv et innlegg</button>
+      <article>
+        <h3>Kari · 7. oktober</h3>
+        <p>Gleder meg til neste kamp på Våganebanen!<br>Er det flere som skal dit?</p>
+      </article>
+      <div class="bilde">Valgfritt bilde</div>
+      <article>
+        <h3>Ola · 6. oktober</h3>
+        <p>Fin stemning på Eide kunstgressbane sist helg.</p>
+      </article>
+      <p>Innlegg publiseres bevisst av brukeren.</p>
+    </section>
+
+    <section id="arrangementer" class="side">
+      <h1>Arrangementer</h1>
+      <p>Oppdag aktiviteter på stadion.</p>
+      <article>
+        <h3>Åpen stadiondag hos Molde FK</h3>
+        <p>Aker Stadion<br>24. oktober 2026 · kl. 12.00</p>
+        <details>
+          <summary>Se arrangement</summary>
+          <p>Omvisning og aktiviteter på stadion.</p>
+        </details>
+      </article>
+      <article>
+        <h3>Familiedag hos Gossen IL</h3>
+        <p>Riksfjord Stadion<br>25. oktober 2026 · kl. 11.00</p>
+        <details>
+          <summary>Se arrangement</summary>
+          <p>En dag med fotballaktiviteter for familien.</p>
+        </details>
+      </article>
+      <p>Arrangementer vises separat fra kampoversikten.</p>
+    </section>
+
+    <section id="kart" class="side">
+      <h1>Stadionkart</h1>
+      <div class="bilde">Plass til kart</div>
+      <p>Molde FK · Aker Stadion</p>
+      <p>Eide og Omegn FK · Eide kunstgressbane</p>
+      <p>Skåla IL · Våganebanen</p>
+      <p>Gossen IL · Riksfjord Stadion</p>
+      <button onclick="visSide('kamper')">Se kamper</button>
+    </section>
+  </main>
+
+  <nav aria-label="Hovedmeny">
+    <button onclick="visSide('kamper')">Kamper</button>
+    <button onclick="visSide('kart')">Kart</button>
+    <button onclick="visSide('feed')">Sosial</button>
+    <button onclick="visSide('arrangementer')">Treff</button>
+    <button onclick="visSide('profil')">Profil</button>
+  </nav>
+</body>
+</html>
+<body>
+  <header><strong>STADIONHOPPER</strong></header>
+  <main>
     <small>Visningsmodell · fiktive eksempeldata</small>
     <!-- Knappene med disabled kobles til av den som lager backend. -->
     <section id="innlogging" class="side">
