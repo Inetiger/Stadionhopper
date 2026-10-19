@@ -83,11 +83,16 @@ async function matchesWithDetails() {
     readTable("matches"), readTable("clubs"), readTable("stadiums")
   ]);
   return matches.filter(match => match.match_id != null).map(match => {
-    const club = clubs.find(item => item.club_id != null && String(item.club_id) === String(match.club_id));
+    const homeClubId = match.home_club_id ?? match.club_id;
+    const awayClubId = match.away_club_id ?? null;
+    const homeClub = clubs.find(item => item.club_id != null && homeClubId != null && String(item.club_id) === String(homeClubId));
+    const awayClub = clubs.find(item => item.club_id != null && awayClubId != null && String(item.club_id) === String(awayClubId));
     const stadium = stadiums.find(item => item.stadium_id != null && String(item.stadium_id) === String(match.stadium_id));
     return {
       ...match,
-      club_name: club?.name ?? null,
+      club_name: homeClub?.name ?? null,
+      home_club_name: homeClub?.name ?? null,
+      away_club_name: awayClub?.name ?? null,
       stadium_name: stadium?.name ?? null,
       stadium_address: stadium?.adress ?? stadium?.address ?? null
     };
