@@ -166,6 +166,7 @@ test("check-in API rejects unknown users/matches and invalid IDs with expected s
   assert.equal((await post({ username: "kari", match_id: "nope" })).status, 400);
   assert.equal((await post({ username: "kari", match_id: -1 })).status, 400);
   assert.equal((await post({ username: "kari", match_id: 1.5 })).status, 400);
+  assert.equal((await post(null)).status, 400);
   assert.equal((await post({ username: "kari", match_id: 1 })).status, 201);
 });
 
