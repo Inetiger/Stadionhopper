@@ -21,7 +21,7 @@ function frontend(fetch) {
   const sider = [...html.matchAll(/id="([^"]+)" class="side"/g)].map(m => felter[m[1]]);
   const document = { getElementById: id => felter[id], getElementsByClassName: () => sider,
     createElement: element };
-  const context = vm.createContext({ document, fetch, Date, console });
+  const context = vm.createContext({ document, fetch, Date, console, location: { hostname: 'localhost' } });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../script.js'), 'utf8'), context);
   return { context, felter };
 }
