@@ -106,3 +106,22 @@ Skriv et fiktivt brukernavn (1–40 tegn) og velg **Velg testprofil**. Navnet vi
 Dette er avtalt forenkling til en testprofil, ikke autentisering. Historikk og innsjekkingslagring er fortsatt ikke koblet til; ingen beskyttelse mellom virkelige brukere er implementert. Den opprinnelige backend-integrasjonen i #52 er derfor ikke ferdig. #11/#12/#55/#73 må avstemmes av teamet med samme avgrensning før reell integrasjon.
 
 Manuell test på vanlig/smal skjerm: velg navn → Profil → bytt navn → avslutt → prøv tomt navn. Oppdater siden og kontroller at valget forsvinner. Dette virker også på GitHub Pages etter godkjent merge/publisering.
+
+ 
+## Prototyp-API for profil og innsjekking (#55 / #73)
+
+Kjør lokalt med testdata:
+
+```sh
+STADIONHOPPER_DB_DIR=test/fixtures node server.js
+```
+
+Prototypen har foreløpig **ingen autentisering**. Endepunktene under bruker derfor et fiktivt `username` for å velge testprofil. Dette er kun for lokal demonstrasjon og isolerte testdata — klienten kan velge et annet brukernavn, så dette må ikke brukes til virkelige persondata eller eksponeres som sikker tilgangskontroll.
+
+- `GET /api/profile?username=Testbruker` → `{ "user": { "user_id": 1, "username": "Testbruker" } }`
+- `GET /api/check-ins?username=Testbruker` → `{ "check_ins": [...] }`; tom historikk gir en tom liste.
+- `POST /api/check-ins` med JSON `{ "username": "Testbruker", "match_id": 100 }` oppretter innsjekking. Svaret er `201`; ukjent bruker/kamp gir `404`, ugyldig kamp-ID `400`, og gjentatt innsjekking på samme kamp for samme testbruker `409`.
+
+Innsjekkinger lagres i `Check_ins.json` i valgt datakatalog. Kampens stadion og klubbnavn hentes fra kampdata, ikke fra klientens input. Ved bruk av `test/fixtures` lagres testendringer der. GitHub Pages kan ikke kjøre dette Node-API-et; kjør serveren lokalt for å teste endepunktene.
+
+Dette er bevisst en prototypeløsning. Når autentisering prioriteres, må identiteten komme fra en verifisert økt på serveren og klientstyrt `username` fjernes som autorisasjonsmekanisme.
