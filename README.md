@@ -107,3 +107,10 @@ Dette er avtalt forenkling til en testprofil, ikke autentisering. Historikk og i
 
 Manuell test på vanlig/smal skjerm: velg navn → Profil → bytt navn → avslutt → prøv tomt navn. Oppdater siden og kontroller at valget forsvinner. Dette virker også på GitHub Pages etter godkjent merge/publisering.
 
+## Innsjekkingsgrensesnitt under arbeid (#56)
+
+Bekreftelsesflyten støtter valgt testprofil/kamp, venting, feil med nytt forsøk og blokkering av doble trykk. Ingen lagring er koblet til: knappen er deaktivert og siden forklarer hvorfor.
+
+`lagreBesok(testprofil, match_id)` er en intern kobling, ikke en avtalt HTTP-kontrakt. #55 må levere et Promise som kun fullføres ved faktisk lagring og avvises ved feil. Frontend-testprofilens ID må avstemmes med backend. Ingen alternativ lokal lagring eller falsk bekreftelse er lagt til.
+
+Faktisk lagring, oppdatert historikk og manuell nettlesertest gjenstår før #56 kan lukkes.
