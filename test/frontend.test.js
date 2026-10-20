@@ -9,7 +9,7 @@ const { createServer } = require('../server');
 function frontend(fetch, hostname = 'localhost') {
   function element() {
     let tekst = '';
-    return { style: {}, children: [], disabled: false, setAttribute(name, value) { this[name] = value; }, classList: { add() {} },
+    return { style: {}, children: [], disabled: false,
       get textContent() { return tekst; },
       set textContent(value) { tekst = value; this.children = []; },
       appendChild(child) { this.children.push(child); }
