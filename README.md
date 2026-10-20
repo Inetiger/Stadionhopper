@@ -21,17 +21,17 @@ A small prototype with a static HTML/CSS/JavaScript frontend and a Node.js HTTP 
 3. The API listens on `http://localhost:3000` by default. Set `PORT` to use another port, for example `PORT=4000 node server.js`.
 4. Open `http://localhost:3000/` in a browser. The server supplies HTML, CSS, JavaScript and API from the same address. Opening `index.html` directly or using GitHub Pages does not supply the Node API.
 
-### Test kampoversikten (#54)
+### Test backend og innsjekking med fiktive data (#53, #55, #56, #73)
 
-For representative, fictional match data, start the server with the existing fixtures (Git Bash):
+Start serveren med det isolerte, fiktive testdatasettet (Git Bash):
 
 ```sh
 STADIONHOPPER_DB_DIR=test/fixtures node server.js
 ```
 
-Open `http://localhost:3000/`. Choose “Utforsk kamper uten innlogging”, open a match and check its teams, time and stadium. Return to the list and test the other match. Test narrow and wide screens. Dates are displayed in the browser's local timezone; fixture dates include UTC (`Z`). Past matches move to “Tidligere” automatically.
+Åpne `http://localhost:3000/`. Velg testprofilen `Testbruker` (fra `test/fixtures/Users.json`), åpne en kamp og bekreft innsjekking. Besøket lagres i `test/fixtures/Check_ins.json`, og skal vises under Profil → Mine innsjekkinger. Du kan også bytte mellom testprofiler hvis flere er lagt inn i testdatasettet. Bruk bare fiktive data.
 
-With `node server.js` and the unchanged placeholder database, an empty list is expected. Stop the server after loading the page and press “Last kamper på nytt” to test the error message. Profile/feed examples remain outside #54; check-in storage is still disabled.
+Kampoversikt, profil, historikk og innsjekking bruker nå samme lokale API. Med `node server.js` og standarddatabasen med plassholdere forventes tomme lister og ingen gyldig testprofil. Test gjerne smal og bred skjerm. For å prøve feilhåndtering kan du stoppe serveren etter at siden er åpnet og laste data på nytt. Hvis du tester innsjekking mot `test/fixtures`, tilbakestill `test/fixtures/Check_ins.json` etterpå slik at testgrunnlaget forblir rent.
 
 Frontend techniques: [Fetch API](https://www.w3schools.com/js/js_api_fetch.asp), [DOM nodes](https://www.w3schools.com/js/js_htmldom_nodes.asp), [array sorting](https://www.w3schools.com/js/js_array_sort.asp) and [dates](https://www.w3schools.com/js/js_dates.asp).
 
@@ -40,6 +40,9 @@ Frontend techniques: [Fetch API](https://www.w3schools.com/js/js_api_fetch.asp),
 - `GET /api/matches` — lists available matches with club and stadium details.
 - `GET /api/matches/:match_id` — returns one match or a 404 response.
 - `GET /api/posts` — returns valid posts with author names, newest first.
+- `GET /api/profile?username=...` — looks up a fictional test profile.
+- `GET /api/check-ins?username=...` — returns that fixture user's check-in history with match and stadium details.
+- `POST /api/check-ins` — validates and persists a check-in; duplicate check-ins return `409`.
 
 The server reads the existing files in `Database/`. Those files currently contain placeholder rows and Python-style `None` values/trailing commas; the API normalizes this existing format when reading and does not rewrite the source files. As a result, a clean checkout returns empty match and post lists until valid linked records are added. The posts endpoint also omits empty posts and posts whose `user_id` does not reference an existing user.
 
@@ -61,7 +64,7 @@ Tests use temporary fixture files and do not modify the real files under `Databa
 
 ## Current limitations
 
-The UI still contains illustrative example content. Authentication, user-specific check-ins, profile history, and the social feed frontend/backend integration are not yet complete. Do not treat the example content as production data.
+The UI still contains illustrative example content. Authentication and verified session-based access control are not implemented. The local prototype supports check-in persistence and profile history using fictional fixture users only; do not treat this as production-ready or use real personal data.
 
 ## Test sosial feed (#57)
 
@@ -77,20 +80,16 @@ Testdatasettet inneholder to innlegg fra en fiktiv testbruker. Nyeste innlegg sk
 
 Kontroller forfatter, tidspunkt og tekst på vanlig/smal skjerm. Stopp serveren etter at siden er åpnet, og trykk «Last innlegg på nytt» for å kontrollere feilmeldingen. Publisering, likes og kommentarer er utenfor #57.
 
-## Profilvisning under arbeid (#53)
+## Profil og innsjekkingshistorikk (#53, #73)
 
-Den faste Kari-profilen er fjernet. Inntil #52/#73 leverer valgt profil, viser siden at ingen testprofil er valgt. Dette arbeidet fullfører ikke #53 og innfører ikke innlogging eller lagring.
+Profilvisningen bruker nå backend-integrasjonen på lokal server:
+- Testprofil hentes fra `GET /api/profile?username=...`; vilkårlig navn som ikke finnes i dataene avvises.
+- Historikk hentes fra `GET /api/check-ins?username=...` når Profil åpnes og etter lagring.
+- Innsjekking sendes til `POST /api/check-ins`. UI viser backend-feil og lar brukeren prøve igjen.
+- Historikken viser kamp, tidspunkt og stadion. Tom historikk og feil ved lasting har egne tilstander.
 
-Frontend-funksjonen `visProfil(bruker, innsjekkinger)` kan nå vise bruker og historikk, nyeste innsjekking først. `profilstatus(melding)` tømmer gammel profil/historikk og kan brukes ved lasting, feil eller utlogging. Begge er interne visningsfunksjoner, ikke et avtalt API.
+**Sikkerhetsavgrensning:** Dette er en prototype. Klienten sender fortsatt brukernavnet til API-et, og det er ikke autentisering eller tilgangskontroll basert på en verifisert brukerøkt. Ikke bruk ekte personopplysninger eller eksponer API-et som en tjeneste for virkelige brukere. #52 og sikker sesjonsbasert tilgang i #73 gjenstår.
 
-Foreløpig visningsformat, som må bekreftes/tilpasses sammen med #73:
-- Bruker: `user_id`, `username` (fra eksisterende datamodell).
-- Innsjekking: `user_id`, `match_id`, `checked_in_at` (fra nåværende Check_ins-mal).
-- Berikede visningsfelt: `home_club_name`, `away_club_name`, `stadium_name` (samme navn som kamp-API-et).
-
-Funksjonen viser bare rader som matcher valgt `user_id`, og erstatter gammel visning ved brukerbytte. Dette er kun visningslogikk: backend må fortsatt avgrense data før utsending. Ingen beskyttet brukerhistorikk er implementert eller påstått.
-
-Automatiske tester prøver to fiktive brukere, tom historikk, manglende data, tekst med HTML-tegn og tømming ved feil/utlogging. Manuell kontroll av oppsett på smal skjerm og faktisk backend-integrasjon gjenstår.
 ## GitHub Pages-demo
 
 GitHub Pages kan ikke kjøre Node.js eller servere `/api/matches` og `/api/posts`. På den publiserte adressen bruker frontend derfor `demo/data.json`, med tydelig merking av at innholdet er fiktivt og at innlogging/lagring ikke finnes. Lokalt bruker frontend fortsatt API-et fra `node server.js`.
@@ -99,9 +98,9 @@ Demoen støtter kampoversikt, kampdetaljer og lesing av demo-innlegg. Dette er s
 
 ## Velg testprofil uten autentisering (#52)
 
-Skriv et fiktivt brukernavn (1–40 tegn) og velg **Velg testprofil**. Navnet vises på Profil. **Bytt testprofil** lar deg velge et nytt navn; **Avslutt testprofil** tømmer navnet og gammel historikk. Tomt navn avvises. Passordfeltet er fortsatt deaktivert.
+Skriv et brukernavn som finnes i testdataene (for eksempel `Testbruker`) og velg **Velg testprofil**. Frontend spør backend om profilen; et ukjent brukernavn avvises. **Bytt testprofil** lar deg velge en annen profil, og **Avslutt testprofil** tømmer valget. Passordfeltet er fortsatt deaktivert.
 
-`aktivBruker` finnes bare i JavaScript-minnet i den åpne fanen. Oppdatering av siden nullstiller valget. Ingen localStorage, cookies, backend-kall eller filskriving brukes. `user_id` med prefikset `test:` er en midlertidig frontend-identifikator; den er ikke et bekreftet backend-ID og skal ikke sendes som autorisasjon til API-et.
+Valgt profil ligger i JavaScript-minnet i fanen og nullstilles ved sideoppdatering. Backend-endepunktene bruker fortsatt klientvalgt brukernavn og gir ikke en sikker innloggingsøkt.ing brukes. `user_id` med prefikset `test:` er en midlertidig frontend-identifikator; den er ikke et bekreftet backend-ID og skal ikke sendes som autorisasjon til API-et.
 
 Dette er avtalt forenkling til en testprofil, ikke autentisering. Historikk og innsjekkingslagring er fortsatt ikke koblet til; ingen beskyttelse mellom virkelige brukere er implementert. Den opprinnelige backend-integrasjonen i #52 er derfor ikke ferdig. #11/#12/#55/#73 må avstemmes av teamet med samme avgrensning før reell integrasjon.
 
