@@ -209,18 +209,19 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
 
 test('test profile validates name, fetches real fixture users and clears old history', async () => {
   const ui = frontend(async url => {
-    if (url.startsWith('/api/profile?username=')) {
-      const username = decodeURIComponent(url.split('=')[1]);
+    if (url === '/api/login') {
+      const { username } = JSON.parse(arguments[1]?.body || '{}');
       return { ok: true, json: async () => ({ user: { user_id: username === 'Test A' ? 11 : 12, username } }) };
     }
-    if (url.startsWith('/api/check-ins?username=')) return { ok: true, json: async () => ({ check_ins: [] }) };
+    if (url === '/api/check-ins') return { ok: true, json: async () => ({ check_ins: [] }) };
     return { ok: true, json: async () => ({ matches: [] }) };
   });
   ui.felter.brukernavn.value = '   ';
   await ui.context.velgTestprofil();
   assert.equal(ui.context.aktivBruker, null);
-  assert.match(ui.felter.brukerstatus.textContent, /Skriv et brukernavn/);
+  assert.match(ui.felter.brukerstatus.textContent, /Skriv brukernavn og passord/);
   ui.felter.brukernavn.value = '  Test A  ';
+  ui.felter.passord.value = 'fake-password';
   await ui.context.velgTestprofil();
   await ferdig();
   assert.equal(ui.context.aktivBruker.username, 'Test A');
@@ -228,12 +229,13 @@ test('test profile validates name, fetches real fixture users and clears old his
   assert.equal(ui.felter.profil.style.display, 'block');
   ui.context.visProfil(ui.context.aktivBruker, [{ user_id: 'test:test a', home_club_name: 'Gammel historikk' }]);
   ui.felter.brukernavn.value = '<b>Test B</b>';
+  ui.felter.passord.value = 'fake-password';
   await ui.context.velgTestprofil();
   await ferdig();
   assert.equal(ui.felter.profilnavn.textContent, '<b>Test B</b>');
   assert.equal(ui.felter.historikk.children.length, 0);
   assert.equal(ui.felter.profilstatus.textContent, ''); // Historikken er lastet fra backend.
-  ui.context.avsluttTestprofil();
+  await ui.context.avsluttTestprofil();
   assert.equal(ui.context.aktivBruker, null);
   assert.equal(ui.felter.profilnavn.textContent, '');
   assert.equal(ui.felter.brukernavn.value, '');
@@ -291,9 +293,9 @@ test('check-in preserves selection on error, allows retry, blocks double submit 
 
 
 test('selected match survives profile selection and resumes check-in confirmation', async () => {
-  const ui = frontend(async url => url.startsWith('/api/profile?username=')
-    ? { ok: true, json: async () => ({ user: { user_id: 11, username: 'Test' } }) }
-    : url.startsWith('/api/check-ins?username=')
+  const ui = frontend(async (url, options) => url === '/api/login'
+    ? { ok: true, json: async () => ({ user: { user_id: 11, username: JSON.parse(options.body).username } }) }
+    : url === '/api/check-ins'
       ? { ok: true, json: async () => ({ check_ins: [] }) }
       : { ok: true, json: async () => ({ matches: [] }) });
   ui.context.valgtKamp = { match_id: 7, home_club_name: 'Testlag', stadium_name: 'Testbane' };
@@ -304,6 +306,7 @@ test('selected match survives profile selection and resumes check-in confirmatio
   await ui.context.velgTestprofil();
   assert.equal(ui.context.ventendeBesok, true);
   ui.felter.brukernavn.value = 'Test';
+  ui.felter.passord.value = 'fake-password';
   await ui.context.velgTestprofil();
   assert.equal(ui.felter.innsjekking.style.display, 'block');
   assert.equal(ui.felter.stadionnavn.textContent, 'Testbane');
@@ -313,9 +316,9 @@ test('selected match survives profile selection and resumes check-in confirmatio
 });
 
 test('cancelled check-in does not unexpectedly resume after profile selection', async () => {
-  const ui = frontend(async url => url.startsWith('/api/profile?username=')
-    ? { ok: true, json: async () => ({ user: { user_id: 11, username: 'Test' } }) }
-    : url.startsWith('/api/check-ins?username=')
+  const ui = frontend(async (url, options) => url === '/api/login'
+    ? { ok: true, json: async () => ({ user: { user_id: 11, username: JSON.parse(options.body).username } }) }
+    : url === '/api/check-ins'
       ? { ok: true, json: async () => ({ check_ins: [] }) }
       : { ok: true, json: async () => ({ matches: [] }) });
   ui.context.valgtKamp = { match_id: 7 };
@@ -324,7 +327,7 @@ test('cancelled check-in does not unexpectedly resume after profile selection', 
   ui.felter.brukernavn.value = 'Test';
   await ui.context.velgTestprofil();
   assert.equal(ui.felter.profil.style.display, 'block');
-  ui.context.avsluttTestprofil();
+  await ui.context.avsluttTestprofil();
   assert.equal(ui.context.valgtKamp, null);
   assert.equal(ui.context.ventendeBesok, false);
 });
