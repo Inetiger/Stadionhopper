@@ -11,7 +11,7 @@ This document separates the **current repository shape** from the **target model
 | `Matches.json` | `match_id`, `match_date`, `status`, `stadium_id`, `club_id` | The current template supports one club reference only; the API also accepts `home_club_id` and `away_club_id` when present. |
 | `Users.json` | `user_id`, `username`, `created_at` | No password/hash field or session data exists in the current template. |
 | `Posts.json` | `post_id`, `content`, `created_at`, `user_id` | `user_id` should reference the author. |
-| `Checkins.json` | Not present in the current repository | Add a check-in table when implementing issue #55; do not assume it already exists. |
+| `Check_ins.json` | `check_in_id`, `checked_in_at`, `user_id`, `match_id` | This is the exact current filename. The template is empty/placeholder data; no check-in API is implemented yet. |
 
 ## Target relationships
 
