@@ -36,10 +36,26 @@ function kampdato(kamp) {
   return isNaN(dato.getTime()) ? 'Tidspunkt mangler' : dato.toLocaleString('nb-NO');
 }
 
+// GitHub Pages serverer bare statiske filer, ikke Node-API-et.
+var demomodus = location.hostname === 'inetiger.github.io';
+if (demomodus) {
+  document.getElementById('demostatus').textContent =
+    'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
+}
+
 function hentData(adresse) {
-  return fetch(adresse).then(function(svar) {
+  var kilde = demomodus ? 'demo/data.json' : adresse;
+  return fetch(kilde).then(function(svar) {
     if (!svar.ok) throw new Error('Kunne ikke hente data');
     return svar.json();
+  }).then(function(data) {
+    if (!demomodus) return data;
+    if (adresse === '/api/matches') return { matches: data.matches };
+    if (adresse === '/api/posts') return { posts: data.posts };
+    var id = decodeURIComponent(adresse.split('/').pop());
+    var kamp = data.matches.find(function(kamp) { return String(kamp.match_id) === id; });
+    if (!kamp) throw new Error('Fant ikke kampen');
+    return { match: kamp };
   });
 }
 

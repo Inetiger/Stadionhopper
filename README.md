@@ -91,3 +91,8 @@ Foreløpig visningsformat, som må bekreftes/tilpasses sammen med #73:
 Funksjonen viser bare rader som matcher valgt `user_id`, og erstatter gammel visning ved brukerbytte. Dette er kun visningslogikk: backend må fortsatt avgrense data før utsending. Ingen beskyttet brukerhistorikk er implementert eller påstått.
 
 Automatiske tester prøver to fiktive brukere, tom historikk, manglende data, tekst med HTML-tegn og tømming ved feil/utlogging. Manuell kontroll av oppsett på smal skjerm og faktisk backend-integrasjon gjenstår.
+## GitHub Pages-demo
+
+GitHub Pages kan ikke kjøre Node.js eller servere `/api/matches` og `/api/posts`. På den publiserte adressen bruker frontend derfor `demo/data.json`, med tydelig merking av at innholdet er fiktivt og at innlogging/lagring ikke finnes. Lokalt bruker frontend fortsatt API-et fra `node server.js`.
+
+Demoen støtter kampoversikt, kampdetaljer og lesing av demo-innlegg. Dette er statiske data; endringer lagres ikke. For lokal testing med backend, kjør `STADIONHOPPER_DB_DIR=test/fixtures node server.js` og åpne `http://localhost:3000/`. Ikke åpne `index.html` direkte fra filsystemet.
