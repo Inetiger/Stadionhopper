@@ -325,6 +325,7 @@ test('cancelled check-in does not unexpectedly resume after profile selection', 
   ui.context.visValgtBesok();
   ui.context.avbrytBesok();
   ui.felter.brukernavn.value = 'Test';
+  ui.felter.passord.value = 'fake-password';
   await ui.context.velgTestprofil();
   assert.equal(ui.felter.profil.style.display, 'block');
   await ui.context.avsluttTestprofil();
