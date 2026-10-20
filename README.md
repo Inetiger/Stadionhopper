@@ -18,7 +18,21 @@ A small prototype with a static HTML/CSS/JavaScript frontend and a Node.js HTTP 
    ```
 
 3. The API listens on `http://localhost:3000` by default. Set `PORT` to use another port, for example `PORT=4000 node server.js`.
-4. Open `index.html` in a browser to view the current static prototype. The frontend is still a visual prototype and is not yet wired to every API endpoint.
+4. Open `http://localhost:3000/` in a browser. The server supplies HTML, CSS, JavaScript and API from the same address. Opening `index.html` directly or using GitHub Pages does not supply the Node API.
+
+### Test kampoversikten (#54)
+
+For representative, fictional match data, start the server with the existing fixtures (Git Bash):
+
+```sh
+STADIONHOPPER_DB_DIR=test/fixtures node server.js
+```
+
+Open `http://localhost:3000/`. Choose “Utforsk kamper uten innlogging”, open a match and check its teams, time and stadium. Return to the list and test the other match. Test narrow and wide screens. Dates are displayed in the browser's local timezone; fixture dates include UTC (`Z`). Past matches move to “Tidligere” automatically.
+
+With `node server.js` and the unchanged placeholder database, an empty list is expected. Stop the server after loading the page and press “Last kamper på nytt” to test the error message. Profile/feed examples remain outside #54; check-in storage is still disabled.
+
+Frontend techniques: [Fetch API](https://www.w3schools.com/js/js_api_fetch.asp), [DOM nodes](https://www.w3schools.com/js/js_htmldom_nodes.asp), [array sorting](https://www.w3schools.com/js/js_array_sort.asp) and [dates](https://www.w3schools.com/js/js_dates.asp).
 
 ## API endpoints
 
