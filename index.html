@@ -16,12 +16,13 @@
       <h1>Velg testprofil</h1>
       <p>Prototypen bruker brukernavn uten passord. Dette er ikke sikker innlogging.</p>
       <label for="brukernavn">Brukernavn</label>
-      <input id="brukernavn" type="text" placeholder="Skriv et brukernavn">
+      <input id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
       <label for="passord">Passord – kommer senere</label>
       <input id="passord" type="password" placeholder="Kommer senere" disabled>
-      <button class="mork" disabled>Velg testprofil</button>
+      <button class="mork" onclick="velgTestprofil()">Velg testprofil</button>
+      <p id="brukerstatus" role="status"></p>
       <button onclick="visSide('kamper')">Utforsk kamper uten innlogging</button>
-      <small>Valg og lagring av testprofil kobles til senere.</small>
+      <small>Bruk et fiktivt navn. Valget gjelder bare i denne fanen og forsvinner når siden oppdateres.</small>
     </section>
 
     <section id="kamper" class="side">
@@ -71,7 +72,8 @@
       <h2>Mine innsjekkinger</h2>
       <div id="historikk"></div>
       <button onclick="visSide('kamper')">Finn en kamp</button>
-      <button onclick="visSide('innlogging')">Velg testprofil</button>
+      <button onclick="avsluttTestprofil()">Avslutt testprofil</button>
+      <button onclick="visSide('innlogging')">Bytt testprofil</button>
     </section>
 
     <section id="feed" class="side">

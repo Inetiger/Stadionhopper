@@ -200,3 +200,27 @@ function visProfil(bruker, innsjekkinger) {
     liste.appendChild(kort);
   });
 }
+
+// Midlertidig testprofil i fanens minne. Ingen autentisering eller lagring.
+var aktivBruker = null;
+function velgTestprofil() {
+  var navn = document.getElementById('brukernavn').value.trim();
+  var status = document.getElementById('brukerstatus');
+  if (!navn || navn.length > 40) {
+    status.textContent = 'Skriv et brukernavn på 1–40 tegn.';
+    return;
+  }
+  aktivBruker = { user_id: 'test:' + navn.toLowerCase(), username: navn };
+  status.textContent = '';
+  profilstatus('Testprofil i denne fanen. Historikk og lagring er ikke koblet til ennå.');
+  document.getElementById('profilnavn').textContent = navn;
+  visSide('profil');
+}
+
+function avsluttTestprofil() {
+  aktivBruker = null;
+  profilstatus('Ingen testprofil er valgt.');
+  document.getElementById('brukernavn').value = '';
+  document.getElementById('brukerstatus').textContent = '';
+  visSide('innlogging');
+}

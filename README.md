@@ -96,3 +96,13 @@ Automatiske tester prøver to fiktive brukere, tom historikk, manglende data, te
 GitHub Pages kan ikke kjøre Node.js eller servere `/api/matches` og `/api/posts`. På den publiserte adressen bruker frontend derfor `demo/data.json`, med tydelig merking av at innholdet er fiktivt og at innlogging/lagring ikke finnes. Lokalt bruker frontend fortsatt API-et fra `node server.js`.
 
 Demoen støtter kampoversikt, kampdetaljer og lesing av demo-innlegg. Dette er statiske data; endringer lagres ikke. For lokal testing med backend, kjør `STADIONHOPPER_DB_DIR=test/fixtures node server.js` og åpne `http://localhost:3000/`. Ikke åpne `index.html` direkte fra filsystemet.
+
+## Velg testprofil uten autentisering (#52)
+
+Skriv et fiktivt brukernavn (1–40 tegn) og velg **Velg testprofil**. Navnet vises på Profil. **Bytt testprofil** lar deg velge et nytt navn; **Avslutt testprofil** tømmer navnet og gammel historikk. Tomt navn avvises. Passordfeltet er fortsatt deaktivert.
+
+`aktivBruker` finnes bare i JavaScript-minnet i den åpne fanen. Oppdatering av siden nullstiller valget. Ingen localStorage, cookies, backend-kall eller filskriving brukes. `user_id` med prefikset `test:` er en midlertidig frontend-identifikator; den er ikke et bekreftet backend-ID og skal ikke sendes som autorisasjon til API-et.
+
+Dette er avtalt forenkling til en testprofil, ikke autentisering. Historikk og innsjekkingslagring er fortsatt ikke koblet til; ingen beskyttelse mellom virkelige brukere er implementert. Den opprinnelige backend-integrasjonen i #52 er derfor ikke ferdig. #11/#12/#55/#73 må avstemmes av teamet med samme avgrensning før reell integrasjon.
+
+Manuell test på vanlig/smal skjerm: velg navn → Profil → bytt navn → avslutt → prøv tomt navn. Oppdater siden og kontroller at valget forsvinner. Dette virker også på GitHub Pages etter godkjent merge/publisering.
