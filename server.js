@@ -1,6 +1,7 @@
 const http = require("node:http");
 const fs = require("node:fs/promises");
 const path = require("node:path");
+const { createAuthStore, SESSION_TTL_MS } = require("./auth");
 
 const DEFAULT_DB_DIR = path.join(__dirname, "Database");
 
@@ -28,6 +29,29 @@ function sendJson(res, status, body) {
     "X-Content-Type-Options": "nosniff"
   });
   res.end(JSON.stringify(body));
+}
+
+function readCookie(req, name) {
+  const header = req.headers.cookie || "";
+  for (const item of header.split(";")) {
+    const separator = item.indexOf("=");
+    if (separator < 0) continue;
+    if (item.slice(0, separator).trim() === name) {
+      try { return decodeURIComponent(item.slice(separator + 1).trim()); } catch { return null; }
+    }
+  }
+  return null;
+}
+
+function sessionCookie(token, req, maxAge = Math.floor(SESSION_TTL_MS / 1000)) {
+  const secure = Boolean(req.socket.encrypted);
+  return "stadionhopper_session=" + encodeURIComponent(token) +
+    "; Path=/; HttpOnly; SameSite=Lax; Max-Age=" + maxAge + (secure ? "; Secure" : "");
+}
+
+function clearSessionCookie(req) {
+  return "stadionhopper_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0" +
+    (req.socket.encrypted ? "; Secure" : "");
 }
 
 async function getMatches(dbDir) {
@@ -86,7 +110,7 @@ async function getPosts(dbDir) {
 }
 
 
-// Prototype-only profile/check-in API. Usernames select fixture users; this is not authentication.
+// Internal lookup resolves the identity already authenticated by the server session.
 async function getUser(dbDir, username) {
   if (typeof username !== "string" || !username.trim() || username.trim().length > 40) return null;
   const users = await readTable(dbDir, "Users.json");
@@ -178,7 +202,14 @@ async function createCheckin(dbDir, username, matchId) {
   return { status: 201, body: { check_in: checkIns.find(row => String(row.check_in_id) === String(nextId)) } };
 }
 
-function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR } = {}) {
+function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR, authStore = createAuthStore() } = {}) {
+  async function getSessionUser(req) {
+    const token = readCookie(req, "stadionhopper_session");
+    const session = authStore.getSession(token);
+    if (!session) return null;
+    return getUser(dbDir, session.username);
+  }
+
   return http.createServer(async (req, res) => {
     const pathname = new URL(req.url, "http://localhost").pathname;
     try {
@@ -198,29 +229,55 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
       }
 
 
-      // Prototype-only API: the username selects a fixture user and is not an identity check.
-      if (req.method === "GET" && pathname === "/api/profile") {
-        const username = new URL(req.url, "http://localhost").searchParams.get("username");
-        const user = await getUser(dbDir, username);
-        return user
-          ? sendJson(res, 200, { user: { user_id: user.user_id, username: user.username } })
-          : sendJson(res, 404, { error: "Fant ikke testprofilen." });
-      }
-
-      if (req.method === "GET" && pathname === "/api/check-ins") {
-        const username = new URL(req.url, "http://localhost").searchParams.get("username");
-        const user = await getUser(dbDir, username);
-        return user
-          ? sendJson(res, 200, { check_ins: await getCheckins(dbDir, user) })
-          : sendJson(res, 404, { error: "Fant ikke testprofilen." });
-      }
-
-      if (req.method === "POST" && pathname === "/api/check-ins") {
+      if (req.method === "POST" && pathname === "/api/login") {
         const input = await readRequestJson(req);
         if (!input || typeof input !== "object" || Array.isArray(input)) {
           return sendJson(res, 400, { error: "JSON-objekt forventet." });
         }
-        const result = await createCheckin(dbDir, input.username, input.match_id);
+        const identity = authStore.authenticate(input.username, input.password);
+        if (!identity) return sendJson(res, 401, { error: "Ugyldig brukernavn eller passord." });
+        const user = await getUser(dbDir, identity.username);
+        if (!user) return sendJson(res, 401, { error: "Testkontoen finnes ikke i dette datasettet." });
+        const session = authStore.createSession(identity);
+        res.setHeader("Set-Cookie", sessionCookie(session.token, req));
+        return sendJson(res, 200, { user: { user_id: user.user_id, username: user.username } });
+      }
+
+      if (req.method === "GET" && pathname === "/api/session") {
+        const user = await getSessionUser(req);
+        return user
+          ? sendJson(res, 200, { user: { user_id: user.user_id, username: user.username } })
+          : sendJson(res, 401, { error: "Du er ikke logget inn." });
+      }
+
+      if (req.method === "POST" && pathname === "/api/logout") {
+        authStore.destroySession(readCookie(req, "stadionhopper_session"));
+        res.setHeader("Set-Cookie", clearSessionCookie(req));
+        return sendJson(res, 200, { ok: true });
+      }
+
+      if (req.method === "GET" && pathname === "/api/profile") {
+        const user = await getSessionUser(req);
+        return user
+          ? sendJson(res, 200, { user: { user_id: user.user_id, username: user.username } })
+          : sendJson(res, 401, { error: "Du er ikke logget inn." });
+      }
+
+      if (req.method === "GET" && pathname === "/api/check-ins") {
+        const user = await getSessionUser(req);
+        return user
+          ? sendJson(res, 200, { check_ins: await getCheckins(dbDir, user) })
+          : sendJson(res, 401, { error: "Du er ikke logget inn." });
+      }
+
+      if (req.method === "POST" && pathname === "/api/check-ins") {
+        const user = await getSessionUser(req);
+        if (!user) return sendJson(res, 401, { error: "Du er ikke logget inn." });
+        const input = await readRequestJson(req);
+        if (!input || typeof input !== "object" || Array.isArray(input)) {
+          return sendJson(res, 400, { error: "JSON-objekt forventet." });
+        }
+        const result = await createCheckin(dbDir, user.username, input.match_id);
         return sendJson(res, result.status, result.body);
       }
 

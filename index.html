@@ -14,15 +14,15 @@
 
     <section id="innlogging" class="side">
       <h1>Velg testprofil</h1>
-      <p>Prototypen bruker brukernavn uten passord. Dette er ikke sikker innlogging.</p>
+      <p>Logg inn med en fiktiv testkonto. Dette er en lokal prototype, ikke produksjonsinnlogging.</p>
       <label for="brukernavn">Brukernavn</label>
       <input id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
-      <label for="passord">Passord – kommer senere</label>
-      <input id="passord" type="password" placeholder="Kommer senere" disabled>
-      <button class="mork" onclick="velgTestprofil()">Velg testprofil</button>
+      <label for="passord">Passord</label>
+      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Passord for testkonto">
+      <button class="mork" onclick="velgTestprofil()">Logg inn</button>
       <p id="brukerstatus" role="status"></p>
       <button onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
-      <small>Bruk et fiktivt navn. Valget gjelder bare i denne fanen og forsvinner når siden oppdateres.</small>
+      <small>Testkonto: <strong>Testbruker</strong> · passord: <strong>hopper123</strong>. Kun fiktive testdata.</small>
     </section>
 
     <section id="kamper" class="side">
@@ -73,7 +73,7 @@
       <div id="historikk"></div>
       <button onclick="visSide('kamper')">Finn en kamp</button>
       <button onclick="avsluttTestprofil()">Avslutt testprofil</button>
-      <button onclick="visSide('innlogging')">Bytt testprofil</button>
+      <button onclick="avsluttTestprofil()">Logg ut / bytt testprofil</button>
     </section>
 
     <section id="feed" class="side">
