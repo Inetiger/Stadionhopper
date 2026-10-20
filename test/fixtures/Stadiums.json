@@ -1,0 +1,12 @@
+[
+  {
+    "stadium_id": 10,
+    "name": "Aker Stadion",
+    "address": "Molde"
+  },
+  {
+    "stadium_id": 11,
+    "name": "Eide kunstgressbane",
+    "address": "Eide"
+  }
+]

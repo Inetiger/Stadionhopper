@@ -61,12 +61,40 @@ async function getMatches(dbDir) {
     .sort((a, b) => String(a.match_date ?? "").localeCompare(String(b.match_date ?? "")));
 }
 
+async function getPosts(dbDir) {
+  const [posts, users] = await Promise.all([
+    readTable(dbDir, "Posts.json"),
+    readTable(dbDir, "Users.json")
+  ]);
+
+  return posts
+    .filter(post => post.post_id != null &&
+      typeof post.content === "string" && post.content.trim() !== "" &&
+      post.user_id != null &&
+      users.some(user => user.user_id != null &&
+        String(user.user_id) === String(post.user_id)))
+    .map(post => {
+      const author = users.find(user => user.user_id != null &&
+        String(user.user_id) === String(post.user_id));
+      return {
+        ...post,
+        content: post.content.trim(),
+        author_name: author?.username ?? author?.name ?? null
+      };
+    })
+    .sort((a, b) => String(b.created_at ?? "").localeCompare(String(a.created_at ?? "")));
+}
+
 function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR } = {}) {
   return http.createServer(async (req, res) => {
     const pathname = new URL(req.url, "http://localhost").pathname;
     try {
       if (req.method === "GET" && pathname === "/api/matches") {
         return sendJson(res, 200, { matches: await getMatches(dbDir) });
+      }
+
+      if (req.method === "GET" && pathname === "/api/posts") {
+        return sendJson(res, 200, { posts: await getPosts(dbDir) });
       }
 
       const detail = pathname.match(/^\/api\/matches\/([^/]+)$/);
@@ -87,7 +115,7 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
       return sendJson(res, 404, { error: "Ukjent endepunkt." });
     } catch (error) {
       const status = error instanceof SyntaxError ? 500 : error.code === "ENOENT" ? 500 : 500;
-      return sendJson(res, status, { error: "Kunne ikke lese kampdata." });
+      return sendJson(res, status, { error: "Kunne ikke lese data." });
     }
   });
 }
@@ -100,4 +128,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { createServer, parseTable, getMatches };
+module.exports = { createServer, parseTable, getMatches, getPosts };
