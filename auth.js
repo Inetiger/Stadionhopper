@@ -1,25 +1,58 @@
-const { randomBytes, timingSafeEqual } = require("node:crypto");
-
-// Kun fiktive kontoer for lokal prototype. Ikke bruk disse legitimasjonene i produksjon.
-const TEST_USERS = Object.freeze([
-  { username: "Testbruker", password: "hopper123" },
-  { username: "Testbruker2", password: "hopper456" }
-]);
+const { randomBytes, timingSafeEqual, scryptSync } = require("node:crypto");
 
 const SESSION_TTL_MS = 2 * 60 * 60 * 1000;
+const HASH_BYTES = 64;
 
 function safeEqual(left, right) {
   const a = Buffer.from(String(left));
   const b = Buffer.from(String(right));
   if (a.length !== b.length) {
-    // Utfør en sammenligning også ved ulik lengde før vi avviser.
     timingSafeEqual(Buffer.alloc(32), Buffer.alloc(32));
     return false;
   }
   return timingSafeEqual(a, b);
 }
 
-function createAuthStore({ now = () => Date.now(), ttlMs = SESSION_TTL_MS } = {}) {
+function hashPassword(password, salt) {
+  return scryptSync(password, salt, HASH_BYTES).toString("hex");
+}
+
+function normalizeUsers(users) {
+  if (!Array.isArray(users)) throw new TypeError("Test users must be an array.");
+  return users.map(user => {
+    if (!user || typeof user.username !== "string" || !user.username.trim()) {
+      throw new TypeError("Each test user needs a username.");
+    }
+    if (typeof user.password === "string") {
+      const salt = randomBytes(16).toString("hex");
+      return {
+        username: user.username.trim(),
+        salt,
+        passwordHash: hashPassword(user.password, salt)
+      };
+    }
+    if (typeof user.salt === "string" && /^[a-f0-9]{32,128}$/i.test(user.salt) &&
+        typeof user.passwordHash === "string" && /^[a-f0-9]{128}$/i.test(user.passwordHash)) {
+      return { username: user.username.trim(), salt: user.salt, passwordHash: user.passwordHash };
+    }
+    throw new TypeError("Each test user needs a password for test injection or a scrypt salt/hash.");
+  });
+}
+
+function loadConfiguredUsers() {
+  const configured = process.env.STADIONHOPPER_TEST_USERS;
+  if (!configured) return [];
+  let users;
+  try {
+    users = JSON.parse(configured);
+  } catch {
+    throw new Error("STADIONHOPPER_TEST_USERS must be a JSON array of hashed test users.");
+  }
+  return normalizeUsers(users);
+}
+
+function createAuthStore({ now = () => Date.now(), ttlMs = SESSION_TTL_MS, users = loadConfiguredUsers() } = {}) {
+  const credentials = normalizeUsers(users);
   const sessions = new Map();
 
   function purgeExpired() {
@@ -30,20 +63,21 @@ function createAuthStore({ now = () => Date.now(), ttlMs = SESSION_TTL_MS } = {}
   }
 
   function authenticate(username, password) {
-    if (typeof username !== "string" || typeof password !== "string") return null;
+    if (typeof username !== "string" || typeof password !== "string" ||
+        !username.trim() || username.trim().length > 40 || password.length > 1024) return null;
     const normalized = username.trim().toLowerCase();
-    const candidate = TEST_USERS.find(user => user.username.toLowerCase() === normalized);
-    if (!candidate || !safeEqual(password, candidate.password)) return null;
-    return { username: candidate.username };
+    const candidate = credentials.find(user => user.username.toLowerCase() === normalized);
+    if (!candidate) return null;
+    const suppliedHash = hashPassword(password, candidate.salt);
+    return safeEqual(suppliedHash, candidate.passwordHash)
+      ? { username: candidate.username }
+      : null;
   }
 
   function createSession(user) {
     purgeExpired();
     const token = randomBytes(32).toString("hex");
-    sessions.set(token, {
-      username: user.username,
-      expiresAt: now() + ttlMs
-    });
+    sessions.set(token, { username: user.username, expiresAt: now() + ttlMs });
     return { token, expiresAt: sessions.get(token).expiresAt };
   }
 
@@ -62,4 +96,4 @@ function createAuthStore({ now = () => Date.now(), ttlMs = SESSION_TTL_MS } = {}
   return { authenticate, createSession, getSession, destroySession, purgeExpired };
 }
 
-module.exports = { TEST_USERS, SESSION_TTL_MS, createAuthStore };
+module.exports = { SESSION_TTL_MS, createAuthStore, hashPassword };

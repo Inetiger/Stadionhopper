@@ -17,16 +17,21 @@ Fra Git Bash i prosjektmappen:
 STADIONHOPPER_DB_DIR=test/fixtures node server.js
 ```
 
-Åpne deretter http://localhost:3000/. Testkontoer:
+Opprett hashed testlegitimasjon før oppstart. Serveren leser bare brukere fra miljøvariabelen `STADIONHOPPER_TEST_USERS`; det finnes ingen innebygde kontoer. Ikke legg passord, hasher eller miljøfiler med legitimasjon i Git. Innsjekkinger lagres i `test/fixtures/Check_ins.json`; tilbakestill filen etter manuell testing hvis du vil beholde et rent testdatasett.
 
-| Brukernavn | Passord |
-|---|---|
-| `Testbruker` | `hopper123` |
-| `Testbruker2` | `hopper456` |
+Generer en salt og scrypt-hash interaktivt (passordet leses fra standard input):
 
-Dette er offentlig dokumenterte, hardkodede testlegitimasjoner for en lokal prototype. Ikke bruk ekte kontoer, passord eller personopplysninger. Innsjekkinger lagres i `test/fixtures/Check_ins.json`; tilbakestill filen etter manuell testing hvis du vil beholde et rent testdatasett.
+```sh
+node scripts/hash-password.js
+```
 
-Alternativt kan serveren startes med standarddatabasen via `node server.js`, men den inneholder plassholdere og forventes ikke å ha gyldige testkontoer eller kampdata.
+Sett deretter `STADIONHOPPER_TEST_USERS` til en JSON-array med feltene `username`, `salt` og `passwordHash` fra verktøyet, og start serveren. Eksempel på struktur (plassholderverdier, ikke gyldige legitimasjoner):
+
+```sh
+STADIONHOPPER_TEST_USERS='[{"username":"Testbruker","salt":"<salt-hex>","passwordHash":"<scrypt-hash-hex>"}]' STADIONHOPPER_DB_DIR=test/fixtures node server.js
+```
+
+Ikke legg reelle passord eller hash-konfigurasjon i README, kode eller versjonskontroll.
 
 ## API
 
@@ -38,7 +43,7 @@ Offentlige lesbare data:
 
 Autentisering og økt:
 
-- `POST /api/login` med JSON `{"username":"Testbruker","password":"hopper123"}` — oppretter økt og returnerer profil.
+- `POST /api/login` med JSON `{"username":"<brukernavn>","password":"<passord>"}` — oppretter økt og returnerer profil.
 - `GET /api/session` — returnerer innlogget testprofil.
 - `POST /api/logout` — invaliderer økten og sletter økt-cookie.
 - `GET /api/profile` — returnerer profil fra serverens økt.
@@ -61,8 +66,8 @@ Testene bruker midlertidige datakataloger, bortsett fra de eksplisitte fixture-f
 
 Dette er kun autentisering for en lokal prototype:
 
-- Brukernavn og passord er hardkodet i `auth.js` og er synlige for alle som har tilgang til kildekoden.
-- Passordene er ikke ment for ekte kontoer og er ikke lagret som sikre passordhash-er.
+- Serveren har ingen standardkontoer; testbrukere må konfigureres utenfor repoet via `STADIONHOPPER_TEST_USERS`.
+- Passord verifiseres med scrypt og individuell salt. Passordet i testoppsettet bør være et tilfeldig, kun lokalt testpassord.
 - Økter lagres i minnet og blir borte ved serveromstart; de deles ikke mellom flere serverprosesser.
 - Økt-cookie bruker `HttpOnly` og `SameSite=Lax`; `Secure` settes ved direkte HTTPS-tilkobling.
 - Det er ikke gjennomført full sikkerhetsherding, rate limiting eller produksjonsmessig CSRF-/proxy-konfigurasjon.
