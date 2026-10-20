@@ -28,7 +28,8 @@ async function makeDb() {
       { post_id: 1, content: "  Første innlegg  ", created_at: "2026-10-10T12:00:00Z", user_id: 11 },
       { post_id: 2, content: "Nyere innlegg", created_at: "2026-10-12T12:00:00Z", user_id: 12 },
       { post_id: 3, content: "   ", created_at: "2026-10-13T12:00:00Z", user_id: 11 },
-      { post_id: 4, content: "Mangler forfatter", created_at: "2026-10-14T12:00:00Z", user_id: null }
+      { post_id: 4, content: "Mangler forfatter", created_at: "2026-10-14T12:00:00Z", user_id: null },
+      { post_id: 5, content: "Ukjent bruker", created_at: "2026-10-15T12:00:00Z", user_id: 999 }
     ]
   };
   for (const [filename, rows] of Object.entries(tables)) {
