@@ -24,8 +24,9 @@ A small prototype with a static HTML/CSS/JavaScript frontend and a Node.js HTTP 
 
 - `GET /api/matches` — lists available matches with club and stadium details.
 - `GET /api/matches/:match_id` — returns one match or a 404 response.
+- `GET /api/posts` — returns valid posts with author names, newest first.
 
-The server reads the existing files in `Database/`. Those files currently contain placeholder rows and Python-style `None` values/trailing commas; the API normalizes this existing format when reading and does not rewrite the source files. As a result, a clean checkout may return an empty list until valid match data is added.
+The server reads the existing files in `Database/`. Those files currently contain placeholder rows and Python-style `None` values/trailing commas; the API normalizes this existing format when reading and does not rewrite the source files. As a result, a clean checkout returns empty match and post lists until valid linked records are added. The posts endpoint also omits empty posts and posts whose `user_id` does not reference an existing user.
 
 ## Tests
 
