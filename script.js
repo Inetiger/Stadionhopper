@@ -43,6 +43,8 @@ var demomodus = location.hostname === 'inetiger.github.io';
 if (demomodus) {
   document.getElementById('demostatus').textContent =
     'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
+  document.getElementById('innlogginginfo').textContent =
+    'Innlogging er ikke tilgjengelig på denne publiserte demoen. Utforsk kamper, kart og arrangementer uten innlogging; profil og innsjekking krever lokal backend.';
 }
 
 function hentData(adresse) {
@@ -244,7 +246,13 @@ async function velgTestprofil() {
     } else visSide('profil');
   } catch (feil) {
     aktivBruker = null;
-    status.textContent = feil.message || 'Kunne ikke logge inn. Kontroller at backend kjører.';
+    document.getElementById('passord').value = '';
+    var melding = feil.message || 'Innloggingen mislyktes.';
+    if (feil instanceof TypeError) {
+      status.textContent = 'Innlogging er ikke tilgjengelig akkurat nå. Kontroller at backend kjører og at testkontoer er konfigurert. Du kan utforske appen uten innlogging med knappen under.';
+    } else {
+      status.textContent = melding + ' Du kan også utforske kamper, kart og arrangementer uten innlogging med knappen under.';
+    }
   }
 }
 
