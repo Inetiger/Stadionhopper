@@ -21,7 +21,7 @@
       <input id="passord" type="password" placeholder="Kommer senere" disabled>
       <button class="mork" onclick="velgTestprofil()">Velg testprofil</button>
       <p id="brukerstatus" role="status"></p>
-      <button onclick="visSide('kamper')">Utforsk kamper uten innlogging</button>
+      <button onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
       <small>Bruk et fiktivt navn. Valget gjelder bare i denne fanen og forsvinner når siden oppdateres.</small>
     </section>
 
@@ -62,7 +62,7 @@
       <p>Ingen automatisk deling til andre.</p>
       <button id="bekreftbesok" class="mork" onclick="bekreftBesok()" disabled>Bekreft innsjekking</button>
       <p id="besokstatus" role="status">Lagring kobles til senere.</p>
-      <button onclick="visSide('kamper')">Avbryt</button>
+      <button onclick="avbrytBesok()">Avbryt</button>
     </section>
 
     <section id="profil" class="side">

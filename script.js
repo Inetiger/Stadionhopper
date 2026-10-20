@@ -122,7 +122,14 @@ function hentKamp(id) {
   });
 }
 
+var ventendeBesok = false;
 function visValgtBesok() {
+  if (valgtKamp && !aktivBruker) {
+    ventendeBesok = true;
+    visSide('innlogging');
+    document.getElementById('brukerstatus').textContent = 'Velg en testprofil for å fortsette med valgt kamp.';
+    return;
+  }
   if (valgtKamp) visKamp(kampnavn(valgtKamp), kampdato(valgtKamp), valgtKamp.stadium_name || 'Stadion mangler');
 }
 
@@ -215,10 +222,15 @@ function velgTestprofil() {
   status.textContent = '';
   profilstatus('Testprofil i denne fanen. Historikk og lagring er ikke koblet til ennå.');
   document.getElementById('profilnavn').textContent = navn;
-  visSide('profil');
+  if (ventendeBesok && valgtKamp) {
+    ventendeBesok = false;
+    visValgtBesok();
+  } else visSide('profil');
 }
 
 function avsluttTestprofil() {
+  ventendeBesok = false;
+  valgtKamp = null;
   aktivBruker = null;
   profilstatus('Ingen testprofil er valgt.');
   document.getElementById('brukernavn').value = '';
@@ -268,4 +280,9 @@ async function bekreftBesok() {
   }
   lagrerBesok = false;
   klargjorBesok();
+}
+
+function avbrytBesok() {
+  ventendeBesok = false;
+  visSide('kamper');
 }

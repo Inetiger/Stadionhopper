@@ -114,3 +114,7 @@ Bekreftelsesflyten støtter valgt testprofil/kamp, venting, feil med nytt forsø
 `lagreBesok(testprofil, match_id)` er en intern kobling, ikke en avtalt HTTP-kontrakt. #55 må levere et Promise som kun fullføres ved faktisk lagring og avvises ved feil. Frontend-testprofilens ID må avstemmes med backend. Ingen alternativ lokal lagring eller falsk bekreftelse er lagt til.
 
 Faktisk lagring, oppdatert historikk og manuell nettlesertest gjenstår før #56 kan lukkes.
+
+## Fortsett valgt besøk etter testprofilvalg (#56)
+
+Uten valgt testprofil: velg kamp → Se besøk → skriv fiktivt brukernavn → Velg testprofil. Du kommer tilbake til bekreftelsen for samme kamp og stadion. Ugyldig navn beholder påbegynt flyt. «Utforsk kamper uten innlogging» avbryter videreføringen; avslutning av testprofil tømmer også kampvalget. Lagringsknappen er fortsatt deaktivert uten #55. Dette fullfører bare profilovergangen beskrevet i Deliverable 2 kapittel 6, ikke faktisk lagring/historikk.
