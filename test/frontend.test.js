@@ -192,6 +192,15 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
 
   await ferdig();
   assert.match(ui.felter.demostatus.textContent, /fiktive data/);
+  assert.equal(ui.felter.brukernavn.disabled, true);
+  assert.equal(ui.felter.passord.disabled, true);
+  assert.equal(ui.felter.loginbutton.disabled, true);
+  assert.equal(ui.felter.loginbutton.textContent, 'Innlogging deaktivert');
+  assert.match(ui.felter.innlogginginfo.textContent, /INNLOGGING ER SLÅTT AV/);
+  const css = fs.readFileSync(path.join(__dirname, '..', 'style.css'), 'utf8');
+  assert.match(css, /background: #ffe0e0/);
+  assert.match(css, /background: #b42318/);
+  assert.match(css, /background: #245b36/);
   assert.equal(ui.felter.kommende.children.length + ui.felter.tidligere.children.length, demo.matches.length);
   assert.ok(requests.every(url => url === 'demo/data.json'));
 
