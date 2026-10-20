@@ -76,3 +76,18 @@ STADIONHOPPER_DB_DIR=test/fixtures node server.js
 Testdatasettet inneholder to innlegg fra en fiktiv testbruker. Nyeste innlegg skal vises først. Automatiske tester bruker midlertidige data og kjører feed-koden mot det faktiske API-et. Databasefilene for vanlig bruk er ikke endret.
 
 Kontroller forfatter, tidspunkt og tekst på vanlig/smal skjerm. Stopp serveren etter at siden er åpnet, og trykk «Last innlegg på nytt» for å kontrollere feilmeldingen. Publisering, likes og kommentarer er utenfor #57.
+
+## Profilvisning under arbeid (#53)
+
+Den faste Kari-profilen er fjernet. Inntil #52/#73 leverer valgt profil, viser siden at ingen testprofil er valgt. Dette arbeidet fullfører ikke #53 og innfører ikke innlogging eller lagring.
+
+Frontend-funksjonen `visProfil(bruker, innsjekkinger)` kan nå vise bruker og historikk, nyeste innsjekking først. `profilstatus(melding)` tømmer gammel profil/historikk og kan brukes ved lasting, feil eller utlogging. Begge er interne visningsfunksjoner, ikke et avtalt API.
+
+Foreløpig visningsformat, som må bekreftes/tilpasses sammen med #73:
+- Bruker: `user_id`, `username` (fra eksisterende datamodell).
+- Innsjekking: `user_id`, `match_id`, `checked_in_at` (fra nåværende Check_ins-mal).
+- Berikede visningsfelt: `home_club_name`, `away_club_name`, `stadium_name` (samme navn som kamp-API-et).
+
+Funksjonen viser bare rader som matcher valgt `user_id`, og erstatter gammel visning ved brukerbytte. Dette er kun visningslogikk: backend må fortsatt avgrense data før utsending. Ingen beskyttet brukerhistorikk er implementert eller påstått.
+
+Automatiske tester prøver to fiktive brukere, tom historikk, manglende data, tekst med HTML-tegn og tømming ved feil/utlogging. Manuell kontroll av oppsett på smal skjerm og faktisk backend-integrasjon gjenstår.

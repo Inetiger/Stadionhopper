@@ -66,22 +66,12 @@
 
     <section id="profil" class="side">
       <h1>Min profil</h1>
-      <h2>Kari</h2>
-      <p>kari@eksempel.no</p>
-      <button disabled>Logg ut</button>
+      <p id="profilstatus" role="status">Ingen testprofil er valgt. Profil kobles til senere.</p>
+      <h2 id="profilnavn"></h2>
       <h2>Mine innsjekkinger</h2>
-      <p>Nyeste besøk først · eksempel</p>
-      <article>
-        <h3>Eide og Omegn FK – Skåla IL</h3>
-        <p>3. oktober 2026<br>Eide kunstgressbane</p>
-        <button onclick="visKamp('Eide og Omegn FK – Skåla IL', '3. oktober 2026 · kl. 15.00', 'Eide kunstgressbane')">Åpne kampen →</button>
-      </article>
-      <article>
-        <h3>Gossen IL – Molde FK</h3>
-        <p>26. september 2026<br>Riksfjord Stadion</p>
-        <button onclick="visKamp('Gossen IL – Molde FK', '26. september 2026 · kl. 14.00', 'Riksfjord Stadion')">Åpne kampen →</button>
-      </article>
-      <button onclick="visSide('innlogging')">Vis innloggingssiden</button>
+      <div id="historikk"></div>
+      <button onclick="visSide('kamper')">Finn en kamp</button>
+      <button onclick="visSide('innlogging')">Velg testprofil</button>
     </section>
 
     <section id="feed" class="side">
