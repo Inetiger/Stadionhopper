@@ -6,7 +6,7 @@ const path = require('node:path');
 const { createServer } = require('../server');
 
 // Lite DOM-testmiljø: kontrollerer faktisk visningslogikk, ikke nettleserlayout.
-function frontend(fetch) {
+function frontend(fetch, hostname = 'localhost') {
   function element() {
     let tekst = '';
     return { style: {}, children: [], disabled: false,
@@ -21,7 +21,7 @@ function frontend(fetch) {
   const sider = [...html.matchAll(/id="([^"]+)" class="side"/g)].map(m => felter[m[1]]);
   const document = { getElementById: id => felter[id], getElementsByClassName: () => sider,
     createElement: element };
-  const context = vm.createContext({ document, fetch, Date, console });
+  const context = vm.createContext({ document, fetch, Date, console, location: { hostname } });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../script.js'), 'utf8'), context);
   return { context, felter };
 }
@@ -89,4 +89,30 @@ test('frontend sorts dates, handles missing fields, and treats club names as tex
   assert.match(kort[0].children[0].textContent, /Ukjent hjemmelag/);
   assert.match(kort[1].children[0].textContent, /<img/);
   assert.match(kort[0].children[1].textContent, /Stadion mangler/);
+});
+
+test('Pages demo uses project-relative JSON for matches, detail and posts, never the API', async () => {
+  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '../demo/data.json'), 'utf8'));
+  const requests = [];
+  const ui = frontend(async url => {
+    requests.push(new URL(url, 'https://inetiger.github.io/Stadionhopper/').pathname);
+    return { ok: true, json: async () => data };
+  }, 'inetiger.github.io');
+  await ferdig();
+  assert.match(ui.felter.demostatus.textContent, /ingen innlogging eller lagring/);
+  const kort = [...ui.felter.kommende.children, ...ui.felter.tidligere.children];
+  assert.equal(kort.length, data.matches.length);
+  kort[0].children[2].onclick();
+  await ferdig();
+  assert.equal(ui.felter.detaljnavn.textContent, kort[0].children[0].textContent);
+  const posts = await ui.context.hentData('/api/posts');
+  assert.equal(posts.posts[0].content, data.posts[0].content);
+  await assert.rejects(ui.context.hentData('/api/matches/99999'), /Fant ikke kampen/);
+  assert.ok(requests.every(url => url === '/Stadionhopper/demo/data.json'));
+});
+
+test('missing demo file shows error rather than claiming successful loading', async () => {
+  const ui = frontend(async () => ({ ok: false }), 'inetiger.github.io');
+  await ferdig();
+  assert.match(ui.felter.kampstatus.textContent, /Kunne ikke hente kamper/);
 });

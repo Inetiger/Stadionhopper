@@ -1,0 +1,40 @@
+{
+  "matches": [
+    {
+      "match_id": 1,
+      "match_date": "2026-10-24T13:00:00Z",
+      "home_club_name": "Molde FK",
+      "away_club_name": "Eide og Omegn FK",
+      "stadium_name": "Aker Stadion"
+    },
+    {
+      "match_id": 2,
+      "match_date": "2026-10-25T13:00:00Z",
+      "home_club_name": "Eide og Omegn FK",
+      "away_club_name": "Skåla IL",
+      "stadium_name": "Eide kunstgressbane"
+    },
+    {
+      "match_id": 3,
+      "match_date": "2026-10-03T13:00:00Z",
+      "home_club_name": "Skåla IL",
+      "away_club_name": "Gossen IL",
+      "stadium_name": "Våganebanen"
+    },
+    {
+      "match_id": 4,
+      "match_date": "2026-09-26T12:00:00Z",
+      "home_club_name": "Gossen IL",
+      "away_club_name": "Molde FK",
+      "stadium_name": "Riksfjord Stadion"
+    }
+  ],
+  "posts": [
+    {
+      "post_id": 1,
+      "author_name": "Testbruker",
+      "created_at": "2026-10-20T11:00:00Z",
+      "content": "Dette er et fiktivt innlegg til demonstrasjon."
+    }
+  ]
+}

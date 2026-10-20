@@ -62,3 +62,11 @@ Tests use temporary fixture files and do not modify the real files under `Databa
 ## Current limitations
 
 The UI still contains illustrative example content. Authentication, user-specific check-ins, profile history, and the social feed frontend/backend integration are not yet complete. Do not treat the example content as production data.
+
+## GitHub Pages-demo (#93)
+
+På https://inetiger.github.io/Stadionhopper/ bruker frontend **demo/data.json**, relativt til prosjektmappen. Filen har fiktive kamper/innlegg i samme visningsformat som API-et. En synlig melding viser at dette er demo uten innlogging og lagring. Demomodus velges bare for `inetiger.github.io`; lokal Node-kjøring bruker fortsatt API-et og viser reelle feilmeldinger. Det er ingen automatisk fallback fra API-feil til demodata.
+
+Kampoversikt og detaljer kan testes fra Pages etter review, merge og publisering. Feed bruker samme datatilgang når #57 er integrert. Lokal filåpning støttes ikke; bruk Node-serveren lokalt. Pages-demoen verifiserer ikke backend, autentisering eller lagring. Profil og andre uferdige eksempelvisninger er fortsatt plassholdere.
+
+Demo-datoene er faste fiktive datoer. Når tiden går, flyttes kampene automatisk til «Tidligere»; en tom «Kommende»-liste kan derfor være riktig.
