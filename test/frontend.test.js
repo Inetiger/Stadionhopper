@@ -6,7 +6,7 @@ const path = require('node:path');
 const { createServer } = require('../server');
 
 // Lite DOM-testmiljø: kontrollerer faktisk visningslogikk, ikke nettleserlayout.
-function frontend(fetch) {
+function frontend(fetch, hostname = 'localhost') {
   function element() {
     let tekst = '';
     return { style: {}, children: [], disabled: false,
@@ -21,7 +21,7 @@ function frontend(fetch) {
   const sider = [...html.matchAll(/id="([^"]+)" class="side"/g)].map(m => felter[m[1]]);
   const document = { getElementById: id => felter[id], getElementsByClassName: () => sider,
     createElement: element };
-  const context = vm.createContext({ document, fetch, Date, console });
+  const context = vm.createContext({ document, fetch, Date, console, location: { hostname } });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../script.js'), 'utf8'), context);
   return { context, felter };
 }
@@ -144,4 +144,29 @@ test('feed handles empty, failed and malformed replies; retry replaces previous 
   await ferdig();
   assert.equal(ui.felter.feedstatus.textContent, '');
   assert.equal(ui.felter.innlegg.children.length, 1);
+});
+
+test('GitHub Pages uses the static demo file for matches, details and social feed', async () => {
+  const demo = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'demo', 'data.json'), 'utf8'));
+  const requests = [];
+  const ui = frontend(async url => {
+    requests.push(url);
+    return { ok: true, json: async () => demo };
+  }, 'inetiger.github.io');
+
+  await ferdig();
+  assert.match(ui.felter.demostatus.textContent, /fiktive data/);
+  assert.equal(ui.felter.kommende.children.length + ui.felter.tidligere.children.length, demo.matches.length);
+  assert.ok(requests.every(url => url === 'demo/data.json'));
+
+  const kort = [...ui.felter.kommende.children, ...ui.felter.tidligere.children].find(item => item.children[2].onclick);
+  kort.children[2].onclick();
+  await ferdig();
+  assert.equal(ui.felter.detaljnavn.textContent, kort.children[0].textContent);
+
+  ui.context.visSide('feed');
+  await ferdig();
+  assert.equal(ui.felter.innlegg.children.length, demo.posts.length);
+  assert.equal(ui.felter.innlegg.children[0].children[0].textContent, demo.posts[0].author_name);
+  assert.ok(requests.every(url => url === 'demo/data.json'));
 });
