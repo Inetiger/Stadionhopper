@@ -1,0 +1,14 @@
+[
+  {
+    "post_id": 1,
+    "user_id": 1,
+    "content": "Dette er et fiktivt innlegg for å teste feeden.",
+    "created_at": "2026-10-20T10:00:00Z"
+  },
+  {
+    "post_id": 2,
+    "user_id": 1,
+    "content": "Et nyere testinnlegg.\nDenne teksten har to linjer.",
+    "created_at": "2026-10-20T11:00:00Z"
+  }
+]

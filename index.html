@@ -86,17 +86,9 @@
 
     <section id="feed" class="side">
       <h1>Sosial feed</h1>
-      <button class="mork" disabled>Skriv et innlegg</button>
-      <article>
-        <h3>Kari · 7. oktober</h3>
-        <p>Gleder meg til neste kamp på Våganebanen!<br>Er det flere som skal dit?</p>
-      </article>
-      <div class="bilde">Valgfritt bilde</div>
-      <article>
-        <h3>Ola · 6. oktober</h3>
-        <p>Fin stemning på Eide kunstgressbane sist helg.</p>
-      </article>
-      <p>Innlegg publiseres bevisst av brukeren.</p>
+      <p id="feedstatus" role="status"></p>
+      <button onclick="hentInnlegg()">Last innlegg på nytt</button>
+      <div id="innlegg"></div>
     </section>
 
     <section id="arrangementer" class="side">
