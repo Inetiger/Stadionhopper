@@ -251,7 +251,8 @@ async function hentProfilHistorikk() {
     profilstatus('Demoen har ingen profil-API eller lagring. Start backend lokalt for å teste historikk.');
     return;
   }
-  profilstatus('Laster profil og historikk …');
+  document.getElementById('historikk').textContent = '';
+  document.getElementById('profilstatus').textContent = 'Laster profil og historikk …';
   try {
     var svar = await fetch('/api/check-ins?username=' + encodeURIComponent(aktivBruker.username), { headers: { Accept: 'application/json' } });
     var data = await svar.json();
