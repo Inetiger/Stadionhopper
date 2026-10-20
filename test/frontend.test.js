@@ -238,3 +238,43 @@ test('test profile rejects long names and a fresh page has no active profile', (
   const ny = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
   assert.equal(ny.context.aktivBruker, null);
 });
+
+test('check-in blocks missing profile or backend and never claims storage happened', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.klargjorBesok();
+  assert.equal(ui.felter.bekreftbesok.disabled, true);
+  assert.match(ui.felter.besokstatus.textContent, /testprofil/);
+  ui.context.aktivBruker = { user_id: 'test:a', username: 'A' };
+  ui.context.valgtKamp = { match_id: 1 };
+  ui.context.klargjorBesok();
+  assert.equal(ui.felter.bekreftbesok.disabled, true);
+  assert.match(ui.felter.besokstatus.textContent, /ikke koblet til/);
+});
+
+test('check-in preserves selection on error, allows retry, blocks double submit and confirms after success', async () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.aktivBruker = { user_id: 'test:a', username: 'A' };
+  ui.context.valgtKamp = { match_id: 7 };
+  ui.context.lagreBesok = async () => { throw Error('testfeil'); };
+  await ui.context.bekreftBesok();
+  assert.match(ui.felter.besokstatus.textContent, /Kunne ikke lagre/);
+  assert.equal(ui.felter.bekreftbesok.disabled, false);
+  assert.equal(ui.context.valgtKamp.match_id, 7);
+  let ferdigLagring;
+  let antall = 0;
+  ui.context.lagreBesok = (bruker, id) => {
+    antall++;
+    assert.equal(bruker.username, 'A');
+    assert.equal(id, 7);
+    return new Promise(resolve => { ferdigLagring = resolve; });
+  };
+  const vent = ui.context.bekreftBesok();
+  assert.equal(ui.felter.bekreftbesok.disabled, true);
+  await ui.context.bekreftBesok();
+  assert.equal(antall, 1);
+  assert.match(ui.felter.besokstatus.textContent, /Lagrer/);
+  ferdigLagring();
+  await vent;
+  assert.match(ui.felter.besokstatus.textContent, /er bekreftet/);
+  assert.equal(ui.felter.bekreftbesok.disabled, true);
+});
