@@ -70,7 +70,9 @@ async function getPosts(dbDir) {
   return posts
     .filter(post => post.post_id != null &&
       typeof post.content === "string" && post.content.trim() !== "" &&
-      post.user_id != null)
+      post.user_id != null &&
+      users.some(user => user.user_id != null &&
+        String(user.user_id) === String(post.user_id)))
     .map(post => {
       const author = users.find(user => user.user_id != null &&
         String(user.user_id) === String(post.user_id));
