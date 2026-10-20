@@ -208,9 +208,9 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
 });
 
 test('test profile validates name, fetches real fixture users and clears old history', async () => {
-  const ui = frontend(async url => {
+  const ui = frontend(async (url, options) => {
     if (url === '/api/login') {
-      const { username } = JSON.parse(arguments[1]?.body || '{}');
+      const { username } = JSON.parse(options.body || '{}');
       return { ok: true, json: async () => ({ user: { user_id: username === 'Test A' ? 11 : 12, username } }) };
     }
     if (url === '/api/check-ins') return { ok: true, json: async () => ({ check_ins: [] }) };
