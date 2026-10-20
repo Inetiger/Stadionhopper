@@ -19,6 +19,17 @@ async function makeDb() {
     "Stadiums.json": [
       { stadium_id: 7, name: "Aker Stadion", address: "Molde" },
       { stadium_id: 8, name: "Eide kunstgressbane", adress: "Eide" }
+    ],
+    "Users.json": [
+      { user_id: 11, username: "kari" },
+      { user_id: 12, username: "ola" }
+    ],
+    "Posts.json": [
+      { post_id: 1, content: "  Første innlegg  ", created_at: "2026-10-10T12:00:00Z", user_id: 11 },
+      { post_id: 2, content: "Nyere innlegg", created_at: "2026-10-12T12:00:00Z", user_id: 12 },
+      { post_id: 3, content: "   ", created_at: "2026-10-13T12:00:00Z", user_id: 11 },
+      { post_id: 4, content: "Mangler forfatter", created_at: "2026-10-14T12:00:00Z", user_id: null },
+      { post_id: 5, content: "Ukjent bruker", created_at: "2026-10-15T12:00:00Z", user_id: 999 }
     ]
   };
   for (const [filename, rows] of Object.entries(tables)) {
@@ -68,4 +79,23 @@ test("returns one match by ID and a clear 404 for an unknown ID", async t => {
   const missing = await fetch(base + "/api/matches/999");
   assert.equal(missing.status, 404);
   assert.deepEqual(await missing.json(), { error: "Fant ikke kampen." });
+});
+
+
+test("lists valid social posts newest first with author names", async t => {
+  const dbDir = await makeDb();
+  const server = createServer({ dbDir });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  t.after(async () => {
+    await new Promise(resolve => server.close(resolve));
+    await fs.rm(dbDir, { recursive: true, force: true });
+  });
+
+  const response = await fetch("http://127.0.0.1:" + server.address().port + "/api/posts");
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.deepEqual(body.posts.map(post => post.post_id), [2, 1]);
+  assert.equal(body.posts[0].author_name, "ola");
+  assert.equal(body.posts[1].author_name, "kari");
+  assert.equal(body.posts[1].content, "Første innlegg");
 });
