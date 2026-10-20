@@ -205,3 +205,36 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
   assert.equal(ui.felter.innlegg.children[0].children[0].textContent, demo.posts[0].author_name);
   assert.ok(requests.every(url => url === 'demo/data.json'));
 });
+
+test('test profile validates name, switches and clears old history without authentication', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.felter.brukernavn.value = '   ';
+  ui.context.velgTestprofil();
+  assert.equal(ui.context.aktivBruker, null);
+  assert.match(ui.felter.brukerstatus.textContent, /Skriv et brukernavn/);
+  ui.felter.brukernavn.value = '  Test A  ';
+  ui.context.velgTestprofil();
+  assert.equal(ui.context.aktivBruker.username, 'Test A');
+  assert.equal(ui.felter.profilnavn.textContent, 'Test A');
+  assert.equal(ui.felter.profil.style.display, 'block');
+  ui.context.visProfil(ui.context.aktivBruker, [{ user_id: 'test:test a', home_club_name: 'Gammel historikk' }]);
+  ui.felter.brukernavn.value = '<b>Test B</b>';
+  ui.context.velgTestprofil();
+  assert.equal(ui.felter.profilnavn.textContent, '<b>Test B</b>');
+  assert.equal(ui.felter.historikk.children.length, 0);
+  assert.match(ui.felter.profilstatus.textContent, /ikke koblet til/);
+  ui.context.avsluttTestprofil();
+  assert.equal(ui.context.aktivBruker, null);
+  assert.equal(ui.felter.profilnavn.textContent, '');
+  assert.equal(ui.felter.brukernavn.value, '');
+  assert.equal(ui.felter.innlogging.style.display, 'block');
+});
+
+test('test profile rejects long names and a fresh page has no active profile', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.felter.brukernavn.value = 'x'.repeat(41);
+  ui.context.velgTestprofil();
+  assert.equal(ui.context.aktivBruker, null);
+  const ny = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  assert.equal(ny.context.aktivBruker, null);
+});
