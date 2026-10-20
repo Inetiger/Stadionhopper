@@ -112,7 +112,7 @@ Bekreftelsesflyten støtter valgt testprofil/kamp, venting, feil med nytt forsø
 
 `lagreBesok(testprofil, match_id)` er en intern kobling, ikke en avtalt HTTP-kontrakt. #55 må levere et Promise som kun fullføres ved faktisk lagring og avvises ved feil. Frontend-testprofilens ID må avstemmes med backend. Ingen alternativ lokal lagring eller falsk bekreftelse er lagt til.
 
-Faktisk lagring, oppdatert historikk og manuell nettlesertest gjenstår før #56 kan lukkes.
+Frontend bruker nå API-et for faktisk lagring og oppdatert historikk. Manuell nettlesertest og PR-review gjenstår før #56 kan lukkes.
 
 
 ## Prototyp-API for profil og innsjekking (#55 / #73)
@@ -134,4 +134,4 @@ GitHub Pages kan ikke kjøre Node.js. For å teste lagring må frontend og API k
 
 ## Fortsett valgt besøk etter testprofilvalg (#56)
 
-Uten valgt testprofil: velg kamp → Se besøk → skriv fiktivt brukernavn → Velg testprofil. Du kommer tilbake til bekreftelsen for samme kamp og stadion. Ugyldig navn beholder påbegynt flyt. «Utforsk kamper uten innlogging» avbryter videreføringen; avslutning av testprofil tømmer også kampvalget. Lagringsknappen er fortsatt deaktivert uten #55. Dette fullfører bare profilovergangen beskrevet i Deliverable 2 kapittel 6, ikke faktisk lagring/historikk.
+Uten valgt testprofil: velg kamp → Se besøk → skriv fiktivt brukernavn → Velg testprofil. Du kommer tilbake til bekreftelsen for samme kamp og stadion. Ugyldig navn beholder påbegynt flyt. «Utforsk kamper uten innlogging» avbryter videreføringen; avslutning av testprofil tømmer også kampvalget. Når lokal backend kjører med `test/fixtures`, kan brukeren bekrefte innsjekking og se den i historikken. Dette er kun en prototypeflyt uten autentisering; manuell nettlesertest og PR-review gjenstår.
