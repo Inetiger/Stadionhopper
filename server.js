@@ -239,8 +239,9 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
 
       return sendJson(res, 404, { error: "Ukjent endepunkt." });
     } catch (error) {
-      const status = error instanceof SyntaxError ? 500 : error.code === "ENOENT" ? 500 : 500;
-      return sendJson(res, status, { error: "Kunne ikke lese data." });
+      const status = error.statusCode || 500;
+      const message = status === 400 || status === 413 ? error.message : "Kunne ikke lese data.";
+      return sendJson(res, status, { error: message });
     }
   });
 }
