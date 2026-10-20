@@ -120,4 +120,12 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
   });
 }
 
+if (require.main === module) {
+  const port = Number(process.env.PORT) || 3000;
+  const server = createServer();
+  server.listen(port, () => {
+    console.log(`Stadionhopper API listening on http://localhost:${port}`);
+  });
+}
+
 module.exports = { createServer, parseTable, getMatches, getPosts };
