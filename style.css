@@ -38,3 +38,5 @@ nav button { border: 0; padding: 14px 4px; font-size: 13px; }
 .side, #tidligere { display: none; }
 
 #innlegg p { overflow-wrap: anywhere; white-space: pre-wrap; }
+
+#profilnavn, #historikk { overflow-wrap: anywhere; }

@@ -159,3 +159,44 @@ function hentInnlegg() {
     if (kall === feedkall) status.textContent = 'Kunne ikke hente innlegg. Prøv på nytt.';
   });
 }
+
+// Visningsfunksjoner for #53. Backend-kobling avklares i #52/#73.
+function profilstatus(melding) {
+  document.getElementById('profilnavn').textContent = '';
+  document.getElementById('historikk').textContent = '';
+  document.getElementById('profilstatus').textContent = melding;
+}
+
+function visProfil(bruker, innsjekkinger) {
+  profilstatus('');
+  if (!bruker || bruker.user_id == null) {
+    profilstatus('Ingen testprofil er valgt. Velg en testprofil først.');
+    return;
+  }
+  if (!Array.isArray(innsjekkinger)) {
+    profilstatus('Kunne ikke vise historikken. Prøv igjen senere.');
+    return;
+  }
+  document.getElementById('profilnavn').textContent = bruker.username || 'Ukjent brukernavn';
+  // Lokal avgrensning er ekstra kontroll, ikke autentisering eller tilgangsvern.
+  var egne = innsjekkinger.filter(function(besok) {
+    return besok && besok.user_id != null && String(besok.user_id) === String(bruker.user_id);
+  });
+  egne.sort(function(a, b) {
+    return String(b.checked_in_at || '').localeCompare(String(a.checked_in_at || ''));
+  });
+  var liste = document.getElementById('historikk');
+  if (!egne.length) liste.textContent = 'Ingen kampbesøk ennå.';
+  egne.forEach(function(besok) {
+    var kort = document.createElement('article');
+    var navn = document.createElement('h3');
+    var info = document.createElement('p');
+    var dato = new Date(besok.checked_in_at || '');
+    navn.textContent = kampnavn(besok);
+    info.textContent = (isNaN(dato.getTime()) ? 'Besøksdato mangler' : dato.toLocaleString('nb-NO')) +
+      ' · ' + (besok.stadium_name || 'Stadion mangler');
+    kort.appendChild(navn);
+    kort.appendChild(info);
+    liste.appendChild(kort);
+  });
+}

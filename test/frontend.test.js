@@ -146,6 +146,39 @@ test('feed handles empty, failed and malformed replies; retry replaces previous 
   assert.equal(ui.felter.innlegg.children.length, 1);
 });
 
+test('profile switches between two users without retaining the previous history', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  const visits = [
+    { user_id: 1, checked_in_at: '2026-10-01', home_club_name: 'Eldre', stadium_name: 'Testbane' },
+    { user_id: 2, checked_in_at: '2026-10-03', home_club_name: 'Annen bruker' },
+    { user_id: 1, checked_in_at: '2026-10-02', home_club_name: '<img onerror=alert(1)>' }
+  ];
+  ui.context.visProfil({ user_id: 1, username: 'Test A' }, visits);
+  assert.equal(ui.felter.profilnavn.textContent, 'Test A');
+  assert.equal(ui.felter.historikk.children.length, 2);
+  assert.match(ui.felter.historikk.children[0].children[0].textContent, /<img/);
+  ui.context.visProfil({ user_id: 2, username: 'Test B' }, visits);
+  assert.equal(ui.felter.profilnavn.textContent, 'Test B');
+  assert.equal(ui.felter.historikk.children.length, 1);
+  assert.match(ui.felter.historikk.children[0].children[0].textContent, /Annen bruker/);
+  ui.context.visProfil({ user_id: 2, username: 'Test B' }, []);
+  assert.equal(ui.felter.historikk.textContent, 'Ingen kampbesøk ennå.');
+  ui.context.profilstatus('Laster profil …');
+  assert.equal(ui.felter.profilnavn.textContent, '');
+  assert.equal(ui.felter.historikk.children.length, 0);
+});
+
+test('profile clears stale data on missing user or invalid history and handles absent fields', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.visProfil({ user_id: 1 }, [{ user_id: 1 }]);
+  assert.equal(ui.felter.profilnavn.textContent, 'Ukjent brukernavn');
+  assert.match(ui.felter.historikk.children[0].children[1].textContent, /Besøksdato mangler/);
+  ui.context.visProfil(null, []);
+  assert.match(ui.felter.profilstatus.textContent, /Ingen testprofil/);
+  assert.equal(ui.felter.historikk.children.length, 0);
+  ui.context.visProfil({ user_id: 1 }, null);
+  assert.match(ui.felter.profilstatus.textContent, /Kunne ikke vise/);
+  assert.equal(ui.felter.profilnavn.textContent, '');
 test('GitHub Pages uses the static demo file for matches, details and social feed', async () => {
   const demo = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'demo', 'data.json'), 'utf8'));
   const requests = [];
