@@ -132,3 +132,7 @@ Prototypen har foreløpig **ingen autentisering**. Endepunktene bruker et fiktiv
 - Innsjekkinger lagres i \`Check_ins.json\` i valgt datakatalog. Kampens stadionnavn og klubbnavn hentes fra kampdata, ikke fra klientens input.
 
 GitHub Pages kan ikke kjøre Node.js. For å teste lagring må frontend og API kjøre i et lokalt eller publisert testoppsett. Når autentisering prioriteres, må brukeridentiteten hentes fra en verifisert serverøkt, ikke fra en klientparameter.
+
+## Fortsett valgt besøk etter testprofilvalg (#56)
+
+Uten valgt testprofil: velg kamp → Se besøk → skriv fiktivt brukernavn → Velg testprofil. Du kommer tilbake til bekreftelsen for samme kamp og stadion. Ugyldig navn beholder påbegynt flyt. «Utforsk kamper uten innlogging» avbryter videreføringen; avslutning av testprofil tømmer også kampvalget. Lagringsknappen er fortsatt deaktivert uten #55. Dette fullfører bare profilovergangen beskrevet i Deliverable 2 kapittel 6, ikke faktisk lagring/historikk.

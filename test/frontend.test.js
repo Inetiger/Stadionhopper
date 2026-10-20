@@ -48,6 +48,7 @@ test('frontend uses real API fixtures, selects by ID and shows correct details',
   assert.equal(ui.felter.detaljstatus.textContent, '');
   assert.ok(requests.includes('/api/matches/100'));
   assert.equal(ui.felter.detaljnavn.textContent, kort[0].children[0].textContent);
+  ui.context.aktivBruker = { user_id: 'test:a', username: 'A' };
   ui.context.visValgtBesok();
   assert.equal(ui.felter.kampnavn.textContent, ui.felter.detaljnavn.textContent);
   assert.equal(ui.felter.innsjekking.style.display, 'block');
@@ -277,4 +278,36 @@ test('check-in preserves selection on error, allows retry, blocks double submit 
   await vent;
   assert.match(ui.felter.besokstatus.textContent, /er bekreftet/);
   assert.equal(ui.felter.bekreftbesok.disabled, true);
+});
+
+
+test('selected match survives profile selection and resumes check-in confirmation', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.valgtKamp = { match_id: 7, home_club_name: 'Testlag', stadium_name: 'Testbane' };
+  ui.context.visValgtBesok();
+  assert.equal(ui.felter.innlogging.style.display, 'block');
+  assert.equal(ui.context.valgtKamp.match_id, 7);
+  ui.felter.brukernavn.value = '  ';
+  ui.context.velgTestprofil();
+  assert.equal(ui.context.ventendeBesok, true);
+  ui.felter.brukernavn.value = 'Test';
+  ui.context.velgTestprofil();
+  assert.equal(ui.felter.innsjekking.style.display, 'block');
+  assert.equal(ui.felter.stadionnavn.textContent, 'Testbane');
+  assert.match(ui.felter.kampnavn.textContent, /Testlag/);
+  assert.equal(ui.context.ventendeBesok, false);
+  assert.equal(ui.felter.bekreftbesok.disabled, true); // No pretend storage.
+});
+
+test('cancelled check-in does not unexpectedly resume after profile selection', () => {
+  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.valgtKamp = { match_id: 7 };
+  ui.context.visValgtBesok();
+  ui.context.avbrytBesok();
+  ui.felter.brukernavn.value = 'Test';
+  ui.context.velgTestprofil();
+  assert.equal(ui.felter.profil.style.display, 'block');
+  ui.context.avsluttTestprofil();
+  assert.equal(ui.context.valgtKamp, null);
+  assert.equal(ui.context.ventendeBesok, false);
 });
