@@ -2,7 +2,8 @@ const { randomBytes, timingSafeEqual } = require("node:crypto");
 
 // Kun fiktive kontoer for lokal prototype. Ikke bruk disse legitimasjonene i produksjon.
 const TEST_USERS = Object.freeze([
-  { username: "Testbruker", password: "hopper123" }
+  { username: "Testbruker", password: "hopper123" },
+  { username: "Testbruker2", password: "hopper456" }
 ]);
 
 const SESSION_TTL_MS = 2 * 60 * 60 * 1000;
