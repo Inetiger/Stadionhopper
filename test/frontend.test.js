@@ -207,23 +207,30 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
   assert.ok(requests.every(url => url === 'demo/data.json'));
 });
 
-test('test profile validates name, switches and clears old history without authentication', () => {
-  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+test('test profile validates name, fetches real fixture users and clears old history', async () => {
+  const ui = frontend(async url => {
+    if (url.startsWith('/api/profile?username=')) {
+      const username = decodeURIComponent(url.split('=')[1]);
+      return { ok: true, json: async () => ({ user: { user_id: username === 'Test A' ? 11 : 12, username } }) };
+    }
+    if (url.startsWith('/api/check-ins?username=')) return { ok: true, json: async () => ({ check_ins: [] }) };
+    return { ok: true, json: async () => ({ matches: [] }) };
+  });
   ui.felter.brukernavn.value = '   ';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.context.aktivBruker, null);
   assert.match(ui.felter.brukerstatus.textContent, /Skriv et brukernavn/);
   ui.felter.brukernavn.value = '  Test A  ';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.context.aktivBruker.username, 'Test A');
   assert.equal(ui.felter.profilnavn.textContent, 'Test A');
   assert.equal(ui.felter.profil.style.display, 'block');
   ui.context.visProfil(ui.context.aktivBruker, [{ user_id: 'test:test a', home_club_name: 'Gammel historikk' }]);
   ui.felter.brukernavn.value = '<b>Test B</b>';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.felter.profilnavn.textContent, '<b>Test B</b>');
   assert.equal(ui.felter.historikk.children.length, 0);
-  assert.match(ui.felter.profilstatus.textContent, /ikke koblet til/);
+  assert.match(ui.felter.profilstatus.textContent, /Testprofil fra backend/);
   ui.context.avsluttTestprofil();
   assert.equal(ui.context.aktivBruker, null);
   assert.equal(ui.felter.profilnavn.textContent, '');
@@ -231,10 +238,10 @@ test('test profile validates name, switches and clears old history without authe
   assert.equal(ui.felter.innlogging.style.display, 'block');
 });
 
-test('test profile rejects long names and a fresh page has no active profile', () => {
+test('test profile rejects long names and a fresh page has no active profile', async () => {
   const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
   ui.felter.brukernavn.value = 'x'.repeat(41);
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.context.aktivBruker, null);
   const ny = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
   assert.equal(ny.context.aktivBruker, null);
@@ -248,8 +255,8 @@ test('check-in blocks missing profile or backend and never claims storage happen
   ui.context.aktivBruker = { user_id: 'test:a', username: 'A' };
   ui.context.valgtKamp = { match_id: 1 };
   ui.context.klargjorBesok();
-  assert.equal(ui.felter.bekreftbesok.disabled, true);
-  assert.match(ui.felter.besokstatus.textContent, /ikke koblet til/);
+  assert.equal(ui.felter.bekreftbesok.disabled, false);
+  assert.match(ui.felter.besokstatus.textContent, /Kontroller kamp/);
 });
 
 test('check-in preserves selection on error, allows retry, blocks double submit and confirms after success', async () => {
@@ -281,17 +288,21 @@ test('check-in preserves selection on error, allows retry, blocks double submit 
 });
 
 
-test('selected match survives profile selection and resumes check-in confirmation', () => {
-  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+test('selected match survives profile selection and resumes check-in confirmation', async () => {
+  const ui = frontend(async url => url.startsWith('/api/profile?username=')
+    ? { ok: true, json: async () => ({ user: { user_id: 11, username: 'Test' } }) }
+    : url.startsWith('/api/check-ins?username=')
+      ? { ok: true, json: async () => ({ check_ins: [] }) }
+      : { ok: true, json: async () => ({ matches: [] }) });
   ui.context.valgtKamp = { match_id: 7, home_club_name: 'Testlag', stadium_name: 'Testbane' };
   ui.context.visValgtBesok();
   assert.equal(ui.felter.innlogging.style.display, 'block');
   assert.equal(ui.context.valgtKamp.match_id, 7);
   ui.felter.brukernavn.value = '  ';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.context.ventendeBesok, true);
   ui.felter.brukernavn.value = 'Test';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.felter.innsjekking.style.display, 'block');
   assert.equal(ui.felter.stadionnavn.textContent, 'Testbane');
   assert.match(ui.felter.kampnavn.textContent, /Testlag/);
@@ -299,13 +310,17 @@ test('selected match survives profile selection and resumes check-in confirmatio
   assert.equal(ui.felter.bekreftbesok.disabled, true); // No pretend storage.
 });
 
-test('cancelled check-in does not unexpectedly resume after profile selection', () => {
-  const ui = frontend(async () => ({ ok: true, json: async () => ({ matches: [] }) }));
+test('cancelled check-in does not unexpectedly resume after profile selection', async () => {
+  const ui = frontend(async url => url.startsWith('/api/profile?username=')
+    ? { ok: true, json: async () => ({ user: { user_id: 11, username: 'Test' } }) }
+    : url.startsWith('/api/check-ins?username=')
+      ? { ok: true, json: async () => ({ check_ins: [] }) }
+      : { ok: true, json: async () => ({ matches: [] }) });
   ui.context.valgtKamp = { match_id: 7 };
   ui.context.visValgtBesok();
   ui.context.avbrytBesok();
   ui.felter.brukernavn.value = 'Test';
-  ui.context.velgTestprofil();
+  await ui.context.velgTestprofil();
   assert.equal(ui.felter.profil.style.display, 'block');
   ui.context.avsluttTestprofil();
   assert.equal(ui.context.valgtKamp, null);
