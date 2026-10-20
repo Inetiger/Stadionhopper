@@ -21,6 +21,7 @@ async function makeDb() {
       { stadium_id: 8, name: "Eide kunstgressbane", adress: "Eide" }
     ],
     "Users.json": [
+      { user_id: 1, username: "Testbruker" },
       { user_id: 11, username: "kari" },
       { user_id: 12, username: "ola" }
     ],
@@ -102,7 +103,16 @@ test("lists valid social posts newest first with author names", async t => {
 });
 
 
-test("profile/check-in API persists valid check-ins and isolates user histories", async t => {
+async function login(base, username = "Testbruker", password = "hopper123") {
+  const response = await fetch(base + "/api/login", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password })
+  });
+  const cookieHeader = response.headers.get("set-cookie");
+  return { response, cookie: cookieHeader ? cookieHeader.split(";")[0] : "" };
+}
+
+test("profile and check-in APIs require a session and isolate identity from client input", async t => {
   const dbDir = await makeDb();
   const server = createServer({ dbDir });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
@@ -112,44 +122,60 @@ test("profile/check-in API persists valid check-ins and isolates user histories"
   });
   const base = "http://127.0.0.1:" + server.address().port;
 
-  let response = await fetch(base + "/api/profile?username=kari");
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { user: { user_id: 11, username: "kari" } });
-  assert.equal((await fetch(base + "/api/profile?username=unknown")).status, 404);
+  assert.equal((await fetch(base + "/api/profile?username=kari")).status, 401);
+  assert.equal((await fetch(base + "/api/check-ins?username=kari")).status, 401);
+  const badLogin = await login(base, "Testbruker", "wrong-password");
+  assert.equal(badLogin.response.status, 401);
+  assert.equal((await fetch(base + "/api/session")).status, 401);
 
-  response = await fetch(base + "/api/check-ins?username=ola");
+  const signedIn = await login(base);
+  assert.equal(signedIn.response.status, 200);
+  assert.match(signedIn.cookie, /^stadionhopper_session=/);
+  assert.match(signedIn.response.headers.get("set-cookie"), /HttpOnly/);
+  assert.match(signedIn.response.headers.get("set-cookie"), /SameSite=Lax/);
+  const headers = { Cookie: signedIn.cookie, Accept: "application/json" };
+
+  let response = await fetch(base + "/api/session", { headers });
+  assert.equal(response.status, 200);
+  assert.deepEqual((await response.json()).user, { user_id: 1, username: "Testbruker" });
+
+  response = await fetch(base + "/api/profile?username=kari", { headers });
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { user: { user_id: 1, username: "Testbruker" } });
+
+  response = await fetch(base + "/api/check-ins?username=kari", { headers });
   assert.equal(response.status, 200);
   assert.deepEqual((await response.json()).check_ins, []);
 
   response = await fetch(base + "/api/check-ins", {
-    method: "POST", headers: { "Content-Type": "application/json" },
+    method: "POST", headers: { ...headers, "Content-Type": "application/json" },
     body: JSON.stringify({ username: "kari", match_id: 1 })
   });
   assert.equal(response.status, 201);
   const created = (await response.json()).check_in;
-  assert.equal(created.user_id, 11);
+  assert.equal(created.user_id, 1, "client-supplied username must not select the owner");
   assert.equal(created.match_id, 1);
   assert.equal(created.stadium_name, "Aker Stadion");
   assert.ok(created.checked_in_at);
 
   const persisted = JSON.parse(await fs.readFile(path.join(dbDir, "Check_ins.json"), "utf8"));
   assert.equal(persisted.length, 1);
-  assert.equal(persisted[0].match_id, 1);
-
-  response = await fetch(base + "/api/check-ins?username=kari");
-  assert.equal(response.status, 200);
-  assert.equal((await response.json()).check_ins.length, 1);
-  response = await fetch(base + "/api/check-ins?username=ola");
-  assert.deepEqual((await response.json()).check_ins, []);
+  assert.equal(persisted[0].user_id, 1);
 
   response = await fetch(base + "/api/check-ins", {
-    method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: "kari", match_id: 1 })
+    method: "POST", headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "Testbruker", match_id: 1 })
   });
   assert.equal(response.status, 409);
+
+  response = await fetch(base + "/api/logout", { method: "POST", headers });
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("set-cookie"), /Max-Age=0/);
+  assert.equal((await fetch(base + "/api/profile", { headers })).status, 401);
+  assert.equal((await fetch(base + "/api/check-ins", { headers })).status, 401);
 });
 
-test("check-in API rejects unknown users/matches and invalid IDs with expected status", async t => {
+test("check-in API validates match IDs after authenticating the session", async t => {
   const dbDir = await makeDb();
   const server = createServer({ dbDir });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
@@ -158,19 +184,22 @@ test("check-in API rejects unknown users/matches and invalid IDs with expected s
     await fs.rm(dbDir, { recursive: true, force: true });
   });
   const base = "http://127.0.0.1:" + server.address().port;
+  const { response: loginResponse, cookie } = await login(base);
+  assert.equal(loginResponse.status, 200);
   const post = body => fetch(base + "/api/check-ins", {
-    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+    method: "POST",
+    headers: { Cookie: cookie, "Content-Type": "application/json" },
+    body: JSON.stringify(body)
   });
-  assert.equal((await post({ username: "unknown", match_id: 1 })).status, 404);
-  assert.equal((await post({ username: "kari", match_id: 999 })).status, 404);
-  assert.equal((await post({ username: "kari", match_id: "nope" })).status, 400);
-  assert.equal((await post({ username: "kari", match_id: -1 })).status, 400);
-  assert.equal((await post({ username: "kari", match_id: 1.5 })).status, 400);
+  assert.equal((await post({ match_id: 999 })).status, 404);
+  assert.equal((await post({ match_id: "nope" })).status, 400);
+  assert.equal((await post({ match_id: -1 })).status, 400);
+  assert.equal((await post({ match_id: 1.5 })).status, 400);
   assert.equal((await post(null)).status, 400);
-  assert.equal((await post({ username: "kari", match_id: 1 })).status, 201);
+  assert.equal((await post({ match_id: 1 })).status, 201);
 });
 
-test("check-in API reports malformed JSON as 400", async t => {
+test("check-in API reports malformed JSON as 400 for an authenticated user", async t => {
   const dbDir = await makeDb();
   const server = createServer({ dbDir });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
@@ -178,8 +207,10 @@ test("check-in API reports malformed JSON as 400", async t => {
     await new Promise(resolve => server.close(resolve));
     await fs.rm(dbDir, { recursive: true, force: true });
   });
-  const response = await fetch("http://127.0.0.1:" + server.address().port + "/api/check-ins", {
-    method: "POST", headers: { "Content-Type": "application/json" }, body: "{"
+  const base = "http://127.0.0.1:" + server.address().port;
+  const { cookie } = await login(base);
+  const response = await fetch(base + "/api/check-ins", {
+    method: "POST", headers: { Cookie: cookie, "Content-Type": "application/json" }, body: "{"
   });
   assert.equal(response.status, 400);
 });
