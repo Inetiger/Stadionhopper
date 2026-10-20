@@ -85,6 +85,92 @@ async function getPosts(dbDir) {
     .sort((a, b) => String(b.created_at ?? "").localeCompare(String(a.created_at ?? "")));
 }
 
+
+async function getUser(dbDir, username) {
+  if (typeof username !== "string" || !username.trim() || username.trim().length > 40) return null;
+  const users = await readTable(dbDir, "Users.json");
+  return users.find(user => typeof user.username === "string" &&
+    user.username.toLowerCase() === username.trim().toLowerCase()) ?? null;
+}
+
+async function getCheckins(dbDir, user) {
+  let checkins = [];
+  try {
+    checkins = await readTable(dbDir, "Check_ins.json");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  const matches = await getMatches(dbDir);
+  return checkins
+    .filter(item => item.user_id != null && String(item.user_id) === String(user.user_id))
+    .map(item => {
+      const match = matches.find(row => String(row.match_id) === String(item.match_id));
+      return {
+        check_in_id: item.check_in_id,
+        checked_in_at: item.checked_in_at,
+        user_id: item.user_id,
+        match_id: item.match_id,
+        match_date: match?.match_date ?? null,
+        status: match?.status ?? null,
+        home_club_name: match?.home_club_name ?? null,
+        away_club_name: match?.away_club_name ?? null,
+        stadium_id: match?.stadium_id ?? null,
+        stadium_name: match?.stadium_name ?? null,
+        stadium_address: match?.stadium_address ?? null
+      };
+    })
+    .sort((a, b) => String(b.checked_in_at ?? "").localeCompare(String(a.checked_in_at ?? "")));
+}
+
+async function saveCheckins(dbDir, rows) {
+  await fs.mkdir(dbDir, { recursive: true });
+  await fs.writeFile(path.join(dbDir, "Check_ins.json"), JSON.stringify(rows, null, 2) + "\n", "utf8");
+}
+
+async function readRequestJson(req) {
+  let raw = "";
+  for await (const chunk of req) {
+    raw += chunk;
+    if (raw.length > 16_384) throw Object.assign(new Error("Forespørselen er for stor."), { statusCode: 413 });
+  }
+  try {
+    return JSON.parse(raw || "{}");
+  } catch {
+    throw Object.assign(new Error("Ugyldig JSON i forespørselen."), { statusCode: 400 });
+  }
+}
+
+async function createCheckin(dbDir, username, matchId) {
+  const user = await getUser(dbDir, username);
+  if (!user) return { status: 404, body: { error: "Fant ikke testprofilen." } };
+  if ((typeof matchId !== "number" && typeof matchId !== "string") ||
+      String(matchId).trim() === "" || !/^\\d+$/.test(String(matchId))) {
+    return { status: 400, body: { error: "Ugyldig kamp-ID." } };
+  }
+  const matches = await getMatches(dbDir);
+  const match = matches.find(item => String(item.match_id) === String(matchId));
+  if (!match) return { status: 404, body: { error: "Fant ikke kampen." } };
+  let rows = [];
+  try {
+    rows = await readTable(dbDir, "Check_ins.json");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  const duplicate = rows.find(row => String(row.user_id) === String(user.user_id) &&
+    String(row.match_id) === String(match.match_id));
+  if (duplicate) return { status: 409, body: { error: "Du har allerede sjekket inn på denne kampen." } };
+  const nextId = rows.reduce((max, row) => Math.max(max, Number(row.check_in_id) || 0), 0) + 1;
+  const checkin = {
+    check_in_id: nextId,
+    checked_in_at: new Date().toISOString(),
+    user_id: user.user_id,
+    match_id: match.match_id
+  };
+  rows.push(checkin);
+  await saveCheckins(dbDir, rows);
+  return { status: 201, body: { check_in: (await getCheckins(dbDir, user))[0] } };
+}
+
 function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR } = {}) {
   return http.createServer(async (req, res) => {
     const pathname = new URL(req.url, "http://localhost").pathname;
@@ -102,6 +188,30 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
         res.writeHead(200, { "Content-Type": type + "; charset=utf-8",
           "X-Content-Type-Options": "nosniff" });
         return res.end(innhold);
+      }
+
+
+      // Prototyp-API: identiteten velges med brukernavn, uten autentisering.
+      // Ikke bruk denne mekanismen for ekte kontoer eller produksjonsdata.
+      if (req.method === "GET" && pathname === "/api/profile") {
+        const user = await getUser(dbDir, new URL(req.url, "http://localhost").searchParams.get("username"));
+        return user
+          ? sendJson(res, 200, { user: { user_id: user.user_id, username: user.username } })
+          : sendJson(res, 404, { error: "Fant ikke testprofilen." });
+      }
+
+      if (req.method === "GET" && pathname === "/api/check-ins") {
+        const username = new URL(req.url, "http://localhost").searchParams.get("username");
+        const user = await getUser(dbDir, username);
+        return user
+          ? sendJson(res, 200, { check_ins: await getCheckins(dbDir, user) })
+          : sendJson(res, 404, { error: "Fant ikke testprofilen." });
+      }
+
+      if (req.method === "POST" && pathname === "/api/check-ins") {
+        const input = await readRequestJson(req);
+        const result = await createCheckin(dbDir, input.username, input.match_id);
+        return sendJson(res, result.status, result.body);
       }
 
       if (req.method === "GET" && pathname === "/api/matches") {
@@ -143,4 +253,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { createServer, parseTable, getMatches, getPosts };
+module.exports = { createServer, parseTable, getMatches, getPosts, getUser, getCheckins, createCheckin };
