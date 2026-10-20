@@ -13,16 +13,16 @@
     <small id="demostatus">Visningsmodell · fiktive kamper og arrangementer</small>
 
     <section id="innlogging" class="side">
-      <h1>Velg testprofil</h1>
-      <p>Logg inn med en fiktiv testkonto. Dette er en lokal prototype, ikke produksjonsinnlogging.</p>
+      <h1>Utforsk Stadionhopper</h1>
+      <p>Du kan utforske kamper, stadionkart og arrangementer uten å logge inn.</p>
       <p id="innlogginginfo" role="status" class="varsel">Innlogging krever at den lokale backend-en kjører og at testkontoer er konfigurert. Hvis du ikke kan logge inn, kan du utforske kamper, kart og arrangementer uten innlogging.</p>
       <label for="brukernavn">Brukernavn</label>
       <input id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
       <label for="passord">Passord</label>
       <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Passord for testkonto">
-      <button class="mork" onclick="velgTestprofil()">Logg inn</button>
+      <button id="loginbutton" class="mork" onclick="velgTestprofil()">Logg inn</button>
       <p id="brukerstatus" role="status"></p>
-      <button onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
+      <button id="utforskknapp" class="utforsk" onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
       <small>Ingen standardkontoer følger med. Se README for å opprette lokale testkontoer.</small>
     </section>
 
