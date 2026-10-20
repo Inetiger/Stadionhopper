@@ -232,7 +232,7 @@ test('test profile validates name, fetches real fixture users and clears old his
   await ferdig();
   assert.equal(ui.felter.profilnavn.textContent, '<b>Test B</b>');
   assert.equal(ui.felter.historikk.children.length, 0);
-  assert.match(ui.felter.profilstatus.textContent, /Testprofil fra backend/);
+  assert.equal(ui.felter.profilstatus.textContent, ''); // Historikken er lastet fra backend.
   ui.context.avsluttTestprofil();
   assert.equal(ui.context.aktivBruker, null);
   assert.equal(ui.felter.profilnavn.textContent, '');
