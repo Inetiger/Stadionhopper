@@ -27,6 +27,6 @@ test('profile history is loaded from the active session and isolated between two
   await waitFor(() => ui.felter.historikk.children.length === 1 &&
     ui.felter.historikk.children[0].children[0].textContent !== firstUserMatch);
   assert.equal(ui.felter.profilnavn.textContent, 'Testbruker2');
-  assert.match(ui.felter.historikk.children[0].children[1].textContent, /Riksfjord Stadion/);
+  assert.match(ui.felter.historikk.children[0].children[1].textContent, /Eide kunstgressbane/);
   assert.notEqual(ui.felter.historikk.children[0].children[0].textContent, firstUserMatch);
 });
