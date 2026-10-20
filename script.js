@@ -6,6 +6,7 @@ function visSide(navn) {
   }
   document.getElementById(navn).style.display = 'block';
   if (navn === 'feed') hentInnlegg();
+  if (navn === 'profil') hentProfilHistorikk();
 }
 
 function visKamper(navn) {
@@ -168,7 +169,7 @@ function hentInnlegg() {
   });
 }
 
-// Visningsfunksjoner for #53. Backend-kobling avklares i #52/#73.
+// Profil og historikk hentes fra backend når lokal API er tilgjengelig.
 function profilstatus(melding) {
   document.getElementById('profilnavn').textContent = '';
   document.getElementById('historikk').textContent = '';
@@ -209,23 +210,57 @@ function visProfil(bruker, innsjekkinger) {
   });
 }
 
-// Midlertidig testprofil i fanens minne. Ingen autentisering eller lagring.
+// Brukeren kommer fra API-fixtures, ikke fra en klientgenerert ID. Dette er fortsatt ikke autentisering.
 var aktivBruker = null;
-function velgTestprofil() {
+async function velgTestprofil() {
   var navn = document.getElementById('brukernavn').value.trim();
   var status = document.getElementById('brukerstatus');
   if (!navn || navn.length > 40) {
     status.textContent = 'Skriv et brukernavn på 1–40 tegn.';
     return;
   }
-  aktivBruker = { user_id: 'test:' + navn.toLowerCase(), username: navn };
-  status.textContent = '';
-  profilstatus('Testprofil i denne fanen. Historikk og lagring er ikke koblet til ennå.');
-  document.getElementById('profilnavn').textContent = navn;
-  if (ventendeBesok && valgtKamp) {
-    ventendeBesok = false;
-    visValgtBesok();
-  } else visSide('profil');
+  if (demomodus) {
+    status.textContent = 'Demoen støtter ikke profilvalg eller lagring. Start backend lokalt for å teste dette.';
+    return;
+  }
+  status.textContent = 'Henter testprofil …';
+  try {
+    var svar = await fetch('/api/profile?username=' + encodeURIComponent(navn), { headers: { Accept: 'application/json' } });
+    var data = await svar.json();
+    if (!svar.ok || !data.user || data.user.user_id == null) throw new Error(data.error || 'Fant ikke testprofilen.');
+    aktivBruker = data.user;
+    status.textContent = '';
+    profilstatus('Testprofil fra backend. Dette er ikke sikker innlogging.');
+    document.getElementById('profilnavn').textContent = aktivBruker.username;
+    if (ventendeBesok && valgtKamp) {
+      ventendeBesok = false;
+      visValgtBesok();
+    } else visSide('profil');
+  } catch (feil) {
+    aktivBruker = null;
+    status.textContent = feil.message || 'Kunne ikke hente testprofil. Kontroller at backend kjører.';
+  }
+}
+
+async function hentProfilHistorikk() {
+  if (!aktivBruker) {
+    profilstatus('Ingen testprofil er valgt. Velg en testprofil først.');
+    return;
+  }
+  if (demomodus) {
+    profilstatus('Demoen har ingen profil-API eller lagring. Start backend lokalt for å teste historikk.');
+    return;
+  }
+  document.getElementById('historikk').textContent = '';
+  document.getElementById('profilstatus').textContent = 'Laster profil og historikk …';
+  try {
+    var svar = await fetch('/api/check-ins?username=' + encodeURIComponent(aktivBruker.username), { headers: { Accept: 'application/json' } });
+    var data = await svar.json();
+    if (!svar.ok || !Array.isArray(data.check_ins)) throw new Error(data.error || 'Kunne ikke hente historikk.');
+    visProfil(aktivBruker, data.check_ins);
+  } catch (feil) {
+    profilstatus('Kunne ikke hente historikk. Kontroller at backend kjører, og prøv igjen.');
+  }
 }
 
 function avsluttTestprofil() {
@@ -238,9 +273,18 @@ function avsluttTestprofil() {
   visSide('innlogging');
 }
 
-// #56: backend kobler til en funksjon som returnerer et Promise i #55.
-// Funksjonen må avvise med feil dersom besøket ikke faktisk blir lagret.
-var lagreBesok = null;
+// #56: skriv til API-et og avvis Promise ved HTTP-/nettverksfeil.
+async function lagreBesok(bruker, kampId) {
+  if (demomodus) throw new Error('Demoen lagrer ikke innsjekkinger.');
+  var svar = await fetch('/api/check-ins', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ username: bruker.username, match_id: kampId })
+  });
+  var data = await svar.json();
+  if (!svar.ok || !data.check_in) throw new Error(data.error || 'Kunne ikke lagre besøket.');
+  return data.check_in;
+}
 var lagrerBesok = false;
 var bekreftetBesok = '';
 
@@ -250,7 +294,7 @@ function klargjorBesok() {
   knapp.disabled = true;
   if (!aktivBruker) status.textContent = 'Velg en testprofil før du bekrefter besøket.';
   else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
-  else if (!lagreBesok) status.textContent = 'Lagring er ikke koblet til ennå.';
+  else if (demomodus) status.textContent = 'Demoen lagrer ikke besøk. Start backend lokalt for å teste innsjekking.';
   else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
   else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
     status.textContent = 'Besøket er bekreftet.';
@@ -270,6 +314,8 @@ async function bekreftBesok() {
   try {
     await lagreBesok(bruker, kamp.match_id);
     bekreftetBesok = bruker.user_id + ':' + kamp.match_id;
+    await hentProfilHistorikk();
+    document.getElementById('besokstatus').textContent = 'Besøket er lagret i backend.';
   } catch (feil) {
     lagrerBesok = false;
     if (aktivBruker === bruker && valgtKamp === kamp) {
