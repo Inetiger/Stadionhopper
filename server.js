@@ -217,6 +217,9 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
 
       if (req.method === "POST" && pathname === "/api/check-ins") {
         const input = await readRequestJson(req);
+        if (!input || typeof input !== "object" || Array.isArray(input)) {
+          return sendJson(res, 400, { error: "JSON-objekt forventet." });
+        }
         const result = await createCheckin(dbDir, input.username, input.match_id);
         return sendJson(res, result.status, result.body);
       }
