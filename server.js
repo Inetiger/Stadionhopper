@@ -110,7 +110,7 @@ async function getPosts(dbDir) {
 }
 
 
-// Prototype-only profile/check-in API. Usernames select fixture users; this is not authentication.
+// Internal lookup resolves the identity already authenticated by the server session.
 async function getUser(dbDir, username) {
   if (typeof username !== "string" || !username.trim() || username.trim().length > 40) return null;
   const users = await readTable(dbDir, "Users.json");
