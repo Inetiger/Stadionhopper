@@ -22,6 +22,7 @@ async function makeDb() {
     ],
     "Users.json": [
       { user_id: 1, username: "Testbruker" },
+      { user_id: 2, username: "Testbruker2" },
       { user_id: 11, username: "kari" },
       { user_id: 12, username: "ola" }
     ],
@@ -161,6 +162,20 @@ test("profile and check-in APIs require a session and isolate identity from clie
   const persisted = JSON.parse(await fs.readFile(path.join(dbDir, "Check_ins.json"), "utf8"));
   assert.equal(persisted.length, 1);
   assert.equal(persisted[0].user_id, 1);
+
+  const secondLogin = await login(base, "Testbruker2", "hopper456");
+  assert.equal(secondLogin.response.status, 200);
+  const secondHeaders = { Cookie: secondLogin.cookie, Accept: "application/json" };
+  response = await fetch(base + "/api/check-ins", { headers: secondHeaders });
+  assert.deepEqual((await response.json()).check_ins, []);
+  response = await fetch(base + "/api/check-ins", {
+    method: "POST", headers: { ...secondHeaders, "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "Testbruker", match_id: 2 })
+  });
+  assert.equal(response.status, 201);
+  assert.equal((await response.json()).check_in.user_id, 2);
+  response = await fetch(base + "/api/check-ins", { headers });
+  assert.equal((await response.json()).check_ins.length, 1);
 
   response = await fetch(base + "/api/check-ins", {
     method: "POST", headers: { ...headers, "Content-Type": "application/json" },
