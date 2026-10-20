@@ -44,7 +44,13 @@ if (demomodus) {
   document.getElementById('demostatus').textContent =
     'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
   document.getElementById('innlogginginfo').textContent =
-    'Innlogging er ikke tilgjengelig på denne publiserte demoen. Utforsk kamper, kart og arrangementer uten innlogging; profil og innsjekking krever lokal backend.';
+    'Innlogging er deaktivert på denne nettsiden fordi den publiserte demoen ikke har en tilkoblet backend. Bruk «Utforsk kamper uten innlogging» for å fortsette.';
+  document.getElementById('brukernavn').disabled = true;
+  document.getElementById('passord').disabled = true;
+  document.getElementById('loginbutton').disabled = true;
+  document.getElementById('loginbutton').textContent = 'Innlogging ikke tilgjengelig';
+  document.getElementById('loginbutton').setAttribute('aria-describedby', 'innlogginginfo');
+  document.getElementById('innlogging').classList.add('innlogging-deaktivert');
 }
 
 function hentData(adresse) {
