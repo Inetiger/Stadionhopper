@@ -36,3 +36,5 @@ nav { position: sticky; bottom: 0; background: #eee; border-top: 1px solid #999;
 nav button { border: 0; padding: 14px 4px; font-size: 13px; }
 .bilde { background: #eee; border: 1px solid #999; padding: 45px 10px; text-align: center; }
 .side, #tidligere { display: none; }
+
+#innlegg p { overflow-wrap: anywhere; white-space: pre-wrap; }

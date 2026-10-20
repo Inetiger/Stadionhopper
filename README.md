@@ -62,3 +62,17 @@ Tests use temporary fixture files and do not modify the real files under `Databa
 ## Current limitations
 
 The UI still contains illustrative example content. Authentication, user-specific check-ins, profile history, and the social feed frontend/backend integration are not yet complete. Do not treat the example content as production data.
+
+## Test sosial feed (#57)
+
+Start `node server.js` og åpne `http://localhost:3000/`. Velg **Sosial**. Vanlig database inneholder plassholdere, så «Ingen innlegg ennå» er forventet. Feed hentes på nytt hver gang visningen åpnes; knappen kan også brukes for å prøve igjen.
+
+For fiktive eksempelinnlegg og kamper, start fra Git Bash:
+
+```sh
+STADIONHOPPER_DB_DIR=test/fixtures node server.js
+```
+
+Testdatasettet inneholder to innlegg fra en fiktiv testbruker. Nyeste innlegg skal vises først. Automatiske tester bruker midlertidige data og kjører feed-koden mot det faktiske API-et. Databasefilene for vanlig bruk er ikke endret.
+
+Kontroller forfatter, tidspunkt og tekst på vanlig/smal skjerm. Stopp serveren etter at siden er åpnet, og trykk «Last innlegg på nytt» for å kontrollere feilmeldingen. Publisering, likes og kommentarer er utenfor #57.

@@ -90,3 +90,58 @@ test('frontend sorts dates, handles missing fields, and treats club names as tex
   assert.match(kort[1].children[0].textContent, /<img/);
   assert.match(kort[0].children[1].textContent, /Stadion mangler/);
 });
+
+test('feed renders actual API posts newest first, as text, without changing test data', async t => {
+  const os = require('node:os');
+  const dbDir = fs.mkdtempSync(path.join(os.tmpdir(), 'stadion-feed-'));
+  fs.writeFileSync(path.join(dbDir, 'Users.json'), JSON.stringify([{ user_id: 1, username: 'Testforfatter' }]));
+  fs.writeFileSync(path.join(dbDir, 'Posts.json'), JSON.stringify([
+    { post_id: 1, user_id: 1, created_at: '2026-10-01T12:00:00Z', content: 'Eldre innlegg' },
+    { post_id: 2, user_id: 1, created_at: '2026-10-02T12:00:00Z', content: '<img onerror=alert(1)>\nNy linje' }
+  ]));
+  const server = createServer({ dbDir });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => server.close(resolve)); fs.rmSync(dbDir, { recursive: true }); });
+  const base = 'http://127.0.0.1:' + server.address().port;
+  const ui = frontend(url => fetch(base + url));
+  ui.context.visSide('feed');
+  assert.equal(ui.felter.feedstatus.textContent, 'Laster innlegg …');
+  for (let i = 0; i < 100 && ui.felter.feedstatus.textContent === 'Laster innlegg …'; i++) {
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  assert.equal(ui.felter.feedstatus.textContent, '');
+  assert.equal(ui.felter.innlegg.children.length, 2);
+  const kort = ui.felter.innlegg.children[0];
+  assert.equal(kort.children[0].textContent, 'Testforfatter');
+  assert.ok(kort.children[1].textContent);
+  assert.equal(kort.children[2].textContent, '<img onerror=alert(1)>\nNy linje');
+  assert.equal(ui.felter.innlegg.children[1].children[2].textContent, 'Eldre innlegg');
+  assert.equal(ui.felter.feed.style.display, 'block');
+});
+
+test('feed handles empty, failed and malformed replies; retry replaces previous cards', async () => {
+  let posts = [{ author_name: null, created_at: null, content: 'Test' }];
+  let response = () => Promise.resolve({ ok: true, json: async () => ({ posts }) });
+  const ui = frontend(url => url === '/api/posts' ? response() : Promise.resolve({ ok: true, json: async () => ({ matches: [] }) }));
+  ui.context.visSide('feed');
+  await ferdig();
+  assert.equal(ui.felter.innlegg.children[0].children[0].textContent, 'Ukjent forfatter');
+  assert.equal(ui.felter.innlegg.children[0].children[1].textContent, 'Tidspunkt mangler');
+  posts = [];
+  ui.context.hentInnlegg();
+  await ferdig();
+  assert.equal(ui.felter.feedstatus.textContent, 'Ingen innlegg ennå.');
+  assert.equal(ui.felter.innlegg.children.length, 0);
+  for (const feil of [() => Promise.reject(Error('offline')), () => Promise.resolve({ ok: false }),
+    () => Promise.resolve({ ok: true, json: async () => ({ posts: null }) })]) {
+    response = feil;
+    ui.context.hentInnlegg();
+    await ferdig();
+    assert.match(ui.felter.feedstatus.textContent, /Kunne ikke hente innlegg/);
+  }
+  response = () => Promise.resolve({ ok: true, json: async () => ({ posts: [{ content: 'Ny prøve' }] }) });
+  ui.context.hentInnlegg();
+  await ferdig();
+  assert.equal(ui.felter.feedstatus.textContent, '');
+  assert.equal(ui.felter.innlegg.children.length, 1);
+});

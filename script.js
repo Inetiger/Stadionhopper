@@ -5,6 +5,7 @@ function visSide(navn) {
     sider[nummer].style.display = 'none';
   }
   document.getElementById(navn).style.display = 'block';
+  if (navn === 'feed') hentInnlegg();
 }
 
 function visKamper(navn) {
@@ -111,3 +112,34 @@ function visValgtBesok() {
 visSide('innlogging');
 visKamper('kommende');
 hentKamper();
+
+// Samme Fetch- og DOM-metoder som kampoversikten (W3Schools).
+var feedkall = 0;
+function hentInnlegg() {
+  var kall = ++feedkall;
+  var status = document.getElementById('feedstatus');
+  var liste = document.getElementById('innlegg');
+  liste.textContent = '';
+  status.textContent = 'Laster innlegg …';
+  hentData('/api/posts').then(function(data) {
+    if (kall !== feedkall) return;
+    if (!Array.isArray(data.posts)) throw new Error('Ugyldig feed');
+    data.posts.forEach(function(innlegg) {
+      var kort = document.createElement('article');
+      var forfatter = document.createElement('h3');
+      var tidspunkt = document.createElement('p');
+      var tekst = document.createElement('p');
+      var dato = new Date(innlegg.created_at || '');
+      forfatter.textContent = innlegg.author_name || 'Ukjent forfatter';
+      tidspunkt.textContent = isNaN(dato.getTime()) ? 'Tidspunkt mangler' : dato.toLocaleString('nb-NO');
+      tekst.textContent = innlegg.content || 'Innhold mangler';
+      kort.appendChild(forfatter);
+      kort.appendChild(tidspunkt);
+      kort.appendChild(tekst);
+      liste.appendChild(kort);
+    });
+    status.textContent = data.posts.length ? '' : 'Ingen innlegg ennå.';
+  }).catch(function() {
+    if (kall === feedkall) status.textContent = 'Kunne ikke hente innlegg. Prøv på nytt.';
+  });
+}
