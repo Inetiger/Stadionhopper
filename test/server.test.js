@@ -24,6 +24,7 @@ async function makeDb() {
       { user_id: 11, username: "kari" },
       { user_id: 12, username: "ola" }
     ],
+    "Check_ins.json": [],
     "Posts.json": [
       { post_id: 1, content: "  Første innlegg  ", created_at: "2026-10-10T12:00:00Z", user_id: 11 },
       { post_id: 2, content: "Nyere innlegg", created_at: "2026-10-12T12:00:00Z", user_id: 12 },
@@ -98,4 +99,86 @@ test("lists valid social posts newest first with author names", async t => {
   assert.equal(body.posts[0].author_name, "ola");
   assert.equal(body.posts[1].author_name, "kari");
   assert.equal(body.posts[1].content, "Første innlegg");
+});
+
+
+test("profile/check-in API persists valid check-ins and isolates user histories", async t => {
+  const dbDir = await makeDb();
+  const server = createServer({ dbDir });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  t.after(async () => {
+    await new Promise(resolve => server.close(resolve));
+    await fs.rm(dbDir, { recursive: true, force: true });
+  });
+  const base = "http://127.0.0.1:" + server.address().port;
+
+  let response = await fetch(base + "/api/profile?username=kari");
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { user: { user_id: 11, username: "kari" } });
+  assert.equal((await fetch(base + "/api/profile?username=unknown")).status, 404);
+
+  response = await fetch(base + "/api/check-ins?username=ola");
+  assert.equal(response.status, 200);
+  assert.deepEqual((await response.json()).check_ins, []);
+
+  response = await fetch(base + "/api/check-ins", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "kari", match_id: 1 })
+  });
+  assert.equal(response.status, 201);
+  const created = (await response.json()).check_in;
+  assert.equal(created.user_id, 11);
+  assert.equal(created.match_id, 1);
+  assert.equal(created.stadium_name, "Aker Stadion");
+  assert.ok(created.checked_in_at);
+
+  const persisted = JSON.parse(await fs.readFile(path.join(dbDir, "Check_ins.json"), "utf8"));
+  assert.equal(persisted.length, 1);
+  assert.equal(persisted[0].match_id, 1);
+
+  response = await fetch(base + "/api/check-ins?username=kari");
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).check_ins.length, 1);
+  response = await fetch(base + "/api/check-ins?username=ola");
+  assert.deepEqual((await response.json()).check_ins, []);
+
+  response = await fetch(base + "/api/check-ins", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "kari", match_id: 1 })
+  });
+  assert.equal(response.status, 409);
+});
+
+test("check-in API rejects unknown users/matches and invalid IDs with expected status", async t => {
+  const dbDir = await makeDb();
+  const server = createServer({ dbDir });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  t.after(async () => {
+    await new Promise(resolve => server.close(resolve));
+    await fs.rm(dbDir, { recursive: true, force: true });
+  });
+  const base = "http://127.0.0.1:" + server.address().port;
+  const post = body => fetch(base + "/api/check-ins", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+  });
+  assert.equal((await post({ username: "unknown", match_id: 1 })).status, 404);
+  assert.equal((await post({ username: "kari", match_id: 999 })).status, 404);
+  assert.equal((await post({ username: "kari", match_id: "nope" })).status, 400);
+  assert.equal((await post({ username: "kari", match_id: -1 })).status, 400);
+  assert.equal((await post({ username: "kari", match_id: 1.5 })).status, 400);
+  assert.equal((await post({ username: "kari", match_id: 1 })).status, 201);
+});
+
+test("check-in API reports malformed JSON as 400", async t => {
+  const dbDir = await makeDb();
+  const server = createServer({ dbDir });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  t.after(async () => {
+    await new Promise(resolve => server.close(resolve));
+    await fs.rm(dbDir, { recursive: true, force: true });
+  });
+  const response = await fetch("http://127.0.0.1:" + server.address().port + "/api/check-ins", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: "{"
+  });
+  assert.equal(response.status, 400);
 });
