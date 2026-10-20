@@ -1,0 +1,12 @@
+{
+  "name": "stadionhopper",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stadionhopper prototype and Node.js API",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
