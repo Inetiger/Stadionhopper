@@ -114,3 +114,21 @@ Bekreftelsesflyten støtter valgt testprofil/kamp, venting, feil med nytt forsø
 `lagreBesok(testprofil, match_id)` er en intern kobling, ikke en avtalt HTTP-kontrakt. #55 må levere et Promise som kun fullføres ved faktisk lagring og avvises ved feil. Frontend-testprofilens ID må avstemmes med backend. Ingen alternativ lokal lagring eller falsk bekreftelse er lagt til.
 
 Faktisk lagring, oppdatert historikk og manuell nettlesertest gjenstår før #56 kan lukkes.
+
+
+## Prototyp-API for profil og innsjekking (#55 / #73)
+
+Kjør lokalt med testdata:
+
+\`\`\`sh
+STADIONHOPPER_DB_DIR=test/fixtures node server.js
+\`\`\`
+
+Prototypen har foreløpig **ingen autentisering**. Endepunktene bruker et fiktivt brukernavn for å velge en eksisterende testprofil. Dette er kun for demonstrasjon og isolerte testdata; klienten kan velge brukernavn, så API-et må ikke brukes med ekte persondata eller eksponeres som sikker tilgangskontroll.
+
+- \`GET /api/profile?username=kari\` returnerer profil for en kjent testbruker.
+- \`GET /api/check-ins?username=kari\` returnerer historikken nyeste først; tom historikk gir en tom liste.
+- \`POST /api/check-ins\` med JSON \`{"username":"kari","match_id":1}\` oppretter innsjekking. Svaret er \`201\`; ukjent bruker/kamp gir \`404\`, ugyldig kamp-ID gir \`400\`, og duplikat gir \`409\`.
+- Innsjekkinger lagres i \`Check_ins.json\` i valgt datakatalog. Kampens stadionnavn og klubbnavn hentes fra kampdata, ikke fra klientens input.
+
+GitHub Pages kan ikke kjøre Node.js. For å teste lagring må frontend og API kjøre i et lokalt eller publisert testoppsett. Når autentisering prioriteres, må brukeridentiteten hentes fra en verifisert serverøkt, ikke fra en klientparameter.
