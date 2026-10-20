@@ -202,7 +202,14 @@ async function createCheckin(dbDir, username, matchId) {
   return { status: 201, body: { check_in: checkIns.find(row => String(row.check_in_id) === String(nextId)) } };
 }
 
-function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR } = {}) {
+function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_DIR, authStore = createAuthStore() } = {}) {
+  async function getSessionUser(req) {
+    const token = readCookie(req, "stadionhopper_session");
+    const session = authStore.getSession(token);
+    if (!session) return null;
+    return getUser(dbDir, session.username);
+  }
+
   return http.createServer(async (req, res) => {
     const pathname = new URL(req.url, "http://localhost").pathname;
     try {
