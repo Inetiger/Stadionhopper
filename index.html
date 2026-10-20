@@ -16,12 +16,12 @@
       <h1>Velg testprofil</h1>
       <p>Logg inn med en fiktiv testkonto. Dette er en lokal prototype, ikke produksjonsinnlogging.</p>
       <label for="brukernavn">Brukernavn</label>
-      <input style="background-color:red" id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
+      <input disabled style="background-color:red" id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
       <label for="passord">Passord</label>
-      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Passord for testkonto">
+      <input disabled style="background-color:red" id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Passord for testkonto">
       <button class="mork" onclick="velgTestprofil()">Logg inn</button>
       <p id="brukerstatus" role="status"></p>
-      <button onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
+      <button disabled onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
       <small>Ingen standardkontoer følger med. Se README for å opprette lokale testkontoer.</small>
     </section>
 
