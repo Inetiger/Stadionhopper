@@ -76,3 +76,9 @@ STADIONHOPPER_DB_DIR=test/fixtures node server.js
 Testdatasettet inneholder to innlegg fra en fiktiv testbruker. Nyeste innlegg skal vises først. Automatiske tester bruker midlertidige data og kjører feed-koden mot det faktiske API-et. Databasefilene for vanlig bruk er ikke endret.
 
 Kontroller forfatter, tidspunkt og tekst på vanlig/smal skjerm. Stopp serveren etter at siden er åpnet, og trykk «Last innlegg på nytt» for å kontrollere feilmeldingen. Publisering, likes og kommentarer er utenfor #57.
+
+## GitHub Pages-demo
+
+GitHub Pages kan ikke kjøre Node.js eller servere `/api/matches` og `/api/posts`. På den publiserte adressen bruker frontend derfor `demo/data.json`, med tydelig merking av at innholdet er fiktivt og at innlogging/lagring ikke finnes. Lokalt bruker frontend fortsatt API-et fra `node server.js`.
+
+Demoen støtter kampoversikt, kampdetaljer og lesing av demo-innlegg. Dette er statiske data; endringer lagres ikke. For lokal testing med backend, kjør `STADIONHOPPER_DB_DIR=test/fixtures node server.js` og åpne `http://localhost:3000/`. Ikke åpne `index.html` direkte fra filsystemet.
