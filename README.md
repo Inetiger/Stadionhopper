@@ -1,5 +1,6 @@
 # Stadionhopper
 
+https://inetiger.github.io/Stadionhopper/
 A small prototype with a static HTML/CSS/JavaScript frontend and a Node.js HTTP API.
 
 ## Requirements
