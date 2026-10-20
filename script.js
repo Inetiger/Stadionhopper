@@ -44,11 +44,11 @@ if (demomodus) {
   document.getElementById('demostatus').textContent =
     'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
   document.getElementById('innlogginginfo').textContent =
-    'INNLOGGING ER SLÅTT AV PÅ DENNE NETTSIDEN. Feltene og innloggingsknappen er deaktivert fordi demoen ikke har en tilkoblet backend. Trykk på den grønne knappen «Utforsk kamper uten innlogging».';
+    'Innlogging er deaktivert på denne nettsiden fordi den publiserte demoen ikke har en tilkoblet backend. Bruk «Utforsk kamper uten innlogging» for å fortsette.';
   document.getElementById('brukernavn').disabled = true;
   document.getElementById('passord').disabled = true;
   document.getElementById('loginbutton').disabled = true;
-  document.getElementById('loginbutton').textContent = 'Innlogging deaktivert';
+  document.getElementById('loginbutton').textContent = 'Innlogging ikke tilgjengelig';
   document.getElementById('loginbutton').setAttribute('aria-describedby', 'innlogginginfo');
   document.getElementById('innlogging').classList.add('innlogging-deaktivert');
 }
