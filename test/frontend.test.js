@@ -222,12 +222,14 @@ test('test profile validates name, fetches real fixture users and clears old his
   assert.match(ui.felter.brukerstatus.textContent, /Skriv et brukernavn/);
   ui.felter.brukernavn.value = '  Test A  ';
   await ui.context.velgTestprofil();
+  await ferdig();
   assert.equal(ui.context.aktivBruker.username, 'Test A');
   assert.equal(ui.felter.profilnavn.textContent, 'Test A');
   assert.equal(ui.felter.profil.style.display, 'block');
   ui.context.visProfil(ui.context.aktivBruker, [{ user_id: 'test:test a', home_club_name: 'Gammel historikk' }]);
   ui.felter.brukernavn.value = '<b>Test B</b>';
   await ui.context.velgTestprofil();
+  await ferdig();
   assert.equal(ui.felter.profilnavn.textContent, '<b>Test B</b>');
   assert.equal(ui.felter.historikk.children.length, 0);
   assert.match(ui.felter.profilstatus.textContent, /Testprofil fra backend/);
@@ -307,7 +309,7 @@ test('selected match survives profile selection and resumes check-in confirmatio
   assert.equal(ui.felter.stadionnavn.textContent, 'Testbane');
   assert.match(ui.felter.kampnavn.textContent, /Testlag/);
   assert.equal(ui.context.ventendeBesok, false);
-  assert.equal(ui.felter.bekreftbesok.disabled, true); // No pretend storage.
+  assert.equal(ui.felter.bekreftbesok.disabled, false); // Backend-integrasjonen gjør knappen tilgjengelig.
 });
 
 test('cancelled check-in does not unexpectedly resume after profile selection', async () => {
