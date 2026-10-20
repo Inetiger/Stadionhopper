@@ -105,7 +105,7 @@ test("lists valid social posts newest first with author names", async t => {
 });
 
 
-async function login(base, username = "Testbruker", password = "hopper123") {
+async function login(base, username = "Testbruker", password = "test-only-password-one") {
   const response = await fetch(base + "/api/login", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password })
@@ -164,7 +164,7 @@ test("profile and check-in APIs require a session and isolate identity from clie
   assert.equal(persisted.length, 1);
   assert.equal(persisted[0].user_id, 1);
 
-  const secondLogin = await login(base, "Testbruker2", "hopper456");
+  const secondLogin = await login(base, "Testbruker2", "test-only-password-two");
   assert.equal(secondLogin.response.status, 200);
   const secondHeaders = { Cookie: secondLogin.cookie, Accept: "application/json" };
   response = await fetch(base + "/api/check-ins", { headers: secondHeaders });
