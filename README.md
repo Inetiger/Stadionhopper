@@ -1,108 +1,271 @@
-# Stadionhopper
+// Sidebytte som i W3Schools sitt eksempel om faner (tabs).
+function visSide(navn) {
+  var sider = document.getElementsByClassName('side');
+  for (var nummer = 0; nummer < sider.length; nummer++) {
+    sider[nummer].style.display = 'none';
+  }
+  document.getElementById(navn).style.display = 'block';
+  if (navn === 'feed') hentInnlegg();
+}
 
-https://inetiger.github.io/Stadionhopper/
-A small prototype with a static HTML/CSS/JavaScript frontend and a Node.js HTTP API.
+function visKamper(navn) {
+  document.getElementById('kommende').style.display = 'none';
+  document.getElementById('tidligere').style.display = 'none';
+  document.getElementById(navn).style.display = 'block';
+}
 
-## Requirements
+function visKamp(navn, dato, stadion) {
+  document.getElementById('kampnavn').textContent = navn;
+  document.getElementById('kampdato').textContent = dato;
+  document.getElementById('stadionnavn').textContent = stadion;
+  visSide('innsjekking');
+  klargjorBesok();
+}
 
-- Node.js 18 or newer.
-- Git, if you are cloning the repository.
-- No third-party Node packages are required for the current API or test suite.
+// W3Schools: Fetch API, DOM Nodes, Array sort og Date.
+var valgtKamp;
+var listekall = 0;
+var detaljkall = 0;
 
-## Run locally
+function kampnavn(kamp) {
+  return (kamp.home_club_name || 'Ukjent hjemmelag') + ' – ' +
+    (kamp.away_club_name || 'Ukjent bortelag');
+}
 
-1. Clone the repository and enter its directory.
-2. Start the API server:
+function kampdato(kamp) {
+  var dato = new Date(kamp.match_date || '');
+  return isNaN(dato.getTime()) ? 'Tidspunkt mangler' : dato.toLocaleString('nb-NO');
+}
 
-   ```sh
-   node server.js
-   ```
+// GitHub Pages serverer bare statiske filer, ikke Node-API-et.
+var demomodus = location.hostname === 'inetiger.github.io';
+if (demomodus) {
+  document.getElementById('demostatus').textContent =
+    'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
+}
 
-3. The API listens on `http://localhost:3000` by default. Set `PORT` to use another port, for example `PORT=4000 node server.js`.
-4. Open `http://localhost:3000/` in a browser. The server supplies HTML, CSS, JavaScript and API from the same address. Opening `index.html` directly or using GitHub Pages does not supply the Node API.
+function hentData(adresse) {
+  var kilde = demomodus ? 'demo/data.json' : adresse;
+  return fetch(kilde).then(function(svar) {
+    if (!svar.ok) throw new Error('Kunne ikke hente data');
+    return svar.json();
+  }).then(function(data) {
+    if (!demomodus) return data;
+    if (adresse === '/api/matches') return { matches: data.matches };
+    if (adresse === '/api/posts') return { posts: data.posts };
+    var id = decodeURIComponent(adresse.split('/').pop());
+    var kamp = data.matches.find(function(kamp) { return String(kamp.match_id) === id; });
+    if (!kamp) throw new Error('Fant ikke kampen');
+    return { match: kamp };
+  });
+}
 
-### Test kampoversikten (#54)
+function hentKamper() {
+  var kall = ++listekall;
+  var status = document.getElementById('kampstatus');
+  status.textContent = 'Laster kamper …';
+  document.getElementById('kommende').textContent = '';
+  document.getElementById('tidligere').textContent = '';
+  hentData('/api/matches').then(function(data) {
+    if (kall !== listekall) return;
+    if (!Array.isArray(data.matches)) throw new Error('Ugyldig kampliste');
+    data.matches.sort(function(a, b) {
+      return String(a.match_date || '').localeCompare(String(b.match_date || ''));
+    });
+    data.matches.forEach(function(kamp) {
+      var dato = new Date(kamp.match_date || '');
+      var gruppe = dato < new Date() ? 'tidligere' : 'kommende';
+      var kort = document.createElement('article');
+      var navn = document.createElement('h3');
+      var info = document.createElement('p');
+      var knapp = document.createElement('button');
+      navn.textContent = kampnavn(kamp);
+      info.textContent = kampdato(kamp) + ' · ' + (kamp.stadium_name || 'Stadion mangler');
+      knapp.textContent = 'Se kampdetaljer →';
+      knapp.disabled = kamp.match_id == null;
+      knapp.onclick = function() { hentKamp(kamp.match_id); };
+      kort.appendChild(navn);
+      kort.appendChild(info);
+      kort.appendChild(knapp);
+      document.getElementById(gruppe).appendChild(kort);
+    });
+    ['kommende', 'tidligere'].forEach(function(gruppe) {
+      var liste = document.getElementById(gruppe);
+      if (!liste.children.length) liste.textContent = 'Ingen ' + gruppe + ' kamper.';
+    });
+    status.textContent = data.matches.length ? '' : 'Ingen kamper tilgjengelig.';
+  }).catch(function() {
+    if (kall === listekall) status.textContent = 'Kunne ikke hente kamper. Prøv på nytt.';
+  });
+}
 
-For representative, fictional match data, start the server with the existing fixtures (Git Bash):
+function hentKamp(id) {
+  var kall = ++detaljkall;
+  visSide('kampdetaljer');
+  valgtKamp = null;
+  document.getElementById('besokknapp').disabled = true;
+  document.getElementById('detaljkort').style.display = 'none';
+  document.getElementById('detaljstatus').textContent = 'Laster kamp …';
+  hentData('/api/matches/' + encodeURIComponent(id)).then(function(data) {
+    if (kall !== detaljkall) return;
+    if (!data.match || String(data.match.match_id) !== String(id)) throw new Error('Ugyldig kamp');
+    valgtKamp = data.match;
+    document.getElementById('detaljnavn').textContent = kampnavn(valgtKamp);
+    document.getElementById('detaljdato').textContent = kampdato(valgtKamp);
+    document.getElementById('detaljstadion').textContent = valgtKamp.stadium_name || 'Stadion mangler';
+    document.getElementById('detaljkort').style.display = 'block';
+    document.getElementById('detaljstatus').textContent = '';
+    document.getElementById('besokknapp').disabled = false;
+  }).catch(function() {
+    if (kall !== detaljkall) return;
+    document.getElementById('detaljstatus').textContent = 'Kunne ikke hente kampen. Gå tilbake og prøv igjen.';
+  });
+}
 
-```sh
-STADIONHOPPER_DB_DIR=test/fixtures node server.js
-```
+function visValgtBesok() {
+  if (valgtKamp) visKamp(kampnavn(valgtKamp), kampdato(valgtKamp), valgtKamp.stadium_name || 'Stadion mangler');
+}
 
-Open `http://localhost:3000/`. Choose “Utforsk kamper uten innlogging”, open a match and check its teams, time and stadium. Return to the list and test the other match. Test narrow and wide screens. Dates are displayed in the browser's local timezone; fixture dates include UTC (`Z`). Past matches move to “Tidligere” automatically.
+visSide('innlogging');
+visKamper('kommende');
+hentKamper();
 
-With `node server.js` and the unchanged placeholder database, an empty list is expected. Stop the server after loading the page and press “Last kamper på nytt” to test the error message. Profile/feed examples remain outside #54; check-in storage is still disabled.
+// Samme Fetch- og DOM-metoder som kampoversikten (W3Schools).
+var feedkall = 0;
+function hentInnlegg() {
+  var kall = ++feedkall;
+  var status = document.getElementById('feedstatus');
+  var liste = document.getElementById('innlegg');
+  liste.textContent = '';
+  status.textContent = 'Laster innlegg …';
+  hentData('/api/posts').then(function(data) {
+    if (kall !== feedkall) return;
+    if (!Array.isArray(data.posts)) throw new Error('Ugyldig feed');
+    data.posts.forEach(function(innlegg) {
+      var kort = document.createElement('article');
+      var forfatter = document.createElement('h3');
+      var tidspunkt = document.createElement('p');
+      var tekst = document.createElement('p');
+      var dato = new Date(innlegg.created_at || '');
+      forfatter.textContent = innlegg.author_name || 'Ukjent forfatter';
+      tidspunkt.textContent = isNaN(dato.getTime()) ? 'Tidspunkt mangler' : dato.toLocaleString('nb-NO');
+      tekst.textContent = innlegg.content || 'Innhold mangler';
+      kort.appendChild(forfatter);
+      kort.appendChild(tidspunkt);
+      kort.appendChild(tekst);
+      liste.appendChild(kort);
+    });
+    status.textContent = data.posts.length ? '' : 'Ingen innlegg ennå.';
+  }).catch(function() {
+    if (kall === feedkall) status.textContent = 'Kunne ikke hente innlegg. Prøv på nytt.';
+  });
+}
 
-Frontend techniques: [Fetch API](https://www.w3schools.com/js/js_api_fetch.asp), [DOM nodes](https://www.w3schools.com/js/js_htmldom_nodes.asp), [array sorting](https://www.w3schools.com/js/js_array_sort.asp) and [dates](https://www.w3schools.com/js/js_dates.asp).
+// Visningsfunksjoner for #53. Backend-kobling avklares i #52/#73.
+function profilstatus(melding) {
+  document.getElementById('profilnavn').textContent = '';
+  document.getElementById('historikk').textContent = '';
+  document.getElementById('profilstatus').textContent = melding;
+}
 
-## API endpoints
+function visProfil(bruker, innsjekkinger) {
+  profilstatus('');
+  if (!bruker || bruker.user_id == null) {
+    profilstatus('Ingen testprofil er valgt. Velg en testprofil først.');
+    return;
+  }
+  if (!Array.isArray(innsjekkinger)) {
+    profilstatus('Kunne ikke vise historikken. Prøv igjen senere.');
+    return;
+  }
+  document.getElementById('profilnavn').textContent = bruker.username || 'Ukjent brukernavn';
+  // Lokal avgrensning er ekstra kontroll, ikke autentisering eller tilgangsvern.
+  var egne = innsjekkinger.filter(function(besok) {
+    return besok && besok.user_id != null && String(besok.user_id) === String(bruker.user_id);
+  });
+  egne.sort(function(a, b) {
+    return String(b.checked_in_at || '').localeCompare(String(a.checked_in_at || ''));
+  });
+  var liste = document.getElementById('historikk');
+  if (!egne.length) liste.textContent = 'Ingen kampbesøk ennå.';
+  egne.forEach(function(besok) {
+    var kort = document.createElement('article');
+    var navn = document.createElement('h3');
+    var info = document.createElement('p');
+    var dato = new Date(besok.checked_in_at || '');
+    navn.textContent = kampnavn(besok);
+    info.textContent = (isNaN(dato.getTime()) ? 'Besøksdato mangler' : dato.toLocaleString('nb-NO')) +
+      ' · ' + (besok.stadium_name || 'Stadion mangler');
+    kort.appendChild(navn);
+    kort.appendChild(info);
+    liste.appendChild(kort);
+  });
+}
 
-- `GET /api/matches` — lists available matches with club and stadium details.
-- `GET /api/matches/:match_id` — returns one match or a 404 response.
-- `GET /api/posts` — returns valid posts with author names, newest first.
+// Midlertidig testprofil i fanens minne. Ingen autentisering eller lagring.
+var aktivBruker = null;
+function velgTestprofil() {
+  var navn = document.getElementById('brukernavn').value.trim();
+  var status = document.getElementById('brukerstatus');
+  if (!navn || navn.length > 40) {
+    status.textContent = 'Skriv et brukernavn på 1–40 tegn.';
+    return;
+  }
+  aktivBruker = { user_id: 'test:' + navn.toLowerCase(), username: navn };
+  status.textContent = '';
+  profilstatus('Testprofil i denne fanen. Historikk og lagring er ikke koblet til ennå.');
+  document.getElementById('profilnavn').textContent = navn;
+  visSide('profil');
+}
 
-The server reads the existing files in `Database/`. Those files currently contain placeholder rows and Python-style `None` values/trailing commas; the API normalizes this existing format when reading and does not rewrite the source files. As a result, a clean checkout returns empty match and post lists until valid linked records are added. The posts endpoint also omits empty posts and posts whose `user_id` does not reference an existing user.
+function avsluttTestprofil() {
+  aktivBruker = null;
+  profilstatus('Ingen testprofil er valgt.');
+  document.getElementById('brukernavn').value = '';
+  document.getElementById('brukerstatus').textContent = '';
+  visSide('innlogging');
+}
 
-## Tests
+// #56: backend kobler til en funksjon som returnerer et Promise i #55.
+// Funksjonen må avvise med feil dersom besøket ikke faktisk blir lagret.
+var lagreBesok = null;
+var lagrerBesok = false;
+var bekreftetBesok = '';
 
-Run the built-in Node.js test runner:
+function klargjorBesok() {
+  var status = document.getElementById('besokstatus');
+  var knapp = document.getElementById('bekreftbesok');
+  knapp.disabled = true;
+  if (!aktivBruker) status.textContent = 'Velg en testprofil før du bekrefter besøket.';
+  else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
+  else if (!lagreBesok) status.textContent = 'Lagring er ikke koblet til ennå.';
+  else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
+  else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
+    status.textContent = 'Besøket er bekreftet.';
+  else {
+    status.textContent = 'Kontroller kamp og stadion før du bekrefter.';
+    knapp.disabled = false;
+  }
+}
 
-```sh
-node --test test/*.test.js
-```
-
-Tests use temporary fixture files and do not modify the real files under `Database/`.
-
-## Configuration and security
-
-- `PORT` optionally configures the API listening port.
-- `STADIONHOPPER_DB_DIR` optionally points the API at a directory containing the JSON tables; by default it uses `Database/` in this repository.
-- Do not commit passwords, tokens, or other secrets. Authentication and persistent user sessions are not implemented yet.
-
-## Current limitations
-
-The UI still contains illustrative example content. Authentication, user-specific check-ins, profile history, and the social feed frontend/backend integration are not yet complete. Do not treat the example content as production data.
-
-## Test sosial feed (#57)
-
-Start `node server.js` og åpne `http://localhost:3000/`. Velg **Sosial**. Vanlig database inneholder plassholdere, så «Ingen innlegg ennå» er forventet. Feed hentes på nytt hver gang visningen åpnes; knappen kan også brukes for å prøve igjen.
-
-For fiktive eksempelinnlegg og kamper, start fra Git Bash:
-
-```sh
-STADIONHOPPER_DB_DIR=test/fixtures node server.js
-```
-
-Testdatasettet inneholder to innlegg fra en fiktiv testbruker. Nyeste innlegg skal vises først. Automatiske tester bruker midlertidige data og kjører feed-koden mot det faktiske API-et. Databasefilene for vanlig bruk er ikke endret.
-
-Kontroller forfatter, tidspunkt og tekst på vanlig/smal skjerm. Stopp serveren etter at siden er åpnet, og trykk «Last innlegg på nytt» for å kontrollere feilmeldingen. Publisering, likes og kommentarer er utenfor #57.
-
-## Profilvisning under arbeid (#53)
-
-Den faste Kari-profilen er fjernet. Inntil #52/#73 leverer valgt profil, viser siden at ingen testprofil er valgt. Dette arbeidet fullfører ikke #53 og innfører ikke innlogging eller lagring.
-
-Frontend-funksjonen `visProfil(bruker, innsjekkinger)` kan nå vise bruker og historikk, nyeste innsjekking først. `profilstatus(melding)` tømmer gammel profil/historikk og kan brukes ved lasting, feil eller utlogging. Begge er interne visningsfunksjoner, ikke et avtalt API.
-
-Foreløpig visningsformat, som må bekreftes/tilpasses sammen med #73:
-- Bruker: `user_id`, `username` (fra eksisterende datamodell).
-- Innsjekking: `user_id`, `match_id`, `checked_in_at` (fra nåværende Check_ins-mal).
-- Berikede visningsfelt: `home_club_name`, `away_club_name`, `stadium_name` (samme navn som kamp-API-et).
-
-Funksjonen viser bare rader som matcher valgt `user_id`, og erstatter gammel visning ved brukerbytte. Dette er kun visningslogikk: backend må fortsatt avgrense data før utsending. Ingen beskyttet brukerhistorikk er implementert eller påstått.
-
-Automatiske tester prøver to fiktive brukere, tom historikk, manglende data, tekst med HTML-tegn og tømming ved feil/utlogging. Manuell kontroll av oppsett på smal skjerm og faktisk backend-integrasjon gjenstår.
-## GitHub Pages-demo
-
-GitHub Pages kan ikke kjøre Node.js eller servere `/api/matches` og `/api/posts`. På den publiserte adressen bruker frontend derfor `demo/data.json`, med tydelig merking av at innholdet er fiktivt og at innlogging/lagring ikke finnes. Lokalt bruker frontend fortsatt API-et fra `node server.js`.
-
-Demoen støtter kampoversikt, kampdetaljer og lesing av demo-innlegg. Dette er statiske data; endringer lagres ikke. For lokal testing med backend, kjør `STADIONHOPPER_DB_DIR=test/fixtures node server.js` og åpne `http://localhost:3000/`. Ikke åpne `index.html` direkte fra filsystemet.
-
-## Velg testprofil uten autentisering (#52)
-
-Skriv et fiktivt brukernavn (1–40 tegn) og velg **Velg testprofil**. Navnet vises på Profil. **Bytt testprofil** lar deg velge et nytt navn; **Avslutt testprofil** tømmer navnet og gammel historikk. Tomt navn avvises. Passordfeltet er fortsatt deaktivert.
-
-`aktivBruker` finnes bare i JavaScript-minnet i den åpne fanen. Oppdatering av siden nullstiller valget. Ingen localStorage, cookies, backend-kall eller filskriving brukes. `user_id` med prefikset `test:` er en midlertidig frontend-identifikator; den er ikke et bekreftet backend-ID og skal ikke sendes som autorisasjon til API-et.
-
-Dette er avtalt forenkling til en testprofil, ikke autentisering. Historikk og innsjekkingslagring er fortsatt ikke koblet til; ingen beskyttelse mellom virkelige brukere er implementert. Den opprinnelige backend-integrasjonen i #52 er derfor ikke ferdig. #11/#12/#55/#73 må avstemmes av teamet med samme avgrensning før reell integrasjon.
-
-Manuell test på vanlig/smal skjerm: velg navn → Profil → bytt navn → avslutt → prøv tomt navn. Oppdater siden og kontroller at valget forsvinner. Dette virker også på GitHub Pages etter godkjent merge/publisering.
+async function bekreftBesok() {
+  klargjorBesok();
+  if (document.getElementById('bekreftbesok').disabled) return;
+  var bruker = aktivBruker;
+  var kamp = valgtKamp;
+  lagrerBesok = true;
+  klargjorBesok();
+  try {
+    await lagreBesok(bruker, kamp.match_id);
+    bekreftetBesok = bruker.user_id + ':' + kamp.match_id;
+  } catch (feil) {
+    lagrerBesok = false;
+    if (aktivBruker === bruker && valgtKamp === kamp) {
+      klargjorBesok();
+      document.getElementById('besokstatus').textContent = 'Kunne ikke lagre besøket. Prøv igjen.';
+      return;
+    }
+  }
+  lagrerBesok = false;
+  klargjorBesok();
+}

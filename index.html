@@ -60,8 +60,8 @@
       </article>
       <p>Her skal brukeren kunne bekrefte besøket og lagre det i sin personlige historikk.</p>
       <p>Ingen automatisk deling til andre.</p>
-      <button class="mork" disabled>Bekreft innsjekking</button>
-      <small>Lagring kobles til senere.</small>
+      <button id="bekreftbesok" class="mork" onclick="bekreftBesok()" disabled>Bekreft innsjekking</button>
+      <p id="besokstatus" role="status">Lagring kobles til senere.</p>
       <button onclick="visSide('kamper')">Avbryt</button>
     </section>
 

@@ -19,6 +19,7 @@ function visKamp(navn, dato, stadion) {
   document.getElementById('kampdato').textContent = dato;
   document.getElementById('stadionnavn').textContent = stadion;
   visSide('innsjekking');
+  klargjorBesok();
 }
 
 // W3Schools: Fetch API, DOM Nodes, Array sort og Date.
@@ -223,4 +224,48 @@ function avsluttTestprofil() {
   document.getElementById('brukernavn').value = '';
   document.getElementById('brukerstatus').textContent = '';
   visSide('innlogging');
+}
+
+// #56: backend kobler til en funksjon som returnerer et Promise i #55.
+// Funksjonen må avvise med feil dersom besøket ikke faktisk blir lagret.
+var lagreBesok = null;
+var lagrerBesok = false;
+var bekreftetBesok = '';
+
+function klargjorBesok() {
+  var status = document.getElementById('besokstatus');
+  var knapp = document.getElementById('bekreftbesok');
+  knapp.disabled = true;
+  if (!aktivBruker) status.textContent = 'Velg en testprofil før du bekrefter besøket.';
+  else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
+  else if (!lagreBesok) status.textContent = 'Lagring er ikke koblet til ennå.';
+  else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
+  else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
+    status.textContent = 'Besøket er bekreftet.';
+  else {
+    status.textContent = 'Kontroller kamp og stadion før du bekrefter.';
+    knapp.disabled = false;
+  }
+}
+
+async function bekreftBesok() {
+  klargjorBesok();
+  if (document.getElementById('bekreftbesok').disabled) return;
+  var bruker = aktivBruker;
+  var kamp = valgtKamp;
+  lagrerBesok = true;
+  klargjorBesok();
+  try {
+    await lagreBesok(bruker, kamp.match_id);
+    bekreftetBesok = bruker.user_id + ':' + kamp.match_id;
+  } catch (feil) {
+    lagrerBesok = false;
+    if (aktivBruker === bruker && valgtKamp === kamp) {
+      klargjorBesok();
+      document.getElementById('besokstatus').textContent = 'Kunne ikke lagre besøket. Prøv igjen.';
+      return;
+    }
+  }
+  lagrerBesok = false;
+  klargjorBesok();
 }
