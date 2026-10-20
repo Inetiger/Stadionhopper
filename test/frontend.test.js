@@ -179,6 +179,8 @@ test('profile clears stale data on missing user or invalid history and handles a
   ui.context.visProfil({ user_id: 1 }, null);
   assert.match(ui.felter.profilstatus.textContent, /Kunne ikke vise/);
   assert.equal(ui.felter.profilnavn.textContent, '');
+});
+
 test('GitHub Pages uses the static demo file for matches, details and social feed', async () => {
   const demo = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'demo', 'data.json'), 'utf8'));
   const requests = [];
