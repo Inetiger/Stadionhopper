@@ -1,0 +1,17 @@
+[
+  {
+    "club_id": 1,
+    "name": "Molde FK",
+    "type": "home"
+  },
+  {
+    "club_id": 2,
+    "name": "Eide og Omegn FK",
+    "type": "away"
+  },
+  {
+    "club_id": 3,
+    "name": "Skåla IL",
+    "type": "away"
+  }
+]
