@@ -31,38 +31,22 @@
         <button onclick="visKamper('kommende')">Kommende</button>
         <button onclick="visKamper('tidligere')">Tidligere</button>
       </div>
-      <div id="kommende">
-        <article>
-          <h3>Molde FK – Eide og Omegn FK</h3>
-          <p>24. oktober 2026 · kl. 15.00<br>Aker Stadion</p>
-          <details>
-            <summary>Se kampdetaljer</summary>
-            <p>Fiktiv treningskamp · Aker Stadion.</p>
-          </details>
-        </article>
-        <article>
-          <h3>Skåla IL – Gossen IL</h3>
-          <p>25. oktober 2026 · kl. 14.00<br>Våganebanen</p>
-          <details>
-            <summary>Se kampdetaljer</summary>
-            <p>Fiktiv treningskamp · Våganebanen.</p>
-          </details>
-        </article>
-      </div>
-      <div id="tidligere">
-        <article>
-          <h3>Eide og Omegn FK – Skåla IL</h3>
-          <p>3. oktober 2026 · kl. 15.00<br>Eide kunstgressbane</p>
-          <button onclick="visKamp('Eide og Omegn FK – Skåla IL', '3. oktober 2026 · kl. 15.00', 'Eide kunstgressbane')">Se besøk →</button>
-        </article>
-        <article>
-          <h3>Gossen IL – Molde FK</h3>
-          <p>26. september 2026 · kl. 14.00<br>Riksfjord Stadion</p>
-          <button onclick="visKamp('Gossen IL – Molde FK', '26. september 2026 · kl. 14.00', 'Riksfjord Stadion')">Se besøk →</button>
-        </article>
-      </div>
+      <p id="kampstatus" role="status"></p>
+      <button onclick="hentKamper()">Last kamper på nytt</button>
+      <div id="kommende"></div>
+      <div id="tidligere"></div>
       <button onclick="visSide('kart')">Finn stadion på kart</button>
       <p>Du kan utforske uten å logge inn.</p>
+    </section>
+
+    <section id="kampdetaljer" class="side">
+      <h1>Kampdetaljer</h1>
+      <button onclick="visSide('kamper')">← Tilbake til kamper</button>
+      <p id="detaljstatus" role="status"></p>
+      <article id="detaljkort">
+        <h3 id="detaljnavn"></h3><p id="detaljdato"></p><p id="detaljstadion"></p>
+      </article>
+      <button id="besokknapp" onclick="visValgtBesok()" disabled>Se besøk →</button>
     </section>
 
     <section id="innsjekking" class="side">

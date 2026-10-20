@@ -89,6 +89,21 @@ function createServer({ dbDir = process.env.STADIONHOPPER_DB_DIR || DEFAULT_DB_D
   return http.createServer(async (req, res) => {
     const pathname = new URL(req.url, "http://localhost").pathname;
     try {
+      // Bare disse offentlige frontend-filene skal kunne lastes ned.
+      const filer = {
+        "/": ["index.html", "text/html"],
+        "/index.html": ["index.html", "text/html"],
+        "/style.css": ["style.css", "text/css"],
+        "/script.js": ["script.js", "text/javascript"]
+      };
+      if (req.method === "GET" && Object.hasOwn(filer, pathname)) {
+        const [filnavn, type] = filer[pathname];
+        const innhold = await fs.readFile(path.join(__dirname, filnavn));
+        res.writeHead(200, { "Content-Type": type + "; charset=utf-8",
+          "X-Content-Type-Options": "nosniff" });
+        return res.end(innhold);
+      }
+
       if (req.method === "GET" && pathname === "/api/matches") {
         return sendJson(res, 200, { matches: await getMatches(dbDir) });
       }
