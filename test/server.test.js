@@ -4,6 +4,7 @@ const fs = require("node:fs/promises");
 const os = require("node:os");
 const path = require("node:path");
 const { createServer, parseTable } = require("../server");
+const { createTestAuthStore } = require("./helpers/auth");
 
 async function makeDb() {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), "stadionhopper-matches-"));
@@ -49,7 +50,7 @@ test("normalizes existing None values and trailing commas", () => {
 
 test("lists matches sorted by date with club and stadium details", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
@@ -68,7 +69,7 @@ test("lists matches sorted by date with club and stadium details", async t => {
 
 test("returns one match by ID and a clear 404 for an unknown ID", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
@@ -87,7 +88,7 @@ test("returns one match by ID and a clear 404 for an unknown ID", async t => {
 
 test("lists valid social posts newest first with author names", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
@@ -115,7 +116,7 @@ async function login(base, username = "Testbruker", password = "hopper123") {
 
 test("profile and check-in APIs require a session and isolate identity from client input", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
@@ -192,7 +193,7 @@ test("profile and check-in APIs require a session and isolate identity from clie
 
 test("check-in API validates match IDs after authenticating the session", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
@@ -216,7 +217,7 @@ test("check-in API validates match IDs after authenticating the session", async 
 
 test("check-in API reports malformed JSON as 400 for an authenticated user", async t => {
   const dbDir = await makeDb();
-  const server = createServer({ dbDir });
+  const server = createServer({ dbDir, authStore: createTestAuthStore() });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   t.after(async () => {
     await new Promise(resolve => server.close(resolve));
