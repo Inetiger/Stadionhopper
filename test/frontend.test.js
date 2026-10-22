@@ -40,9 +40,9 @@ test('frontend uses real API fixtures, selects by ID and shows correct details',
   }
   assert.equal(ui.felter.kampstatus.textContent, '');
   assert.equal(ui.felter.kampkalender.children.length >= 28, true);
-  assert.equal(ui.felter.dagliste.children.length, 1);
-  ui.context.velgKalenderdag('2026-10-01');
+  ui.context.velgKalenderdag('2026-10-24');
   const kort = ui.felter.dagliste.children;
+  assert.equal(kort.length, 1);
   const kampKnapp = [...kort[0].children].find(child => child.onclick);
   kampKnapp.onclick();
   for (let i = 0; i < 100 && ui.felter.detaljstatus.textContent === 'Laster kamp …'; i++) {
