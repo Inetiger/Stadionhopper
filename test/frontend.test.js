@@ -39,12 +39,9 @@ test('frontend uses real API fixtures, selects by ID and shows correct details',
     await new Promise(resolve => setTimeout(resolve, 10));
   }
   assert.equal(ui.felter.kampstatus.textContent, '');
-  assert.equal(ui.felter.kampkalender.children.length >= 28, true);
-  assert.equal(ui.felter.dagliste.children.length, 1);
-  ui.context.velgKalenderdag('2026-10-01');
-  const kort = ui.felter.dagliste.children;
-  const kampKnapp = [...kort[0].children].find(child => child.onclick);
-  kampKnapp.onclick();
+  const kort = [...ui.felter.kommende.children, ...ui.felter.tidligere.children];
+  assert.equal(kort.length, 2);
+  kort[0].children[2].onclick();
   for (let i = 0; i < 100 && ui.felter.detaljstatus.textContent === 'Laster kamp …'; i++) {
     await new Promise(resolve => setTimeout(resolve, 10));
   }
@@ -69,8 +66,7 @@ test('frontend shows loading, empty, malformed response and network failure', as
   assert.equal(ui.felter.kampstatus.textContent, 'Laster kamper …');
   await ferdig();
   assert.equal(ui.felter.kampstatus.textContent, 'Ingen kamper tilgjengelig.');
-  assert.equal(ui.felter.kampkalender.children.length >= 28, true);
-  assert.equal(ui.felter.dagliste.textContent, 'Ingen kamper denne dagen.');
+  assert.equal(ui.felter.tidligere.textContent, 'Ingen tidligere kamper.');
   for (const fetch of [async () => { throw Error('offline'); },
     async () => ({ ok: false }), async () => ({ ok: true, json: async () => ({}) })]) {
     const feil = frontend(fetch);
@@ -89,15 +85,11 @@ test('frontend sorts dates, handles missing fields, and treats club names as tex
     { match_id: 1, match_date: '2099-01-01' }
   ] }) }));
   await ferdig();
-  ui.context.kalenderMaaned = new Date(2099, 0, 1);
-  ui.context.renderKalender();
-  ui.context.velgKalenderdag('2099-01-01');
-  const kort = ui.felter.dagliste.children;
-  assert.equal(kort.length, 1);
+  const kort = ui.felter.kommende.children;
+  assert.equal(kort.length, 2);
   assert.match(kort[0].children[0].textContent, /Ukjent hjemmelag/);
+  assert.match(kort[1].children[0].textContent, /<img/);
   assert.match(kort[0].children[1].textContent, /Stadion mangler/);
-  ui.context.velgKalenderdag('2099-02-01');
-  assert.match(ui.felter.dagliste.children[0].children[0].textContent, /<img/);
 });
 
 test('feed renders actual API posts newest first, as text, without changing test data', async t => {
@@ -200,17 +192,13 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
 
   await ferdig();
   assert.match(ui.felter.demostatus.textContent, /fiktive (data|eksempeldata)/);
-  assert.ok(ui.felter.kampkalender.children.length >= 28);
+  assert.equal(ui.felter.kommende.children.length + ui.felter.tidligere.children.length, demo.matches.length);
   assert.ok(requests.every(url => url === 'demo/data.json'));
 
-  const kampDato = demo.matches[0].match_date.slice(0, 10);
-  ui.context.velgKalenderdag(kampDato);
-  const kampdag = ui.felter.dagliste.children.find(item => [...item.children].some(child => child.onclick));
-  assert.ok(kampdag);
-  const kampKnapp = [...kampdag.children].find(child => child.onclick);
-  kampKnapp.onclick();
+  const kort = [...ui.felter.kommende.children, ...ui.felter.tidligere.children].find(item => item.children[2].onclick);
+  kort.children[2].onclick();
   await ferdig();
-  assert.ok(ui.felter.detaljnavn.textContent);
+  assert.equal(ui.felter.detaljnavn.textContent, kort.children[0].textContent);
 
   ui.context.visSide('feed');
   await ferdig();

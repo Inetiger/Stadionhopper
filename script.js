@@ -120,9 +120,9 @@ function renderKalenderUtenDag() {
     var knapp = knapper[i];
     if (!knapp.className || knapp.className.indexOf('kalenderdag') < 0) continue;
     knapp.className = knapp.className.replace(' valgt-dag', '');
-    var nummer = knapp.textContent.match(/^\\d+/);
+    var nummer = parseInt(knapp.textContent, 10);
     if (nummer && valgtDato === kalenderMaaned.getFullYear() + '-' +
-      String(kalenderMaaned.getMonth() + 1).padStart(2, '0') + '-' + String(nummer[0]).padStart(2, '0')) {
+      String(kalenderMaaned.getMonth() + 1).padStart(2, '0') + '-' + String(nummer).padStart(2, '0')) {
       knapp.className += ' valgt-dag';
     }
   }
