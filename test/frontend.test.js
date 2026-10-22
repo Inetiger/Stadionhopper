@@ -89,11 +89,15 @@ test('frontend sorts dates, handles missing fields, and treats club names as tex
     { match_id: 1, match_date: '2099-01-01' }
   ] }) }));
   await ferdig();
-  const kort = ui.felter.kommende.children;
-  assert.equal(kort.length, 2);
+  ui.context.kalenderMaaned = new Date(2099, 0, 1);
+  ui.context.renderKalender();
+  ui.context.velgKalenderdag('2099-01-01');
+  const kort = ui.felter.dagliste.children;
+  assert.equal(kort.length, 1);
   assert.match(kort[0].children[0].textContent, /Ukjent hjemmelag/);
-  assert.match(kort[1].children[0].textContent, /<img/);
   assert.match(kort[0].children[1].textContent, /Stadion mangler/);
+  ui.context.velgKalenderdag('2099-02-01');
+  assert.match(ui.felter.dagliste.children[0].children[0].textContent, /<img/);
 });
 
 test('feed renders actual API posts newest first, as text, without changing test data', async t => {
