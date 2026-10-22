@@ -15,8 +15,11 @@ test('user can check in from match details and see the persisted visit in profil
   await ui.context.velgTestprofil();
   assert.equal(ui.context.aktivBruker.username, 'Testbruker');
 
-  const cards = [...ui.felter.kommende.children, ...ui.felter.tidligere.children];
-  assert.ok(cards.length > 0, 'fixture should provide at least one match');
+  assert.ok(ui.context.kamper.length > 0, 'fixture should provide at least one match');
+  const firstMatchDate = new Date(ui.context.kamper[0].match_date);
+  ui.context.velgKalenderdag(ui.context.datoNokkel(firstMatchDate));
+  const cards = [...ui.felter.dagliste.children];
+  assert.ok(cards.length > 0, 'calendar should show the selected match date');
   const selectedCard = cards[0];
   const expectedMatchName = selectedCard.children[0].textContent;
   selectedCard.children[2].onclick();
