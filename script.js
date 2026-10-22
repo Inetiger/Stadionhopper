@@ -29,22 +29,10 @@ function renderKalender() {
   kalender.textContent = '';
   var aar = kalenderMaaned.getFullYear();
   var maaned = kalenderMaaned.getMonth();
+  var maanedsnøkkel = aar + '-' + String(maaned + 1).padStart(2, '0');
   document.getElementById('kalendertittel').textContent =
     kalenderMaaned.toLocaleDateString('nb-NO', { month: 'long', year: 'numeric' });
-  var ukedager = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
-  ukedager.forEach(function(dag) {
-    var overskrift = document.createElement('div');
-    overskrift.className = 'ukedag';
-    overskrift.textContent = dag;
-    kalender.appendChild(overskrift);
-  });
-  var forste = new Date(aar, maaned, 1);
-  var startdag = (forste.getDay() + 6) % 7;
-  var antallDager = new Date(aar, maaned + 1, 0).getDate();
-  if (!valgtDato || valgtDato.slice(0, 7) !== aar + '-' + String(maaned + 1).padStart(2, '0')) {
-    var iDag = new Date();
-    valgtDato = datoNokkel(iDag.getFullYear() === aar && iDag.getMonth() === maaned ? iDag : forste);
-  }
+
   var kamperPerDag = {};
   kamper.forEach(function(kamp) {
     var dato = new Date(kamp.match_date || '');
@@ -53,31 +41,61 @@ function renderKalender() {
     if (!kamperPerDag[nokkel]) kamperPerDag[nokkel] = [];
     kamperPerDag[nokkel].push(kamp);
   });
+
+  ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'].forEach(function(dag) {
+    var overskrift = document.createElement('div');
+    overskrift.className = 'ukedag';
+    overskrift.textContent = dag;
+    kalender.appendChild(overskrift);
+  });
+
+  var forste = new Date(aar, maaned, 1);
+  var startdag = (forste.getDay() + 6) % 7;
+  var antallDager = new Date(aar, maaned + 1, 0).getDate();
   for (var tom = 0; tom < startdag; tom++) {
     var blank = document.createElement('div');
     blank.className = 'kalenderdag tom';
     if (blank.setAttribute) blank.setAttribute('aria-hidden', 'true');
     kalender.appendChild(blank);
   }
+
   for (var dagNummer = 1; dagNummer <= antallDager; dagNummer++) {
     var dato = new Date(aar, maaned, dagNummer);
     var nokkel = datoNokkel(dato);
-    var knapp = document.createElement('button');
-    knapp.type = 'button';
-    knapp.className = 'kalenderdag';
-    if (knapp.setAttribute) knapp.setAttribute('aria-label', dato.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) +
-      (kamperPerDag[nokkel] ? ', ' + kamperPerDag[nokkel].length + ' kamper' : ', ingen kamper'));
-    knapp.textContent = String(dagNummer);
-    if (kamperPerDag[nokkel] && kamperPerDag[nokkel].length) {
-      knapp.className += ' har-kamp';
-      var markor = document.createElement('span');
-      markor.className = 'kampmarkor';
-      markor.textContent = kamperPerDag[nokkel].length + (kamperPerDag[nokkel].length === 1 ? ' kamp' : ' kamper');
-      knapp.appendChild(markor);
-    }
-    if (nokkel === valgtDato) knapp.className += ' valgt-dag';
-    knapp.onclick = function(dagNokkel) { return function() { velgKalenderdag(dagNokkel); }; }(nokkel);
-    kalender.appendChild(knapp);
+    var celle = document.createElement('section');
+    celle.className = 'kalenderdag';
+    if (nokkel === valgtDato) celle.className += ' valgt-dag';
+
+    var datoknapp = document.createElement('button');
+    datoknapp.type = 'button';
+    datoknapp.className = 'kalenderdato';
+    datoknapp.textContent = String(dagNummer);
+    if (datoknapp.setAttribute) datoknapp.setAttribute('aria-label',
+      dato.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }));
+    datoknapp.onclick = function(dagNokkel) {
+      return function() { velgKalenderdag(dagNokkel); };
+    }(nokkel);
+    celle.appendChild(datoknapp);
+
+    (kamperPerDag[nokkel] || []).forEach(function(kamp) {
+      var kampknapp = document.createElement('button');
+      kampknapp.type = 'button';
+      kampknapp.className = 'kalenderkamp';
+      var tidspunkt = new Date(kamp.match_date);
+      kampknapp.textContent = tidspunkt.toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) +
+        ' ' + kampnavn(kamp);
+      if (kamp.stadium_name) kampknapp.title = kamp.stadium_name;
+      kampknapp.onclick = function(id) {
+        return function() { hentKamp(id); };
+      }(kamp.match_id);
+      celle.appendChild(kampknapp);
+    });
+    kalender.appendChild(celle);
+  }
+
+  if (!valgtDato || valgtDato.slice(0, 7) !== maanedsnøkkel) {
+    var iDag = new Date();
+    valgtDato = datoNokkel(iDag.getFullYear() === aar && iDag.getMonth() === maaned ? iDag : forste);
   }
   velgKalenderdag(valgtDato, true);
 }
@@ -115,15 +133,17 @@ function velgKalenderdag(nokkel, ikkeRender) {
 }
 
 function renderKalenderUtenDag() {
-  var knapper = document.getElementById('kampkalender').children;
-  for (var i = 7; i < knapper.length; i++) {
-    var knapp = knapper[i];
-    if (!knapp.className || knapp.className.indexOf('kalenderdag') < 0) continue;
-    knapp.className = knapp.className.replace(' valgt-dag', '');
-    var nummer = parseInt(knapp.textContent, 10);
-    if (nummer && valgtDato === kalenderMaaned.getFullYear() + '-' +
-      String(kalenderMaaned.getMonth() + 1).padStart(2, '0') + '-' + String(nummer).padStart(2, '0')) {
-      knapp.className += ' valgt-dag';
+  var celler = document.getElementById('kampkalender').children;
+  for (var i = 7; i < celler.length; i++) {
+    var celle = celler[i];
+    if (!celle.className || celle.className.indexOf('kalenderdag') < 0) continue;
+    celle.className = celle.className.replace(' valgt-dag', '');
+    var datoknapp = celle.children[0];
+    if (datoknapp && parseInt(datoknapp.textContent, 10) &&
+      valgtDato === kalenderMaaned.getFullYear() + '-' +
+      String(kalenderMaaned.getMonth() + 1).padStart(2, '0') + '-' +
+      String(parseInt(datoknapp.textContent, 10)).padStart(2, '0')) {
+      celle.className += ' valgt-dag';
     }
   }
 }
@@ -178,6 +198,8 @@ var kamper = [];
 var kalenderMaaned = new Date();
 kalenderMaaned.setDate(1);
 var valgtDato = '';
+document.getElementById('forrigemnd').onclick = function() { visMaaned(-1); };
+document.getElementById('nestemnd').onclick = function() { visMaaned(1); };
 
 function hentKamper() {
   var kall = ++listekall;
