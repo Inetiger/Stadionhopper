@@ -9,10 +9,123 @@ function visSide(navn) {
   if (navn === 'profil') hentProfilHistorikk();
 }
 
-function visKamper(navn) {
-  document.getElementById('kommende').style.display = 'none';
-  document.getElementById('tidligere').style.display = 'none';
-  document.getElementById(navn).style.display = 'block';
+function visKamper() {
+  renderKalender();
+}
+
+function visMaaned(forskyvning) {
+  kalenderMaaned.setMonth(kalenderMaaned.getMonth() + forskyvning, 1);
+  renderKalender();
+}
+
+function datoNokkel(dato) {
+  return dato.getFullYear() + '-' + String(dato.getMonth() + 1).padStart(2, '0') +
+    '-' + String(dato.getDate()).padStart(2, '0');
+}
+
+function renderKalender() {
+  var kalender = document.getElementById('kampkalender');
+  if (!kalender) return;
+  kalender.textContent = '';
+  var aar = kalenderMaaned.getFullYear();
+  var maaned = kalenderMaaned.getMonth();
+  document.getElementById('kalendertittel').textContent =
+    kalenderMaaned.toLocaleDateString('nb-NO', { month: 'long', year: 'numeric' });
+  var ukedager = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
+  ukedager.forEach(function(dag) {
+    var overskrift = document.createElement('div');
+    overskrift.className = 'ukedag';
+    overskrift.textContent = dag;
+    kalender.appendChild(overskrift);
+  });
+  var forste = new Date(aar, maaned, 1);
+  var startdag = (forste.getDay() + 6) % 7;
+  var antallDager = new Date(aar, maaned + 1, 0).getDate();
+  var kamperPerDag = {};
+  kamper.forEach(function(kamp) {
+    var dato = new Date(kamp.match_date || '');
+    if (isNaN(dato.getTime()) || dato.getFullYear() !== aar || dato.getMonth() !== maaned) return;
+    var nokkel = datoNokkel(dato);
+    if (!kamperPerDag[nokkel]) kamperPerDag[nokkel] = [];
+    kamperPerDag[nokkel].push(kamp);
+  });
+  for (var tom = 0; tom < startdag; tom++) {
+    var blank = document.createElement('div');
+    blank.className = 'kalenderdag tom';
+    blank.setAttribute('aria-hidden', 'true');
+    kalender.appendChild(blank);
+  }
+  for (var dagNummer = 1; dagNummer <= antallDager; dagNummer++) {
+    var dato = new Date(aar, maaned, dagNummer);
+    var nokkel = datoNokkel(dato);
+    var knapp = document.createElement('button');
+    knapp.type = 'button';
+    knapp.className = 'kalenderdag';
+    knapp.setAttribute('aria-label', dato.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) +
+      (kamperPerDag[nokkel] ? ', ' + kamperPerDag[nokkel].length + ' kamper' : ', ingen kamper'));
+    knapp.textContent = String(dagNummer);
+    if (kamperPerDag[nokkel] && kamperPerDag[nokkel].length) {
+      knapp.className += ' har-kamp';
+      var markor = document.createElement('span');
+      markor.className = 'kampmarkor';
+      markor.textContent = kamperPerDag[nokkel].length + (kamperPerDag[nokkel].length === 1 ? ' kamp' : ' kamper');
+      knapp.appendChild(markor);
+    }
+    if (nokkel === valgtDato) knapp.className += ' valgt-dag';
+    knapp.onclick = function(dagNokkel) { return function() { velgKalenderdag(dagNokkel); }; }(nokkel);
+    kalender.appendChild(knapp);
+  }
+  if (!valgtDato || valgtDato.slice(0, 7) !== aar + '-' + String(maaned + 1).padStart(2, '0')) {
+    var iDag = new Date();
+    valgtDato = datoNokkel(iDag.getFullYear() === aar && iDag.getMonth() === maaned ? iDag : forste);
+  }
+  velgKalenderdag(valgtDato, true);
+}
+
+function velgKalenderdag(nokkel, ikkeRender) {
+  valgtDato = nokkel;
+  var dag = new Date(nokkel + 'T12:00:00');
+  document.getElementById('dagstitel').textContent =
+    dag.toLocaleDateString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  var liste = document.getElementById('dagliste');
+  liste.textContent = '';
+  var funnet = kamper.filter(function(kamp) {
+    var dato = new Date(kamp.match_date || '');
+    return !isNaN(dato.getTime()) && datoNokkel(dato) === nokkel;
+  }).sort(function(a, b) { return String(a.match_date || '').localeCompare(String(b.match_date || '')); });
+  if (!funnet.length) {
+    liste.textContent = 'Ingen kamper denne dagen.';
+  } else {
+    funnet.forEach(function(kamp) {
+      var kort = document.createElement('article');
+      var navn = document.createElement('h3');
+      var info = document.createElement('p');
+      var knapp = document.createElement('button');
+      navn.textContent = kampnavn(kamp);
+      info.textContent = new Date(kamp.match_date).toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) +
+        ' · ' + (kamp.stadium_name || 'Stadion mangler');
+      knapp.textContent = 'Se kampdetaljer →';
+      knapp.disabled = kamp.match_id == null;
+      knapp.onclick = function() { hentKamp(kamp.match_id); };
+      kort.appendChild(navn); kort.appendChild(info); kort.appendChild(knapp);
+      liste.appendChild(kort);
+    });
+  }
+  if (!ikkeRender) renderKalenderUtenDag();
+}
+
+function renderKalenderUtenDag() {
+  var knapper = document.getElementById('kampkalender').children;
+  for (var i = 7; i < knapper.length; i++) {
+    var knapp = knapper[i];
+    if (!knapp.className || knapp.className.indexOf('kalenderdag') < 0) continue;
+    knapp.className = knapp.className.replace(' valgt-dag', '');
+    var nummer = knapp.textContent.match(/^\\d+/);
+    if (nummer && valgtDato === kalenderMaaned.getFullYear() + '-' +
+      String(kalenderMaaned.getMonth() + 1).padStart(2, '0') + '-' + String(nummer[0]).padStart(2, '0')) {
+      knapp.className += ' valgt-dag';
+    }
+  }
 }
 
 function visKamp(navn, dato, stadion) {
@@ -61,40 +174,25 @@ function hentData(adresse) {
   });
 }
 
+var kamper = [];
+var kalenderMaaned = new Date();
+kalenderMaaned.setDate(1);
+var valgtDato = '';
+
 function hentKamper() {
   var kall = ++listekall;
   var status = document.getElementById('kampstatus');
   status.textContent = 'Laster kamper …';
-  document.getElementById('kommende').textContent = '';
-  document.getElementById('tidligere').textContent = '';
   hentData('/api/matches').then(function(data) {
     if (kall !== listekall) return;
     if (!Array.isArray(data.matches)) throw new Error('Ugyldig kampliste');
-    data.matches.sort(function(a, b) {
+    kamper = data.matches.slice().filter(function(kamp) {
+      return kamp.match_date && !isNaN(new Date(kamp.match_date).getTime());
+    }).sort(function(a, b) {
       return String(a.match_date || '').localeCompare(String(b.match_date || ''));
     });
-    data.matches.forEach(function(kamp) {
-      var dato = new Date(kamp.match_date || '');
-      var gruppe = dato < new Date() ? 'tidligere' : 'kommende';
-      var kort = document.createElement('article');
-      var navn = document.createElement('h3');
-      var info = document.createElement('p');
-      var knapp = document.createElement('button');
-      navn.textContent = kampnavn(kamp);
-      info.textContent = kampdato(kamp) + ' · ' + (kamp.stadium_name || 'Stadion mangler');
-      knapp.textContent = 'Se kampdetaljer →';
-      knapp.disabled = kamp.match_id == null;
-      knapp.onclick = function() { hentKamp(kamp.match_id); };
-      kort.appendChild(navn);
-      kort.appendChild(info);
-      kort.appendChild(knapp);
-      document.getElementById(gruppe).appendChild(kort);
-    });
-    ['kommende', 'tidligere'].forEach(function(gruppe) {
-      var liste = document.getElementById(gruppe);
-      if (!liste.children.length) liste.textContent = 'Ingen ' + gruppe + ' kamper.';
-    });
-    status.textContent = data.matches.length ? '' : 'Ingen kamper tilgjengelig.';
+    status.textContent = kamper.length ? '' : 'Ingen kamper tilgjengelig.';
+    renderKalender();
   }).catch(function() {
     if (kall === listekall) status.textContent = 'Kunne ikke hente kamper. Prøv på nytt.';
   });
@@ -135,7 +233,9 @@ function visValgtBesok() {
 }
 
 visSide('innlogging');
-visKamper('kommende');
+visKamper();
+document.getElementById('forrigemnd').onclick = function() { visMaaned(-1); };
+document.getElementById('nestemnd').onclick = function() { visMaaned(1); };
 hentKamper();
 
 // Samme Fetch- og DOM-metoder som kampoversikten (W3Schools).
