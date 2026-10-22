@@ -41,6 +41,10 @@ function renderKalender() {
   var forste = new Date(aar, maaned, 1);
   var startdag = (forste.getDay() + 6) % 7;
   var antallDager = new Date(aar, maaned + 1, 0).getDate();
+  if (!valgtDato || valgtDato.slice(0, 7) !== aar + '-' + String(maaned + 1).padStart(2, '0')) {
+    var iDag = new Date();
+    valgtDato = datoNokkel(iDag.getFullYear() === aar && iDag.getMonth() === maaned ? iDag : forste);
+  }
   var kamperPerDag = {};
   kamper.forEach(function(kamp) {
     var dato = new Date(kamp.match_date || '');
@@ -74,10 +78,6 @@ function renderKalender() {
     if (nokkel === valgtDato) knapp.className += ' valgt-dag';
     knapp.onclick = function(dagNokkel) { return function() { velgKalenderdag(dagNokkel); }; }(nokkel);
     kalender.appendChild(knapp);
-  }
-  if (!valgtDato || valgtDato.slice(0, 7) !== aar + '-' + String(maaned + 1).padStart(2, '0')) {
-    var iDag = new Date();
-    valgtDato = datoNokkel(iDag.getFullYear() === aar && iDag.getMonth() === maaned ? iDag : forste);
   }
   velgKalenderdag(valgtDato, true);
 }

@@ -41,6 +41,7 @@ test('frontend uses real API fixtures, selects by ID and shows correct details',
   assert.equal(ui.felter.kampstatus.textContent, '');
   assert.equal(ui.felter.kampkalender.children.length >= 28, true);
   assert.equal(ui.felter.dagliste.children.length, 1);
+  ui.context.velgKalenderdag('2026-10-01');
   const kort = ui.felter.dagliste.children;
   const kampKnapp = [...kort[0].children].find(child => child.onclick);
   kampKnapp.onclick();
@@ -68,7 +69,8 @@ test('frontend shows loading, empty, malformed response and network failure', as
   assert.equal(ui.felter.kampstatus.textContent, 'Laster kamper …');
   await ferdig();
   assert.equal(ui.felter.kampstatus.textContent, 'Ingen kamper tilgjengelig.');
-  assert.equal(ui.felter.tidligere.textContent, 'Ingen tidligere kamper.');
+  assert.equal(ui.felter.kampkalender.children.length >= 28, true);
+  assert.equal(ui.felter.dagliste.textContent, 'Ingen kamper denne dagen.');
   for (const fetch of [async () => { throw Error('offline'); },
     async () => ({ ok: false }), async () => ({ ok: true, json: async () => ({}) })]) {
     const feil = frontend(fetch);
@@ -197,13 +199,14 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
   assert.ok(ui.felter.kampkalender.children.length >= 28);
   assert.ok(requests.every(url => url === 'demo/data.json'));
 
+  const kampDato = demo.matches[0].match_date.slice(0, 10);
+  ui.context.velgKalenderdag(kampDato);
   const kampdag = ui.felter.dagliste.children.find(item => [...item.children].some(child => child.onclick));
-  if (kampdag) {
-    const kampKnapp = [...kampdag.children].find(child => child.onclick);
-    kampKnapp.onclick();
-    await ferdig();
-    assert.ok(ui.felter.detaljnavn.textContent);
-  }
+  assert.ok(kampdag);
+  const kampKnapp = [...kampdag.children].find(child => child.onclick);
+  kampKnapp.onclick();
+  await ferdig();
+  assert.ok(ui.felter.detaljnavn.textContent);
 
   ui.context.visSide('feed');
   await ferdig();
