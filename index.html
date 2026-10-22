@@ -27,14 +27,19 @@
     <section id="kamper" class="side">
       <h1>Finn en lokal kamp</h1>
       <p>Tid og sted, samlet på ett sted.</p>
-      <div class="valg">
-        <button onclick="visKamper('kommende')">Kommende</button>
-        <button onclick="visKamper('tidligere')">Tidligere</button>
+      <p>Velg en dag i kalenderen for å se kampene som spilles da.</p>
+      <div class="kalenderkontroller" aria-label="Kalendernavigasjon">
+        <button type="button" id="forrigemnd" aria-label="Forrige måned">←</button>
+        <h2 id="kalendertittel" aria-live="polite"></h2>
+        <button type="button" id="nestemnd" aria-label="Neste måned">→</button>
       </div>
       <p id="kampstatus" role="status"></p>
-      <button onclick="hentKamper()">Last kamper på nytt</button>
-      <div id="kommende"></div>
-      <div id="tidligere"></div>
+      <div id="kampkalender" class="kampkalender" aria-label="Kamper etter dato"></div>
+      <div id="dagenskamper" aria-live="polite">
+        <h3 id="dagstitel">Velg en dato</h3>
+        <div id="dagliste"></div>
+      </div>
+      <button type="button" onclick="hentKamper()">Last kampene på nytt</button>
       <button onclick="visSide('kart')">Finn stadion på kart</button>
       <p>Du kan utforske uten å logge inn.</p>
     </section>
