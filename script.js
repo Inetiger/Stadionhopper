@@ -42,7 +42,7 @@ function kampdato(kamp) {
 var demomodus = location.hostname === 'inetiger.github.io';
 if (demomodus) {
   document.getElementById('demostatus').textContent =
-    'Demo · fiktive data · ingen innlogging eller lagring. Backend testes lokalt.';
+    'Demo · fiktive eksempeldata · innlogging og lagring er ikke tilgjengelig.';
 }
 
 function hentData(adresse) {
@@ -221,7 +221,7 @@ async function velgTestprofil() {
     return;
   }
   if (demomodus) {
-    status.textContent = 'Demoen støtter ikke innlogging eller lagring. Start backend lokalt for å teste dette.';
+    status.textContent = 'Innlogging er ikke tilgjengelig i denne demoen. Du kan utforske kamper uten innlogging.';
     return;
   }
   status.textContent = 'Logger inn …';
@@ -254,7 +254,7 @@ async function hentProfilHistorikk() {
     return;
   }
   if (demomodus) {
-    profilstatus('Demoen har ingen profil-API eller lagring. Start backend lokalt for å teste historikk.');
+    profilstatus('Profil og personlig historikk er ikke tilgjengelig i denne demoen.');
     return;
   }
   document.getElementById('historikk').textContent = '';
@@ -306,7 +306,7 @@ function klargjorBesok() {
   knapp.disabled = true;
   if (!aktivBruker) status.textContent = 'Velg en testprofil før du bekrefter besøket.';
   else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
-  else if (demomodus) status.textContent = 'Demoen lagrer ikke besøk. Start backend lokalt for å teste innsjekking.';
+  else if (demomodus) status.textContent = 'Innsjekking og lagring er ikke tilgjengelig i denne demoen.';
   else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
   else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
     status.textContent = 'Besøket er bekreftet.';
