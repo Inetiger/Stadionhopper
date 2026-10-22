@@ -65,7 +65,7 @@ function renderKalender() {
     var knapp = document.createElement('button');
     knapp.type = 'button';
     knapp.className = 'kalenderdag';
-    knapp.setAttribute('aria-label', dato.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) +
+    if (knapp.setAttribute) knapp.setAttribute('aria-label', dato.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' }) +
       (kamperPerDag[nokkel] ? ', ' + kamperPerDag[nokkel].length + ' kamper' : ', ingen kamper'));
     knapp.textContent = String(dagNummer);
     if (kamperPerDag[nokkel] && kamperPerDag[nokkel].length) {
