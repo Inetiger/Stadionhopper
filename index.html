@@ -13,16 +13,15 @@
     <small id="demostatus">Visningsmodell · fiktive kamper og arrangementer</small>
 
     <section id="innlogging" class="side">
-      <h1>Velg testprofil</h1>
-      <p>Logg inn med en fiktiv testkonto. Dette er en lokal prototype, ikke produksjonsinnlogging.</p>
+      <h1>Utforsk Stadionhopper</h1>
+      <p id="innlogginginfo">Innlogging er ikke tilgjengelig i den publiserte demoen. Du kan utforske kamper og stadioner uten innlogging.</p>
       <label for="brukernavn">Brukernavn</label>
-      <input id="brukernavn" type="text" maxlength="40" placeholder="Skriv et fiktivt brukernavn">
+      <input id="brukernavn" type="text" maxlength="40" placeholder="Innlogging er deaktivert">
       <label for="passord">Passord</label>
-      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Passord for testkonto">
-      <button class="mork" onclick="avbrytBesok()">Logg inn</button>
+      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Innlogging er deaktivert">
+      <button id="loginbutton" class="mork" onclick="velgTestprofil()">Innlogging deaktivert</button>
       <p id="brukerstatus" role="status"></p>
-      <button onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
-      <small>Ingen standardkontoer følger med. Se README for å opprette lokale testkontoer.</small>
+      <button id="utforskknapp" onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
     </section>
 
     <section id="kamper" class="side">
@@ -58,22 +57,21 @@
         <p id="kampdato"></p>
         <p id="stadionnavn"></p>
       </article>
-      <p>Her skal brukeren kunne bekrefte besøket og lagre det i sin personlige historikk.</p>
+      <p>Innsjekking og lagring er ikke tilgjengelig i den publiserte demoen.</p>
       <p>Ingen automatisk deling til andre.</p>
       <button id="bekreftbesok" class="mork" onclick="bekreftBesok()" disabled>Bekreft innsjekking</button>
-      <p id="besokstatus" role="status">Lagring kobles til senere.</p>
+      <p id="besokstatus" role="status">Innsjekking er ikke tilgjengelig i denne demoen.</p>
       <button onclick="avbrytBesok()">Avbryt</button>
     </section>
 
     <section id="profil" class="side">
       <h1>Min profil</h1>
-      <p id="profilstatus" role="status">Ingen testprofil er valgt. Profil kobles til senere.</p>
+      <p id="profilstatus" role="status">Profil og personlig historikk er ikke tilgjengelig i den publiserte demoen.</p>
       <h2 id="profilnavn"></h2>
       <h2>Mine innsjekkinger</h2>
       <div id="historikk"></div>
       <button onclick="visSide('kamper')">Finn en kamp</button>
-      <button onclick="avsluttTestprofil()">Avslutt testprofil</button>
-      <button onclick="avsluttTestprofil()">Logg ut / bytt testprofil</button>
+      <button onclick="avsluttTestprofil()">Avslutt profil</button>
     </section>
 
     <section id="feed" class="side">

@@ -191,7 +191,7 @@ test('GitHub Pages uses the static demo file for matches, details and social fee
   }, 'inetiger.github.io');
 
   await ferdig();
-  assert.match(ui.felter.demostatus.textContent, /fiktive data/);
+  assert.match(ui.felter.demostatus.textContent, /fiktive (data|eksempeldata)/);
   assert.equal(ui.felter.kommende.children.length + ui.felter.tidligere.children.length, demo.matches.length);
   assert.ok(requests.every(url => url === 'demo/data.json'));
 
