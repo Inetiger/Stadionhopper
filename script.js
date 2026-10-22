@@ -56,7 +56,7 @@ function renderKalender() {
   for (var tom = 0; tom < startdag; tom++) {
     var blank = document.createElement('div');
     blank.className = 'kalenderdag tom';
-    blank.setAttribute('aria-hidden', 'true');
+    if (blank.setAttribute) blank.setAttribute('aria-hidden', 'true');
     kalender.appendChild(blank);
   }
   for (var dagNummer = 1; dagNummer <= antallDager; dagNummer++) {
