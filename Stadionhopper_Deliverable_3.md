@@ -161,7 +161,7 @@ Et konkret eksempel er arbeidet med Issue #121, der forbedringer av kampinformas
 
 *** Beskriv hvordan gruppa faktisk har gjennomført pull requests og kodegjennomgang. Har alle endringer blitt gjennomgått av et annet gruppemedlem? Hvis ikke, hvorfor?
 
-4.2 Kontinuerlig integrasjon (CI)
+## 4.2 Kontinuerlig integrasjon (CI)
 
 Kontinuerlig integrasjon innebærer at kodeendringer integreres og kontrolleres jevnlig. Hensikten er å oppdage problemer tidlig, fremfor å samle opp mange endringer som først testes mot slutten av utviklingsarbeidet.
 
@@ -175,7 +175,7 @@ Dette gir et grunnlag for å automatisere kontroller når det gjøres endringer 
 
 *** Beskriv om gruppa har opplevd en mislykket CI-kjøring, og hvordan denne eventuelt ble fulgt opp.
 
-4.3 DORA og måling av utviklingsprosessen
+## 4.3 DORA og måling av utviklingsprosessen
 
 I tillegg til å kontrollere om testene fungerer, kan vi bruke DORA-målinger til å vurdere hvordan utviklingsprosessen fungerer over tid. DORA knytter programvareleveranse til både hastighet og stabilitet.
 
@@ -199,7 +199,7 @@ DORA er relevant fordi målet ikke bare er å levere endringer raskt, men også 
 
 *** Forklar hvilke data som er tilgjengelige, hvilke som mangler, og hva målingene eventuelt sier om arbeidsprosessen. Ikke bruk estimater som om de var dokumenterte resultater.
 
-4.4 Erfaringer med kvalitetssikring
+## 4.4 Erfaringer med kvalitetssikring
 
 Arbeidet med GitHub, automatiserte tester og CI har vist at kvalitetssikring ikke bare handler om å teste en ferdig løsning. Det handler også om hvordan endringer blir utviklet, kontrollert og integrert underveis.
 
@@ -209,9 +209,9 @@ Dette skillet har vært særlig relevant fordi den publiserte prototypen ikke vi
 
 *** Sett inn et konkret eksempel på hvordan testing, kodegjennomgang eller CI påvirket en beslutning eller førte til en feilretting.
 
-5. Sprint Review
+# 5. Sprint Review
 
-5.1 Demonstrasjon av sprintresultatet
+## 5.1 Demonstrasjon av sprintresultatet
 
 Hensikten med Sprint Review er å gjennomgå resultatet av sprinten og vurdere det opp mot sprintmålet og produktbehovene. Vi skal derfor demonstrere det som faktisk fungerer, ikke bare presentere en oversikt over oppgaver som er lukket.
 
@@ -223,7 +223,7 @@ Vi må samtidig vise hvilke deler av løsningen som er tilgjengelige i GitHub Pa
 
 *** Beskriv hvilke deler av sprintmålet som ble oppnådd, og hvilke som ikke ble oppnådd.
 
-5.2 Tilbakemeldinger og oppdatert backlog
+## 5.2 Tilbakemeldinger og oppdatert backlog
 
 Brukertestingen har allerede gitt oss innspill til videreutviklingen av løsningen. Disse er dokumentert og fulgt opp gjennom GitHub Issues.
 
@@ -235,7 +235,7 @@ Et sentralt spørsmål er om vi bør prioritere videre forbedring av kampkalende
 
 *** Oppgi hvilke Issues som ble opprettet, endret eller prioritert etter gjennomgangen.
 
-5.3 Avvik fra planen
+## 5.3 Avvik fra planen
 
 I Deliverable 2 la vi planer for både teknisk funksjonalitet og arbeidsprosess. Under utviklingen har vi erfart at ikke alle deler av løsningen kan demonstreres på samme måte.
 
@@ -245,9 +245,9 @@ Dette viser hvorfor sprintplanen må kunne justeres når vi får ny informasjon.
 
 *** Sammenlign opprinnelig sprintmål med faktisk resultat. Beskriv konkrete avvik, årsaker og konsekvenser for videre arbeid.
 
-6. Sprint Retrospective
+# 6. Sprint Retrospective
 
-6.1 Samarbeid og arbeidsprosess
+## 6.1 Samarbeid og arbeidsprosess
 
 Sprint Retrospective skal brukes til å evaluere hvordan gruppa har arbeidet, og hva vi kan forbedre i neste sprint. Mens Sprint Review handler om produktet og resultatene, handler retrospektivet om arbeidsprosessen og samarbeidet.
 
@@ -257,7 +257,7 @@ Et viktig tema for retrospektivet er hvordan denne arbeidsformen har fungert i p
 
 *** Beskriv faktisk møtestruktur, arbeidsfordeling og hvordan gruppa har samarbeidet under sprinten.
 
-6.2 Hva fungerte godt?
+## 6.2 Hva fungerte godt?
 
 GitHub har gitt oss en felles oversikt over oppgaver og utviklingsarbeid. Brukertestingen har også vært nyttig fordi den ga konkrete innspill som vi ikke nødvendigvis ville oppdaget gjennom egen testing.
 
@@ -265,7 +265,7 @@ Et annet positivt aspekt er at prototypen har blitt konkret nok til at vi kan un
 
 *** Fyll inn gruppas egne vurderinger fra retrospektivet. Bruk konkrete eksempler på hva som fungerte godt, og hvorfor.
 
-6.3 Utfordringer og læringspunkter
+## 6.3 Utfordringer og læringspunkter
 
 En utfordring i utviklingsarbeidet er at ulike funksjoner kan ha ulik grad av ferdigstillelse. Noe kan være implementert i kode, noe kan være testet lokalt, og noe kan være tilgjengelig i den publiserte demonstrasjonen.
 
@@ -275,7 +275,7 @@ Vi har også erfart at brukernes forståelse av løsningen ikke alltid samsvarer
 
 *** Beskriv gruppas viktigste utfordringer, eventuelle samarbeidsproblemer og hva dere lærte av dem.
 
-6.4 Konkrete forbedringstiltak
+## 6.4 Konkrete forbedringstiltak
 
 Hensikten med retrospektivet er ikke bare å identifisere utfordringer, men å bli enige om konkrete tiltak som kan forbedre neste sprint.
 
@@ -285,9 +285,9 @@ Hvilke tiltak vi velger, må bygge på gruppas faktiske erfaringer og diskusjone
 
 *** Sett inn to eller tre konkrete tiltak gruppa har blitt enige om. Beskriv hvem som skal følge dem opp, og hvordan dere skal vurdere om tiltakene fungerer.
 
-7. Oppsummering og veien videre
+# 7. Oppsummering og veien videre
 
-7.1 Hva vi har lært
+## 7.1 Hva vi har lært
 
 Arbeidet med Deliverable 3 har gitt oss erfaring med å gå fra produktvisjon og planlegging til en prototype som kan demonstreres og testes.
 
@@ -297,7 +297,7 @@ Kalendervisningen er et eksempel på hvordan produktet kan videreutvikles med ut
 
 Vi har også sett at det er viktig å skille mellom kode som er skrevet, funksjonalitet som er testet, og det som faktisk er tilgjengelig for brukerne.
 
-7.2 Veien videre
+## 7.2 Veien videre
 
 Videre arbeid vil blant annet handle om å ferdigstille og kontrollere prioriterte forbedringer fra brukertestingen, vurdere brukerreisen og fortsette utviklingen av prototypen.
 
