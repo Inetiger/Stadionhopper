@@ -158,3 +158,151 @@ Når en endring er klar, kan den gjennomgås gjennom en pull request før den sl
 Dette er særlig nyttig i et gruppeprosjekt der flere arbeider med ulike deler av løsningen. Det gjør det lettere å følge fremdriften og redusere risikoen for at endringer kommer i konflikt med hverandre.
 
 Et konkret eksempel er arbeidet med Issue #121, der forbedringer av kampinformasjonen er lagt i en egen branch. Dette gjør det mulig å arbeide med endringene uten å påvirke den publiserte hovedversjonen før de er vurdert og
+
+*** Beskriv hvordan gruppa faktisk har gjennomført pull requests og kodegjennomgang. Har alle endringer blitt gjennomgått av et annet gruppemedlem? Hvis ikke, hvorfor?
+
+4.2 Kontinuerlig integrasjon (CI)
+
+Kontinuerlig integrasjon innebærer at kodeendringer integreres og kontrolleres jevnlig. Hensikten er å oppdage problemer tidlig, fremfor å samle opp mange endringer som først testes mot slutten av utviklingsarbeidet.
+
+I Stadionhopper har vi arbeidet med å etablere CI gjennom GitHub Actions. Issue #61 om konfigurering av GitHub Actions er registrert som lukket, og repositoriet inneholder workflow-filer under .github/workflows.
+
+Dette gir et grunnlag for å automatisere kontroller når det gjøres endringer i prosjektet. For å vurdere om CI-prosessen fungerer etter hensikten, må vi undersøke hvilke hendelser som utløser kjøringene, hvilke tester som gjennomføres, og hvordan eventuelle feil blir håndtert.
+
+*** Sett inn hvilke hendelser som utløser GitHub Actions, for eksempel push eller pull request, basert på faktisk workflow.
+
+*** Sett inn resultat fra en eller flere konkrete Actions-kjøringer, inkludert dato, status og hvilke tester som ble kjørt.
+
+*** Beskriv om gruppa har opplevd en mislykket CI-kjøring, og hvordan denne eventuelt ble fulgt opp.
+
+4.3 DORA og måling av utviklingsprosessen
+
+I tillegg til å kontrollere om testene fungerer, kan vi bruke DORA-målinger til å vurdere hvordan utviklingsprosessen fungerer over tid. DORA knytter programvareleveranse til både hastighet og stabilitet.
+
+Fire sentrale målinger er:
+
+Deployment frequency: Hvor ofte endringer blir publisert eller levert.
+
+Lead time for changes: Hvor lang tid det tar fra en kodeendring blir gjort til den er levert.
+
+Change failure rate: Hvor stor andel leveranser som fører til feil som krever utbedring.
+
+Failed deployment recovery time: Hvor lang tid det tar å gjenopprette en fungerende løsning etter en mislykket leveranse.
+
+For vårt prosjekt er det viktig å definere hva vi regner som en leveranse. En commit, en merge til main og en oppdatering av GitHub Pages er ikke nødvendigvis det samme. Vi må derfor være konsekvente dersom vi skal bruke historikken til å beregne eller diskutere målingene.
+
+GitHub gir tilgang til commit-historikk, pull requests og Actions-kjøringer, som kan brukes som grunnlag for deler av analysen. Samtidig er prosjektet lite og har pågått over en begrenset periode. Det betyr at målingene må tolkes med forsiktighet.
+
+DORA er relevant fordi målet ikke bare er å levere endringer raskt, men også å kunne gjøre det på en stabil og forutsigbar måte.
+
+*** Undersøk om gruppa kan hente ut faktiske tall for én eller flere DORA-målinger.
+
+*** Forklar hvilke data som er tilgjengelige, hvilke som mangler, og hva målingene eventuelt sier om arbeidsprosessen. Ikke bruk estimater som om de var dokumenterte resultater.
+
+4.4 Erfaringer med kvalitetssikring
+
+Arbeidet med GitHub, automatiserte tester og CI har vist at kvalitetssikring ikke bare handler om å teste en ferdig løsning. Det handler også om hvordan endringer blir utviklet, kontrollert og integrert underveis.
+
+Når en oppgave er lukket i GitHub, betyr det at den er markert som ferdig. Det er likevel nødvendig å kontrollere om funksjonaliteten faktisk fungerer, om relevante tester er bestått, og om endringen er integrert i riktig branch.
+
+Dette skillet har vært særlig relevant fordi den publiserte prototypen ikke viser all funksjonaliteten som finnes i prosjektets kode.
+
+*** Sett inn et konkret eksempel på hvordan testing, kodegjennomgang eller CI påvirket en beslutning eller førte til en feilretting.
+
+5. Sprint Review
+
+5.1 Demonstrasjon av sprintresultatet
+
+Hensikten med Sprint Review er å gjennomgå resultatet av sprinten og vurdere det opp mot sprintmålet og produktbehovene. Vi skal derfor demonstrere det som faktisk fungerer, ikke bare presentere en oversikt over oppgaver som er lukket.
+
+En sentral del av demonstrasjonen er brukerreisen fra kampkalenderen til kampdetaljene. Dette viser hvordan brukeren kan oppdage en lokal fotballkamp og finne informasjon om når og hvor den spilles.
+
+Vi må samtidig vise hvilke deler av løsningen som er tilgjengelige i GitHub Pages-demoen, og hvilke funksjoner som krever lokal kjøring av backend.
+
+*** Beskriv når Sprint Review ble gjennomført, hvem som deltok, og hva som faktisk ble demonstrert.
+
+*** Beskriv hvilke deler av sprintmålet som ble oppnådd, og hvilke som ikke ble oppnådd.
+
+5.2 Tilbakemeldinger og oppdatert backlog
+
+Brukertestingen har allerede gitt oss innspill til videreutviklingen av løsningen. Disse er dokumentert og fulgt opp gjennom GitHub Issues.
+
+I Sprint Review skal vi også vurdere om prioriteringene fortsatt støtter produktvisjonen. Det innebærer blant annet å diskutere hvilke forbedringer som vil gjøre brukerreisen enklere, og hvilke funksjoner som kan vente.
+
+Et sentralt spørsmål er om vi bør prioritere videre forbedring av kampkalenderen og navigasjonen fremfor å utvide løsningen med flere funksjoner.
+
+*** Sett inn tilbakemeldinger og beslutninger fra Sprint Review.
+
+*** Oppgi hvilke Issues som ble opprettet, endret eller prioritert etter gjennomgangen.
+
+5.3 Avvik fra planen
+
+I Deliverable 2 la vi planer for både teknisk funksjonalitet og arbeidsprosess. Under utviklingen har vi erfart at ikke alle deler av løsningen kan demonstreres på samme måte.
+
+Den publiserte GitHub Pages-versjonen kan brukes til å vise brukergrensesnitt og kampinformasjon, men ikke alle funksjonene som krever backend. Samtidig har arbeidet med kalenderen og tilbakemeldingene fra brukerne påvirket hvilke forbedringer som fremstår som mest relevante.
+
+Dette viser hvorfor sprintplanen må kunne justeres når vi får ny informasjon. I smidig utvikling er det ikke nødvendigvis et mål å gjennomføre alle opprinnelige oppgaver uendret, men å bruke erfaringer og tilbakemeldinger til å ta bedre beslutninger underveis.
+
+*** Sammenlign opprinnelig sprintmål med faktisk resultat. Beskriv konkrete avvik, årsaker og konsekvenser for videre arbeid.
+
+6. Sprint Retrospective
+
+6.1 Samarbeid og arbeidsprosess
+
+Sprint Retrospective skal brukes til å evaluere hvordan gruppa har arbeidet, og hva vi kan forbedre i neste sprint. Mens Sprint Review handler om produktet og resultatene, handler retrospektivet om arbeidsprosessen og samarbeidet.
+
+Vi har brukt GitHub til å fordele og følge opp oppgaver, og utviklingsarbeidet har omfattet både frontend, backend, testing og brukerundersøkelse.
+
+Et viktig tema for retrospektivet er hvordan denne arbeidsformen har fungert i praksis. Vi bør blant annet vurdere om oppgavene har vært tydelig nok avgrenset, om arbeidsfordelingen har vært hensiktsmessig, og om vi har hatt tilstrekkelig kommunikasjon om endringer som påvirker andre deler av løsningen.
+
+*** Beskriv faktisk møtestruktur, arbeidsfordeling og hvordan gruppa har samarbeidet under sprinten.
+
+6.2 Hva fungerte godt?
+
+GitHub har gitt oss en felles oversikt over oppgaver og utviklingsarbeid. Brukertestingen har også vært nyttig fordi den ga konkrete innspill som vi ikke nødvendigvis ville oppdaget gjennom egen testing.
+
+Et annet positivt aspekt er at prototypen har blitt konkret nok til at vi kan undersøke hvordan brukere faktisk orienterer seg i løsningen, fremfor bare å diskutere planlagte funksjoner.
+
+*** Fyll inn gruppas egne vurderinger fra retrospektivet. Bruk konkrete eksempler på hva som fungerte godt, og hvorfor.
+
+6.3 Utfordringer og læringspunkter
+
+En utfordring i utviklingsarbeidet er at ulike funksjoner kan ha ulik grad av ferdigstillelse. Noe kan være implementert i kode, noe kan være testet lokalt, og noe kan være tilgjengelig i den publiserte demonstrasjonen.
+
+Dette gjør det viktig å kommunisere tydelig hva som faktisk fungerer, og hva som fortsatt gjenstår.
+
+Vi har også erfart at brukernes forståelse av løsningen ikke alltid samsvarer med vår egen. Tilbakemeldingene om navigasjon, begrepsbruk og kampinformasjon viser at funksjoner som virker logiske for utviklerne, ikke nødvendigvis er like tydelige for nye brukere.
+
+*** Beskriv gruppas viktigste utfordringer, eventuelle samarbeidsproblemer og hva dere lærte av dem.
+
+6.4 Konkrete forbedringstiltak
+
+Hensikten med retrospektivet er ikke bare å identifisere utfordringer, men å bli enige om konkrete tiltak som kan forbedre neste sprint.
+
+Aktuelle temaer kan være tydeligere avgrensning av Issues, tidligere testing av endringer, mer systematisk gjennomgang av pull requests og bedre koordinering når flere arbeider med funksjoner som påvirker hverandre.
+
+Hvilke tiltak vi velger, må bygge på gruppas faktiske erfaringer og diskusjoner.
+
+*** Sett inn to eller tre konkrete tiltak gruppa har blitt enige om. Beskriv hvem som skal følge dem opp, og hvordan dere skal vurdere om tiltakene fungerer.
+
+7. Oppsummering og veien videre
+
+7.1 Hva vi har lært
+
+Arbeidet med Deliverable 3 har gitt oss erfaring med å gå fra produktvisjon og planlegging til en prototype som kan demonstreres og testes.
+
+Vi har fått erfaring med hvordan GitHub kan brukes til å organisere utviklingsarbeidet, hvordan automatiserte tester kan bidra til teknisk kvalitet, og hvordan tilbakemeldinger fra faktiske brukere kan avdekke forbedringsbehov som ikke nødvendigvis kommer frem gjennom teknisk testing.
+
+Kalendervisningen er et eksempel på hvordan produktet kan videreutvikles med utgangspunkt i brukerbehovet for å finne lokale fotballkamper. Brukertestingen har samtidig vist at det er nødvendig å arbeide videre med både visuell utforming og forståelig navigasjon.
+
+Vi har også sett at det er viktig å skille mellom kode som er skrevet, funksjonalitet som er testet, og det som faktisk er tilgjengelig for brukerne.
+
+7.2 Veien videre
+
+Videre arbeid vil blant annet handle om å ferdigstille og kontrollere prioriterte forbedringer fra brukertestingen, vurdere brukerreisen og fortsette utviklingen av prototypen.
+
+I tillegg må vi dokumentere resultatene fra automatiserte tester og GitHub Actions, undersøke hvilke DORA-målinger vi kan bruke, og gjennomføre Sprint Review og Sprint Retrospective.
+
+Resultatene fra disse aktivitetene skal danne grunnlag for prioriteringene i neste fase av prosjektet.
+
+*** Oppdater avslutningen når sprinten er ferdig, og konkretiser hva gruppa faktisk har besluttet å arbeide videre med.
