@@ -80,8 +80,13 @@ function renderKalender() {
     (kamperPerDag[nokkel] || []).forEach(function(kamp) {
       var kampknapp = document.createElement('button');
       kampknapp.type = 'button';
+     
       kampknapp.className = 'kalenderkamp';
       var tidspunkt = new Date(kamp.match_date);
+
+      if (!isNaN(tidspunkt.getTime()) && tidspunkt < new Date()) {
+      kampknapp.classList.add('kalenderkamp-tidligere');
+      }
       kampknapp.textContent = tidspunkt.toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) +
         ' ' + kampnavn(kamp);
       if (kamp.stadium_name) kampknapp.title = kamp.stadium_name;
