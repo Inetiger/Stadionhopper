@@ -185,17 +185,15 @@ Jeg opplever innsatsen som jevnt fordelt. Vi sier fra når vi ikke kommer videre
 
 ### Faglig tolkning og videre prioritering
 
-Med utgangspunkt i *Accelerate* kan erfaringene forstås gjennom arbeid i små enheter, synlig arbeidsflyt og korte tilbakemeldingssløyfer. Forsgren, Humble og Kim (2018, kap. 8) beskriver hvordan små leveranser og aktiv bruk av kundetilbakemeldinger støtter læring og justering av produktet. For oss ga milepælene struktur, men de erstattet ikke behovet for tydelige oppgaver og reelle avhengighetsavklaringer.
+Erfaringene viser betydningen av små arbeidsenheter, synlig arbeidsflyt og korte tilbakemeldingssløyfer. Den testbare prototypen ga oss et grunnlag for å innhente brukertilbakemeldinger og justere produktet underveis. Milepælene ga struktur, men erstattet ikke behovet for tydelige oppgaver og konkrete avklaringer av avhengigheter.
 
-Brukertestingen avdekket at begrepet «innsjekking», hensikten med tidligere kamper og navigasjonen var uklare. Dette ga et konkret grunnlag for forbedringer i brukervennlighet. Gruppen har også valgt å undersøke om brukere selv vil registrere kamper og oppdatere scoringer eller annen kampinformasjon underveis. Disse ideene ble valgt 26. oktober og er foreløpig ikke validert gjennom tilbakemeldinger. Vi videreutvikler ikke innlogging og kartvisning nå. Skillet mellom dokumenterte brukerproblemer og nye hypoteser er viktig: Eksperimentering bør gi kunnskap om brukerbehov før vi investerer i mer funksjonalitet (Forsgren et al., 2018, kap. 8).
+Brukertestingen avdekket at begrepet «innsjekking», hensikten med tidligere kamper og navigasjonen var uklare. Dette ga et konkret grunnlag for forbedringer i brukervennlighet. Gruppen har også valgt å undersøke om brukere selv vil registrere kamper og oppdatere scoringer eller annen kampinformasjon underveis. Disse ideene ble valgt 26. oktober og er foreløpig ikke validert gjennom tilbakemeldinger. Vi videreutvikler ikke innlogging og kartvisning nå. Skillet mellom dokumenterte brukerproblemer og nye hypoteser er viktig: Gjennom avgrensede eksperimenter ønsker vi å undersøke antakelsene våre om brukerbehov før vi investerer i mer funksjonalitet.
 
 ### Forbedringer til neste sprint
 
 Mitt viktigste forbedringspunkt er tydeligere issues kombinert med små milepæler. Vi har tatt mer styring over planleggingen og bruker heller KI til selve opprettingen i GitHub. Gruppas vurderinger skal styre innhold, navn, oppdeling og rekkefølge. Jeg foreslår at vi gjennomgår oppgavene sammen før oppstart og avklarer forventet resultat, ansvar, avhengigheter og kriterier for ferdigstillelse.
 
 To supplerende forslag er å dokumentere viktige avklaringer kort i relevante issues og å gjennomføre en felles gjennomgang av testene og CI-resultatene. Forslagene må behandles i gruppa, med ansvar for oppfølging og evaluering ved neste retrospektiv.
-
-*Faglig grunnlag: Forsgren, N., Humble, J. og Kim, G. (2018). Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations. IT Revolution.*
 
 # 7. Oppsummering og veien videre
 
