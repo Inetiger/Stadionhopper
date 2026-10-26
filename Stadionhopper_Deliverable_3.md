@@ -2,9 +2,13 @@
 
 Stadionhopper  
 IBE205 – Høgskolen i Molde
+
 Skrevet av:
-Line
+
+Line Lingsnes Johansen
+
 Ine
+
 Inger
 
 # 1. Innledning
@@ -59,13 +63,9 @@ Brukertestingen har ført til flere nye forbedringsoppgaver i GitHub. Et eksempe
 
 ## 3.1 Teststrategi
 
-## 3.1 Teststrategi
-
 I utviklingen av Stadionhopper har vi kombinert automatiserte tester med brukertesting. Disse testformene undersøker ulike sider av løsningen og utfyller hverandre. Automatiserte tester kan avdekke tekniske feil og bidra til at endringer ikke ødelegger eksisterende funksjonalitet. De kan derimot ikke alene fortelle oss om brukerne forstår navigasjonen, finner informasjonen de trenger, eller opplever løsningen som nyttig.
 
 Hyppig testing og tilbakemeldinger er sentralt i smidig utvikling, og vi ønsket derfor å involvere personer utenfor prosjektgruppen. Når vi selv bruker prototypen, kjenner vi både strukturen og hensikten bak funksjonene, noe som kan gjøre det vanskelig å oppdage uklarheter. Ved å la testpersonene utføre konkrete oppgaver uten veiledning, kunne vi undersøke hvordan de orienterte seg i løsningen. Tilbakemeldingene skulle også brukes som grunnlag for videre prioritering og utvikling.
-
-## 3.2 Automatiserte tester
 
 ## 3.2 Automatiserte tester
 
@@ -88,8 +88,6 @@ Tilbakemeldingene viste at flere av testpersonene opplevde løsningen som enkel 
 Et gjennomgående funn var ønsket om mer farger og et tydeligere fotballpreg. Flere mente at farger ville gjøre løsningen mer attraktiv. Ett forslag var å bruke hjemmelagets klubbfarger for å gjøre det lettere å kjenne igjen og skille mellom kamper. Det ble også foreslått mykere kanter og tydeligere visuelle skiller mellom feltene. Andre tilbakemeldinger handlet om navigasjon og begrepsbruk. En testperson opplevde det som uklart hva som skilte «Sosial» fra «Treff», mens en annen stilte spørsmål ved betydningen av «Mine innsjekkinger». Navigasjonsmenyen nederst ble også beskrevet som lite intuitiv.
 
 Når det gjaldt kampinformasjon, ble det påpekt at klokkeslett ikke trenger å vises med sekunder. En testperson stilte spørsmål ved behovet for knappen «Last kampene på nytt», mens en annen ønsket at kampene skulle presenteres i en kalender. Det ble også stilt spørsmål ved behovet for å vise tidligere kamper. Disse tilbakemeldingene er nyttige fordi de viser at en funksjon kan være teknisk tilgjengelig uten at brukeren nødvendigvis forstår hensikten med den.
-
-## 3.5 Fra tilbakemeldinger til forbedringer
 
 ## 3.5 Fra tilbakemeldinger til forbedringer
 
@@ -137,8 +135,6 @@ Arbeidet med GitHub og automatiserte tester har samtidig vist oss at det ikke er
 
 # 5. Sprint Review
 
-# 5. Sprint Review
-
 ## 5.1 Gjennomgang av sprintresultatet
 
 I løpet av sprinten har vi utviklet en prototype av Stadionhopper med kampoversikt, kalender og kampdetaljer som sentrale deler av løsningen. Vi har også arbeidet med innlogging, brukerprofiler, innsjekking og sosiale funksjoner. Den publiserte demonstrasjonen på GitHub Pages gjør det mulig å vise hvordan brukeren kan finne en lokal fotballkamp og få informasjon om blant annet tidspunkt, lag og stadion. Funksjoner som krever backend, må derimot demonstreres gjennom lokal kjøring. Dette skillet har vært viktig når vi har vurdert hva vi faktisk har oppnådd sammenlignet med det vi planla i Deliverable 2.
@@ -152,7 +148,7 @@ Gjennom utviklingsarbeidet har prioriteringene også endret seg. Den andre bruke
 Brukertestingen ga oss flere konkrete forbedringsforslag som vi har dokumentert og fulgt opp gjennom GitHub Issues. Blant annet har vi arbeidet videre med kampinformasjon, navigasjon og visuell utforming. Tilbakemeldingene har vist at det ikke nødvendigvis er flere funksjoner som vil gi størst nytte på dette stadiet, men at eksisterende funksjoner også må være forståelige og enkle å bruke.
 
 *** Sett inn hvilke tilbakemeldinger og beslutninger som kom frem under Sprint Review, og hvordan disse påvirket produktbackloggen og prioriteringene videre.
-# 6. Sprint Retrospective
+
 # 6. Sprint Retrospective
 
 ## 6.1 Samarbeid og erfaringer fra sprinten
