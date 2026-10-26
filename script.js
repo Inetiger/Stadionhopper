@@ -80,8 +80,13 @@ function renderKalender() {
     (kamperPerDag[nokkel] || []).forEach(function(kamp) {
       var kampknapp = document.createElement('button');
       kampknapp.type = 'button';
+     
       kampknapp.className = 'kalenderkamp';
       var tidspunkt = new Date(kamp.match_date);
+
+      if (!isNaN(tidspunkt.getTime()) && tidspunkt < new Date()) {
+  kampknapp.className += ' kalenderkamp-tidligere';
+}
       kampknapp.textContent = tidspunkt.toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' }) +
         ' ' + kampnavn(kamp);
       if (kamp.stadium_name) kampknapp.title = kamp.stadium_name;
@@ -166,10 +171,19 @@ function kampnavn(kamp) {
     (kamp.away_club_name || 'Ukjent bortelag');
 }
 
+
 function kampdato(kamp) {
-  var dato = new Date(kamp.match_date || '');
-  return isNaN(dato.getTime()) ? 'Tidspunkt mangler' : dato.toLocaleString('nb-NO');
+    var dato = new Date(kamp.match_date || '');
+    return isNaN(dato.getTime()) ? 'Tidspunkt mangler' :
+        dato.toLocaleString('nb-NO', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
 }
+
 
 // GitHub Pages serverer bare statiske filer, ikke Node-API-et.
 var demomodus = location.hostname === 'inetiger.github.io';
