@@ -7,9 +7,9 @@ Skrevet av:
 
 Line Lyngsnes Johansen
 
-Ine
+Ine Botterli
 
-Inger
+Inger Videm
 
 # 1. Innledning
 
@@ -141,11 +141,15 @@ I løpet av sprinten har vi utviklet en prototype av Stadionhopper med kampovers
 
 Gjennom utviklingsarbeidet har prioriteringene også endret seg. Den andre brukerundersøkelsen og tilbakemeldinger fra faglærer har ført til at vi har lagt større vekt på en sammenhengende brukerreise, navigasjon og presentasjon av kampinformasjon. Vi har derfor brukt tid på å forbedre eksisterende funksjoner fremfor bare å legge til nye. Dette har påvirket sprintresultatet og hvilke oppgaver vi har valgt å prioritere.
 
+Vi vurderer den testbare prototypen, gjennomføringen av brukertestingen og erfaringene med utviklingsarbeidet i GitHub som viktige resultater fra sprinten. Samtidig har vi måttet nedprioritere deler av den planlagte funksjonaliteten og kommet kortere i produktutviklingen enn vi opprinnelig ønsket. En del av tiden har gått med til å etablere arbeidsprosessen og sette oss inn i verktøyene. Dette har gitt oss nyttig erfaring, men også redusert tiden vi har hatt til selve utviklingen av prototypen.
+
 *** Sett inn en kort beskrivelse av gjennomført Sprint Review: dato, deltakere, hva som ble demonstrert, og hvilke deler av sprintmålet som ble oppnådd eller ikke oppnådd.
 
 ## 5.2 Tilbakemeldinger og videre prioriteringer
 
 Brukertestingen ga oss flere konkrete forbedringsforslag som vi har dokumentert og fulgt opp gjennom GitHub Issues. Blant annet har vi arbeidet videre med kampinformasjon, navigasjon og visuell utforming. Tilbakemeldingene har vist at det ikke nødvendigvis er flere funksjoner som vil gi størst nytte på dette stadiet, men at eksisterende funksjoner også må være forståelige og enkle å bruke.
+
+I det videre arbeidet ønsker vi å prioritere et mer gjennomarbeidet og brukervennlig design, med særlig vekt på en tydeligere brukerreise. Vi har også diskutert muligheten for at brukerne selv kan registrere kamper og eventuelt bidra med oppdateringer av scoringer eller annen kampinformasjon. ette kan redusere behovet for at klubbene selv administrerer all informasjon, samtidig som det kan gjøre løsningen aktuell for flere brukere. Foreløpig er dette ideer som må undersøkes nærmere, og vi har ikke bestemt hvilke funksjoner vi skal utvikle. Innlogging og kartvisning har derfor ikke høyeste prioritet i neste fase.
 
 *** Sett inn hvilke tilbakemeldinger og beslutninger som kom frem under Sprint Review, og hvordan disse påvirket produktbackloggen og prioriteringene videre.
 
@@ -153,55 +157,17 @@ Brukertestingen ga oss flere konkrete forbedringsforslag som vi har dokumentert 
 
 ## 6.1 Samarbeid og erfaringer fra sprinten
 
-I denne sprinten har vi brukt GitHub som et felles verktøy for å organisere og følge opp utviklingsarbeidet. Oppgavene har vært fordelt gjennom Issues, og vi har arbeidet med blant annet frontend, backend, testing og brukerundersøkelse. Bruken av branches og pull requests har gjort det mulig å utvikle ulike deler av prototypen uten å endre hovedversjonen direkte. Samtidig har vi erfart at det er viktig å ha oversikt over hvilke oppgaver som er påbegynt, hvilke endringer som er klare for gjennomgang, og hva som faktisk er ferdigstilt. Arbeidet har dermed gitt oss praktisk erfaring med både mulighetene og utfordringene ved å samarbeide om et felles kodeprosjekt.
+I denne sprinten har vi brukt GitHub til å organisere utviklingsarbeidet og fordele oppgaver mellom frontend, backend, testing og brukerundersøkelse. Vi opplevde at det tok mye tid å sette oss inn i oppgaven, etablere en plan og opprette Issues. Den opprinnelige oppgaveinndelingen ble utarbeidet med hjelp fra KI, men viste seg ikke alltid å samsvare med hvordan arbeidet faktisk måtte gjennomføres. Enkelte oppgaver blandet frontend og backend, og avhengighetene mellom dem var ikke alltid tydelige. Dette skapte behov for avklaringer underveis. Samtidig ga oppdelingen i mindre oppgaver og milepæler oss bedre oversikt over fremdriften og gjorde arbeidet mer håndterlig. Vi har også erfart at sprintens omfang må tilpasses gruppas tilgjengelige kapasitet. Med tre gruppemedlemmer og andre studieforpliktelser har vi måttet prioritere mellom utvikling, testing og dokumentasjon, og vi har kommet kortere i produktutviklingen enn vi opprinnelig ønsket.
 
-En positiv erfaring har vært at vi har kunnet omsette tilbakemeldinger fra brukertestingen til konkrete forbedringsoppgaver. Samtidig har utviklingen vist oss at en funksjon kan være implementert uten at den nødvendigvis er ferdig testet eller tilgjengelig i den publiserte prototypen. Et eksempel er arbeidet med Issue #121, der automatiserte tester avdekket problemer som måtte rettes før endringene kunne godkjennes. Dette har gjort oss mer oppmerksomme på betydningen av å kontrollere endringer og kommunisere tydelig om status underveis i utviklingen.
-
-*** Sett inn gruppas vurderinger fra retrospektivet: Hva fungerte godt i samarbeidet? Hvilke utfordringer opplevde dere? Beskriv også hvordan dere organiserte samarbeidet og kommunikasjonen i sprinten, med konkrete eksempler.
+Et konkret eksempel på utfordringer med oppgavefordelingen oppstod da frontend- og backend-arbeidet stoppet opp fordi vi hadde ulike forventninger til hvem som skulle levere hva først. Dette ble oppdaget under et av våre ukentlige scrum-møter, der vi avklarte ansvaret og delte arbeidet opp i tydeligere oppgaver (Issue #70 og #72–74). Etter avklaringen kom vi videre samme dag. Vi har ellers hatt god erfaring med å arbeide sammen i samme rom, der vi raskt kunne diskutere problemer og løsninger, og senere videreføre kommunikasjonen gjennom Teams. Gruppa har også vært åpne om kapasitet og utfordringer, slik at oppgaver kunne overtas av andre ved behov. Denne arbeidsformen har fungert godt, men vi ser samtidig at flere beslutninger burde vært dokumentert i GitHub Issues for å gjøre dem lettere å følge opp i ettertid.
 
 ## 6.2 Læringspunkter og forbedringstiltak
 
-Gjennom sprinten har vi fått erfaring med hvordan planlegging, utvikling og testing må koordineres når flere arbeider med samme løsning. Arbeidet med GitHub har gitt oss bedre oversikt over oppgavene, men har også vist hvor viktig det er å ha tydelige rutiner for når endringer skal testes og gjennomgås. Vi har erfart at tilbakemeldinger fra brukere kan føre til nye prioriteringer underveis, og at dette krever både fleksibilitet og god kommunikasjon i gruppa. Erfaringene fra sprinten gir oss derfor et grunnlag for å vurdere hvordan vi kan forbedre arbeidsprosessen videre.
+En viktig erfaring fra sprinten er at det ble lettere å samarbeide om kvalitetssikring etter hvert som vi fikk en prototype som kunne testes. I starten var det vanskeligere å vurdere hverandres arbeid, mens en fungerende demonstrasjon gjorde det mulig å gi mer konkrete tilbakemeldinger på både funksjonalitet og brukergrensesnitt. Vi har også fått erfaring med branches, pull requests og automatiserte tester, men kompetansen på de ulike delene av utviklingsarbeidet er fortsatt noe ulikt fordelt. Ikke alle har hatt like god innsikt i hva de automatiserte testene kontrollerer. En felles gjennomgang av testene og CI-resultatene vil derfor kunne gjøre flere i gruppa i stand til å delta i kvalitetssikringen og redusere avhengigheten av enkeltpersoner.
 
-*** Sett inn gruppas viktigste læringspunkter fra retrospektivet og to eller tre konkrete forbedringstiltak dere ble enige om. Beskriv hvordan tiltakene skal gjennomføres, og hvem som har ansvar for oppfølgingen.
+Vi tar særlig med oss betydningen av tydeligere oppgavefordeling og realistisk planlegging. I det videre arbeidet ønsker vi å beholde mindre milepæler, men være mer bevisste på hvordan vi oppretter og avgrenser Issues. Selv om KI kan hjelpe oss med å utarbeide oppgaver, må vi selv kontrollere at ansvar, rekkefølge og avhengigheter er forståelige og hensiktsmessige. Vi ønsker også å bli flinkere til å dokumentere viktige avklaringer direkte i GitHub. Samtidig vil vi videreføre arbeidsformen med ukentlige scrum-møter, løpende kommunikasjon og bruk av branches og pull requests. Erfaringene fra denne sprinten har vist oss at en god arbeidsprosess ikke nødvendigvis er ferdig planlagt fra starten, men må justeres etter hvert som vi får mer erfaring med prosjektet.
 
-## 6.3 Ingers forberedende refleksjon: arbeidsflyt, læring og prioritering
-
-Sprint Review og Sprint Retrospective er ennå ikke gjennomført. Denne refleksjonen er mitt innspill til den kommende felles evalueringen, basert på frontend-arbeidet og samarbeidet i sprinten. Forslagene til forbedring må drøftes i gruppa før de eventuelt vedtas.
-
-### Sprintresultat og tilgjengelig kapasitet
-
-Jeg vurderer den testbare prototypen, arbeidet med brukerinnspill og erfaringene med samarbeid i GitHub som de viktigste resultatene så langt. Prototypen har gjort det mulig å undersøke løsningen og forsøke å forbedre den på bakgrunn av tilbakemeldinger. Samtidig har vi måttet nedprioritere funksjonalitet og kommet kortere i produktutviklingen enn planlagt.
-
-Det tok mye tid å sette oss inn i oppgaven, opprette issues og etablere en plan. For min del var også kapasiteten lavere enn ved de to første innleveringene. Andre fag og forpliktelser hadde hopet seg opp etter at jeg tidligere hadde brukt mye tid på prosjektet. Jeg opplever fortsatt oppgavens omfang som uforholdsmessig stort for tre personer. Jeg har prioritert å levere fungerende bidrag, men ønsket mer tid til å forstå helheten og arbeide grundigere. Dette viser et behov for å tilpasse sprintens omfang til faktisk tilgjengelig kapasitet og sette av tid til både utvikling, kvalitetssikring og læring.
-
-Jeg opplever innsatsen som jevnt fordelt. Vi sier fra når vi ikke kommer videre eller har kapasitet til mer, slik at andre kan overta dersom arbeidet ikke kan vente. Utfordringene handler dermed etter min vurdering om omfang, koordinering og tilgjengelig tid.
-
-### Oppgaveinndeling og avhengigheter
-
-Vi brukte ChatGPT til å lage den opprinnelige oppgaveinndelingen. Enkelte issues blandet frontend- og backend-arbeid, og nivåene som skulle vise avhengigheter, samsvarte ikke alltid med den faktiske arbeidsrekkefølgen. Planen ble derfor til dels overveldende og krevde avklaringer underveis. Samtidig ga nivåinndelingen og koblingen til milepæler bedre oversikt. Flere små delfrister gjorde arbeidet mer håndterlig enn én stor innleveringsfrist.
-
-En konkret konsekvens av uklare forventninger var at jeg ventet på et backend-grunnlag fra Ine, mens hun ventet på et frontend-utkast fra meg. Dette ble avdekket i et scrum-møte. Vi avklarte leveransene, delte arbeidet i issues og kom videre samme dag. Frontend-oppgaven #70 og backend-oppgavene #72–74 viser oppdelingen i GitHub.
-
-Etter dette tok vi opp avhengigheter tydeligere. Vi arbeidet først i samme rom på hver vår PC og oppdaterte hverandre fortløpende om løsninger, valg og problemer. Senere videreførte vi raske avklaringer gjennom Teams. Samarbeidsformen forkortet tiden fra et spørsmål oppstod til vi kunne arbeide videre. Hele gruppa kjente til avklaringene, men beslutningene ble ikke systematisk dokumentert i issues. Den muntlige og løpende kommunikasjonen fungerte godt, mens sporbarheten kunne vært bedre.
-
-### Kvalitetssikring og egen læring
-
-I starten var det vanskelig å sette seg inn i og vurdere hverandres arbeid. Da vi fikk et testbart produkt, ble det lettere å undersøke funksjonalitet og utseende og gi konkrete tilbakemeldinger i pull requests. Brukertestingen avdekket også uklarheter vi selv ikke hadde fanget opp: hva «innsjekking» betydde, hvorfor tidligere kamper ble vist, og hvordan brukerne skulle orientere seg. Dette viste meg verdien av korte tilbakemeldingssløyfer og av å vurdere både teknisk funksjon og brukervennlighet.
-
-Jeg har lært hvordan branches og pull requests støtter samarbeid om en felles kodebase. Jeg har også erfart at en hensiktsmessig oppgaveinndeling må utvikles i fellesskap. Det finnes ikke én detaljert organisering av issues som automatisk passer alle grupper; navn, ansvar og avhengigheter må være forståelige for dem som skal bruke planen.
-
-Jeg har ikke skrevet de automatiserte testene og har begrenset innsikt i hva de kontrollerer. Jeg har støttet meg på kompetansen til gruppemedlemmet som laget dem. En felles gjennomgang av testdekning og CI-resultater vil kunne gjøre meg bedre i stand til å delta i kvalitetssikringen og redusere personavhengigheten i gruppa.
-
-### Avgrensning og forbedringer til neste sprint
-
-Gruppa har avgrenset det videre produktarbeidet til et mer tiltalende og brukervennlig design og muligheten for at brukere kan legge inn kamper. Dersom kapasiteten tillater det, ønsker vi også å undersøke verdien av at brukere oppdaterer scoringer eller annen kampinformasjon underveis. Innlogging og kartvisning videreutvikles ikke nå.
-
-Designarbeidet bygger på tilbakemeldinger fra brukertesting. Brukergenerert kampinnhold er en ny hypotese som foreløpig ikke er validert. Tanken er å redusere behovet for administrasjon fra klubbene og på sikt åpne for bruk utenfor etablerte fotballkretser og landegrenser. Dette er mulige gevinster som må undersøkes. Testopplegg og vurderingskriterier må avklares sammen med Line, som har ansvar for kommunikasjonen med testbrukerne.
-
-Mitt viktigste forbedringsforslag er å beholde små milepæler og ta mer styring over issuene. Vi bestemmer selv innhold, navn, oppdeling og rekkefølge og bruker KI til å opprette oppgavene i GitHub. Før oppstart foreslår jeg at vi gjennomgår forventet resultat, ansvar, faktiske avhengigheter og kriterier for ferdigstillelse. Viktige endringer i disse avklaringene kan dokumenteres kort i det aktuelle issuet.
-
-Jeg forventer at planleggingen vil gå raskere neste gang, fordi vi kjenner oppgaven og arbeidsflyten bedre og er tryggere på å arbeide selvstendig. Dette er foreløpig en forventning som vi bør evaluere ved neste retrospektiv. Erfaringen min er at arbeidsflyten må tilpasses av gruppa gjennom praktisk bruk og jevnlige justeringer.
+*** Bekreft hvilke konkrete forbedringstiltak gruppa har sluttet seg til i retrospektivet, og hvem som skal følge dem opp.
 
 # 7. Oppsummering og veien videre
 
@@ -217,10 +183,22 @@ Vi har også sett at det er viktig å skille mellom kode som er skrevet, funksjo
 
 ## 7.2 Veien videre
 
-Videre arbeid vil blant annet handle om å ferdigstille og kontrollere prioriterte forbedringer fra brukertestingen, vurdere brukerreisen og fortsette utviklingen av prototypen. +design
+## 7.2 Veien videre
 
-I tillegg må vi dokumentere resultatene fra automatiserte tester og GitHub Actions, undersøke hvilke DORA-målinger vi kan bruke, og gjennomføre Sprint Review og Sprint Retrospective.
+På vårt ukentlige scrum-møte diskuterte vi før innlevering hvordan vi ønsker å videreutvikle Stadionhopper etter innleveringen av Deliverable 3. Vi ble enige om å prioritere en mer gjennomarbeidet visuell utforming og en tydeligere brukerreise, slik at løsningen blir enklere å navigere i og mer attraktiv å bruke. Dette bygger videre på erfaringene fra brukertestingen, der vi fikk flere tilbakemeldinger om design og navigasjon.
 
-Resultatene fra disse aktivitetene skal danne grunnlag for prioriteringene i neste fase av prosjektet.
+Vi ønsker også å utvikle noe som kan gjøre Stadionhopper mer interessant og skille plattformen fra andre løsninger. Vi har foreløpig ikke bestemt hvilken funksjon eller hvilket konsept dette skal være, men gruppa er enig om at dette er et viktig område å utforske videre. Samtidig ønsker vi å videreføre arbeidsformen med GitHub Issues, branches og pull requests, som vi har fått erfaring med gjennom denne sprinten.Videre arbeid vil blant annet handle om å ferdigstille og kontrollere prioriterte forbedringer fra brukertestingen, vurdere brukerreisen og fortsette utviklingen av prototypen.
+
+## 7.2 Veien videre
+
+På vårt ukentlige scrum-møte diskuterte vi hvordan vi ønsker å videreutvikle Stadionhopper etter innleveringen av Deliverable 3. Vi ble enige om å prioritere et mer gjennomarbeidet design og en tydeligere brukerreise, slik at løsningen blir enklere å navigere i og mer attraktiv å bruke. Dette bygger videre på tilbakemeldingene fra brukertestingen, der flere etterlyste et tydeligere visuelt uttrykk og forbedringer i navigasjonen.
+
+Vi ønsker også å utforske muligheter for å gjøre Stadionhopper mer interessant og skille plattformen fra andre løsninger. En idé er at brukerne selv kan bidra med kampinformasjon, men vi har foreløpig ikke bestemt oss for hvilken funksjon eller hvilket konsept vi vil prioritere. Vi ønsker å undersøke hva som faktisk vil gi brukerne verdi før vi tar en endelig beslutning. Samtidig vil vi videreføre arbeidsformen med GitHub Issues, branches og pull requests, og bruke erfaringene fra denne sprinten til å forbedre planleggingen og samarbeidet videre.
+
+## 7.2 Veien videre
+
+På vårt ukentlige scrum-møte diskuterte vi hvordan vi ønsker å videreutvikle Stadionhopper etter innleveringen av Deliverable 3. Vi ble enige om å prioritere et mer gjennomarbeidet design og en tydeligere brukerreise, slik at løsningen blir enklere å navigere i og mer attraktiv å bruke. Dette bygger videre på tilbakemeldingene fra brukertestingen, der flere etterlyste et tydeligere visuelt uttrykk og forbedringer i navigasjonen.
+
+Vi ønsker også å utforske muligheter for å gjøre Stadionhopper mer interessant og skille plattformen fra andre løsninger. En idé er at brukerne selv kan bidra med kampinformasjon, men vi har foreløpig ikke bestemt oss for hvilken funksjon eller hvilket konsept vi vil prioritere. Vi ønsker å undersøke hva som faktisk vil gi brukerne verdi før vi tar en endelig beslutning. Samtidig vil vi videreføre arbeidsformen med GitHub Issues, branches og pull requests, og bruke erfaringene fra denne sprinten til å forbedre planleggingen og samarbeidet videre.
 
 *** Oppdater avslutningen når sprinten er ferdig, og konkretiser hva gruppa faktisk har besluttet å arbeide videre med. +design
