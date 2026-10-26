@@ -5,7 +5,7 @@ IBE205 – Høgskolen i Molde
 
 Skrevet av:
 
-Line Lingsnes Johansen
+Line Lyngsnes Johansen
 
 Ine
 
