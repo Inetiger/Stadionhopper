@@ -165,6 +165,44 @@ Gjennom sprinten har vi fått erfaring med hvordan planlegging, utvikling og tes
 
 *** Sett inn gruppas viktigste læringspunkter fra retrospektivet og to eller tre konkrete forbedringstiltak dere ble enige om. Beskriv hvordan tiltakene skal gjennomføres, og hvem som har ansvar for oppfølgingen.
 
+## 6.3 Ingers forberedende refleksjon: arbeidsflyt, læring og prioritering
+
+Sprint Review og Sprint Retrospective er ennå ikke gjennomført. Denne refleksjonen er mitt innspill til den kommende felles evalueringen, basert på frontend-arbeidet og samarbeidet i sprinten. Forslagene til forbedring må drøftes i gruppa før de eventuelt vedtas.
+
+### Sprintresultat og tilgjengelig kapasitet
+
+Jeg vurderer den testbare prototypen, arbeidet med brukerinnspill og erfaringene med samarbeid i GitHub som de viktigste resultatene så langt. Prototypen har gjort det mulig å undersøke løsningen og forsøke å forbedre den på bakgrunn av tilbakemeldinger. Samtidig har vi måttet nedprioritere funksjonalitet og kommet kortere i produktutviklingen enn planlagt.
+
+Det tok mye tid å sette oss inn i oppgaven, opprette issues og etablere en plan. For min del var også kapasiteten lavere enn ved de to første innleveringene. Andre fag og forpliktelser hadde hopet seg opp etter at jeg tidligere hadde brukt mye tid på prosjektet. Jeg opplever fortsatt oppgavens omfang som uforholdsmessig stort for tre personer. Jeg har prioritert å levere fungerende bidrag, men ønsket mer tid til å forstå helheten og arbeide grundigere. Dette viser et behov for å tilpasse sprintens omfang til faktisk tilgjengelig kapasitet og sette av tid til både utvikling, kvalitetssikring og læring.
+
+Jeg opplever innsatsen som jevnt fordelt. Vi sier fra når vi ikke kommer videre eller har kapasitet til mer, slik at andre kan overta dersom arbeidet ikke kan vente. Utfordringene handler dermed etter min vurdering om omfang, koordinering og tilgjengelig tid.
+
+### Oppgaveinndeling og avhengigheter
+
+Vi brukte ChatGPT til å lage den opprinnelige oppgaveinndelingen. Enkelte issues blandet frontend- og backend-arbeid, og nivåene som skulle vise avhengigheter, samsvarte ikke alltid med den faktiske arbeidsrekkefølgen. Planen ble derfor til dels overveldende og krevde avklaringer underveis. Samtidig ga nivåinndelingen og koblingen til milepæler bedre oversikt. Flere små delfrister gjorde arbeidet mer håndterlig enn én stor innleveringsfrist.
+
+En konkret konsekvens av uklare forventninger var at jeg ventet på et backend-grunnlag fra Ine, mens hun ventet på et frontend-utkast fra meg. Dette ble avdekket i et scrum-møte. Vi avklarte leveransene, delte arbeidet i issues og kom videre samme dag. Frontend-oppgaven #70 og backend-oppgavene #72–74 viser oppdelingen i GitHub.
+
+Etter dette tok vi opp avhengigheter tydeligere. Vi arbeidet først i samme rom på hver vår PC og oppdaterte hverandre fortløpende om løsninger, valg og problemer. Senere videreførte vi raske avklaringer gjennom Teams. Samarbeidsformen forkortet tiden fra et spørsmål oppstod til vi kunne arbeide videre. Hele gruppa kjente til avklaringene, men beslutningene ble ikke systematisk dokumentert i issues. Den muntlige og løpende kommunikasjonen fungerte godt, mens sporbarheten kunne vært bedre.
+
+### Kvalitetssikring og egen læring
+
+I starten var det vanskelig å sette seg inn i og vurdere hverandres arbeid. Da vi fikk et testbart produkt, ble det lettere å undersøke funksjonalitet og utseende og gi konkrete tilbakemeldinger i pull requests. Brukertestingen avdekket også uklarheter vi selv ikke hadde fanget opp: hva «innsjekking» betydde, hvorfor tidligere kamper ble vist, og hvordan brukerne skulle orientere seg. Dette viste meg verdien av korte tilbakemeldingssløyfer og av å vurdere både teknisk funksjon og brukervennlighet.
+
+Jeg har lært hvordan branches og pull requests støtter samarbeid om en felles kodebase. Jeg har også erfart at en hensiktsmessig oppgaveinndeling må utvikles i fellesskap. Det finnes ikke én detaljert organisering av issues som automatisk passer alle grupper; navn, ansvar og avhengigheter må være forståelige for dem som skal bruke planen.
+
+Jeg har ikke skrevet de automatiserte testene og har begrenset innsikt i hva de kontrollerer. Jeg har støttet meg på kompetansen til gruppemedlemmet som laget dem. En felles gjennomgang av testdekning og CI-resultater vil kunne gjøre meg bedre i stand til å delta i kvalitetssikringen og redusere personavhengigheten i gruppa.
+
+### Avgrensning og forbedringer til neste sprint
+
+Gruppa har avgrenset det videre produktarbeidet til et mer tiltalende og brukervennlig design og muligheten for at brukere kan legge inn kamper. Dersom kapasiteten tillater det, ønsker vi også å undersøke verdien av at brukere oppdaterer scoringer eller annen kampinformasjon underveis. Innlogging og kartvisning videreutvikles ikke nå.
+
+Designarbeidet bygger på tilbakemeldinger fra brukertesting. Brukergenerert kampinnhold er en ny hypotese som foreløpig ikke er validert. Tanken er å redusere behovet for administrasjon fra klubbene og på sikt åpne for bruk utenfor etablerte fotballkretser og landegrenser. Dette er mulige gevinster som må undersøkes. Testopplegg og vurderingskriterier må avklares sammen med Line, som har ansvar for kommunikasjonen med testbrukerne.
+
+Mitt viktigste forbedringsforslag er å beholde små milepæler og ta mer styring over issuene. Vi bestemmer selv innhold, navn, oppdeling og rekkefølge og bruker KI til å opprette oppgavene i GitHub. Før oppstart foreslår jeg at vi gjennomgår forventet resultat, ansvar, faktiske avhengigheter og kriterier for ferdigstillelse. Viktige endringer i disse avklaringene kan dokumenteres kort i det aktuelle issuet.
+
+Jeg forventer at planleggingen vil gå raskere neste gang, fordi vi kjenner oppgaven og arbeidsflyten bedre og er tryggere på å arbeide selvstendig. Dette er foreløpig en forventning som vi bør evaluere ved neste retrospektiv. Erfaringen min er at arbeidsflyten må tilpasses av gruppa gjennom praktisk bruk og jevnlige justeringer.
+
 # 7. Oppsummering og veien videre
 
 ## 7.1 Hva vi har lært
