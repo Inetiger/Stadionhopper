@@ -28,6 +28,13 @@ button:disabled { cursor: not-allowed; }
 label { display: block; margin: 25px 0 8px; font-weight: bold; }
 input { width: 100%; }
 article { border: 1px solid #999; background: #fafafa; padding: 14px; margin: 20px 0; }
+/* Kampdetaljer – diskret fotballgrønn utforming */
+#detaljkort {
+  background: #f2f8f4;
+  border: 1px solid #c6e4d0;
+  border-left: 4px solid #246b45;
+  border-radius: 6px;
+}
 article button { border: 0; padding: 8px 0; background: none; text-align: left; }
 summary { cursor: pointer; font-weight: bold; }
 .valg, nav { display: flex; }
