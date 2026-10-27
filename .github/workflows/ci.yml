@@ -46,7 +46,12 @@ jobs:
         run: docker build --tag stadionhopper-dora:ci .dora-tool
 
       - name: Prepare main ref for DORA calculation
-        run: git branch -f main origin/main
+        run: |
+          if [ "$(git branch --show-current)" = "main" ]; then
+            echo "Already on main; keeping the checked-out main ref"
+          else
+            git branch -f main origin/main
+          fi
 
       - name: Calculate release metrics
         run: |
