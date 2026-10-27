@@ -189,7 +189,30 @@ function kampdato(kamp) {
 var demomodus = location.hostname === 'inetiger.github.io';
 if (demomodus) {
   document.getElementById('demostatus').textContent =
-    'Demo · fiktive eksempeldata · innlogging og lagring er ikke tilgjengelig.';
+    'Demo · fiktive eksempeldata og testkontoer · innsjekkinger lagres i denne nettleseren.';
+}
+
+// Dette er med vilje en offentlig demo: aldri bruk ekte passord eller personopplysninger her.
+var demoCheckinsMemory = [];
+function demoLesInnsjekkinger() {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      var lagret = localStorage.getItem('stadionhopper-demo-checkins');
+      if (lagret) {
+        var parsed = JSON.parse(lagret);
+        if (Array.isArray(parsed)) return parsed;
+      }
+    }
+  } catch (feil) { /* Fortsett med minnebasert lagring. */ }
+  return demoCheckinsMemory.slice();
+}
+function demoSkrivInnsjekkinger(innsjekkinger) {
+  demoCheckinsMemory = innsjekkinger.slice();
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('stadionhopper-demo-checkins', JSON.stringify(innsjekkinger));
+    }
+  } catch (feil) { /* Innsjekkingen virker i denne fanen selv uten varig lagring. */ }
 }
 
 function hentData(adresse) {
@@ -285,7 +308,21 @@ function hentInnlegg() {
   hentData('/api/posts').then(function(data) {
     if (kall !== feedkall) return;
     if (!Array.isArray(data.posts)) throw new Error('Ugyldig feed');
-    data.posts.forEach(function(innlegg) {
+    var innleggsliste = data.posts.slice();
+    if (demomodus) {
+      demoLesInnsjekkinger().forEach(function(besok, indeks) {
+        innleggsliste.push({
+          post_id: 'demo-checkin-' + indeks,
+          author_name: besok.display_name || besok.username || 'Testbruker',
+          created_at: besok.checked_in_at,
+          content: 'sjekket inn på ' + (besok.stadium_name || 'et stadion') + ' (' + kampnavn(besok) + ').'
+        });
+      });
+      innleggsliste.sort(function(a, b) {
+        return String(b.created_at || '').localeCompare(String(a.created_at || ''));
+      });
+    }
+    innleggsliste.forEach(function(innlegg) {
       var kort = document.createElement('article');
       var forfatter = document.createElement('h3');
       var tidspunkt = document.createElement('p');
@@ -299,7 +336,7 @@ function hentInnlegg() {
       kort.appendChild(tekst);
       liste.appendChild(kort);
     });
-    status.textContent = data.posts.length ? '' : 'Ingen innlegg ennå.';
+    status.textContent = innleggsliste.length ? '' : 'Ingen innlegg ennå.';
   }).catch(function() {
     if (kall === feedkall) status.textContent = 'Kunne ikke hente innlegg. Prøv på nytt.';
   });
@@ -322,7 +359,8 @@ function visProfil(bruker, innsjekkinger) {
     profilstatus('Kunne ikke vise historikken. Prøv igjen senere.');
     return;
   }
-  document.getElementById('profilnavn').textContent = bruker.username || 'Ukjent brukernavn';
+  document.getElementById('profilnavn').textContent = (bruker.display_name || bruker.username || 'Ukjent brukernavn') +
+    (bruker.favorite_club ? ' · Favorittlag: ' + bruker.favorite_club : '');
   // Lokal avgrensning er ekstra kontroll, ikke autentisering eller tilgangsvern.
   var egne = innsjekkinger.filter(function(besok) {
     return besok && besok.user_id != null && String(besok.user_id) === String(bruker.user_id);
@@ -356,8 +394,27 @@ async function velgTestprofil() {
     status.textContent = 'Skriv brukernavn og passord.';
     return;
   }
+  status.textContent = 'Kontrollerer testkonto …';
   if (demomodus) {
-    status.textContent = 'Innlogging er ikke tilgjengelig i denne demoen. Du kan utforske kamper uten innlogging.';
+    try {
+      var demoSvar = await fetch('demo/data.json');
+      if (!demoSvar.ok) throw new Error('Kunne ikke hente testkontoer.');
+      var demoData = await demoSvar.json();
+      var demoBruker = (demoData.users || []).find(function(bruker) {
+        return String(bruker.username || '').toLowerCase() === navn.toLowerCase() && bruker.password === passord;
+      });
+      if (!demoBruker) throw new Error('Feil brukernavn eller passord. Prøv en av testkontoene som vises.');
+      aktivBruker = { user_id: demoBruker.user_id, username: demoBruker.username,
+        display_name: demoBruker.display_name || demoBruker.username,
+        favorite_club: demoBruker.favorite_club || '' };
+      status.textContent = '';
+      document.getElementById('passord').value = '';
+      profilstatus('Innlogget testkonto · fiktiv profil for demonstrasjon.');
+      document.getElementById('profilnavn').textContent = aktivBruker.display_name +
+        (aktivBruker.favorite_club ? ' · Favorittlag: ' + aktivBruker.favorite_club : '');
+      if (ventendeBesok && valgtKamp) { ventendeBesok = false; visValgtBesok(); }
+      else visSide('profil');
+    } catch (feil) { aktivBruker = null; status.textContent = feil.message || 'Kunne ikke logge inn.'; }
     return;
   }
   status.textContent = 'Logger inn …';
@@ -390,7 +447,7 @@ async function hentProfilHistorikk() {
     return;
   }
   if (demomodus) {
-    profilstatus('Profil og personlig historikk er ikke tilgjengelig i denne demoen.');
+    visProfil(aktivBruker, demoLesInnsjekkinger());
     return;
   }
   document.getElementById('historikk').textContent = '';
@@ -423,7 +480,21 @@ async function avsluttTestprofil() {
 
 // #56: skriv til API-et og avvis Promise ved HTTP-/nettverksfeil.
 async function lagreBesok(bruker, kampId) {
-  if (demomodus) throw new Error('Demoen lagrer ikke innsjekkinger.');
+  if (demomodus) {
+    var innsjekkinger = demoLesInnsjekkinger();
+    var eksisterende = innsjekkinger.find(function(besok) {
+      return String(besok.user_id) === String(bruker.user_id) && String(besok.match_id) === String(kampId);
+    });
+    if (eksisterende) return eksisterende;
+    var kamp = kamper.find(function(element) { return String(element.match_id) === String(kampId); }) || valgtKamp || {};
+    var ny = { check_in_id: Date.now(), user_id: bruker.user_id, username: bruker.username,
+      display_name: bruker.display_name || bruker.username, match_id: kamp.match_id == null ? kampId : kamp.match_id,
+      home_club_name: kamp.home_club_name || 'Ukjent hjemmelag', away_club_name: kamp.away_club_name || 'Ukjent bortelag',
+      stadium_name: kamp.stadium_name || 'Stadion mangler', checked_in_at: new Date().toISOString() };
+    innsjekkinger.push(ny);
+    demoSkrivInnsjekkinger(innsjekkinger);
+    return ny;
+  }
   var svar = await fetch('/api/check-ins', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -442,10 +513,9 @@ function klargjorBesok() {
   knapp.disabled = true;
   if (!aktivBruker) status.textContent = 'Velg en testprofil før du bekrefter besøket.';
   else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
-  else if (demomodus) status.textContent = 'Innsjekking og lagring er ikke tilgjengelig i denne demoen.';
   else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
   else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
-    status.textContent = 'Besøket er bekreftet.';
+    status.textContent = demomodus ? 'Besøket er lagret i denne nettleseren.' : 'Besøket er bekreftet.';
   else {
     status.textContent = 'Kontroller kamp og stadion før du bekrefter.';
     knapp.disabled = false;
@@ -463,7 +533,9 @@ async function bekreftBesok() {
     await lagreBesok(bruker, kamp.match_id);
     bekreftetBesok = bruker.user_id + ':' + kamp.match_id;
     await hentProfilHistorikk();
-    document.getElementById('besokstatus').textContent = 'Besøket er lagret i backend.';
+    document.getElementById('besokstatus').textContent = demomodus ?
+      'Besøket er lagret i denne nettleseren og vises i profilen og den sosiale feeden.' :
+      'Besøket er lagret i backend.';
   } catch (feil) {
     lagrerBesok = false;
     if (aktivBruker === bruker && valgtKamp === kamp) {

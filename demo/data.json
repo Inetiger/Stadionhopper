@@ -32,9 +32,44 @@
   "posts": [
     {
       "post_id": 1,
-      "author_name": "Testbruker",
-      "created_at": "2026-10-20T11:00:00Z",
-      "content": "Dette er et fiktivt innlegg til demonstrasjon."
+      "author_name": "Sam",
+      "created_at": "2026-10-26T16:30:00Z",
+      "content": "Gleder meg til neste kamp! ⚽"
+    },
+    {
+      "post_id": 2,
+      "author_name": "Maria",
+      "created_at": "2026-10-25T18:15:00Z",
+      "content": "Aker Stadion er alltid verdt et besøk."
+    },
+    {
+      "post_id": 3,
+      "author_name": "Alex",
+      "created_at": "2026-10-24T14:10:00Z",
+      "content": "Første kamp i Stadionhopper-demoen min!"
+    }
+  ],
+  "users": [
+    {
+      "user_id": 1,
+      "username": "alex",
+      "password": "stadion123",
+      "display_name": "Alex",
+      "favorite_club": "Molde FK"
+    },
+    {
+      "user_id": 2,
+      "username": "sam",
+      "password": "stadion123",
+      "display_name": "Sam",
+      "favorite_club": "Liverpool"
+    },
+    {
+      "user_id": 3,
+      "username": "maria",
+      "password": "stadion123",
+      "display_name": "Maria",
+      "favorite_club": "Manchester United"
     }
   ]
 }

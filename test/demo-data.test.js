@@ -26,3 +26,11 @@ test("GitHub Pages demo data has usable match and post records", () => {
     assert.ok(Number.isFinite(Date.parse(post.created_at)));
   }
 });
+
+
+test("GitHub Pages demo includes three shared fictional test profiles", () => {
+  const filename = path.join(__dirname, "..", "demo", "data.json");
+  const data = JSON.parse(fs.readFileSync(filename, "utf8"));
+  assert.deepEqual(data.users.map(user => user.username), ["alex", "sam", "maria"]);
+  assert.ok(data.users.every(user => user.password && user.display_name && user.favorite_club));
+});

@@ -21,7 +21,10 @@ function frontend(fetch, hostname = 'localhost') {
   const sider = [...html.matchAll(/id="([^"]+)" class="side"/g)].map(m => felter[m[1]]);
   const document = { getElementById: id => felter[id], getElementsByClassName: () => sider,
     createElement: element };
-  const context = vm.createContext({ document, fetch, Date, console, location: { hostname } });
+  const lagring = new Map();
+  const localStorage = { getItem: key => lagring.has(key) ? lagring.get(key) : null,
+    setItem: (key, value) => lagring.set(key, String(value)), removeItem: key => lagring.delete(key) };
+  const context = vm.createContext({ document, fetch, Date, console, localStorage, location: { hostname } });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../script.js'), 'utf8'), context);
   return { context, felter };
 }
@@ -343,4 +346,40 @@ test('cancelled check-in does not unexpectedly resume after profile selection', 
   await ui.context.avsluttTestprofil();
   assert.equal(ui.context.valgtKamp, null);
   assert.equal(ui.context.ventendeBesok, false);
+});
+
+
+test('GitHub Pages demo supports shared test login, local check-ins, profile history and feed', async () => {
+  const filename = path.join(__dirname, '..', 'demo', 'data.json');
+  const demoData = JSON.parse(fs.readFileSync(filename, 'utf8'));
+  const ui = frontend(async () => ({ ok: true, json: async () => demoData }), 'inetiger.github.io');
+
+  for (let i = 0; i < 100 && ui.context.kamper.length === 0; i++) await new Promise(resolve => setTimeout(resolve, 5));
+  assert.ok(ui.context.kamper.length > 0);
+
+  ui.felter.brukernavn.value = 'alex';
+  ui.felter.passord.value = 'wrong-password';
+  await ui.context.velgTestprofil();
+  assert.match(ui.felter.brukerstatus.textContent, /Feil brukernavn eller passord/);
+  assert.equal(ui.context.aktivBruker, null);
+
+  ui.felter.passord.value = 'stadion123';
+  await ui.context.velgTestprofil();
+  assert.equal(ui.context.aktivBruker.username, 'alex');
+  assert.equal(ui.felter.profilnavn.textContent, 'Alex · Favorittlag: Molde FK');
+
+  ui.context.valgtKamp = ui.context.kamper[0];
+  ui.context.visValgtBesok();
+  await ui.context.bekreftBesok();
+  assert.match(ui.felter.besokstatus.textContent, /lagret i denne nettleseren/);
+  assert.equal(JSON.parse(ui.context.localStorage.getItem('stadionhopper-demo-checkins')).length, 1);
+
+  ui.context.visSide('profil');
+  assert.equal(ui.felter.historikk.children.length, 1);
+  ui.context.visSide('feed');
+  for (let i = 0; i < 100 && ui.felter.feedstatus.textContent === 'Laster innlegg …'; i++) {
+    await new Promise(resolve => setTimeout(resolve, 5));
+  }
+  assert.equal(ui.felter.innlegg.children.length, demoData.posts.length + 1);
+  assert.match(ui.felter.innlegg.children[0].children[2].textContent, /sjekket inn på/);
 });

@@ -14,12 +14,13 @@
 
     <section id="innlogging" class="side">
       <h1>Utforsk Stadionhopper</h1>
-      <p id="innlogginginfo">Innlogging er ikke tilgjengelig i den publiserte demoen. Du kan utforske kamper og stadioner uten innlogging.</p>
+      <p id="innlogginginfo">Logg inn med en av de felles testkontoene for å prøve profil, stadioninnsjekking og sosial feed.</p>
       <label for="brukernavn">Brukernavn</label>
-      <input id="brukernavn" type="text" maxlength="40" placeholder="Innlogging er deaktivert">
+      <input id="brukernavn" type="text" maxlength="40" autocomplete="username" placeholder="f.eks. alex">
       <label for="passord">Passord</label>
-      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Innlogging er deaktivert">
-      <button id="loginbutton" class="mork" onclick="velgTestprofil()">Innlogging deaktivert</button>
+      <input id="passord" type="password" maxlength="100" autocomplete="current-password" placeholder="Felles testpassord">
+      <button id="loginbutton" class="mork" onclick="velgTestprofil()">Logg inn</button>
+      <p id="testkontoer">Testkontoer: alex, sam, maria · Passord: stadion123</p>
       <p id="brukerstatus" role="status"></p>
       <button id="utforskknapp" onclick="avbrytBesok()">Utforsk kamper uten innlogging</button>
     </section>
@@ -62,16 +63,16 @@
         <p id="kampdato"></p>
         <p id="stadionnavn"></p>
       </article>
-      <p>Innsjekking og lagring er ikke tilgjengelig i den publiserte demoen.</p>
+      <p>Velg et stadion fra en kamp og bekreft innsjekkingen. Demoen lagrer besøket lokalt i denne nettleseren.</p>
       <p>Ingen automatisk deling til andre.</p>
-      <button id="bekreftbesok" class="mork" onclick="bekreftBesok()" disabled>Bekreft innsjekking</button>
-      <p id="besokstatus" role="status">Innsjekking er ikke tilgjengelig i denne demoen.</p>
+      <button id="bekreftbesok" class="mork" onclick="bekreftBesok()">Bekreft innsjekking</button>
+      <p id="besokstatus" role="status">Velg en testprofil før du bekrefter besøket.</p>
       <button onclick="avbrytBesok()">Avbryt</button>
     </section>
 
     <section id="profil" class="side">
       <h1>Min profil</h1>
-      <p id="profilstatus" role="status">Profil og personlig historikk er ikke tilgjengelig i den publiserte demoen.</p>
+      <p id="profilstatus" role="status">Logg inn med en testkonto for å se profilen din.</p>
       <h2 id="profilnavn"></h2>
       <h2>Mine innsjekkinger</h2>
       <div id="historikk"></div>
