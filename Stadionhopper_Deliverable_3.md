@@ -7,7 +7,7 @@ Skrevet av:
 
 Line Lyngsnes Johansen
 
-Ine Botterli
+Ine Nybø Botterli
 
 Inger Videm
 
