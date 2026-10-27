@@ -359,7 +359,8 @@ function visProfil(bruker, innsjekkinger) {
     profilstatus('Kunne ikke vise historikken. Prøv igjen senere.');
     return;
   }
-  document.getElementById('profilnavn').textContent = bruker.username || 'Ukjent brukernavn';
+  document.getElementById('profilnavn').textContent = (bruker.display_name || bruker.username || 'Ukjent brukernavn') +
+    (bruker.favorite_club ? ' · Favorittlag: ' + bruker.favorite_club : '');
   // Lokal avgrensning er ekstra kontroll, ikke autentisering eller tilgangsvern.
   var egne = innsjekkinger.filter(function(besok) {
     return besok && besok.user_id != null && String(besok.user_id) === String(bruker.user_id);
