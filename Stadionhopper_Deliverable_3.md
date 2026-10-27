@@ -117,9 +117,24 @@ I tillegg til automatiserte tester kan vi bruke data fra GitHub til å undersøk
 
 GitHub gir oss tilgang til commit-historikk, pull requests og resultater fra GitHub Actions. Disse dataene kan brukes til å undersøke deler av utviklingsprosessen, men det er viktig å skille mellom en commit, en pull request som blir slått sammen med `main`, og en faktisk publisering av prototypen. Dette er ikke nødvendigvis samme hendelse. Siden prosjektet har en begrenset varighet og relativt få leveranser, må eventuelle DORA-målinger også tolkes med forsiktighet. Målet er ikke først og fremst å oppnå bestemte tall, men å bruke tilgjengelig informasjon til å vurdere hvordan vi arbeider, og hvor det kan være behov for forbedringer.
 
-*** Undersøk om vi kan hente ut faktiske tall for én eller flere DORA-målinger fra GitHub. Beskriv hva tallene viser, og hvilke begrensninger de har.
+### Resultater fra DORA-målingene
 
-*** Dersom vi ikke har tilstrekkelige data, forklar kort hvilke målinger vi ikke kan beregne på en pålitelig måte, og hvorfor.# 4. GitHub, samarbeid og kontinuerlig integrasjon
+Vi brukte et automatisert DORA-verktøy til å hente ut målinger fra prosjektets GitHub-historikk. Resultatfilen `data.yaml` rapporterte 55 releases, hvorav 2 var klassifisert som feature releases, 6 som bugfix releases og 0 som hotfix releases. Verktøyet rapporterte også at 55 releases var uten bugs, og oppga et gjennomsnitt på 0,04 features og 0,11 bugs per release.
+
+Tallene må tolkes med forsiktighet. Den tilhørende `release.yaml`-filen inneholder bare én release, datert 27. oktober 2026, med 2 features og 6 bugs. Dette samsvarer ikke umiddelbart med totalsummene i `data.yaml`. Det er derfor usikkert om verktøyets release-klassifisering gir et representativt bilde av faktiske leveranser i prosjektet.
+
+| Måling | Rapportert resultat | Forbehold |
+|---|---:|---|
+| Releases | 55 | Stemmer ikke med at `release.yaml` viser én release |
+| Feature releases | 2 | Klassifiseringen bør verifiseres |
+| Bugfix releases | 6 | Kan ikke uten videre tolkes som seks produksjonsfeil |
+| Hotfix releases | 0 | Verktøyet har ikke registrert hotfixer |
+| Releases uten bugs | 55 | Bør kontrolleres mot release-dataene |
+| Gjennomsnittlige bugs per release | 0,11 | Avhenger av hvordan verktøyet teller releases og bugs |
+
+Målingene viser at vi har forsøkt å bruke automatiserte data til å undersøke utviklingsprosessen, men også at resultatene må kvalitetssikres før de kan brukes som grunnlag for konklusjoner. Vi kan ikke ut fra disse filene alene fastslå hvor ofte prototypen faktisk ble publisert, hvor lang tid endringer tok fra utvikling til produksjon, eller hvor raskt eventuelle produksjonsfeil ble rettet. For å beregne slike målinger pålitelig må vi ha et tydelig skille mellom commits, pull requests som integreres i `main`, faktiske publiseringer og registrerte feil etter publisering.
+
+
 
 # 5. Sprint Review
 
