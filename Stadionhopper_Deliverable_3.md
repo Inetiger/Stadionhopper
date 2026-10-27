@@ -7,9 +7,9 @@ Skrevet av:
 
 Line Lyngsnes Johansen
 
-Ine
+Ine Nybø Botterli
 
-Inger
+Inger Videm
 
 # 1. Innledning
 
@@ -35,91 +35,81 @@ Etter hvert som prototypen tok form, ble det tydelig at vi måtte prioritere mel
 
 I den første brukerundersøkelsen svarte 19 personer. Ni av disse vurderte det å finne kommende kamper som den viktigste funksjonen. Dette bidro til at kampoversikten ble prioritert som en sentral del av MVP-en. Produktvisjonen handler om å senke terskelen for å oppdage og delta på lokale fotballkamper. Det er derfor viktig at brukeren enkelt kan finne relevante kamper og informasjon om hvor og når de spilles.
 
-I de tidligere leveransene prioriterte vi også profil, registrering av kampbesøk og enkelte sosiale funksjoner. Under utviklingsarbeidet har vi måttet vurdere disse prioriteringene opp mot tilgjengelig tid, tekniske utfordringer og hva som er mest nyttig å demonstrere og teste på dette stadiet.
+I de tidligere leveransene prioriterte vi også brukerprofiler, registrering av kampbesøk og enkelte sosiale funksjoner. Under utviklingsarbeidet har vi måttet vurdere disse prioriteringene opp mot tilgjengelig tid, tekniske utfordringer og hva som har vært mest nyttig å demonstrere og teste på dette stadiet.
 
 ## 2.2 Prototypens funksjonalitet og brukerreise
 
-Vi har utviklet en nettbasert prototype av Stadionhopper med utgangspunkt i produktbackloggen og wireframes fra Deliverable 2. Prototypen er bygget med HTML, CSS og JavaScript i frontend og Node.js i backend. Utviklingsarbeidet har foregått gradvis, med ulike funksjoner fordelt på oppgaver i GitHub. Kampoversikten har fått en sentral plass i prototypen. Brukeren kan se kamper i en kalendervisning og velge en kamp for å få mer informasjon om blant annet lag, tidspunkt og stadion. Dette gir en enkel brukerreise fra å oppdage en kamp til å finne informasjon som kan være relevant for å dra på den. Vi har også arbeidet med å skille mellom tidligere og kommende kamper, slik at kalenderen blir lettere å orientere seg i.
+Vi har utviklet en nettbasert prototype av Stadionhopper med utgangspunkt i produktbackloggen og wireframes fra Deliverable 2. Prototypen er bygget med HTML, CSS og JavaScript i frontend og Node.js i backend. Kampoversikten har fått en sentral plass i løsningen. Brukeren kan se kamper i en kalendervisning og velge en kamp for å få mer informasjon om blant annet lag, tidspunkt og stadion. Dette gir en enkel brukerreise fra å oppdage en kamp til å finne informasjon som kan være relevant for å dra på den. Vi har også arbeidet med å gjøre det lettere å skille mellom tidligere og kommende kamper.
 
-Gjennom brukerundersøkelser og tilbakemeldinger fra faglærer ble vi mer oppmerksomme på betydningen av en sammenhengende brukerreise. Vi så at det ikke nødvendigvis er nok å utvikle flere funksjoner dersom det er uklart hvordan brukeren skal navigere mellom dem. Dette har ført til at vi har prioritert forbedringer i navigasjon, presentasjon av kampinformasjon og visuell utforming. Prototypen har dermed ikke bare vært et resultat av utviklingsarbeidet, men også et utgangspunkt for å undersøke hvordan løsningen fungerer for brukerne. Tilbakemeldingene har gitt oss grunnlag for å justere prioriteringene og vurdere hvilke forbedringer som bør gjennomføres videre. Dette kommer vi nærmere tilbake til i kapittelet om testing.
+Gjennom tilbakemeldinger fra faglærer og brukertesting ble vi mer oppmerksomme på betydningen av en sammenhengende brukerreise. Vi erfarte at det ikke nødvendigvis er tilstrekkelig å utvikle flere funksjoner dersom det er uklart hvordan brukeren skal navigere mellom dem. Derfor har vi begynt å prioritere forbedringer i navigasjon, presentasjon av kampinformasjon og visuell utforming. Prototypen har dermed også fungert som et utgangspunkt for å undersøke hvordan brukerne opplever løsningen, og hvilke forbedringer som bør prioriteres videre.
 
 ## 2.3 Backend og øvrige funksjoner
 
-I tillegg til kampoversikten har vi arbeidet med funksjoner for innlogging, brukerprofiler, registrering av kampbesøk og sosial feed. Prosjektet inneholder backend-kode for blant annet autentisering, brukerøkter, håndtering av kampdata, innsjekkinger og sosiale innlegg. Disse funksjonene er viktige for den videre utviklingen av Stadionhopper, men det er nødvendig å skille mellom funksjonalitet som er implementert i koden, og funksjonalitet som faktisk kan demonstreres og brukes.
+I tillegg til kampoversikten har vi utviklet kode for innlogging, brukerprofiler, registrering av kampbesøk og sosiale funksjoner. Backend håndterer blant annet autentisering, brukerøkter, kampdata og innsjekkinger. Vi har også utviklet automatiserte integrasjonstester som kontrollerer samspillet mellom frontend og backend. Blant annet testes innlogging og utlogging, samt en innsjekkingsprosess der et kampbesøk lagres i en JSON-fil og vises i brukerens profilhistorikk. Dette viser at sentrale deler av funksjonaliteten kan testes i et eget testmiljø, selv om de foreløpig ikke er tilgjengelige i den publiserte demonstrasjonen.
 
-Vi har publisert en demonstrasjonsversjon gjennom GitHub Pages, slik at andre kan prøve deler av prototypen uten å installere eller kjøre prosjektet lokalt. GitHub Pages støtter imidlertid ikke kjøring av Node.js-backend, og demonstrasjonen benytter derfor eksempeldata. Dette innebærer at brukerne kan utforske blant annet kampoversikten og deler av brukergrensesnittet, mens funksjoner som krever innlogging og lagring av brukerdata, må testes lokalt. Denne begrensningen har også betydning for brukertestingen, ettersom testpersonene ikke har hatt tilgang til all funksjonaliteten som finnes i prosjektet.
-
-*** Bekreft gjennom lokal testing hvilke funksjoner som fungerer fra start til slutt, særlig innlogging, profil, innsjekking og sosial feed.
-
-*** Beskriv eventuelle tekniske utfordringer knyttet til backend og hvordan gruppa håndterte dem.
+Vi har publisert en demonstrasjonsversjon gjennom GitHub Pages, slik at andre kan utforske prototypen uten å kjøre prosjektet lokalt. Her kan brukerne navigere mellom sidene og se kampinformasjon og annet innhold som allerede er lagt inn. GitHub Pages støtter imidlertid ikke kjøring av Node.js-backend, og den publiserte løsningen har derfor ikke en fungerende mekanisme for å lagre nye brukeropplysninger. Nettleseren kan heller ikke uten videre skrive endringer tilbake til filene i GitHub-repositoriet. Dette innebærer at funksjoner som innlogging og registrering av kampbesøk ikke kan brukes fullt ut i den publiserte demonstrasjonen. Vi har valgt å arbeide videre med denne tekniske begrensningen i neste sprint.
 
 ## 2.4 Utvikling og prioritering gjennom GitHub
 
-Vi har brukt GitHub Issues til å dele utviklingsarbeidet inn i mindre oppgaver knyttet til blant annet datamodell, frontend, backend, innlogging, kampoversikt, innsjekking og testing. Oppgavene har gjort det enklere å fordele ansvar og følge fremdriften, samtidig som vi har kunnet justere prioriteringene underveis. Kodeendringer har blitt utført i egne branches og håndtert gjennom pull requests, slik at vi kan knytte arbeidet til konkrete oppgaver og følge hvilke endringer som er gjort.
+Vi har brukt GitHub Issues til å organisere og fordele utviklingsarbeidet knyttet til blant annet datamodell, frontend, backend, innlogging, kampoversikt, innsjekking og testing. Gjennom sprinten har vi arbeidet med kodeendringer i egne branches og brukt pull requests for å integrere endringene i `main`. Automatiserte tester har vært en del av denne arbeidsprosessen og bidratt til å kontrollere at endringene fungerer før de integreres i hovedversjonen.
 
-Brukertestingen har ført til flere nye forbedringsoppgaver i GitHub. Et eksempel er Issue #121, som handler om å forenkle kampinformasjonen. På bakgrunn av tilbakemeldingene har vi blant annet fjernet sekunder fra klokkeslett og arbeidet med å gjøre det lettere å skille mellom tidligere og kommende kamper i kalenderen. Endringene ble gjort i en egen branch og sendt til gjennomgang gjennom en pull request. Dette er et eksempel på hvordan vi har brukt tilbakemeldinger til å justere utviklingsarbeidet, samtidig som GitHub har gjort det mulig å teste endringene før de eventuelt integreres i hovedversjonen.
+Vi har også opprettet nye Issues og justert prioriteringene etter hvert som prototypen har blitt utviklet og testet. Brukertestingen førte blant annet til forbedringsoppgaver knyttet til navigasjon, design og kampinformasjon. I Issue #121 fjernet vi sekunder fra klokkeslett og endret bakgrunnsfargen for tidligere kamper i kalenderen. Disse endringene ble, i likhet med mange andre endringer gjennom sprinten, gjennomført i en egen branch, kontrollert gjennom automatiserte tester og integrert i `main` gjennom en pull request. Dette er ett eksempel på hvordan vi har brukt GitHub og testing som en del av det løpende utviklingsarbeidet.
 
 # 3. Testing og kvalitetssikring
 
 ## 3.1 Teststrategi
 
-I utviklingen av Stadionhopper har vi kombinert automatiserte tester med brukertesting. Disse testformene undersøker ulike sider av løsningen og utfyller hverandre. Automatiserte tester kan avdekke tekniske feil og bidra til at endringer ikke ødelegger eksisterende funksjonalitet. De kan derimot ikke alene fortelle oss om brukerne forstår navigasjonen, finner informasjonen de trenger, eller opplever løsningen som nyttig.
+I utviklingen av Stadionhopper har vi kombinert automatiserte tester med brukertesting for å undersøke både teknisk funksjonalitet og brukervennlighet. De automatiserte testene kontrollerer om bestemte deler av løsningen fungerer som forventet, og kan bidra til å oppdage feil etter kodeendringer. Brukertestingen har derimot gitt oss innsikt i hvordan personer utenfor prosjektgruppen opplever prototypen, og om de finner informasjonen de trenger.
 
-Hyppig testing og tilbakemeldinger er sentralt i smidig utvikling, og vi ønsket derfor å involvere personer utenfor prosjektgruppen. Når vi selv bruker prototypen, kjenner vi både strukturen og hensikten bak funksjonene, noe som kan gjøre det vanskelig å oppdage uklarheter. Ved å la testpersonene utføre konkrete oppgaver uten veiledning, kunne vi undersøke hvordan de orienterte seg i løsningen. Tilbakemeldingene skulle også brukes som grunnlag for videre prioritering og utvikling.
+Vi ønsket å involvere brukere som ikke kjente løsningen fra før, fordi vi som utviklere allerede visste hvordan den var bygget opp. Ved å la testpersonene utføre konkrete oppgaver uten veiledning, kunne vi undersøke om navigasjonen og funksjonene var forståelige. Tilbakemeldingene har deretter blitt brukt som grunnlag for forbedringer og videre prioriteringer.
 
 ## 3.2 Automatiserte tester
 
-Prosjektet inneholder automatiserte tester for både backend og deler av frontend. Testene omfatter blant annet autentisering, brukerøkter, tilgangskontroll, innsjekking og visning av kampinformasjon. De kan kjøres med kommandoen `node --test test/*.test.js`, og er også knyttet til prosjektets CI-prosess gjennom GitHub Actions.
+Prosjektet inneholder automatiserte tester for både frontend og backend. Testene omfatter blant annet autentisering, brukerøkter, tilgangskontroll, kampinformasjon og innsjekking. De kan kjøres med kommandoen `node --test test/*.test.js` og er knyttet til CI-prosessen gjennom GitHub Actions.
 
-Automatiserte tester gjør det mulig å kontrollere funksjonaliteten gjentatte ganger etter kodeendringer og kan bidra til å oppdage regresjoner, altså at noe som tidligere fungerte, slutter å fungere. Under arbeidet med Issue #121 opplevde vi dette i praksis da to av testene feilet etter en endring i kalenderen. Etter at koden ble justert, ble testene kjørt på nytt, og alle 41 bestod. Dette viste oss hvordan automatiserte tester kan bidra til å oppdage problemer før endringer integreres i hovedversjonen.
+Vi har blant annet utviklet integrasjonstester som kontrollerer samspillet mellom frontend og backend. En test gjennomfører innlogging med en testbruker, kontrollerer at det opprettes en gyldig brukerøkt, og undersøker deretter om brukerøkten avsluttes ved utlogging. En annen test kontrollerer innsjekkingsprosessen fra valg av kamp i kalenderen til registrering av besøket. Her undersøkes det om besøket lagres i en JSON-fil og vises i brukerens profilhistorikk.
 
-*** Bekreft testresultatet og dokumenter eventuelt med skjermbilde fra GitHub Actions.
+Under arbeidet med Issue #121 opplevde vi nytten av automatisert testing da to av 41 tester feilet etter en endring i kalenderen. Etter at koden ble justert, ble testene kjørt på nytt, og alle 41 bestod. Endringene ble deretter integrert i `main`. Vi har brukt de automatiserte testene til å kontrollere kodeendringer før de integreres i hovedversjonen, og feil som har blitt oppdaget, har blitt rettet underveis. Dette har bidratt til at vi har kunnet videreutvikle prototypen samtidig som vi kontrollerer at eksisterende funksjonalitet fortsatt fungerer.
 
 ## 3.3 Gjennomføring av brukertest
 
-Vi inviterte åtte personer til å teste den publiserte prototypen, der vi fikk syv svar. Testpersonene fikk konkrete oppgaver som blant annet gikk ut på å finne en kamp, finne et arrangement, lokalisere kartfunksjonen og finne hvor de ville logget ut. De ble også bedt om å vurdere hvor enkelt det var å navigere og komme med forslag til forbedringer. Testingen ble gjennomført uten at vi forklarte hvor de ulike funksjonene lå. Hensikten var i all hovedsak å undersøke om brukerne kunne finne frem på egen hånd. Siden den publiserte demonstrasjonen ikke har fungerende innlogging, kunne oppgaven om utlogging bare undersøke om testpersonene fant riktig sted i grensesnittet. Den kunne ikke bekrefte at selve utloggingsfunksjonen virket.
+Vi inviterte åtte personer til å teste den publiserte prototypen og fikk syv svar. Testpersonene fikk konkrete oppgaver som blant annet gikk ut på å finne en kamp, finne et arrangement, lokalisere kartfunksjonen og finne hvor de ville logget ut. De ble også bedt om å vurdere hvor enkelt det var å navigere og komme med forslag til forbedringer. Testingen ble gjennomført uten at vi forklarte hvor de ulike funksjonene lå, slik at vi kunne undersøke om brukerne fant frem på egen hånd.
 
-Testgruppen var begrenset og bestod av personer vi selv inviterte. Resultatene kan derfor ikke betraktes som representative for hele målgruppen. De gir likevel nyttig innsikt i hvordan personer utenfor utviklingsgruppen opplever prototypen, så vi har valgt å bruke det videre i utviklingsarbeidet.
+Brukertestingen var begrenset til funksjonene som var tilgjengelige gjennom GitHub Pages. Den publiserte demonstrasjonen gjør det mulig å navigere og se eksisterende informasjon, men ikke lagre nye brukeropplysninger. Oppgaven om utlogging undersøkte derfor bare om testpersonene fant riktig sted i grensesnittet, ikke om selve utloggingsfunksjonen virket. Testgruppen var liten og bestod av personer vi selv inviterte. Resultatene kan derfor ikke regnes som representative for hele målgruppen, men ga oss likevel nyttig innsikt i hvordan prototypen ble oppfattet.
 
 ## 3.4 Resultater fra brukertestingen
 
-Tilbakemeldingene viste at flere av testpersonene opplevde løsningen som enkel å forstå og navigere i. De fant i stor grad frem til oppgavene de skulle løse. En av testpersonene trakk spesielt frem at det enkle grensesnittet var en styrke, fordi løsninger med mange valg kan oppleves som slitsomme. Samtidig kom det flere konkrete forslag til forbedringer.
+Flere av testpersonene opplevde løsningen som enkel å forstå og navigere i, og de fant i stor grad frem til oppgavene de skulle løse. En av testpersonene fremhevet det enkle grensesnittet som positivt, fordi løsninger med mange valg kan oppleves som slitsomme. Samtidig fikk vi flere konkrete forslag til forbedringer, særlig knyttet til design, navigasjon og presentasjon av kampinformasjon.
 
-Et gjennomgående funn var ønsket om mer farger og et tydeligere fotballpreg. Flere mente at farger ville gjøre løsningen mer attraktiv. Ett forslag var å bruke hjemmelagets klubbfarger for å gjøre det lettere å kjenne igjen og skille mellom kamper. Det ble også foreslått mykere kanter og tydeligere visuelle skiller mellom feltene. Andre tilbakemeldinger handlet om navigasjon og begrepsbruk. En testperson opplevde det som uklart hva som skilte «Sosial» fra «Treff», mens en annen stilte spørsmål ved betydningen av «Mine innsjekkinger». Navigasjonsmenyen nederst ble også beskrevet som lite intuitiv.
+Flere ønsket mer farger og et tydeligere fotballpreg. Det ble blant annet foreslått å bruke hjemmelagets klubbfarger for å skille mellom kamper, samt mykere kanter og tydeligere visuelle skiller. Andre tilbakemeldinger handlet om begrepsbruk og navigasjon. En testperson opplevde forskjellen mellom «Sosial» og «Treff» som uklar, mens en annen stilte spørsmål ved betydningen av «Mine innsjekkinger». Navigasjonsmenyen nederst ble også beskrevet som lite intuitiv.
 
-Når det gjaldt kampinformasjon, ble det påpekt at klokkeslett ikke trenger å vises med sekunder. En testperson stilte spørsmål ved behovet for knappen «Last kampene på nytt», mens en annen ønsket at kampene skulle presenteres i en kalender. Det ble også stilt spørsmål ved behovet for å vise tidligere kamper. Disse tilbakemeldingene er nyttige fordi de viser at en funksjon kan være teknisk tilgjengelig uten at brukeren nødvendigvis forstår hensikten med den.
+Når det gjaldt kampinformasjon, ble det påpekt at klokkeslett ikke trenger å vises med sekunder. Det kom også spørsmål om behovet for knappen «Last kampene på nytt» og om tidligere kamper burde vises. En testperson ønsket dessuten at kampene skulle presenteres i en kalender. Tilbakemeldingene viste oss at funksjoner kan være tilgjengelige uten at brukerne nødvendigvis forstår hensikten med dem.
 
 ## 3.5 Fra tilbakemeldinger til forbedringer
 
-Etter brukertestingen ble funnene dokumentert i GitHub Issue #62, mens videre prioritering ble fulgt opp gjennom Issue #63. Tilbakemeldingene dannet grunnlag for konkrete forbedringsoppgaver knyttet til navigasjon og begrepsbruk (#118), visuell utforming (#119) og kampinformasjon (#121). Dette har gjort det mulig å følge opp brukernes innspill gjennom den samme arbeidsprosessen som øvrige utviklingsoppgaver. Brukertestingen har dermed ikke bare gitt oss informasjon om hvordan prototypen oppleves, men også påvirket hvilke oppgaver vi har prioritert videre.
+Etter brukertestingen dokumenterte vi resultatene i GitHub Issue #62 og fulgte opp prioriteringene gjennom Issue #63. Tilbakemeldingene dannet grunnlag for forbedringsoppgaver knyttet til navigasjon og begrepsbruk (#118), visuell utforming (#119) og kampinformasjon (#121). På denne måten kunne vi følge opp brukernes innspill gjennom den samme arbeidsprosessen som øvrige utviklingsoppgaver.
 
-Issue #121 er et eksempel på hvordan vi har fulgt opp tilbakemeldingene. Vi har blant annet fjernet unødvendige sekunder fra klokkeslett og gitt tidligere kamper en annen bakgrunnsfarge i kalenderen, slik at de lettere kan skilles fra kommende kamper. Endringene ble gjort i en egen branch og sendt til gjennomgang gjennom en pull request. Ikke alle forslagene fra brukertestingen er gjennomført, og enkelte krever videre arbeid og diskusjon i gruppa. Vi må derfor fortsette å vurdere hvilke forbedringer som støtter produktvisjonen og gir størst nytte innenfor prosjektets rammer.
-
-*** Oppdater med endelig status for forbedringsoppgavene, inkludert hvilke endringer som ble integrert i main, og hvilke som ble utsatt.
-
-*** Dokumenter eventuell ny kontroll eller brukertest etter at endringene ble integrert.
+Et konkret eksempel er Issue #121, der vi fjernet unødvendige sekunder fra klokkeslett og ga tidligere kamper en annen bakgrunnsfarge i kalenderen, slik at de lettere kunne skilles fra kommende kamper. Endringene ble utført i en egen branch, kontrollert gjennom automatiserte tester og integrert i `main` gjennom en pull request. Ikke alle forbedringsforslagene fra brukertestingen er gjennomført, og flere av dem vil derfor bli fulgt opp i det videre utviklingsarbeidet.
 
 # 4. GitHub, samarbeid og kontinuerlig integrasjon
 
 ## 4.1 Versjonskontroll og samarbeid
 
-I Deliverable 2 planla vi å bruke GitHub Issues, branches, pull requests og kodegjennomgang som en del av arbeidsprosessen. I denne sprinten har vi tatt disse verktøyene i bruk for å organisere og følge opp utviklingen. Gjennom Issues har vi fordelt oppgaver og dokumentert hva som skal gjøres, mens egne branches har gjort det mulig å arbeide med kodeendringer uten å endre hovedversjonen direkte. Pull requests har gitt oss en måte å samle endringene til gjennomgang før de eventuelt integreres i main. Samtidig har commit-historikken gjort det mulig å se hvilke endringer som er gjort, og hvem som har utført dem. Dette har vært nyttig når flere gruppemedlemmer har arbeidet med ulike deler av prototypen.
+I Deliverable 2 planla vi å bruke GitHub Issues, branches, pull requests og kodegjennomgang som en del av utviklingsprosessen. Gjennom denne sprinten har vi tatt verktøyene i bruk for å organisere og følge opp arbeidet. GitHub Issues har blitt brukt til å beskrive oppgaver, fordele ansvar og dokumentere fremdrift. Vi har også opprettet nye Issues og justert eksisterende oppgaver etter hvert som behovene har endret seg.
 
-Et eksempel er arbeidet med Issue #121, der endringer i kampinformasjonen ble gjennomført i en egen branch og sendt inn som en pull request. Vi ba om gjennomgang fra et annet gruppemedlem før endringene skulle integreres i main. Underveis ble endringene også kontrollert av automatiserte tester, som avdekket feil vi måtte rette. Dette viser hvordan vi har brukt GitHub til mer enn oppgavefordeling og lagring av kode. Arbeidsprosessen har også gitt oss mulighet til å kontrollere endringer og oppdage problemer før de påvirker hovedversjonen. Erfaringene med de automatiserte testene beskrives nærmere i kapittel 4.2.
+Utviklingsarbeidet har i stor grad foregått i egne branches, og vi har brukt pull requests for å integrere endringer i `main`. Dette har gjort det mulig å arbeide parallelt med ulike deler av prototypen uten å endre hovedversjonen direkte. Pull requests og commit-historikken har samtidig gitt oss oversikt over hvilke endringer som er gjennomført, og gjort det lettere å følge arbeidet i ettertid. De automatiserte testene har vært en viktig del av denne prosessen, ettersom de har gitt oss mulighet til å kontrollere endringer før de integreres i hovedversjonen.
 
-*** Beskriv hvordan gruppa har praktisert kodegjennomgang i resten av sprinten. Har pull requests blitt gjennomgått av andre gruppemedlemmer før de ble integrert i main? Hvis ikke, beskriv hvordan dette har fungert i praksis.
+Vi har gjennomgått endringene i pull requests før de ble integrert i `main`, hovedsakelig ved å se på beskrivelsene av hva som var endret og kontrollere resultatene fra de automatiserte testene. Vi har i stor grad støttet oss på testene fremfor å gjennomgå all kode i detalj. Denne arbeidsformen har gitt oss en viss kontroll med endringene, men vi ser også at en grundigere kodegjennomgang kunne bidratt til bedre felles forståelse av løsningen. Vi har dessuten erfart at tydelige oppgavebeskrivelser og avklarte avhengigheter er viktige når flere arbeider med frontend og backend samtidig. Disse erfaringene tar vi med oss videre i arbeidet med å forbedre samarbeidet.
 
 ## 4.2 Kontinuerlig integrasjon (CI)
 
-Kontinuerlig integrasjon (CI) innebærer at kodeendringer kontrolleres jevnlig gjennom automatiserte prosesser, slik at feil kan oppdages tidlig i utviklingen. I Stadionhopper har vi etablert en CI-prosess gjennom GitHub Actions, der automatiserte tester kjøres i forbindelse med pull requests. Dette gjør det mulig å kontrollere endringer før de integreres i hovedgrenen. Oppsettet ble fulgt opp gjennom GitHub Issue #61, og workflow-filene ligger i `.github/workflows`.
+Vi har etablert en CI-prosess gjennom GitHub Actions, der automatiserte tester kjøres i forbindelse med pull requests. Dette gjør det mulig å kontrollere kodeendringer før de integreres i `main`. Oppsettet ble fulgt opp gjennom GitHub Issue #61, og workflow-filene ligger i `.github/workflows`.
 
-Vi fikk erfare nytten av dette blant annet under arbeidet med Issue #121, som handlet om å forbedre visningen av kampinformasjon. Etter at endringene var sendt inn gjennom en pull request, viste GitHub Actions at to av 41 automatiserte tester feilet. Feilene oppstod i tester knyttet til frontend og kalendervisningen. Vi undersøkte koden og endret måten en CSS-klasse ble lagt til på, slik at den også fungerte med testoppsettet. Etter at endringen ble lagret i en ny commit, ble testene kjørt på nytt, og alle 41 bestod. Dette ga oss en konkret erfaring med hvordan CI kan avdekke problemer før kode integreres i hovedversjonen.
+Prosjektet har automatiserte tester for både frontend og backend. Testene kontrollerer blant annet autentisering, brukerøkter, tilgangskontroll, kampinformasjon og innsjekking. Ved å kjøre testene automatisk i forbindelse med kodeendringer kan vi oppdage feil som ellers kunne blitt oversett, og kontrollere at eksisterende funksjonalitet fortsatt fungerer.
 
-Erfaringen viste oss også at en endring som virker liten, kan påvirke andre deler av løsningen eller testmiljøet. Ved å bruke automatiserte kontroller i utviklingsprosessen fikk vi mulighet til å oppdage og rette problemet før endringen ble slått sammen med `main`. CI har dermed ikke bare vært et teknisk oppsett, men også et verktøy for kvalitetssikring og læring underveis i sprinten.
+Et konkret eksempel oppstod under arbeidet med Issue #121, da GitHub Actions viste at to av 41 tester feilet etter en endring i kalendervisningen. Feilene var knyttet til måten en CSS-klasse ble lagt til på, og hvordan dette fungerte med testoppsettet. Etter at koden ble justert og endringen lagret i en ny commit, ble testene kjørt på nytt. Da bestod alle 41 testene, og endringene ble integrert i `main`.
 
-*** Kontroller i workflow-filen om testene også kjøres ved push, og oppdater beskrivelsen dersom dette er tilfelle.
-
-*** Sett eventuelt inn skjermbilde fra GitHub Actions som viser den mislykkede og den vellykkede testkjøringen.
+Dette var ett av flere tilfeller der vi brukte automatiserte tester som en del av utviklingsarbeidet. Erfaringen viser hvordan CI kan bidra til å avdekke problemer før endringer blir en del av hovedversjonen. Samtidig har vi lært at beståtte automatiserte tester ikke nødvendigvis betyr at hele løsningen fungerer slik brukerne forventer. Derfor har vi også gjennomført brukertesting, som beskrevet i kapittel 3.
 
 ## 4.3 DORA og måling av utviklingsprosessen
 
@@ -127,100 +117,54 @@ I tillegg til automatiserte tester kan vi bruke data fra GitHub til å undersøk
 
 GitHub gir oss tilgang til commit-historikk, pull requests og resultater fra GitHub Actions. Disse dataene kan brukes til å undersøke deler av utviklingsprosessen, men det er viktig å skille mellom en commit, en pull request som blir slått sammen med `main`, og en faktisk publisering av prototypen. Dette er ikke nødvendigvis samme hendelse. Siden prosjektet har en begrenset varighet og relativt få leveranser, må eventuelle DORA-målinger også tolkes med forsiktighet. Målet er ikke først og fremst å oppnå bestemte tall, men å bruke tilgjengelig informasjon til å vurdere hvordan vi arbeider, og hvor det kan være behov for forbedringer.
 
-Arbeidet med GitHub og automatiserte tester har samtidig vist oss at det ikke er tilstrekkelig å markere en oppgave som ferdig. Vi må også kontrollere at endringene fungerer, at relevante tester er bestått, og at koden er integrert i riktig versjon av prosjektet. Erfaringen med CI-testene i Issue #121 er et eksempel på dette. Selv om endringen var implementert, måtte vi rette en feil før de automatiserte kontrollene ble godkjent. Dette har gjort oss mer oppmerksomme på forskjellen mellom å skrive kode og å levere en kontrollert endring.
-
 *** Undersøk om vi kan hente ut faktiske tall for én eller flere DORA-målinger fra GitHub. Beskriv hva tallene viser, og hvilke begrensninger de har.
 
-*** Dersom vi ikke har tilstrekkelige data, forklar kort hvilke målinger vi ikke kan beregne på en pålitelig måte, og hvorfor.
+*** Dersom vi ikke har tilstrekkelige data, forklar kort hvilke målinger vi ikke kan beregne på en pålitelig måte, og hvorfor.# 4. GitHub, samarbeid og kontinuerlig integrasjon
 
 # 5. Sprint Review
 
 ## 5.1 Gjennomgang av sprintresultatet
 
-I løpet av sprinten har vi utviklet en prototype av Stadionhopper med kampoversikt, kalender og kampdetaljer som sentrale deler av løsningen. Vi har også arbeidet med innlogging, brukerprofiler, innsjekking og sosiale funksjoner. Den publiserte demonstrasjonen på GitHub Pages gjør det mulig å vise hvordan brukeren kan finne en lokal fotballkamp og få informasjon om blant annet tidspunkt, lag og stadion. Funksjoner som krever backend, må derimot demonstreres gjennom lokal kjøring. Dette skillet har vært viktig når vi har vurdert hva vi faktisk har oppnådd sammenlignet med det vi planla i Deliverable 2.
+I løpet av sprinten har vi utviklet en prototype av Stadionhopper med kampoversikt, kalender og kampdetaljer som sentrale deler av løsningen. Vi har også utviklet funksjonalitet knyttet til innlogging, brukerprofiler, innsjekking og sosiale funksjoner. Den publiserte demonstrasjonen på GitHub Pages gjør det mulig å navigere mellom sidene og finne informasjon om blant annet kamper, tidspunkt, lag og stadioner. Funksjoner som krever backend og lagring av brukerdata, kan foreløpig ikke brukes fullt ut i den publiserte versjonen, selv om flere av dem er implementert og dekket av automatiserte tester.
 
-Gjennom utviklingsarbeidet har prioriteringene også endret seg. Den andre brukerundersøkelsen og tilbakemeldinger fra faglærer har ført til at vi har lagt større vekt på en sammenhengende brukerreise, navigasjon og presentasjon av kampinformasjon. Vi har derfor brukt tid på å forbedre eksisterende funksjoner fremfor bare å legge til nye. Dette har påvirket sprintresultatet og hvilke oppgaver vi har valgt å prioritere.
-
-*** Sett inn en kort beskrivelse av gjennomført Sprint Review: dato, deltakere, hva som ble demonstrert, og hvilke deler av sprintmålet som ble oppnådd eller ikke oppnådd.
+Vi gjennomførte en kort felles gjennomgang av prototypen og vurderte resultatet opp mot planene fra Deliverable 2. Vi vurderer at vi har fått på plass en prototype som demonstrerer sentrale deler av konseptet, men at det fortsatt gjenstår utviklingsarbeid før løsningen fungerer som en helhetlig plattform. En del av sprinten har gått med til å etablere arbeidsprosessen og sette oss inn i verktøyene, noe som har begrenset tiden til produktutvikling. Samtidig har vi fått erfaring med GitHub, automatiserte tester og brukertesting, som også har vært viktige deler av sprintmålet.
 
 ## 5.2 Tilbakemeldinger og videre prioriteringer
 
-Brukertestingen ga oss flere konkrete forbedringsforslag som vi har dokumentert og fulgt opp gjennom GitHub Issues. Blant annet har vi arbeidet videre med kampinformasjon, navigasjon og visuell utforming. Tilbakemeldingene har vist at det ikke nødvendigvis er flere funksjoner som vil gi størst nytte på dette stadiet, men at eksisterende funksjoner også må være forståelige og enkle å bruke.
+Gjennom brukertestingen fikk vi flere konkrete tilbakemeldinger på prototypen, særlig knyttet til navigasjon, kampinformasjon og visuell utforming. Vi har begynt å følge opp disse gjennom GitHub Issues, blant annet ved å forbedre visningen av kampinformasjon og gjøre det enklere å skille mellom tidligere og kommende kamper. Tilbakemeldingene har vist oss at det ikke nødvendigvis er flere funksjoner som bør prioriteres først, men at de eksisterende funksjonene også må være forståelige og enkle å bruke.
 
-*** Sett inn hvilke tilbakemeldinger og beslutninger som kom frem under Sprint Review, og hvordan disse påvirket produktbackloggen og prioriteringene videre.
+På vårt ukentlige scrum-møte diskuterte vi resultatene så langt og hvordan vi ønsker å arbeide videre. Vi ble enige om å prioritere et mer gjennomarbeidet design og en tydeligere brukerreise. Vi ønsker også å undersøke muligheten for en funksjon som kan gjøre Stadionhopper mer interessant og skille plattformen fra andre løsninger. Blant ideene vi har diskutert, er at brukerne selv kan registrere kamper og eventuelt bidra med oppdateringer av scoringer eller annen kampinformasjon. Dette er foreløpig ikke besluttet, og vi må undersøke nærmere hva som vil gi brukerne størst verdi. Innlogging og videreutvikling av kartvisningen har ikke høyeste prioritet i neste fase.
 
 # 6. Sprint Retrospective
 
 ## 6.1 Samarbeid og erfaringer fra sprinten
 
-I denne sprinten har vi brukt GitHub som et felles verktøy for å organisere og følge opp utviklingsarbeidet. Oppgavene har vært fordelt gjennom Issues, og vi har arbeidet med blant annet frontend, backend, testing og brukerundersøkelse. Bruken av branches og pull requests har gjort det mulig å utvikle ulike deler av prototypen uten å endre hovedversjonen direkte. Samtidig har vi erfart at det er viktig å ha oversikt over hvilke oppgaver som er påbegynt, hvilke endringer som er klare for gjennomgang, og hva som faktisk er ferdigstilt. Arbeidet har dermed gitt oss praktisk erfaring med både mulighetene og utfordringene ved å samarbeide om et felles kodeprosjekt.
+I denne sprinten har vi brukt GitHub til å organisere utviklingsarbeidet og fordele oppgaver mellom frontend, backend, testing og brukerundersøkelse. Vi opplevde at det tok mye tid å sette oss inn i oppgaven, etablere en plan og opprette Issues. Den opprinnelige oppgaveinndelingen ble utarbeidet med hjelp fra KI, men viste seg ikke alltid å samsvare med hvordan arbeidet faktisk måtte gjennomføres. Enkelte oppgaver blandet frontend og backend, og avhengighetene mellom dem var ikke alltid tydelige. Dette skapte behov for avklaringer underveis. Samtidig ga oppdelingen i mindre oppgaver og milepæler oss bedre oversikt over fremdriften og gjorde arbeidet mer håndterlig. Vi har også erfart at sprintens omfang må tilpasses gruppas tilgjengelige kapasitet. Med tre gruppemedlemmer og andre studieforpliktelser har vi måttet prioritere mellom utvikling, testing og dokumentasjon, og vi har kommet kortere i produktutviklingen enn vi opprinnelig ønsket.
 
-En positiv erfaring har vært at vi har kunnet omsette tilbakemeldinger fra brukertestingen til konkrete forbedringsoppgaver. Samtidig har utviklingen vist oss at en funksjon kan være implementert uten at den nødvendigvis er ferdig testet eller tilgjengelig i den publiserte prototypen. Et eksempel er arbeidet med Issue #121, der automatiserte tester avdekket problemer som måtte rettes før endringene kunne godkjennes. Dette har gjort oss mer oppmerksomme på betydningen av å kontrollere endringer og kommunisere tydelig om status underveis i utviklingen.
-
-*** Sett inn gruppas vurderinger fra retrospektivet: Hva fungerte godt i samarbeidet? Hvilke utfordringer opplevde dere? Beskriv også hvordan dere organiserte samarbeidet og kommunikasjonen i sprinten, med konkrete eksempler.
+Et konkret eksempel på utfordringer med oppgavefordelingen oppstod da frontend- og backend-arbeidet stoppet opp fordi vi hadde ulike forventninger til hvem som skulle levere hva først. Dette ble oppdaget under et av våre ukentlige scrum-møter, der vi avklarte ansvaret og delte arbeidet opp i tydeligere oppgaver (Issue #70 og #72–74). Etter avklaringen kom vi videre samme dag. Vi har ellers hatt god erfaring med å arbeide sammen i samme rom, der vi raskt kunne diskutere problemer og løsninger, og senere videreføre kommunikasjonen gjennom Teams. Gruppa har også vært åpne om kapasitet og utfordringer, slik at oppgaver kunne overtas av andre ved behov. Denne arbeidsformen har fungert godt, men vi ser samtidig at flere beslutninger burde vært dokumentert i GitHub Issues for å gjøre dem lettere å følge opp i ettertid.
 
 ## 6.2 Læringspunkter og forbedringstiltak
 
-Gjennom sprinten har vi fått erfaring med hvordan planlegging, utvikling og testing må koordineres når flere arbeider med samme løsning. Arbeidet med GitHub har gitt oss bedre oversikt over oppgavene, men har også vist hvor viktig det er å ha tydelige rutiner for når endringer skal testes og gjennomgås. Vi har erfart at tilbakemeldinger fra brukere kan føre til nye prioriteringer underveis, og at dette krever både fleksibilitet og god kommunikasjon i gruppa. Erfaringene fra sprinten gir oss derfor et grunnlag for å vurdere hvordan vi kan forbedre arbeidsprosessen videre.
+En viktig erfaring fra sprinten er at det ble lettere å samarbeide om kvalitetssikring etter hvert som vi fikk en prototype som kunne testes. I starten var det vanskeligere å vurdere hverandres arbeid, mens en fungerende demonstrasjon gjorde det mulig å gi mer konkrete tilbakemeldinger på både funksjonalitet og brukergrensesnitt. Vi har også fått erfaring med branches, pull requests og automatiserte tester, men kompetansen på de ulike delene av utviklingsarbeidet er fortsatt noe ulikt fordelt. Ikke alle har hatt like god innsikt i hva de automatiserte testene kontrollerer. En felles gjennomgang av testene og CI-resultatene vil derfor kunne gjøre flere i gruppa i stand til å delta i kvalitetssikringen og redusere avhengigheten av enkeltpersoner.
 
-*** Sett inn gruppas viktigste læringspunkter fra retrospektivet og to eller tre konkrete forbedringstiltak dere ble enige om. Beskriv hvordan tiltakene skal gjennomføres, og hvem som har ansvar for oppfølgingen.
+Vi tar særlig med oss betydningen av tydeligere oppgavefordeling og realistisk planlegging. Vi erfarte blant annet at enkelte Issues ble for omfattende. I Issue #121 hadde vi samlet flere forbedringer i én oppgave, noe som gjorde det vanskeligere å markere arbeidet som ferdig selv om deler av endringene allerede var testet og integrert i `main`. I det videre arbeidet ønsker vi derfor å dele større oppgaver opp i mindre, mer avgrensede Issues, slik at hver endring lettere kan utvikles, testes og ferdigstilles separat. Vi ønsker også å beholde mindre milepæler og bli flinkere til å dokumentere viktige avklaringer direkte i GitHub. Selv om KI kan hjelpe oss med å utarbeide oppgaver, må vi selv kontrollere at ansvar, rekkefølge og avhengigheter er forståelige. Samtidig vil vi videreføre arbeidsformen med ukentlige scrum-møter, løpende kommunikasjon og bruk av branches og pull requests.
 
-## 6.3 Ingers forberedende refleksjon: arbeidsflyt, læring og prioritering
-
-Sprint Review og Sprint Retrospective er ennå ikke gjennomført. Denne refleksjonen er mitt innspill til den kommende felles evalueringen, basert på frontend-arbeidet og samarbeidet i sprinten. Forslagene til forbedring må drøftes i gruppa før de eventuelt vedtas.
-
-### Sprintresultat og tilgjengelig kapasitet
-
-Jeg vurderer den testbare prototypen, arbeidet med brukerinnspill og erfaringene med samarbeid i GitHub som de viktigste resultatene så langt. Prototypen har gjort det mulig å undersøke løsningen og forsøke å forbedre den på bakgrunn av tilbakemeldinger. Samtidig har vi måttet nedprioritere funksjonalitet og kommet kortere i produktutviklingen enn planlagt.
-
-Det tok mye tid å sette oss inn i oppgaven, opprette issues og etablere en plan. For min del var også kapasiteten lavere enn ved de to første innleveringene. Andre fag og forpliktelser hadde hopet seg opp etter at jeg tidligere hadde brukt mye tid på prosjektet. Jeg opplever fortsatt oppgavens omfang som uforholdsmessig stort for tre personer. Jeg har prioritert å levere fungerende bidrag, men ønsket mer tid til å forstå helheten og arbeide grundigere. Dette viser et behov for å tilpasse sprintens omfang til faktisk tilgjengelig kapasitet og sette av tid til både utvikling, kvalitetssikring og læring.
-
-Jeg opplever innsatsen som jevnt fordelt. Vi sier fra når vi ikke kommer videre eller har kapasitet til mer, slik at andre kan overta dersom arbeidet ikke kan vente. Utfordringene handler dermed etter min vurdering om omfang, koordinering og tilgjengelig tid.
-
-### Oppgaveinndeling og avhengigheter
-
-Vi brukte ChatGPT til å lage den opprinnelige oppgaveinndelingen. Enkelte issues blandet frontend- og backend-arbeid, og nivåene som skulle vise avhengigheter, samsvarte ikke alltid med den faktiske arbeidsrekkefølgen. Planen ble derfor til dels overveldende og krevde avklaringer underveis. Samtidig ga nivåinndelingen og koblingen til milepæler bedre oversikt. Flere små delfrister gjorde arbeidet mer håndterlig enn én stor innleveringsfrist.
-
-En konkret konsekvens av uklare forventninger var at jeg ventet på et backend-grunnlag fra Ine, mens hun ventet på et frontend-utkast fra meg. Dette ble avdekket i et scrum-møte. Vi avklarte leveransene, delte arbeidet i issues og kom videre samme dag. Frontend-oppgaven #70 og backend-oppgavene #72–74 viser oppdelingen i GitHub.
-
-Etter dette tok vi opp avhengigheter tydeligere. Vi arbeidet først i samme rom på hver vår PC og oppdaterte hverandre fortløpende om løsninger, valg og problemer. Senere videreførte vi raske avklaringer gjennom Teams. Samarbeidsformen forkortet tiden fra et spørsmål oppstod til vi kunne arbeide videre. Hele gruppa kjente til avklaringene, men beslutningene ble ikke systematisk dokumentert i issues. Den muntlige og løpende kommunikasjonen fungerte godt, mens sporbarheten kunne vært bedre.
-
-### Kvalitetssikring og egen læring
-
-I starten var det vanskelig å sette seg inn i og vurdere hverandres arbeid. Da vi fikk et testbart produkt, ble det lettere å undersøke funksjonalitet og utseende og gi konkrete tilbakemeldinger i pull requests. Brukertestingen avdekket også uklarheter vi selv ikke hadde fanget opp: hva «innsjekking» betydde, hvorfor tidligere kamper ble vist, og hvordan brukerne skulle orientere seg. Dette viste meg verdien av korte tilbakemeldingssløyfer og av å vurdere både teknisk funksjon og brukervennlighet.
-
-Jeg har lært hvordan branches og pull requests støtter samarbeid om en felles kodebase. Jeg har også erfart at en hensiktsmessig oppgaveinndeling må utvikles i fellesskap. Det finnes ikke én detaljert organisering av issues som automatisk passer alle grupper; navn, ansvar og avhengigheter må være forståelige for dem som skal bruke planen.
-
-Jeg har ikke skrevet de automatiserte testene og har begrenset innsikt i hva de kontrollerer. Jeg har støttet meg på kompetansen til gruppemedlemmet som laget dem. En felles gjennomgang av testdekning og CI-resultater vil kunne gjøre meg bedre i stand til å delta i kvalitetssikringen og redusere personavhengigheten i gruppa.
-
-### Avgrensning og forbedringer til neste sprint
-
-Gruppa har avgrenset det videre produktarbeidet til et mer tiltalende og brukervennlig design og muligheten for at brukere kan legge inn kamper. Dersom kapasiteten tillater det, ønsker vi også å undersøke verdien av at brukere oppdaterer scoringer eller annen kampinformasjon underveis. Innlogging og kartvisning videreutvikles ikke nå.
-
-Designarbeidet bygger på tilbakemeldinger fra brukertesting. Brukergenerert kampinnhold er en ny hypotese som foreløpig ikke er validert. Tanken er å redusere behovet for administrasjon fra klubbene og på sikt åpne for bruk utenfor etablerte fotballkretser og landegrenser. Dette er mulige gevinster som må undersøkes. Testopplegg og vurderingskriterier må avklares sammen med Line, som har ansvar for kommunikasjonen med testbrukerne.
-
-Mitt viktigste forbedringsforslag er å beholde små milepæler og ta mer styring over issuene. Vi bestemmer selv innhold, navn, oppdeling og rekkefølge og bruker KI til å opprette oppgavene i GitHub. Før oppstart foreslår jeg at vi gjennomgår forventet resultat, ansvar, faktiske avhengigheter og kriterier for ferdigstillelse. Viktige endringer i disse avklaringene kan dokumenteres kort i det aktuelle issuet.
-
-Jeg forventer at planleggingen vil gå raskere neste gang, fordi vi kjenner oppgaven og arbeidsflyten bedre og er tryggere på å arbeide selvstendig. Dette er foreløpig en forventning som vi bør evaluere ved neste retrospektiv. Erfaringen min er at arbeidsflyten må tilpasses av gruppa gjennom praktisk bruk og jevnlige justeringer.
+*** Bekreft hvilke konkrete forbedringstiltak gruppa har sluttet seg til i retrospektivet, og hvem som skal følge dem opp.
 
 # 7. Oppsummering og veien videre
 
 ## 7.1 Hva vi har lært
 
-Arbeidet med Deliverable 3 har gitt oss erfaring med å gå fra produktvisjon og planlegging til en prototype som kan demonstreres og testes.
+Arbeidet med Deliverable 3 har gitt oss erfaring med å gå fra produktvisjon og planlegging til en prototype som kan demonstreres og testes. Vi har utviklet flere sentrale funksjoner og fått erfaring med hvordan GitHub, automatiserte tester og brukertesting kan brukes som en del av en smidig utviklingsprosess.
 
-Vi har fått erfaring med hvordan GitHub kan brukes til å organisere utviklingsarbeidet, hvordan automatiserte tester kan bidra til teknisk kvalitet, og hvordan tilbakemeldinger fra faktiske brukere kan avdekke forbedringsbehov som ikke nødvendigvis kommer frem gjennom teknisk testing.
+Brukertestingen har vist oss hvor viktig det er å se løsningen fra brukerens perspektiv. Selv om funksjoner er utviklet og fungerer teknisk, betyr ikke det nødvendigvis at de er enkle å finne eller forstå. Vi har også erfart at det er viktig å skille mellom funksjonalitet som er implementert og testet, og det som faktisk er tilgjengelig i den publiserte prototypen.
 
-Kalendervisningen er et eksempel på hvordan produktet kan videreutvikles med utgangspunkt i brukerbehovet for å finne lokale fotballkamper. Brukertestingen har samtidig vist at det er nødvendig å arbeide videre med både visuell utforming og forståelig navigasjon.
-
-Vi har også sett at det er viktig å skille mellom kode som er skrevet, funksjonalitet som er testet, og det som faktisk er tilgjengelig for brukerne.
+Gjennom sprinten har vi fått bedre forståelse for betydningen av tydelig oppgavefordeling, mindre og mer avgrensede oppgaver og jevnlig kommunikasjon. Erfaringene har gitt oss et bedre grunnlag for å planlegge og prioritere det videre utviklingsarbeidet.
 
 ## 7.2 Veien videre
 
-Videre arbeid vil blant annet handle om å ferdigstille og kontrollere prioriterte forbedringer fra brukertestingen, vurdere brukerreisen og fortsette utviklingen av prototypen. +design
+På vårt ukentlige scrum-møte diskuterte vi hvordan vi ønsker å videreutvikle Stadionhopper etter Deliverable 3. Vi ble enige om å prioritere et mer gjennomarbeidet design og en tydeligere brukerreise, slik at løsningen blir enklere å navigere i og mer attraktiv å bruke. Dette bygger videre på tilbakemeldingene fra brukertestingen, der flere etterlyste et tydeligere visuelt uttrykk og forbedringer i navigasjonen.
 
-I tillegg må vi dokumentere resultatene fra automatiserte tester og GitHub Actions, undersøke hvilke DORA-målinger vi kan bruke, og gjennomføre Sprint Review og Sprint Retrospective.
+Vi ønsker også å utforske muligheter for å gjøre Stadionhopper mer interessant og skille plattformen fra andre løsninger. En idé er at brukerne selv kan bidra med kampinformasjon, men vi har foreløpig ikke bestemt oss for hvilken funksjon eller hvilket konsept vi vil prioritere. Vi ønsker å undersøke hva som faktisk vil gi brukerne verdi før vi tar en endelig beslutning.
 
-Resultatene fra disse aktivitetene skal danne grunnlag for prioriteringene i neste fase av prosjektet.
-
-*** Oppdater avslutningen når sprinten er ferdig, og konkretiser hva gruppa faktisk har besluttet å arbeide videre med. +design
+Videre må vi arbeide med begrensningene i den publiserte prototypen, særlig muligheten for å lagre brukerdata. Samtidig ønsker vi å videreføre arbeidsformen med GitHub Issues, branches, pull requests og automatiserte tester, og bruke erfaringene fra denne sprinten til å forbedre planleggingen og samarbeidet.
