@@ -164,7 +164,14 @@ En viktig erfaring fra sprinten er at det ble lettere å samarbeide om kvalitets
 
 Vi tar særlig med oss betydningen av tydeligere oppgavefordeling og realistisk planlegging. Vi erfarte blant annet at enkelte Issues ble for omfattende. I Issue #121 hadde vi samlet flere forbedringer i én oppgave, noe som gjorde det vanskeligere å markere arbeidet som ferdig selv om deler av endringene allerede var testet og integrert i `main`. I det videre arbeidet ønsker vi derfor å dele større oppgaver opp i mindre, mer avgrensede Issues, slik at hver endring lettere kan utvikles, testes og ferdigstilles separat. Vi ønsker også å beholde mindre milepæler og bli flinkere til å dokumentere viktige avklaringer direkte i GitHub. Selv om KI kan hjelpe oss med å utarbeide oppgaver, må vi selv kontrollere at ansvar, rekkefølge og avhengigheter er forståelige. Samtidig vil vi videreføre arbeidsformen med ukentlige scrum-møter, løpende kommunikasjon og bruk av branches og pull requests.
 
-*** Bekreft hvilke konkrete forbedringstiltak gruppa har sluttet seg til i retrospektivet, og hvem som skal følge dem opp.
+På bakgrunn av retrospektivet konkretiserer vi forbedringstiltakene slik:
+
+- **Dele opp store oppgaver:** Når en Issue inneholder flere uavhengige endringer, deler vi den opp i mindre Issues med tydelige akseptansekriterier. Den som har ansvar for oppgaven, følger opp at deloppgavene blir opprettet og oppdatert.
+- **Avklare ansvar og avhengigheter tidligere:** På de ukentlige scrum-møtene avklarer vi hvem som gjør hva, hva arbeidet avhenger av, og hva som må være ferdig først. Oppsummeringen dokumenteres i relevante GitHub Issues.
+- **Gjennomgå tester og CI sammen:** Gruppen setter av tid til å gå gjennom testene og resultatene fra GitHub Actions, slik at flere forstår hva som kontrolleres og kan bidra i kvalitetssikringen.
+- **Beholde branches og pull requests:** Endringer utvikles i egne branches og foreslås gjennom pull requests, med en kort beskrivelse av endringen og kontroll av relevante tester før integrering.
+
+Tiltakene følges opp av gruppa i fellesskap. For hver konkret Issue skal ansvarlig person fremgå av oppgaven i GitHub, slik at det er tydelig hvem som driver arbeidet videre. Vi har ikke fordelt alle tiltakene på navngitte personer i denne rapporten; det må avklares i gruppa og dokumenteres i GitHub før oppgavene gjennomføres.
 
 # 7. Oppsummering og veien videre
 
