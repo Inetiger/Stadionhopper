@@ -25,3 +25,5 @@ jobs:
           node --check script.js
       - name: Run automated tests
         run: node --test test/*.test.js
+      - name: Automated DORA Metrics
+        uses: wednesday-solutions/automated-dora-metrics@v1.0.0
