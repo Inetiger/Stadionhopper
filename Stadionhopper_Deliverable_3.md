@@ -117,9 +117,24 @@ I tillegg til automatiserte tester kan vi bruke data fra GitHub til å undersøk
 
 GitHub gir oss tilgang til commit-historikk, pull requests og resultater fra GitHub Actions. Disse dataene kan brukes til å undersøke deler av utviklingsprosessen, men det er viktig å skille mellom en commit, en pull request som blir slått sammen med `main`, og en faktisk publisering av prototypen. Dette er ikke nødvendigvis samme hendelse. Siden prosjektet har en begrenset varighet og relativt få leveranser, må eventuelle DORA-målinger også tolkes med forsiktighet. Målet er ikke først og fremst å oppnå bestemte tall, men å bruke tilgjengelig informasjon til å vurdere hvordan vi arbeider, og hvor det kan være behov for forbedringer.
 
-*** Undersøk om vi kan hente ut faktiske tall for én eller flere DORA-målinger fra GitHub. Beskriv hva tallene viser, og hvilke begrensninger de har.
+### Resultater fra DORA-målingene
 
-*** Dersom vi ikke har tilstrekkelige data, forklar kort hvilke målinger vi ikke kan beregne på en pålitelig måte, og hvorfor.# 4. GitHub, samarbeid og kontinuerlig integrasjon
+Vi brukte et automatisert DORA-verktøy til å hente ut målinger fra prosjektets GitHub-historikk. Resultatfilen `data.yaml` rapporterte 55 releases, hvorav 2 var klassifisert som feature releases, 6 som bugfix releases og 0 som hotfix releases. Verktøyet rapporterte også at 55 releases var uten bugs, og oppga et gjennomsnitt på 0,04 features og 0,11 bugs per release.
+
+Tallene må tolkes med forsiktighet. Den tilhørende `release.yaml`-filen inneholder bare én release, datert 27. oktober 2026, med 2 features og 6 bugs. Dette samsvarer ikke umiddelbart med totalsummene i `data.yaml`. Det er derfor usikkert om verktøyets release-klassifisering gir et representativt bilde av faktiske leveranser i prosjektet.
+
+| Måling | Rapportert resultat | Forbehold |
+|---|---:|---|
+| Releases | 55 | Stemmer ikke med at `release.yaml` viser én release |
+| Feature releases | 2 | Klassifiseringen bør verifiseres |
+| Bugfix releases | 6 | Kan ikke uten videre tolkes som seks produksjonsfeil |
+| Hotfix releases | 0 | Verktøyet har ikke registrert hotfixer |
+| Releases uten bugs | 55 | Bør kontrolleres mot release-dataene |
+| Gjennomsnittlige bugs per release | 0,11 | Avhenger av hvordan verktøyet teller releases og bugs |
+
+Målingene viser at vi har forsøkt å bruke automatiserte data til å undersøke utviklingsprosessen, men også at resultatene må kvalitetssikres før de kan brukes som grunnlag for konklusjoner. Vi kan ikke ut fra disse filene alene fastslå hvor ofte prototypen faktisk ble publisert, hvor lang tid endringer tok fra utvikling til produksjon, eller hvor raskt eventuelle produksjonsfeil ble rettet. For å beregne slike målinger pålitelig må vi ha et tydelig skille mellom commits, pull requests som integreres i `main`, faktiske publiseringer og registrerte feil etter publisering.
+
+
 
 # 5. Sprint Review
 
@@ -149,7 +164,14 @@ En viktig erfaring fra sprinten er at det ble lettere å samarbeide om kvalitets
 
 Vi tar særlig med oss betydningen av tydeligere oppgavefordeling og realistisk planlegging. Vi erfarte blant annet at enkelte Issues ble for omfattende. I Issue #121 hadde vi samlet flere forbedringer i én oppgave, noe som gjorde det vanskeligere å markere arbeidet som ferdig selv om deler av endringene allerede var testet og integrert i `main`. I det videre arbeidet ønsker vi derfor å dele større oppgaver opp i mindre, mer avgrensede Issues, slik at hver endring lettere kan utvikles, testes og ferdigstilles separat. Vi ønsker også å beholde mindre milepæler og bli flinkere til å dokumentere viktige avklaringer direkte i GitHub. Selv om KI kan hjelpe oss med å utarbeide oppgaver, må vi selv kontrollere at ansvar, rekkefølge og avhengigheter er forståelige. Samtidig vil vi videreføre arbeidsformen med ukentlige scrum-møter, løpende kommunikasjon og bruk av branches og pull requests.
 
-*** Bekreft hvilke konkrete forbedringstiltak gruppa har sluttet seg til i retrospektivet, og hvem som skal følge dem opp.
+På bakgrunn av retrospektivet konkretiserer vi forbedringstiltakene slik:
+
+- **Dele opp store oppgaver:** Når en Issue inneholder flere uavhengige endringer, deler vi den opp i mindre Issues med tydelige akseptansekriterier. Den som har ansvar for oppgaven, følger opp at deloppgavene blir opprettet og oppdatert.
+- **Avklare ansvar og avhengigheter tidligere:** På de ukentlige scrum-møtene avklarer vi hvem som gjør hva, hva arbeidet avhenger av, og hva som må være ferdig først. Oppsummeringen dokumenteres i relevante GitHub Issues.
+- **Gjennomgå tester og CI sammen:** Gruppen setter av tid til å gå gjennom testene og resultatene fra GitHub Actions, slik at flere forstår hva som kontrolleres og kan bidra i kvalitetssikringen.
+- **Beholde branches og pull requests:** Endringer utvikles i egne branches og foreslås gjennom pull requests, med en kort beskrivelse av endringen og kontroll av relevante tester før integrering.
+
+Tiltakene følges opp av gruppa i fellesskap. For hver konkret Issue skal ansvarlig person fremgå av oppgaven i GitHub, slik at det er tydelig hvem som driver arbeidet videre. Vi har ikke fordelt alle tiltakene på navngitte personer i denne rapporten; det må avklares i gruppa og dokumenteres i GitHub før oppgavene gjennomføres.
 
 # 7. Oppsummering og veien videre
 
