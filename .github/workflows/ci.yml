@@ -10,20 +10,54 @@ permissions:
 
 jobs:
   test:
-    name: Syntax checks and automated tests
+    name: Syntax checks, tests and DORA metrics
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Check JavaScript syntax
         run: |
           node --check server.js
           node --check script.js
+
       - name: Run automated tests
         run: node --test test/*.test.js
-      - name: Automated DORA Metrics
-        uses: wednesday-solutions/automated-dora-metrics@v1.0.0
+
+      # The published Marketplace container currently fails to start because its
+      # configured entrypoint is missing. Build the same tool from its source
+      # instead, so the metrics step is reproducible and does not depend on that
+      # broken prebuilt image.
+      - name: Check out DORA metrics tool
+        uses: actions/checkout@v4
+        with:
+          repository: wednesday-solutions/automated-dora-metrics
+          ref: v1.0.0
+          path: .dora-tool
+
+      - name: Build DORA metrics image from source
+        run: docker build --tag stadionhopper-dora:ci .dora-tool
+
+      - name: Calculate release metrics
+        run: |
+          mkdir -p metrics
+          docker run --rm \
+            --volume "$GITHUB_WORKSPACE/metrics:/app/metrics" \
+            --volume "$GITHUB_WORKSPACE/.git:/app/.git" \
+            stadionhopper-dora:ci --calculate-metrics -e True
+
+      - name: Upload DORA metrics
+        if: always() && hashFiles('metrics/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: dora-metrics
+          path: metrics/
+          if-no-files-found: warn
+          retention-days: 30
