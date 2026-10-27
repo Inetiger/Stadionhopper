@@ -189,7 +189,7 @@ function kampdato(kamp) {
 var demomodus = location.hostname === 'inetiger.github.io';
 if (demomodus) {
   document.getElementById('demostatus').textContent =
-    'Demo · fiktive testkontoer · innsjekkinger lagres i denne nettleseren.';
+    'Demo · fiktive eksempeldata og testkontoer · innsjekkinger lagres i denne nettleseren.';
 }
 
 // Dette er med vilje en offentlig demo: aldri bruk ekte passord eller personopplysninger her.
@@ -515,7 +515,7 @@ function klargjorBesok() {
   else if (!valgtKamp) status.textContent = 'Velg en kamp fra kampoversikten først.';
   else if (lagrerBesok) status.textContent = 'Lagrer besøket …';
   else if (bekreftetBesok === aktivBruker.user_id + ':' + valgtKamp.match_id)
-    status.textContent = 'Besøket er bekreftet.';
+    status.textContent = demomodus ? 'Besøket er lagret i denne nettleseren.' : 'Besøket er bekreftet.';
   else {
     status.textContent = 'Kontroller kamp og stadion før du bekrefter.';
     knapp.disabled = false;
