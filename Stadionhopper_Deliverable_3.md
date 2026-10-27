@@ -99,7 +99,7 @@ I Deliverable 2 planla vi å bruke GitHub Issues, branches, pull requests og kod
 
 Utviklingsarbeidet har i stor grad foregått i egne branches, og vi har brukt pull requests for å integrere endringer i `main`. Dette har gjort det mulig å arbeide parallelt med ulike deler av prototypen uten å endre hovedversjonen direkte. Pull requests og commit-historikken har samtidig gitt oss oversikt over hvilke endringer som er gjennomført, og gjort det lettere å følge arbeidet i ettertid. De automatiserte testene har vært en viktig del av denne prosessen, ettersom de har gitt oss mulighet til å kontrollere endringer før de integreres i hovedversjonen.
 
-Arbeidsformen har fungert godt som grunnlag for samarbeid, men vi har også erfart at tydelige oppgavebeskrivelser og avklarte avhengigheter er nødvendige for at utviklingsarbeidet skal flyte godt. Dette har vært særlig viktig når flere har arbeidet med frontend og backend samtidig. Erfaringene med oppgavefordeling og samarbeid beskrives nærmere i Sprint Retrospective i kapittel 6.
+Vi har gjennomgått endringene i pull requests før de ble integrert i `main`, hovedsakelig ved å se på beskrivelsene av hva som var endret og kontrollere resultatene fra de automatiserte testene. Vi har i stor grad støttet oss på testene fremfor å gjennomgå all kode i detalj. Denne arbeidsformen har gitt oss en viss kontroll med endringene, men vi ser også at en grundigere kodegjennomgang kunne bidratt til bedre felles forståelse av løsningen. Vi har dessuten erfart at tydelige oppgavebeskrivelser og avklarte avhengigheter er viktige når flere arbeider med frontend og backend samtidig. Disse erfaringene tar vi med oss videre i arbeidet med å forbedre samarbeidet.
 
 ## 4.2 Kontinuerlig integrasjon (CI)
 
