@@ -47,9 +47,7 @@ Vi har publisert en demonstrasjonsversjon av Stadionhopper som kan brukes direkt
 
 ## 2.4 Utvikling og prioritering gjennom GitHub
 
-Vi har brukt GitHub Issues til å organisere og fordele utviklingsarbeidet knyttet til blant annet datamodell, frontend, backend, innlogging, kampoversikt, innsjekking og testing. Gjennom sprinten har vi arbeidet med kodeendringer i egne branches og brukt pull requests for å integrere endringene i `main`. Automatiserte tester har vært en del av denne arbeidsprosessen og bidratt til å kontrollere at endringene fungerer før de integreres i hovedversjonen.
-
-Vi har også opprettet nye Issues og justert prioriteringene etter hvert som prototypen har blitt utviklet og testet. Brukertestingen førte blant annet til forbedringsoppgaver knyttet til navigasjon, design og kampinformasjon. I Issue #121 fjernet vi sekunder fra klokkeslett og endret bakgrunnsfargen for tidligere kamper i kalenderen. Disse endringene ble, i likhet med mange andre endringer gjennom sprinten, gjennomført i en egen branch, kontrollert gjennom automatiserte tester og integrert i `main` gjennom en pull request. Dette er ett eksempel på hvordan vi har brukt GitHub og testing som en del av det løpende utviklingsarbeidet.
+Vi har brukt GitHub Issues til å organisere utviklingsarbeidet og fordelt oppgaver mellom frontend, backend og testing. Endringer har i hovedsak blitt utviklet i egne branches og integrert i `main` gjennom pull requests. Etter brukertestingen opprettet vi nye Issues og justerte prioriteringene. Dette gjorde det mulig å følge opp tilbakemeldingene gjennom den samme arbeidsprosessen som øvrige utviklingsoppgaver.
 
 # 3. Testing og kvalitetssikring
 
