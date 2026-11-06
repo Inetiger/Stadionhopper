@@ -276,6 +276,7 @@ function hentKamp(id) {
     if (kall !== detaljkall) return;
     if (!data.match || String(data.match.match_id) !== String(id)) throw new Error('Ugyldig kamp');
     valgtKamp = data.match;
+    document.getElementById('detaljnavn').textContent = kampnavn(valgtKamp);
     var hjemmelag = valgtKamp.home_club_name || 'Ukjent hjemmelag';
 var bortelag = valgtKamp.away_club_name || 'Ukjent bortelag';
 
