@@ -170,6 +170,14 @@ function kampnavn(kamp) {
   return (kamp.home_club_name || 'Ukjent hjemmelag') + ' – ' +
     (kamp.away_club_name || 'Ukjent bortelag');
 }
+function klubblogo(lagnavn) {
+  var logoer = {
+    'Skåla IL': 'images/clubs/skåla-il.webp',
+    'Gossen IL': 'images/clubs/gossen-il.png'
+  };
+
+  return logoer[lagnavn] || '';
+}
 
 
 function kampdato(kamp) {
@@ -268,7 +276,23 @@ function hentKamp(id) {
     if (kall !== detaljkall) return;
     if (!data.match || String(data.match.match_id) !== String(id)) throw new Error('Ugyldig kamp');
     valgtKamp = data.match;
-    document.getElementById('detaljnavn').textContent = kampnavn(valgtKamp);
+    var hjemmelag = valgtKamp.home_club_name || 'Ukjent hjemmelag';
+var bortelag = valgtKamp.away_club_name || 'Ukjent bortelag';
+
+document.getElementById('hjemmelag').textContent = hjemmelag;
+document.getElementById('bortelag').textContent = bortelag;
+
+var hjemmelogo = document.getElementById('hjemmelogo');
+var bortelogo = document.getElementById('bortelogo');
+
+var hjemmelogoFil = klubblogo(hjemmelag);
+var bortelogoFil = klubblogo(bortelag);
+
+hjemmelogo.hidden = !hjemmelogoFil;
+bortelogo.hidden = !bortelogoFil;
+
+if (hjemmelogoFil) hjemmelogo.src = hjemmelogoFil;
+if (bortelogoFil) bortelogo.src = bortelogoFil;
     document.getElementById('detaljdato').textContent = kampdato(valgtKamp);
     document.getElementById('detaljstadion').textContent = valgtKamp.stadium_name || 'Stadion mangler';
     document.getElementById('detaljkort').style.display = 'block';
