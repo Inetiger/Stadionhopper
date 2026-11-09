@@ -9,7 +9,7 @@ used interchangeably.
 `.github/workflows/dora-deployments.yml` listens for GitHub
 `deployment_status` events in the `github-pages` or `production`
 environment. It appends one JSON object per unique deployment-status event to
-`metrics/dora/deployments.jsonl` on `main`.
+`metrics/dora/deployments.jsonl` on the dedicated `dora-data` branch.
 
 The dedicated data branch prevents each ledger update from triggering another Pages build. The ledger preserves the deployment ID, status ID, environment, ref, commit
 SHA, state, timestamps, actor, and available deployment/log URLs. Duplicate
@@ -58,10 +58,10 @@ the actual incident and restoration, not the time the issue was written.
 
 The workflow requires the repository Actions token to have **Contents: read and
 write** permission. Repository or organization Actions policies must allow
-`actions/github-script@v7`. The workflow writes only to `main`.
+`actions/github-script@v7`. The workflow writes only to `dora-data`, never to the published `main` branch. The `dora-data` branch must exist before collection starts.
 
 After merging, verify a real Pages/production deployment creates a new line in
-`metrics/dora/deployments.jsonl`. If no line appears, inspect whether the
+`metrics/dora/deployments.jsonl` on `dora-data`. If no line appears, inspect whether the
 publishing process emits `deployment_status` events and whether its environment
 is named `github-pages` or `production`.
 
@@ -72,3 +72,7 @@ output is retained as **historical release-classification data**. It is not
 treated as a complete DORA dataset: feature/bugfix labels and release counts
 cannot establish production deployment frequency, change failure rate,
 recovery time, or deployment rework rate.
+
+## Historical results
+
+See [the historical DORA report](dora-history-2026-11-09.md) for the reconstructed Pages deployment frequency and commit lead time, with a reproducible snapshot and explicit missing incident data.
