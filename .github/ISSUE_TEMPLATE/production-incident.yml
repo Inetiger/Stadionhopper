@@ -1,0 +1,89 @@
+name: Production incident
+description: Record a user-facing production incident for DORA recovery and change-failure analysis.
+title: "[Production incident]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only for a user-facing production incident. A failed CI run
+        or a deployment that failed before affecting users is not by itself a production incident.
+  - type: input
+    id: started_at
+    attributes:
+      label: Incident start time (UTC)
+      description: When did user-facing impact begin? Use ISO 8601, for example 2026-11-09T12:30:00Z.
+      placeholder: "2026-11-09T12:30:00Z"
+    validations:
+      required: true
+  - type: input
+    id: detected_at
+    attributes:
+      label: Detection time (UTC)
+      description: When was the incident detected?
+      placeholder: "2026-11-09T12:35:00Z"
+    validations:
+      required: true
+  - type: input
+    id: deployment_id
+    attributes:
+      label: Related production deployment ID
+      description: Find this in metrics/dora/deployments.jsonl when available.
+  - type: input
+    id: commit_sha
+    attributes:
+      label: Deployed commit SHA
+  - type: textarea
+    id: impact
+    attributes:
+      label: User impact
+      description: What was affected, who was affected, and how severe was it?
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: Cause
+      description: State the confirmed cause, or mark it as still under investigation.
+    validations:
+      required: true
+  - type: input
+    id: restored_at
+    attributes:
+      label: Service restored time (UTC)
+      description: Fill this in when service is restored. Use ISO 8601.
+      placeholder: "2026-11-09T13:10:00Z"
+  - type: input
+    id: recovery_commit
+    attributes:
+      label: Recovery commit or deployment ID
+      description: Link the rollback, hotfix, or other recovery action.
+  - type: dropdown
+    id: intervention
+    attributes:
+      label: Was immediate intervention required?
+      description: This helps classify Change Fail Rate. Do not select based only on a failed CI run.
+      options:
+        - "Yes - rollback"
+        - "Yes - hotfix"
+        - "Yes - other intervention"
+        - "No"
+        - "Not yet known"
+    validations:
+      required: true
+  - type: dropdown
+    id: rework
+    attributes:
+      label: Was an unplanned production deployment made to remediate degradation?
+      description: This helps classify Deployment Rework Rate.
+      options:
+        - "Yes"
+        - "No"
+        - "Not yet known"
+    validations:
+      required: true
+  - type: textarea
+    id: related_work
+    attributes:
+      label: Related pull requests, issues, and notes
+      description: Link the change and any corrective deployment.
