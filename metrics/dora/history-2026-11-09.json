@@ -1,0 +1,2126 @@
+{
+  "scope": "GitHub Pages prototype only",
+  "window_start": "2026-09-22T09:30:51Z",
+  "window_end_exclusive": "2026-11-09T12:21:49Z",
+  "deployments": [
+    {
+      "run_id": 35710735719,
+      "sha": "4357373774d825d237e09fad42940609e5773236",
+      "deployed_at": "2026-09-22T09:30:51Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/35710735719",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 35711039238,
+      "sha": "5a4d58b74764f15984da981ad03e2d50bb801c9e",
+      "deployed_at": "2026-09-22T09:34:28Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/35711039238",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 35711380195,
+      "sha": "00867902ae1eaab68387ee9efe986b5949d99730",
+      "deployed_at": "2026-09-22T09:37:30Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/35711380195",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37281186010,
+      "sha": "d9b7c3628eaff90d70359921e432fdec0dfcdad5",
+      "deployed_at": "2026-10-05T08:03:16Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37281186010",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37291697444,
+      "sha": "7da1a29f6967f0d84a487181be2a71736cfad8ae",
+      "deployed_at": "2026-10-05T09:42:04Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37291697444",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37311266240,
+      "sha": "dda9525b3680c4c9dbd633407e752b0b7ce11a88",
+      "deployed_at": "2026-10-05T12:42:38Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37311266240",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37312016227,
+      "sha": "a67ea104e8a302ef463d3ce143282936c2894d3f",
+      "deployed_at": "2026-10-05T12:48:18Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37312016227",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37312525692,
+      "sha": "f2c7f0db1526f70306e557079daaeb46ea9394fd",
+      "deployed_at": "2026-10-05T12:52:47Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37312525692",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37312851888,
+      "sha": "7c9c8c873cd1e5419bae33f31116b5cedfea84aa",
+      "deployed_at": "2026-10-05T12:55:34Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37312851888",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37431572314,
+      "sha": "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7",
+      "deployed_at": "2026-10-06T07:45:20Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37431572314",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37443187410,
+      "sha": "800b0fe79f098b9cd0fffe7e362d3ec1f48417ce",
+      "deployed_at": "2026-10-06T09:29:01Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37443187410",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37443593182,
+      "sha": "7021495530a681309ac47f52ca489f21acd0ebba",
+      "deployed_at": "2026-10-06T09:32:43Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37443593182",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37445886178,
+      "sha": "29d4e36d4ff574e06b403a98a895b7a139cdaa50",
+      "deployed_at": "2026-10-06T09:52:30Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37445886178",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37446767079,
+      "sha": "82689d5779332d38c58dbdb7fa9739f3874ddd06",
+      "deployed_at": "2026-10-06T10:00:20Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37446767079",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37447128803,
+      "sha": "5e8f64c170344ac8906029b32eca0f094e7aba59",
+      "deployed_at": "2026-10-06T10:03:51Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37447128803",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37447555068,
+      "sha": "1f8fa574d6b991f5eb197f91d5d99845b6b105bf",
+      "deployed_at": "2026-10-06T10:07:08Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37447555068",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37447783793,
+      "sha": "6a1663f215f76f3a114717e5a461915991bdccb8",
+      "deployed_at": "2026-10-06T10:09:17Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37447783793",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37584509061,
+      "sha": "df2c08a98e3dd9ecf12aedf43360f27bafb42a6b",
+      "deployed_at": "2026-10-07T06:58:58Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37584509061",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37584748393,
+      "sha": "dfb0b11e8f69352b963a63688c4b0dcb6e25ac51",
+      "deployed_at": "2026-10-07T07:01:25Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37584748393",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37585016022,
+      "sha": "eb692218564ac8a22a3f188af4796f682d5b4875",
+      "deployed_at": "2026-10-07T07:04:14Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37585016022",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37592426203,
+      "sha": "ae2addafe581b0c0d0e1af89c455ec92ae5c5f11",
+      "deployed_at": "2026-10-07T08:14:55Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37592426203",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37592525676,
+      "sha": "094cb95a2b6144f369537d0de0788f01d9eb99e5",
+      "deployed_at": "2026-10-07T08:15:56Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37592525676",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37592721472,
+      "sha": "a80f53e07be58efc1e20db38905df874b545c1a8",
+      "deployed_at": "2026-10-07T08:17:34Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37592721472",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37592907624,
+      "sha": "d0789aaf1f7d8cb921482dfc769ebb5600a9d231",
+      "deployed_at": "2026-10-07T08:19:32Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37592907624",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37593098443,
+      "sha": "66b67a60752744fc80c68e2d7639dba173ba28e7",
+      "deployed_at": "2026-10-07T08:22:03Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37593098443",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37593334393,
+      "sha": "b4bc124f09cf575444656e44d65479359edd3cbe",
+      "deployed_at": "2026-10-07T08:23:22Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37593334393",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37593986638,
+      "sha": "8708a8a2faea074e807e0dd3018b93b989491fbd",
+      "deployed_at": "2026-10-07T08:29:22Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37593986638",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37599350130,
+      "sha": "6e317f8ff5f78349f641d4da1fa3a471926a93a8",
+      "deployed_at": "2026-10-07T09:16:28Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37599350130",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37599622254,
+      "sha": "38e18f53ae4e1c80b071e4ab463b6f8695b6b581",
+      "deployed_at": "2026-10-07T09:18:30Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37599622254",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37618895162,
+      "sha": "644465686166181b9f4eb4fcb63ea47bf9a0d3b9",
+      "deployed_at": "2026-10-07T12:09:00Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37618895162",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37619189029,
+      "sha": "1cc6b42692c3adbf87a527a99c8543e874d827a1",
+      "deployed_at": "2026-10-07T12:11:53Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37619189029",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 37624977640,
+      "sha": "7c54da3b301ddcd7c664c2a0824b9c3171b7b6f1",
+      "deployed_at": "2026-10-07T12:59:54Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/37624977640",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 38383685283,
+      "sha": "d0dd235d04e7f79451848476bc98f52e69870b59",
+      "deployed_at": "2026-10-13T10:29:58Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/38383685283",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 38393474476,
+      "sha": "cbdd8ec0d46db7e15176d07cc19f5e64487fb7ed",
+      "deployed_at": "2026-10-13T11:56:08Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/38393474476",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39407083237,
+      "sha": "b851e9b60a233b4741d7b5cd6ca7c7b0b7074616",
+      "deployed_at": "2026-10-20T10:19:47Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39407083237",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39410496617,
+      "sha": "7d700118f04914a95559e3641c7190e7c42f3f15",
+      "deployed_at": "2026-10-20T10:48:50Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39410496617",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39411193585,
+      "sha": "23a5cd30641093742d9b2f1ed875a1e1a9ed650a",
+      "deployed_at": "2026-10-20T10:54:52Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39411193585",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39411298128,
+      "sha": "a444d9f54ccf3aa0265362229642ec5d89bbd74c",
+      "deployed_at": "2026-10-20T10:55:58Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39411298128",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39412648316,
+      "sha": "ff6c94fe17886726d0a8c371f1a0ae11b20ee46a",
+      "deployed_at": "2026-10-20T11:07:36Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39412648316",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39412860253,
+      "sha": "4dbab2e44b4b9b3dd9915bc8c18cd0e02b1f7a26",
+      "deployed_at": "2026-10-20T11:09:19Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39412860253",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39413273038,
+      "sha": "72f6a0d4d487c8510621f4c69476a150441d15f0",
+      "deployed_at": "2026-10-20T11:12:47Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413273038",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39413525290,
+      "sha": "1a021b4721efd86ef93583d5c966b80482c84b87",
+      "deployed_at": "2026-10-20T11:15:06Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413525290",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39413677169,
+      "sha": "70c0d2e4e03ae65fea693106ea24564be6dae37e",
+      "deployed_at": "2026-10-20T11:17:02Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413677169",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39413981825,
+      "sha": "15ff2e652786a2e6278603f4589c5c201ec312ee",
+      "deployed_at": "2026-10-20T11:18:51Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413981825",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39414130589,
+      "sha": "d6f1323fe5a3984b6414e0065510d0394099666a",
+      "deployed_at": "2026-10-20T11:20:04Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39414130589",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39415713813,
+      "sha": "ddb178f697c2735ab7241249ce15e6826000d24d",
+      "deployed_at": "2026-10-20T11:34:02Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39415713813",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39416963771,
+      "sha": "ef686d32b966baf6f98c040a3c70c89efb004de1",
+      "deployed_at": "2026-10-20T11:43:53Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39416963771",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39417173808,
+      "sha": "fe4231ea71934e4671f4f250df6f76c0423256fa",
+      "deployed_at": "2026-10-20T11:45:43Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39417173808",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39419057677,
+      "sha": "df71a43983e17548c61df8df8b801c9e000a1dd8",
+      "deployed_at": "2026-10-20T12:02:22Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39419057677",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39421544769,
+      "sha": "c35dfbf6e94788c942a5a07c56ca9641b3b37434",
+      "deployed_at": "2026-10-20T12:21:25Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421544769",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39421673536,
+      "sha": "be1d7c0d6776593de59804218ba114d39f77f055",
+      "deployed_at": "2026-10-20T12:22:29Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421673536",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39421916218,
+      "sha": "a803f096f3028cd45d64218050fc1f662b5c8f3c",
+      "deployed_at": "2026-10-20T12:24:26Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421916218",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39423074579,
+      "sha": "b121dacf5a9208aec9309b095a4c9ab2e914cf18",
+      "deployed_at": "2026-10-20T12:34:01Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39423074579",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39424621136,
+      "sha": "b97c4635385474dddfe2a2d9fa2e2d6e57540357",
+      "deployed_at": "2026-10-20T12:45:03Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39424621136",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39427205283,
+      "sha": "e8206fe458ea77f66828b27c1dce934fc5aeaa1e",
+      "deployed_at": "2026-10-20T13:04:28Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39427205283",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39427635816,
+      "sha": "d8c4b951a9ca46ec78422714dffad4f868b845e2",
+      "deployed_at": "2026-10-20T13:07:18Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39427635816",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39429147572,
+      "sha": "75a86d71b4c8f275e1c33fd3e2a51237e94a7493",
+      "deployed_at": "2026-10-20T13:18:40Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429147572",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39430599981,
+      "sha": "1624db155a21750b2da195ddfb283464e12917d6",
+      "deployed_at": "2026-10-20T13:29:28Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430599981",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39433394864,
+      "sha": "f0edb93d7bcd2cca24176af9dcac1ef12554e4a5",
+      "deployed_at": "2026-10-20T13:48:00Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39433394864",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39436329824,
+      "sha": "bee577ee984a16c69cbdce4499a9ba09a4ee1e41",
+      "deployed_at": "2026-10-20T14:08:15Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39436329824",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39472509703,
+      "sha": "2bd873f874e921439a1f88a046b0072170d8c846",
+      "deployed_at": "2026-10-20T18:11:40Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472509703",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39472908314,
+      "sha": "d9ae320e229803e6d72b1847284fea75bef398fc",
+      "deployed_at": "2026-10-20T18:14:25Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472908314",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39473119795,
+      "sha": "3e57d38784b0657fbfa89e1b591e579e05729e9f",
+      "deployed_at": "2026-10-20T18:15:48Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39473119795",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39473286695,
+      "sha": "7254a79d2e1c0b980fec5c4916a2b3814771a57e",
+      "deployed_at": "2026-10-20T18:16:53Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39473286695",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39473643213,
+      "sha": "17c410ff7d74472b60abeae19fc52cb8228d9eff",
+      "deployed_at": "2026-10-20T18:21:05Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39473643213",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39474121394,
+      "sha": "81e6e10d67c6d4ea4d5a324e0086ace9fe91ce03",
+      "deployed_at": "2026-10-20T18:22:57Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39474121394",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39773627058,
+      "sha": "0313bca17ec385abb2cdcbd4434afd0436474dcb",
+      "deployed_at": "2026-10-22T11:51:21Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39773627058",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39773800242,
+      "sha": "2594ad631bf6aec53434322b1d9dde8a33c3b83c",
+      "deployed_at": "2026-10-22T11:52:33Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39773800242",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39775075707,
+      "sha": "94e3794d230a9d0938446d6b7887f940aae0fe7d",
+      "deployed_at": "2026-10-22T12:05:23Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39775075707",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39777137390,
+      "sha": "bd53b35b85de7608542e36f150d544aeb58c3568",
+      "deployed_at": "2026-10-22T12:18:36Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39777137390",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 39778169670,
+      "sha": "00460bf888a62607d0512f98dc0b1c8f3c90024d",
+      "deployed_at": "2026-10-22T12:25:41Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39778169670",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40303918876,
+      "sha": "dd27887c7d37af7528df3d28bb3a16f2c90529e5",
+      "deployed_at": "2026-10-26T10:00:54Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40303918876",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40318105217,
+      "sha": "349daeba2b2232dcd06e88c4bd20ad244cdd2727",
+      "deployed_at": "2026-10-26T11:51:35Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40318105217",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40383434605,
+      "sha": "9e0bff833147467570fde983eacaef578f45d8ab",
+      "deployed_at": "2026-10-26T19:05:17Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40383434605",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40494948251,
+      "sha": "c2a05377519e8c7e42ed04615465377720be7921",
+      "deployed_at": "2026-10-27T11:18:36Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40494948251",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40505101724,
+      "sha": "f9145212f46b987c1a16323adf2cb6249fd4c791",
+      "deployed_at": "2026-10-27T12:37:07Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40505101724",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40550986681,
+      "sha": "8d15befbcd83b82f56f5d3c6500ea7afe2cb9af0",
+      "deployed_at": "2026-10-27T17:29:30Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40550986681",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40551746501,
+      "sha": "1910ba879d447cc04f46371dbfd947f3dbe0de13",
+      "deployed_at": "2026-10-27T17:34:15Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40551746501",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40553797635,
+      "sha": "73227197ef771e3935bfd8cf65f1e0150e9496a6",
+      "deployed_at": "2026-10-27T17:47:42Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40553797635",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40557555599,
+      "sha": "05aa2cca275885e72de3187099055a8521554a7a",
+      "deployed_at": "2026-10-27T18:11:38Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40557555599",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40561112107,
+      "sha": "c29d734f1ca066cbc58239ac07b07493bcedf912",
+      "deployed_at": "2026-10-27T18:34:18Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40561112107",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 40687826585,
+      "sha": "c6cbd28fc4c78036c3f9439a5b4db9bdd9382b05",
+      "deployed_at": "2026-10-28T12:27:16Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40687826585",
+      "automated_ledger_commit": false
+    },
+    {
+      "run_id": 42610084972,
+      "sha": "f2c55825fc414b1d12e0fcfe9be6481c69e96347",
+      "deployed_at": "2026-11-09T11:34:48Z",
+      "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42610084972",
+      "automated_ledger_commit": false
+    }
+  ],
+  "lead_time_samples": [
+    {
+      "commit": "5a4d58b74764f15984da981ad03e2d50bb801c9e",
+      "committed_at": "2026-09-22T09:33:12Z",
+      "first_deployed_at": "2026-09-22T09:34:28Z",
+      "lead_seconds": 76,
+      "run_id": 35711039238
+    },
+    {
+      "commit": "d1f3f7a0c72f49674834788bb1913ebefa50f60d",
+      "committed_at": "2026-09-22T09:31:50Z",
+      "first_deployed_at": "2026-09-22T09:34:28Z",
+      "lead_seconds": 158,
+      "run_id": 35711039238
+    },
+    {
+      "commit": "00867902ae1eaab68387ee9efe986b5949d99730",
+      "committed_at": "2026-09-22T09:36:50Z",
+      "first_deployed_at": "2026-09-22T09:37:30Z",
+      "lead_seconds": 40,
+      "run_id": 35711380195
+    },
+    {
+      "commit": "72221bd2c708b2dc4aff9a3b5295922f84ae1994",
+      "committed_at": "2026-10-05T07:25:27Z",
+      "first_deployed_at": "2026-10-05T08:03:16Z",
+      "lead_seconds": 2269,
+      "run_id": 37281186010
+    },
+    {
+      "commit": "c429513519068be46586ccb2c08b8518d165d7fa",
+      "committed_at": "2026-10-05T08:32:53Z",
+      "first_deployed_at": "2026-10-05T09:42:04Z",
+      "lead_seconds": 4151,
+      "run_id": 37291697444
+    },
+    {
+      "commit": "dda9525b3680c4c9dbd633407e752b0b7ce11a88",
+      "committed_at": "2026-10-05T12:41:17Z",
+      "first_deployed_at": "2026-10-05T12:42:38Z",
+      "lead_seconds": 81,
+      "run_id": 37311266240
+    },
+    {
+      "commit": "a67ea104e8a302ef463d3ce143282936c2894d3f",
+      "committed_at": "2026-10-05T12:47:43Z",
+      "first_deployed_at": "2026-10-05T12:48:18Z",
+      "lead_seconds": 35,
+      "run_id": 37312016227
+    },
+    {
+      "commit": "f2c7f0db1526f70306e557079daaeb46ea9394fd",
+      "committed_at": "2026-10-05T12:52:06Z",
+      "first_deployed_at": "2026-10-05T12:52:47Z",
+      "lead_seconds": 41,
+      "run_id": 37312525692
+    },
+    {
+      "commit": "7c9c8c873cd1e5419bae33f31116b5cedfea84aa",
+      "committed_at": "2026-10-05T12:54:54Z",
+      "first_deployed_at": "2026-10-05T12:55:34Z",
+      "lead_seconds": 40,
+      "run_id": 37312851888
+    },
+    {
+      "commit": "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7",
+      "committed_at": "2026-10-06T07:44:36Z",
+      "first_deployed_at": "2026-10-06T07:45:20Z",
+      "lead_seconds": 44,
+      "run_id": 37431572314
+    },
+    {
+      "commit": "87bf1c7f55e2d1e59079547f5f3aa7c9f938e617",
+      "committed_at": "2026-10-06T09:24:36Z",
+      "first_deployed_at": "2026-10-06T09:29:01Z",
+      "lead_seconds": 265,
+      "run_id": 37443187410
+    },
+    {
+      "commit": "1e78c407d0fc9d898222421bf3bb9ec35be074ed",
+      "committed_at": "2026-10-05T20:23:01Z",
+      "first_deployed_at": "2026-10-06T09:29:01Z",
+      "lead_seconds": 47160,
+      "run_id": 37443187410
+    },
+    {
+      "commit": "36c8555996a3c365ce4c5a834d6154dd77953055",
+      "committed_at": "2026-10-06T08:44:53Z",
+      "first_deployed_at": "2026-10-06T09:32:43Z",
+      "lead_seconds": 2870,
+      "run_id": 37443593182
+    },
+    {
+      "commit": "35e245336633a5c1ba2dbe9997ade4a6ab45bfa1",
+      "committed_at": "2026-10-06T08:06:18Z",
+      "first_deployed_at": "2026-10-06T09:32:43Z",
+      "lead_seconds": 5185,
+      "run_id": 37443593182
+    },
+    {
+      "commit": "a70d15e6cf2f43dd3a32eac5621578b70be6ac38",
+      "committed_at": "2026-10-06T07:50:56Z",
+      "first_deployed_at": "2026-10-06T09:32:43Z",
+      "lead_seconds": 6107,
+      "run_id": 37443593182
+    },
+    {
+      "commit": "59d2bd9781e48660c8f69d00b96ef11533affd99",
+      "committed_at": "2026-10-06T07:49:08Z",
+      "first_deployed_at": "2026-10-06T09:32:43Z",
+      "lead_seconds": 6215,
+      "run_id": 37443593182
+    },
+    {
+      "commit": "29d4e36d4ff574e06b403a98a895b7a139cdaa50",
+      "committed_at": "2026-10-06T09:51:50Z",
+      "first_deployed_at": "2026-10-06T09:52:30Z",
+      "lead_seconds": 40,
+      "run_id": 37445886178
+    },
+    {
+      "commit": "82689d5779332d38c58dbdb7fa9739f3874ddd06",
+      "committed_at": "2026-10-06T09:59:42Z",
+      "first_deployed_at": "2026-10-06T10:00:20Z",
+      "lead_seconds": 38,
+      "run_id": 37446767079
+    },
+    {
+      "commit": "5e8f64c170344ac8906029b32eca0f094e7aba59",
+      "committed_at": "2026-10-06T10:02:45Z",
+      "first_deployed_at": "2026-10-06T10:03:51Z",
+      "lead_seconds": 66,
+      "run_id": 37447128803
+    },
+    {
+      "commit": "43305de9222167a2fe2e66c2c7331d55e6c47632",
+      "committed_at": "2026-10-06T10:02:19Z",
+      "first_deployed_at": "2026-10-06T10:03:51Z",
+      "lead_seconds": 92,
+      "run_id": 37447128803
+    },
+    {
+      "commit": "9432553c43fddf62d3e33d87554cdff6d2d16c0f",
+      "committed_at": "2026-10-06T10:02:00Z",
+      "first_deployed_at": "2026-10-06T10:03:51Z",
+      "lead_seconds": 111,
+      "run_id": 37447128803
+    },
+    {
+      "commit": "8c15fd54e39d6a4418f3dbc145347ae079f2884c",
+      "committed_at": "2026-10-06T10:01:16Z",
+      "first_deployed_at": "2026-10-06T10:03:51Z",
+      "lead_seconds": 155,
+      "run_id": 37447128803
+    },
+    {
+      "commit": "1f8fa574d6b991f5eb197f91d5d99845b6b105bf",
+      "committed_at": "2026-10-06T10:06:26Z",
+      "first_deployed_at": "2026-10-06T10:07:08Z",
+      "lead_seconds": 42,
+      "run_id": 37447555068
+    },
+    {
+      "commit": "1ee80bca5ab57683ad0918a3deb8a15209fee095",
+      "committed_at": "2026-10-06T10:05:50Z",
+      "first_deployed_at": "2026-10-06T10:07:08Z",
+      "lead_seconds": 78,
+      "run_id": 37447555068
+    },
+    {
+      "commit": "95af2ffcd440b1773aadbc8e65ac65f81496226d",
+      "committed_at": "2026-10-06T10:05:34Z",
+      "first_deployed_at": "2026-10-06T10:07:08Z",
+      "lead_seconds": 94,
+      "run_id": 37447555068
+    },
+    {
+      "commit": "2f73c26f876b0cb33be4a416a7d70b68aa6d51c8",
+      "committed_at": "2026-10-06T10:05:22Z",
+      "first_deployed_at": "2026-10-06T10:07:08Z",
+      "lead_seconds": 106,
+      "run_id": 37447555068
+    },
+    {
+      "commit": "6a1663f215f76f3a114717e5a461915991bdccb8",
+      "committed_at": "2026-10-06T10:08:27Z",
+      "first_deployed_at": "2026-10-06T10:09:17Z",
+      "lead_seconds": 50,
+      "run_id": 37447783793
+    },
+    {
+      "commit": "c15cebc144c3f2b6e7169cba3fcc9d7e97b0596e",
+      "committed_at": "2026-10-06T10:08:10Z",
+      "first_deployed_at": "2026-10-06T10:09:17Z",
+      "lead_seconds": 67,
+      "run_id": 37447783793
+    },
+    {
+      "commit": "66fbe9c7a01b04004c70ddd5da4edf52c4b27521",
+      "committed_at": "2026-10-06T10:07:50Z",
+      "first_deployed_at": "2026-10-06T10:09:17Z",
+      "lead_seconds": 87,
+      "run_id": 37447783793
+    },
+    {
+      "commit": "23281955084826a99cf344ca41921988d50b32a4",
+      "committed_at": "2026-10-06T10:42:22Z",
+      "first_deployed_at": "2026-10-07T06:58:58Z",
+      "lead_seconds": 72996,
+      "run_id": 37584509061
+    },
+    {
+      "commit": "605c77d91acfe9bf3d0d9adb7dca4343091d14b8",
+      "committed_at": "2026-10-06T10:28:12Z",
+      "first_deployed_at": "2026-10-07T06:58:58Z",
+      "lead_seconds": 73846,
+      "run_id": 37584509061
+    },
+    {
+      "commit": "1dffc76955ad3ceb93cd4cb3a03b9ba7f7171c54",
+      "committed_at": "2026-10-07T06:43:11Z",
+      "first_deployed_at": "2026-10-07T07:01:25Z",
+      "lead_seconds": 1094,
+      "run_id": 37584748393
+    },
+    {
+      "commit": "18a32b3ed2116cd7e089b4687ba77639b6721616",
+      "committed_at": "2026-10-06T10:20:39Z",
+      "first_deployed_at": "2026-10-07T07:01:25Z",
+      "lead_seconds": 74446,
+      "run_id": 37584748393
+    },
+    {
+      "commit": "d2453c0a6e70decfdd5aa18c67d61e3b561b2fdf",
+      "committed_at": "2026-10-06T11:25:49Z",
+      "first_deployed_at": "2026-10-07T07:04:14Z",
+      "lead_seconds": 70705,
+      "run_id": 37585016022
+    },
+    {
+      "commit": "e031c2be9b61eeafbaeae7f607c274cf9c986d81",
+      "committed_at": "2026-10-06T10:53:58Z",
+      "first_deployed_at": "2026-10-07T07:04:14Z",
+      "lead_seconds": 72616,
+      "run_id": 37585016022
+    },
+    {
+      "commit": "d6d063abdff72652c3b4e438c349c8c913fd9d3b",
+      "committed_at": "2026-10-06T10:22:19Z",
+      "first_deployed_at": "2026-10-07T07:04:14Z",
+      "lead_seconds": 74515,
+      "run_id": 37585016022
+    },
+    {
+      "commit": "ae2addafe581b0c0d0e1af89c455ec92ae5c5f11",
+      "committed_at": "2026-10-07T08:14:14Z",
+      "first_deployed_at": "2026-10-07T08:14:55Z",
+      "lead_seconds": 41,
+      "run_id": 37592426203
+    },
+    {
+      "commit": "094cb95a2b6144f369537d0de0788f01d9eb99e5",
+      "committed_at": "2026-10-07T08:15:08Z",
+      "first_deployed_at": "2026-10-07T08:15:56Z",
+      "lead_seconds": 48,
+      "run_id": 37592525676
+    },
+    {
+      "commit": "a80f53e07be58efc1e20db38905df874b545c1a8",
+      "committed_at": "2026-10-07T08:16:51Z",
+      "first_deployed_at": "2026-10-07T08:17:34Z",
+      "lead_seconds": 43,
+      "run_id": 37592721472
+    },
+    {
+      "commit": "d0789aaf1f7d8cb921482dfc769ebb5600a9d231",
+      "committed_at": "2026-10-07T08:18:34Z",
+      "first_deployed_at": "2026-10-07T08:19:32Z",
+      "lead_seconds": 58,
+      "run_id": 37592907624
+    },
+    {
+      "commit": "825d1bb33616c76d0c7fcb0c5b07a2bd57aa0752",
+      "committed_at": "2026-10-07T08:17:59Z",
+      "first_deployed_at": "2026-10-07T08:19:32Z",
+      "lead_seconds": 93,
+      "run_id": 37592907624
+    },
+    {
+      "commit": "66b67a60752744fc80c68e2d7639dba173ba28e7",
+      "committed_at": "2026-10-07T08:20:19Z",
+      "first_deployed_at": "2026-10-07T08:22:03Z",
+      "lead_seconds": 104,
+      "run_id": 37593098443
+    },
+    {
+      "commit": "b4bc124f09cf575444656e44d65479359edd3cbe",
+      "committed_at": "2026-10-07T08:22:27Z",
+      "first_deployed_at": "2026-10-07T08:23:22Z",
+      "lead_seconds": 55,
+      "run_id": 37593334393
+    },
+    {
+      "commit": "8708a8a2faea074e807e0dd3018b93b989491fbd",
+      "committed_at": "2026-10-07T08:28:25Z",
+      "first_deployed_at": "2026-10-07T08:29:22Z",
+      "lead_seconds": 57,
+      "run_id": 37593986638
+    },
+    {
+      "commit": "6e317f8ff5f78349f641d4da1fa3a471926a93a8",
+      "committed_at": "2026-10-07T09:15:24Z",
+      "first_deployed_at": "2026-10-07T09:16:28Z",
+      "lead_seconds": 64,
+      "run_id": 37599350130
+    },
+    {
+      "commit": "119a93a6318d9b03e1647a2a5d96b5cb5c4ece7b",
+      "committed_at": "2026-10-07T09:15:12Z",
+      "first_deployed_at": "2026-10-07T09:16:28Z",
+      "lead_seconds": 76,
+      "run_id": 37599350130
+    },
+    {
+      "commit": "38e18f53ae4e1c80b071e4ab463b6f8695b6b581",
+      "committed_at": "2026-10-07T09:17:44Z",
+      "first_deployed_at": "2026-10-07T09:18:30Z",
+      "lead_seconds": 46,
+      "run_id": 37599622254
+    },
+    {
+      "commit": "db5516341e372bc1dbeb806777a4a1f3a388bd86",
+      "committed_at": "2026-10-07T11:52:27Z",
+      "first_deployed_at": "2026-10-07T12:09:00Z",
+      "lead_seconds": 993,
+      "run_id": 37618895162
+    },
+    {
+      "commit": "35c4ec869848d4aa988c9f74abf011aa104f5ae8",
+      "committed_at": "2026-10-07T09:35:23Z",
+      "first_deployed_at": "2026-10-07T12:11:53Z",
+      "lead_seconds": 9390,
+      "run_id": 37619189029
+    },
+    {
+      "commit": "71d71727acdfbd5abd9155583e66dea30b8e53d8",
+      "committed_at": "2026-10-07T09:13:36Z",
+      "first_deployed_at": "2026-10-07T12:11:53Z",
+      "lead_seconds": 10697,
+      "run_id": 37619189029
+    },
+    {
+      "commit": "7c54da3b301ddcd7c664c2a0824b9c3171b7b6f1",
+      "committed_at": "2026-10-07T12:59:01Z",
+      "first_deployed_at": "2026-10-07T12:59:54Z",
+      "lead_seconds": 53,
+      "run_id": 37624977640
+    },
+    {
+      "commit": "d0dd235d04e7f79451848476bc98f52e69870b59",
+      "committed_at": "2026-10-13T10:29:15Z",
+      "first_deployed_at": "2026-10-13T10:29:58Z",
+      "lead_seconds": 43,
+      "run_id": 38383685283
+    },
+    {
+      "commit": "cbdd8ec0d46db7e15176d07cc19f5e64487fb7ed",
+      "committed_at": "2026-10-13T11:54:29Z",
+      "first_deployed_at": "2026-10-13T11:56:08Z",
+      "lead_seconds": 99,
+      "run_id": 38393474476
+    },
+    {
+      "commit": "c8e26853d44dda3f86c2d04c8240b5d1975de46d",
+      "committed_at": "2026-10-19T12:03:20Z",
+      "first_deployed_at": "2026-10-20T10:19:47Z",
+      "lead_seconds": 80187,
+      "run_id": 39407083237
+    },
+    {
+      "commit": "11402f305b6dbdee8fc2f1d9fd7fea39a866dcd2",
+      "committed_at": "2026-10-19T11:23:03Z",
+      "first_deployed_at": "2026-10-20T10:19:47Z",
+      "lead_seconds": 82604,
+      "run_id": 39407083237
+    },
+    {
+      "commit": "689dfdf4d9970af9b6e43dec9efd3737ed5bc68f",
+      "committed_at": "2026-10-19T11:22:02Z",
+      "first_deployed_at": "2026-10-20T10:19:47Z",
+      "lead_seconds": 82665,
+      "run_id": 39407083237
+    },
+    {
+      "commit": "4a497ff6b3fc3e8d9036fb45d1cc7ca3bc07835c",
+      "committed_at": "2026-10-20T10:41:25Z",
+      "first_deployed_at": "2026-10-20T10:48:50Z",
+      "lead_seconds": 445,
+      "run_id": 39410496617
+    },
+    {
+      "commit": "c21381b6f77a478469dfc5fb56a3a4875bd233ef",
+      "committed_at": "2026-10-20T10:41:23Z",
+      "first_deployed_at": "2026-10-20T10:48:50Z",
+      "lead_seconds": 447,
+      "run_id": 39410496617
+    },
+    {
+      "commit": "23a5cd30641093742d9b2f1ed875a1e1a9ed650a",
+      "committed_at": "2026-10-20T10:54:14Z",
+      "first_deployed_at": "2026-10-20T10:54:52Z",
+      "lead_seconds": 38,
+      "run_id": 39411193585
+    },
+    {
+      "commit": "48b7745892b472e66a391fa352bb082ddfb3965a",
+      "committed_at": "2026-10-20T10:53:04Z",
+      "first_deployed_at": "2026-10-20T10:55:58Z",
+      "lead_seconds": 174,
+      "run_id": 39411298128
+    },
+    {
+      "commit": "92824e8ad0602354f1863230b177bb806731f747",
+      "committed_at": "2026-10-20T10:26:44Z",
+      "first_deployed_at": "2026-10-20T10:55:58Z",
+      "lead_seconds": 1754,
+      "run_id": 39411298128
+    },
+    {
+      "commit": "068f8ee08d599584ac46eeff0555e9aec2d2f1e1",
+      "committed_at": "2026-10-20T10:59:40Z",
+      "first_deployed_at": "2026-10-20T11:07:36Z",
+      "lead_seconds": 476,
+      "run_id": 39412648316
+    },
+    {
+      "commit": "0e2278b23a41e28e35d97c378de52ee94e08858b",
+      "committed_at": "2026-10-20T10:59:38Z",
+      "first_deployed_at": "2026-10-20T11:07:36Z",
+      "lead_seconds": 478,
+      "run_id": 39412648316
+    },
+    {
+      "commit": "01ef0dccbd57171e0a0e5f40e4f8018c5d150a71",
+      "committed_at": "2026-10-20T10:59:35Z",
+      "first_deployed_at": "2026-10-20T11:07:36Z",
+      "lead_seconds": 481,
+      "run_id": 39412648316
+    },
+    {
+      "commit": "3f317c97925ae24eb291ace42820e6351b55d212",
+      "committed_at": "2026-10-20T10:59:33Z",
+      "first_deployed_at": "2026-10-20T11:07:36Z",
+      "lead_seconds": 483,
+      "run_id": 39412648316
+    },
+    {
+      "commit": "e83df8afa1c975b6855f5b31e9ac7c6d7f4c1328",
+      "committed_at": "2026-10-20T11:00:47Z",
+      "first_deployed_at": "2026-10-20T11:09:19Z",
+      "lead_seconds": 512,
+      "run_id": 39412860253
+    },
+    {
+      "commit": "91049b32b358da6a37be6538c70457e458e535a5",
+      "committed_at": "2026-10-20T11:00:40Z",
+      "first_deployed_at": "2026-10-20T11:09:19Z",
+      "lead_seconds": 519,
+      "run_id": 39412860253
+    },
+    {
+      "commit": "43796319b6e971c4de61cee05343619d47d3107c",
+      "committed_at": "2026-10-20T11:00:37Z",
+      "first_deployed_at": "2026-10-20T11:09:19Z",
+      "lead_seconds": 522,
+      "run_id": 39412860253
+    },
+    {
+      "commit": "0371f23f0f066632c6288ed2a0c7fb50955d6f6e",
+      "committed_at": "2026-10-20T10:58:21Z",
+      "first_deployed_at": "2026-10-20T11:09:19Z",
+      "lead_seconds": 658,
+      "run_id": 39412860253
+    },
+    {
+      "commit": "75dcc6a1fcb658fea38fca43c99c800095f00237",
+      "committed_at": "2026-10-20T10:58:18Z",
+      "first_deployed_at": "2026-10-20T11:09:19Z",
+      "lead_seconds": 661,
+      "run_id": 39412860253
+    },
+    {
+      "commit": "645bdcb8943b4ec9c73be36a8517a419f413b6af",
+      "committed_at": "2026-10-20T10:57:34Z",
+      "first_deployed_at": "2026-10-20T11:12:47Z",
+      "lead_seconds": 913,
+      "run_id": 39413273038
+    },
+    {
+      "commit": "257661c47548770fc9ca15c66dde7a7a3bf8cd98",
+      "committed_at": "2026-10-20T10:57:30Z",
+      "first_deployed_at": "2026-10-20T11:15:06Z",
+      "lead_seconds": 1056,
+      "run_id": 39413525290
+    },
+    {
+      "commit": "84e2b2a10ff2c782f014841e3a8a842709a59c24",
+      "committed_at": "2026-10-20T10:57:28Z",
+      "first_deployed_at": "2026-10-20T11:17:02Z",
+      "lead_seconds": 1174,
+      "run_id": 39413677169
+    },
+    {
+      "commit": "baa066205182c7b13900f0e0f7c9845b3a153970",
+      "committed_at": "2026-10-20T10:58:04Z",
+      "first_deployed_at": "2026-10-20T11:18:51Z",
+      "lead_seconds": 1247,
+      "run_id": 39413981825
+    },
+    {
+      "commit": "07a510667adabbc7e01d1688cc115643beb915f1",
+      "committed_at": "2026-10-20T10:57:24Z",
+      "first_deployed_at": "2026-10-20T11:18:51Z",
+      "lead_seconds": 1287,
+      "run_id": 39413981825
+    },
+    {
+      "commit": "4538b458d4a434b23e6c508e9ea5fd5f9475a19d",
+      "committed_at": "2026-10-20T11:13:37Z",
+      "first_deployed_at": "2026-10-20T11:20:04Z",
+      "lead_seconds": 387,
+      "run_id": 39414130589
+    },
+    {
+      "commit": "75fab4cd0a9d791adee0a735742012d4c181d5d9",
+      "committed_at": "2026-10-20T11:22:57Z",
+      "first_deployed_at": "2026-10-20T11:34:02Z",
+      "lead_seconds": 665,
+      "run_id": 39415713813
+    },
+    {
+      "commit": "caa070a66015753f05ee8980e74c36fd2ce529d7",
+      "committed_at": "2026-10-20T11:22:55Z",
+      "first_deployed_at": "2026-10-20T11:34:02Z",
+      "lead_seconds": 667,
+      "run_id": 39415713813
+    },
+    {
+      "commit": "85b1205aa80a43e3672d562493ba26b1443b0e93",
+      "committed_at": "2026-10-20T11:37:35Z",
+      "first_deployed_at": "2026-10-20T11:43:53Z",
+      "lead_seconds": 378,
+      "run_id": 39416963771
+    },
+    {
+      "commit": "fe4231ea71934e4671f4f250df6f76c0423256fa",
+      "committed_at": "2026-10-20T11:44:59Z",
+      "first_deployed_at": "2026-10-20T11:45:43Z",
+      "lead_seconds": 44,
+      "run_id": 39417173808
+    },
+    {
+      "commit": "c63edbc20c4b0feaeb92202578151ebaa33bc505",
+      "committed_at": "2026-10-20T11:47:14Z",
+      "first_deployed_at": "2026-10-20T12:02:22Z",
+      "lead_seconds": 908,
+      "run_id": 39419057677
+    },
+    {
+      "commit": "41c38fac2e9623768a21a3c8d721d57c6f534099",
+      "committed_at": "2026-10-20T12:18:20Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 185,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "8034388137d69e2b88cf57e90225edbdb9f98cca",
+      "committed_at": "2026-10-20T12:18:00Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 205,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "18782d72074b20ce5852c1617c618b0cd0d5b4e0",
+      "committed_at": "2026-10-20T12:17:21Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 244,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "1ccf0806479202dc086bbf1fe6440b0bbd7e66be",
+      "committed_at": "2026-10-20T12:17:15Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 250,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "2da7cde1aedc18c54a07fc03dff1f56b967c9487",
+      "committed_at": "2026-10-20T12:17:12Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 253,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "3b0ceba91c6eebb2ec8e08bb5076d8465a983968",
+      "committed_at": "2026-10-20T12:17:10Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 255,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "7706e224594b6ef2bc06bbac7cbc040b3a307c6c",
+      "committed_at": "2026-10-20T12:17:07Z",
+      "first_deployed_at": "2026-10-20T12:21:25Z",
+      "lead_seconds": 258,
+      "run_id": 39421544769
+    },
+    {
+      "commit": "f7f5d1bbc7c8a5c225edfc1173aea730ae5aa523",
+      "committed_at": "2026-10-20T12:10:11Z",
+      "first_deployed_at": "2026-10-20T12:22:29Z",
+      "lead_seconds": 738,
+      "run_id": 39421673536
+    },
+    {
+      "commit": "a803f096f3028cd45d64218050fc1f662b5c8f3c",
+      "committed_at": "2026-10-20T12:23:43Z",
+      "first_deployed_at": "2026-10-20T12:24:26Z",
+      "lead_seconds": 43,
+      "run_id": 39421916218
+    },
+    {
+      "commit": "60a8848b76d5efe301217cceed887c42627e40e7",
+      "committed_at": "2026-10-20T12:30:21Z",
+      "first_deployed_at": "2026-10-20T12:34:01Z",
+      "lead_seconds": 220,
+      "run_id": 39423074579
+    },
+    {
+      "commit": "523e75623b1157e7b88c6f35d59ca608c3abd692",
+      "committed_at": "2026-10-20T12:38:48Z",
+      "first_deployed_at": "2026-10-20T12:45:03Z",
+      "lead_seconds": 375,
+      "run_id": 39424621136
+    },
+    {
+      "commit": "f006f72e5f858ddaaed5ff85083cdd27015bf1c2",
+      "committed_at": "2026-10-20T12:38:27Z",
+      "first_deployed_at": "2026-10-20T12:45:03Z",
+      "lead_seconds": 396,
+      "run_id": 39424621136
+    },
+    {
+      "commit": "77c24c2754105ec84a4a09d99d344353190f8a87",
+      "committed_at": "2026-10-20T12:37:40Z",
+      "first_deployed_at": "2026-10-20T12:45:03Z",
+      "lead_seconds": 443,
+      "run_id": 39424621136
+    },
+    {
+      "commit": "df541ce7966b1d2dcbbc97220eeac13c36495d2d",
+      "committed_at": "2026-10-20T13:02:35Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 113,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "3d4f9b1da98c029c029862b2a66f0e9f0338fd19",
+      "committed_at": "2026-10-20T13:02:32Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 116,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "9e6d0a6fa6ee83cf879fe4dabcb7ae3435e7dcd7",
+      "committed_at": "2026-10-20T13:02:29Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 119,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "9326b0fe85e824e7ceae3a44c9a51ae05fac1c16",
+      "committed_at": "2026-10-20T13:01:25Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 183,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "2a4d0db36d772f5385e13573a62288cce60d0922",
+      "committed_at": "2026-10-20T13:01:21Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 187,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "b7f0cef420e41f673c9429c56f7242149be9f4da",
+      "committed_at": "2026-10-20T13:01:18Z",
+      "first_deployed_at": "2026-10-20T13:04:28Z",
+      "lead_seconds": 190,
+      "run_id": 39427205283
+    },
+    {
+      "commit": "1d1da9240ed5e25ba6b9d4b50ffa1f6ef4fe4904",
+      "committed_at": "2026-10-20T13:05:05Z",
+      "first_deployed_at": "2026-10-20T13:07:18Z",
+      "lead_seconds": 133,
+      "run_id": 39427635816
+    },
+    {
+      "commit": "f5b397dc44354673d82a2a6842d0b069db061451",
+      "committed_at": "2026-10-20T13:01:00Z",
+      "first_deployed_at": "2026-10-20T13:07:18Z",
+      "lead_seconds": 378,
+      "run_id": 39427635816
+    },
+    {
+      "commit": "1ff116434e117e6e72f4a3b6f15daee6488aabad",
+      "committed_at": "2026-10-20T13:15:54Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 166,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "57dae28e67ce29fde73dd4b2ff0179599dc66290",
+      "committed_at": "2026-10-20T13:14:36Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 244,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "247d72c1a0485a9760b1e38e0baa481e59a92d81",
+      "committed_at": "2026-10-20T13:13:22Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 318,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "738d60e8bc708732101a2be398f4f2c766ed6198",
+      "committed_at": "2026-10-20T13:12:45Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 355,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "0db5b77b4493ff17bfe68a63be37473c5f0ea77a",
+      "committed_at": "2026-10-20T13:12:26Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 374,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "34cd9a79f2dce05cc15c677ea70b09b8d8b19df9",
+      "committed_at": "2026-10-20T13:12:12Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 388,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "ef24c2e18e2623abdf2b0c56092513f62e206161",
+      "committed_at": "2026-10-20T13:10:58Z",
+      "first_deployed_at": "2026-10-20T13:18:40Z",
+      "lead_seconds": 462,
+      "run_id": 39429147572
+    },
+    {
+      "commit": "1bf6eca012de2e45991835ed15c800b13c18f087",
+      "committed_at": "2026-10-20T13:25:54Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 214,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "562827a95dd5a34a683bddb5aa0a94fe61fe0b54",
+      "committed_at": "2026-10-20T13:25:30Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 238,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "b4e5c10ff85570a1edf20414524e6e2744b1836b",
+      "committed_at": "2026-10-20T13:25:28Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 240,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "d3ff29003f3473b24df27c9585f21ab9a6baf149",
+      "committed_at": "2026-10-20T13:25:13Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 255,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "2d015b200acfdec48e98edc39fb89ce2b40b26ec",
+      "committed_at": "2026-10-20T13:24:36Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 292,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "845f8a8fe41914228d04c00b131f1d54a23693b1",
+      "committed_at": "2026-10-20T13:24:17Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 311,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "eb4a089766c1d0d504aae6a80f82af004d12a444",
+      "committed_at": "2026-10-20T13:24:08Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 320,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "c72b8cf8c3e97e2ba48f8541c219abb87eec226c",
+      "committed_at": "2026-10-20T13:24:05Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 323,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "2270f034d9624a677b04b9dc529ef66bd44232bb",
+      "committed_at": "2026-10-20T13:23:54Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 334,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "95b1e6f754f6d971bcc23822067daefea6fa3d86",
+      "committed_at": "2026-10-20T13:23:38Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 350,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "df4bac8004a669ff6e25e384f8406f99074472ff",
+      "committed_at": "2026-10-20T13:23:30Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 358,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "2f0b763db9f5a63cc4f43243b650a19493a2522d",
+      "committed_at": "2026-10-20T13:23:04Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 384,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "35c8ff1588ca20d7ede40c6049feec5a7c6a1f68",
+      "committed_at": "2026-10-20T13:22:40Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 408,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "cf16710a821d20114a85e65aa1b5f31ab087f273",
+      "committed_at": "2026-10-20T13:22:37Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 411,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "1f2490c1beb1483dbd9001bb52235125ecc8e959",
+      "committed_at": "2026-10-20T13:22:15Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 433,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "bfcf48fe53e43377dc284faaf4aef697bdb2d0f0",
+      "committed_at": "2026-10-20T13:21:38Z",
+      "first_deployed_at": "2026-10-20T13:29:28Z",
+      "lead_seconds": 470,
+      "run_id": 39430599981
+    },
+    {
+      "commit": "6b32f2b482689a0313ab0a33e5b28804d8d6b3be",
+      "committed_at": "2026-10-20T13:41:08Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 412,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "f1a9493b7f6c6955edf054e23f327a960cc1e16a",
+      "committed_at": "2026-10-20T13:40:57Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 423,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "0ec7199fb84e37a9e902b246d2b264e4fb42aea8",
+      "committed_at": "2026-10-20T13:40:46Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 434,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "95a5cd0e511f713f7eb071827c736dae1033bbb0",
+      "committed_at": "2026-10-20T13:40:37Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 443,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "3ff918412649340972ce187fb30ba0dc7005b657",
+      "committed_at": "2026-10-20T13:40:11Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 469,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "534aba139757f55d0d596fd60fdea114fbfe2319",
+      "committed_at": "2026-10-20T13:37:52Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 608,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "ef8e913161746372f526bd4f148ade02bb96d270",
+      "committed_at": "2026-10-20T13:33:38Z",
+      "first_deployed_at": "2026-10-20T13:48:00Z",
+      "lead_seconds": 862,
+      "run_id": 39433394864
+    },
+    {
+      "commit": "a4c84061cadf8b35142d1ed3df341c964a38e36e",
+      "committed_at": "2026-10-20T14:04:15Z",
+      "first_deployed_at": "2026-10-20T14:08:15Z",
+      "lead_seconds": 240,
+      "run_id": 39436329824
+    },
+    {
+      "commit": "7bc3fe1f7a3c53b3f0402ca7295c29a0d7f01f11",
+      "committed_at": "2026-10-20T14:04:07Z",
+      "first_deployed_at": "2026-10-20T14:08:15Z",
+      "lead_seconds": 248,
+      "run_id": 39436329824
+    },
+    {
+      "commit": "375e3923e53c7d03fc7c0f812117d1df9ce0564f",
+      "committed_at": "2026-10-20T14:02:31Z",
+      "first_deployed_at": "2026-10-20T14:08:15Z",
+      "lead_seconds": 344,
+      "run_id": 39436329824
+    },
+    {
+      "commit": "22831b01d3b681bfd3b6ed632bf94ffff2162ad5",
+      "committed_at": "2026-10-20T14:02:23Z",
+      "first_deployed_at": "2026-10-20T14:08:15Z",
+      "lead_seconds": 352,
+      "run_id": 39436329824
+    },
+    {
+      "commit": "af4e4af8f210dbee1cc8c0d22865709614bb0659",
+      "committed_at": "2026-10-20T14:01:35Z",
+      "first_deployed_at": "2026-10-20T14:08:15Z",
+      "lead_seconds": 400,
+      "run_id": 39436329824
+    },
+    {
+      "commit": "0d18d2353de026cb5b262d8621a9418aba495f1c",
+      "committed_at": "2026-10-20T18:10:20Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 80,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "7fc7a2211b2972c4405d1f7a0ded148b04ef7a60",
+      "committed_at": "2026-10-20T18:08:49Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 171,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "b6a91532c35fd40e943b32e657bf07b3b994e0f7",
+      "committed_at": "2026-10-20T18:08:47Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 173,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "a0b0d588d35a1be2c80fad65c15b380353f7d2ab",
+      "committed_at": "2026-10-20T18:08:45Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 175,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "36443320ea98b8d847c444bb5d1f26ae8f305ff7",
+      "committed_at": "2026-10-20T18:04:09Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 451,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "baaa6502231556156743f63b7a23b5fc927fd331",
+      "committed_at": "2026-10-20T18:04:06Z",
+      "first_deployed_at": "2026-10-20T18:11:40Z",
+      "lead_seconds": 454,
+      "run_id": 39472509703
+    },
+    {
+      "commit": "82401454f731ad9233d318ca1657657ef36f9b2a",
+      "committed_at": "2026-10-20T18:13:08Z",
+      "first_deployed_at": "2026-10-20T18:14:25Z",
+      "lead_seconds": 77,
+      "run_id": 39472908314
+    },
+    {
+      "commit": "60daf9cb9bd09501a4c5dc9a2d04a9a0ee81a0ae",
+      "committed_at": "2026-10-20T18:12:59Z",
+      "first_deployed_at": "2026-10-20T18:14:25Z",
+      "lead_seconds": 86,
+      "run_id": 39472908314
+    },
+    {
+      "commit": "a8e35a788aed0959b3c4c5200842a4b4c86edee4",
+      "committed_at": "2026-10-20T18:12:54Z",
+      "first_deployed_at": "2026-10-20T18:14:25Z",
+      "lead_seconds": 91,
+      "run_id": 39472908314
+    },
+    {
+      "commit": "d915e6b5fd212667deec19f2f9068252decb983c",
+      "committed_at": "2026-10-20T18:14:55Z",
+      "first_deployed_at": "2026-10-20T18:15:48Z",
+      "lead_seconds": 53,
+      "run_id": 39473119795
+    },
+    {
+      "commit": "adaaf9f5fa804c262021608e897ac49f58e7d736",
+      "committed_at": "2026-10-20T18:15:36Z",
+      "first_deployed_at": "2026-10-20T18:16:53Z",
+      "lead_seconds": 77,
+      "run_id": 39473286695
+    },
+    {
+      "commit": "17c410ff7d74472b60abeae19fc52cb8228d9eff",
+      "committed_at": "2026-10-20T18:18:29Z",
+      "first_deployed_at": "2026-10-20T18:21:05Z",
+      "lead_seconds": 156,
+      "run_id": 39473643213
+    },
+    {
+      "commit": "38f0506a30f036613729c5a5cf582539080f92e0",
+      "committed_at": "2026-10-20T18:17:19Z",
+      "first_deployed_at": "2026-10-20T18:21:05Z",
+      "lead_seconds": 226,
+      "run_id": 39473643213
+    },
+    {
+      "commit": "81e6e10d67c6d4ea4d5a324e0086ace9fe91ce03",
+      "committed_at": "2026-10-20T18:22:10Z",
+      "first_deployed_at": "2026-10-20T18:22:57Z",
+      "lead_seconds": 47,
+      "run_id": 39474121394
+    },
+    {
+      "commit": "0313bca17ec385abb2cdcbd4434afd0436474dcb",
+      "committed_at": "2026-10-22T11:50:31Z",
+      "first_deployed_at": "2026-10-22T11:51:21Z",
+      "lead_seconds": 50,
+      "run_id": 39773627058
+    },
+    {
+      "commit": "2594ad631bf6aec53434322b1d9dde8a33c3b83c",
+      "committed_at": "2026-10-22T11:51:52Z",
+      "first_deployed_at": "2026-10-22T11:52:33Z",
+      "lead_seconds": 41,
+      "run_id": 39773800242
+    },
+    {
+      "commit": "72ed32174c91292c3b6f935233619e852dbf9355",
+      "committed_at": "2026-10-22T12:00:14Z",
+      "first_deployed_at": "2026-10-22T12:05:23Z",
+      "lead_seconds": 309,
+      "run_id": 39775075707
+    },
+    {
+      "commit": "77ab0e2d600d5bee6f8312c80a6bfa52272056e0",
+      "committed_at": "2026-10-22T11:57:08Z",
+      "first_deployed_at": "2026-10-22T12:05:23Z",
+      "lead_seconds": 495,
+      "run_id": 39775075707
+    },
+    {
+      "commit": "32c96e790bc98e8d8479a0d0ee8fb58cadb8c762",
+      "committed_at": "2026-10-22T11:57:05Z",
+      "first_deployed_at": "2026-10-22T12:05:23Z",
+      "lead_seconds": 498,
+      "run_id": 39775075707
+    },
+    {
+      "commit": "e512b46273f73c7f843cd24884d0b8a2ca55b56c",
+      "committed_at": "2026-10-22T11:57:03Z",
+      "first_deployed_at": "2026-10-22T12:05:23Z",
+      "lead_seconds": 500,
+      "run_id": 39775075707
+    },
+    {
+      "commit": "67bd51752b556aa47f713d4d79ffd28630df9e34",
+      "committed_at": "2026-10-22T12:16:52Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 104,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "c430f127d05d605955a6d6f96da70e5f62027014",
+      "committed_at": "2026-10-22T12:15:38Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 178,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "c007e5f7cd1a68ef33ae3eb413a43b8699f37344",
+      "committed_at": "2026-10-22T12:14:24Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 252,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "73cc59bf7d74122463ab5c55e32aee697403d7d2",
+      "committed_at": "2026-10-22T12:12:09Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 387,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "945dadd3a8d4be1acc2990175abca6bd6dedc8f9",
+      "committed_at": "2026-10-22T12:11:48Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 408,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "975fca81d150d2d3a7d82e47e21a08aad0001cbe",
+      "committed_at": "2026-10-22T12:11:24Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 432,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "e10dec8b48016085ea6d01880163fcbe3bd6d3e1",
+      "committed_at": "2026-10-22T12:11:06Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 450,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "afdcd640e9baebe81b9833318da520951e27de80",
+      "committed_at": "2026-10-22T12:10:43Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 473,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "cf3284354a9f883b8b5e70f534f7591858893d6a",
+      "committed_at": "2026-10-22T12:10:07Z",
+      "first_deployed_at": "2026-10-22T12:18:36Z",
+      "lead_seconds": 509,
+      "run_id": 39777137390
+    },
+    {
+      "commit": "729ca259788b4296be652deb3a6b98bdbde9ba6f",
+      "committed_at": "2026-10-22T12:24:19Z",
+      "first_deployed_at": "2026-10-22T12:25:41Z",
+      "lead_seconds": 82,
+      "run_id": 39778169670
+    },
+    {
+      "commit": "4c08b13bcdc99e70f5cd9870c37197556cd50430",
+      "committed_at": "2026-10-22T12:24:17Z",
+      "first_deployed_at": "2026-10-22T12:25:41Z",
+      "lead_seconds": 84,
+      "run_id": 39778169670
+    },
+    {
+      "commit": "fa14b2bf026f146559086aa2d25893707b3ca00f",
+      "committed_at": "2026-10-22T12:24:15Z",
+      "first_deployed_at": "2026-10-22T12:25:41Z",
+      "lead_seconds": 86,
+      "run_id": 39778169670
+    },
+    {
+      "commit": "0d7221747149c16edf7629f0eaba1d3ecfa287e6",
+      "committed_at": "2026-10-26T09:09:37Z",
+      "first_deployed_at": "2026-10-26T10:00:54Z",
+      "lead_seconds": 3077,
+      "run_id": 40303918876
+    },
+    {
+      "commit": "15198609441edd212229ffdde4f2fe296ca13f2c",
+      "committed_at": "2026-10-23T19:45:21Z",
+      "first_deployed_at": "2026-10-26T10:00:54Z",
+      "lead_seconds": 224133,
+      "run_id": 40303918876
+    },
+    {
+      "commit": "524ce5fb2084dc1dc02525395ab2a6bd6b8b417b",
+      "committed_at": "2026-10-23T19:41:48Z",
+      "first_deployed_at": "2026-10-26T10:00:54Z",
+      "lead_seconds": 224346,
+      "run_id": 40303918876
+    },
+    {
+      "commit": "4e29d3b99ca1f5f09b26c97a888bafae3e9560e8",
+      "committed_at": "2026-10-23T19:22:19Z",
+      "first_deployed_at": "2026-10-26T10:00:54Z",
+      "lead_seconds": 225515,
+      "run_id": 40303918876
+    },
+    {
+      "commit": "787404c3d95bdb47203bfe89541217321e252248",
+      "committed_at": "2026-10-26T08:09:47Z",
+      "first_deployed_at": "2026-10-26T10:00:54Z",
+      "lead_seconds": 6667,
+      "run_id": 40303918876
+    },
+    {
+      "commit": "0b5c949931992fce42f5c57e4639bc8d331d6f0a",
+      "committed_at": "2026-10-26T10:30:35Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 4860,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "fe866be6cabf2a0bd8d0d6dfdfe456f04fd6a10d",
+      "committed_at": "2026-10-26T10:30:14Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 4881,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "f464b41f995a686696352738254b223e220b8134",
+      "committed_at": "2026-10-26T10:28:15Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 5000,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "90c67979539785233877de943ceab6afdba48e61",
+      "committed_at": "2026-10-23T20:24:23Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 228432,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "72dda348e176f84ab65058020ac7677b59a99fba",
+      "committed_at": "2026-10-23T20:16:51Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 228884,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "05b216328a6a1377668cd5bacbd84401b12fca8c",
+      "committed_at": "2026-10-23T20:11:21Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 229214,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "f4775e1b1ee3a786da94f132890e295391718259",
+      "committed_at": "2026-10-23T20:06:48Z",
+      "first_deployed_at": "2026-10-26T11:51:35Z",
+      "lead_seconds": 229487,
+      "run_id": 40318105217
+    },
+    {
+      "commit": "45f40887e1e6899a29c56b7350b1f99d5cba246f",
+      "committed_at": "2026-10-26T13:20:36Z",
+      "first_deployed_at": "2026-10-26T19:05:17Z",
+      "lead_seconds": 20681,
+      "run_id": 40383434605
+    },
+    {
+      "commit": "f1cd36980d535075e3439d9c1914943b4a090ee7",
+      "committed_at": "2026-10-26T12:54:48Z",
+      "first_deployed_at": "2026-10-26T19:05:17Z",
+      "lead_seconds": 22229,
+      "run_id": 40383434605
+    },
+    {
+      "commit": "6d81ee51bf095dbd1e2df1e497a5de2a654ef3d0",
+      "committed_at": "2026-10-26T12:48:42Z",
+      "first_deployed_at": "2026-10-26T19:05:17Z",
+      "lead_seconds": 22595,
+      "run_id": 40383434605
+    },
+    {
+      "commit": "c2a05377519e8c7e42ed04615465377720be7921",
+      "committed_at": "2026-10-27T11:16:49Z",
+      "first_deployed_at": "2026-10-27T11:18:36Z",
+      "lead_seconds": 107,
+      "run_id": 40494948251
+    },
+    {
+      "commit": "bd86a487b2f7229f97961828dfb0b7a54d083ef4",
+      "committed_at": "2026-10-27T11:32:24Z",
+      "first_deployed_at": "2026-10-27T12:37:07Z",
+      "lead_seconds": 3883,
+      "run_id": 40505101724
+    },
+    {
+      "commit": "114912a6ced180bc7cf0400ae8c305415179108b",
+      "committed_at": "2026-10-27T14:10:43Z",
+      "first_deployed_at": "2026-10-27T17:29:30Z",
+      "lead_seconds": 11927,
+      "run_id": 40550986681
+    },
+    {
+      "commit": "2381900cc998c2f3287322c780abdfcb3e245c21",
+      "committed_at": "2026-10-27T17:32:41Z",
+      "first_deployed_at": "2026-10-27T17:34:15Z",
+      "lead_seconds": 94,
+      "run_id": 40551746501
+    },
+    {
+      "commit": "022028c7a97b93f206520208f4a382146581c07e",
+      "committed_at": "2026-10-27T13:58:08Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 13774,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "06d2a91215ec96b5ffecb0596cc49f642fdd8df4",
+      "committed_at": "2026-10-27T08:37:40Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 33002,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "daaf5d08d1d6b493ab5be96db498ab8596d4212a",
+      "committed_at": "2026-10-26T21:10:39Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 74223,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "b5f90d65bb14ac9478a9ff019f7f2021b78600a1",
+      "committed_at": "2026-10-26T20:50:24Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 75438,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "f61e34273f1d1e6d9d35243616324cd6502a7f77",
+      "committed_at": "2026-10-26T20:37:23Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 76219,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "5b608f190e1ab91e2802ea33e2f5f479cb3c820b",
+      "committed_at": "2026-10-26T20:19:01Z",
+      "first_deployed_at": "2026-10-27T17:47:42Z",
+      "lead_seconds": 77321,
+      "run_id": 40553797635
+    },
+    {
+      "commit": "9ba9e6386c1d8d221e317677b84ddbe6e22f22f0",
+      "committed_at": "2026-10-27T18:09:15Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 143,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "3b2507c115a90b9f4b89f48b7023cda40856700a",
+      "committed_at": "2026-10-27T18:08:26Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 192,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "d47653c509c55070380f2f7e045b69a0ca2a7251",
+      "committed_at": "2026-10-27T18:07:52Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 226,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "e7b12e80cf92812f6797ab9cf2b8762bea5af52f",
+      "committed_at": "2026-10-27T18:07:49Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 229,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "9cd4c8cb713875e7e092a1f7af7b1ff302f06292",
+      "committed_at": "2026-10-27T18:06:52Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 286,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "301d761402813a92ecae66ab0c1087b0ea51ee82",
+      "committed_at": "2026-10-27T18:06:50Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 288,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "d71ad4a01db2da3b2c4d5734b1287a800e60d1d5",
+      "committed_at": "2026-10-27T18:06:48Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 290,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "419153067e23f2467f332473b47560325f2dcf56",
+      "committed_at": "2026-10-27T18:06:45Z",
+      "first_deployed_at": "2026-10-27T18:11:38Z",
+      "lead_seconds": 293,
+      "run_id": 40557555599
+    },
+    {
+      "commit": "46b3a57f145a652f2dde77bf575b30abac5292d4",
+      "committed_at": "2026-10-27T18:32:43Z",
+      "first_deployed_at": "2026-10-27T18:34:18Z",
+      "lead_seconds": 95,
+      "run_id": 40561112107
+    },
+    {
+      "commit": "89bb727ea70737dfdb73c77d71c20470dcdcb96f",
+      "committed_at": "2026-10-27T18:29:56Z",
+      "first_deployed_at": "2026-10-27T18:34:18Z",
+      "lead_seconds": 262,
+      "run_id": 40561112107
+    },
+    {
+      "commit": "e31e6adf494e9937652342ce502aa9bf5b756c36",
+      "committed_at": "2026-10-28T11:50:17Z",
+      "first_deployed_at": "2026-10-28T12:27:16Z",
+      "lead_seconds": 2219,
+      "run_id": 40687826585
+    },
+    {
+      "commit": "3d553c050394068e134d9c5118b6dd8ba185f419",
+      "committed_at": "2026-10-28T11:42:39Z",
+      "first_deployed_at": "2026-10-28T12:27:16Z",
+      "lead_seconds": 2677,
+      "run_id": 40687826585
+    },
+    {
+      "commit": "6663b3a8b914436712177d0fab31102fddd1969f",
+      "committed_at": "2026-10-28T07:54:21Z",
+      "first_deployed_at": "2026-10-28T12:27:16Z",
+      "lead_seconds": 16375,
+      "run_id": 40687826585
+    },
+    {
+      "commit": "cb78339caabe784db5c3bbf8d2cd9a6fe94b7800",
+      "committed_at": "2026-10-28T07:51:08Z",
+      "first_deployed_at": "2026-10-28T12:27:16Z",
+      "lead_seconds": 16568,
+      "run_id": 40687826585
+    },
+    {
+      "commit": "301bfe120f1fda43ed1d93f4360e2f0baa3f0669",
+      "committed_at": "2026-10-27T21:14:13Z",
+      "first_deployed_at": "2026-10-28T12:27:16Z",
+      "lead_seconds": 54783,
+      "run_id": 40687826585
+    },
+    {
+      "commit": "0a54b1143b5e21b8d61df24aa1670f9b7b0639f0",
+      "committed_at": "2026-11-06T21:52:17Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 222151,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "9e669d32d4ab6c1beec3a17e43ff7a98a214942a",
+      "committed_at": "2026-11-06T21:49:22Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 222326,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "4df1bf0bfdee88e427dcbaaa98a9fc51c0c9927c",
+      "committed_at": "2026-11-06T21:37:11Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 223057,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "3bcf2b5fcf08828c89e52d01a175b50951e70fbd",
+      "committed_at": "2026-11-06T21:30:39Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 223449,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "8beddbe24ff998347b0ad89913148f920a4d9ebb",
+      "committed_at": "2026-11-06T21:23:25Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 223883,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "cdd5f406a5b520b9e22485fea11bb96bb007531f",
+      "committed_at": "2026-11-06T21:19:07Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 224141,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "bea51b54eea25d9e874e30fa2b20b02db731c197",
+      "committed_at": "2026-11-06T21:16:14Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 224314,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "0579ef5865ead76dd1650362db369c4842652cbe",
+      "committed_at": "2026-11-06T21:12:42Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 224526,
+      "run_id": 42610084972
+    },
+    {
+      "commit": "7f93e2818cc7301d503f50fb543526502d4edd49",
+      "committed_at": "2026-11-06T20:01:41Z",
+      "first_deployed_at": "2026-11-09T11:34:48Z",
+      "lead_seconds": 228787,
+      "run_id": 42610084972
+    }
+  ],
+  "summary": {
+    "cutoff": "2026-11-09T12:21:49Z",
+    "start": "2026-09-22T09:30:51Z",
+    "days": 48.118726851851854,
+    "deployments": 83,
+    "perWeek": 12.074301171533182,
+    "leadSamples": 218,
+    "medianLeadHours": 0.10458333333333333,
+    "missing": []
+  }
+}
