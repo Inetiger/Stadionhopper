@@ -1,0 +1,91 @@
+name: DORA production deployment events
+
+# GitHub emits this event when a deployment status changes. This records the
+# deployment lifecycle; it does NOT treat a failed CI run as a production failure.
+on:
+  deployment_status:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dora-deployment-ledger
+  cancel-in-progress: false
+
+jobs:
+  record-production-deployment:
+    name: Record production deployment status
+    if: >-
+      github.event.deployment.environment == 'github-pages' ||
+      github.event.deployment.environment == 'production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Append deployment event to the DORA ledger
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const path = 'metrics/dora/deployments.jsonl';
+            const deployment = context.payload.deployment;
+            const status = context.payload.deployment_status;
+
+            // Keep raw event facts. Interpretation (for example, whether a
+            // successful deploy caused an incident) is deliberately separate.
+            const record = {
+              schema_version: 1,
+              deployment_id: deployment.id,
+              deployment_status_id: status.id,
+              environment: deployment.environment,
+              ref: deployment.ref,
+              sha: deployment.sha,
+              deployment_task: deployment.task,
+              state: status.state,
+              created_at: status.created_at,
+              updated_at: status.updated_at,
+              environment_url: status.environment_url || null,
+              log_url: status.log_url || null,
+              target_url: deployment.payload?.web_url || null,
+              actor: context.actor,
+              repository: `${owner}/${repo}`
+            };
+
+            let existing = '';
+            let sha;
+            try {
+              const current = await github.rest.repos.getContent({
+                owner, repo, path, ref: 'main'
+              });
+              if (Array.isArray(current.data) || current.data.type !== 'file') {
+                throw new Error(`Unexpected content at ${path}`);
+              }
+              sha = current.data.sha;
+              existing = Buffer.from(current.data.content, 'base64').toString('utf8');
+            } catch (error) {
+              if (error.status !== 404) throw error;
+            }
+
+            // GitHub may redeliver webhook events. Do not count the same status twice.
+            const alreadyRecorded = existing.split('\n').some(line => {
+              if (!line.trim()) return false;
+              try {
+                return JSON.parse(line).deployment_status_id === record.deployment_status_id;
+              } catch {
+                return false;
+              }
+            });
+            if (alreadyRecorded) {
+              core.info(`Deployment status ${record.deployment_status_id} already recorded.`);
+              return;
+            }
+
+            const content = existing + JSON.stringify(record) + '\n';
+            const params = {
+              owner, repo, path,
+              message: `chore(dora): record deployment status ${record.deployment_status_id}`,
+              content: Buffer.from(content, 'utf8').toString('base64'),
+              branch: 'main'
+            };
+            if (sha) params.sha = sha;
+            await github.rest.repos.createOrUpdateFileContents(params);
+            core.info(`Recorded ${record.state} for deployment ${record.deployment_id} in ${record.environment}.`);
