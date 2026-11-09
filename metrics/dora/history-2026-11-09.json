@@ -2122,5 +2122,2662 @@
     "leadSamples": 218,
     "medianLeadHours": 0.10458333333333333,
     "missing": []
-  }
+  },
+  "commit_graph": [
+    {
+      "sha": "0a44ba24c441a337940eb1edcb07e5aad1ee9ed9",
+      "parents": [
+        "f05041cc796abcfe404c6fbba0923ff27194cc65",
+        "9ca63f7271df967814c422e167c5e6bd28e8e736"
+      ],
+      "committed_at": "2026-11-09T12:33:17Z",
+      "message": "Merge pull request #153 from Inetiger/fix/dora-ledger-no-pages-loop\n\nPrevent DORA ledger commits from triggering endless Pages deployments"
+    },
+    {
+      "sha": "f05041cc796abcfe404c6fbba0923ff27194cc65",
+      "parents": [
+        "62730be34f841057f8e02f607870c4f1a8dd2b08"
+      ],
+      "committed_at": "2026-11-09T12:33:10Z",
+      "message": "chore(dora): record deployment status 21763423027"
+    },
+    {
+      "sha": "62730be34f841057f8e02f607870c4f1a8dd2b08",
+      "parents": [
+        "dbd35eb54030e88ef99e92aba29f95965bf90786"
+      ],
+      "committed_at": "2026-11-09T12:33:04Z",
+      "message": "chore(dora): record deployment status 21763409324"
+    },
+    {
+      "sha": "dbd35eb54030e88ef99e92aba29f95965bf90786",
+      "parents": [
+        "2d82b03f45b6ab2d9935faaa01c9d3069943006d"
+      ],
+      "committed_at": "2026-11-09T12:32:56Z",
+      "message": "chore(dora): record deployment status 21763406470"
+    },
+    {
+      "sha": "9ca63f7271df967814c422e167c5e6bd28e8e736",
+      "parents": [
+        "740f365daf896d1605b2be53b515a9e4bd1aecbb"
+      ],
+      "committed_at": "2026-11-09T12:32:31Z",
+      "message": "Document isolated DORA data branch"
+    },
+    {
+      "sha": "2d82b03f45b6ab2d9935faaa01c9d3069943006d",
+      "parents": [
+        "db2297cac1cf34f153a9bf8a34f7edea05cb2637"
+      ],
+      "committed_at": "2026-11-09T12:32:18Z",
+      "message": "chore(dora): record deployment status 21763366597"
+    },
+    {
+      "sha": "db2297cac1cf34f153a9bf8a34f7edea05cb2637",
+      "parents": [
+        "ac80aed7caefc7c86bd3f89ae85465b45c6839f1"
+      ],
+      "committed_at": "2026-11-09T12:32:10Z",
+      "message": "chore(dora): record deployment status 21763355562"
+    },
+    {
+      "sha": "740f365daf896d1605b2be53b515a9e4bd1aecbb",
+      "parents": [
+        "583de34837ad984482933cc1a6c57f48c222efbf"
+      ],
+      "committed_at": "2026-11-09T12:32:05Z",
+      "message": "Write DORA ledger to separate branch to prevent Pages deployment loop"
+    },
+    {
+      "sha": "ac80aed7caefc7c86bd3f89ae85465b45c6839f1",
+      "parents": [
+        "583de34837ad984482933cc1a6c57f48c222efbf"
+      ],
+      "committed_at": "2026-11-09T12:32:02Z",
+      "message": "chore(dora): record deployment status 21763353076"
+    },
+    {
+      "sha": "583de34837ad984482933cc1a6c57f48c222efbf",
+      "parents": [
+        "d37e93705ec45568ba25f68501c7bfc201af5100"
+      ],
+      "committed_at": "2026-11-09T12:31:25Z",
+      "message": "chore(dora): record deployment status 21763310927"
+    },
+    {
+      "sha": "d37e93705ec45568ba25f68501c7bfc201af5100",
+      "parents": [
+        "25ca39d75621949329ebdd24860ac91482ac9c53"
+      ],
+      "committed_at": "2026-11-09T12:31:19Z",
+      "message": "chore(dora): record deployment status 21763300914"
+    },
+    {
+      "sha": "25ca39d75621949329ebdd24860ac91482ac9c53",
+      "parents": [
+        "add25e6a36de98d2d0268344eee64d894f73e792"
+      ],
+      "committed_at": "2026-11-09T12:31:12Z",
+      "message": "chore(dora): record deployment status 21763298883"
+    },
+    {
+      "sha": "add25e6a36de98d2d0268344eee64d894f73e792",
+      "parents": [
+        "15de9c4d2d6f1a6edaf7f4ca1296406b6ef7867a"
+      ],
+      "committed_at": "2026-11-09T12:30:33Z",
+      "message": "chore(dora): record deployment status 21763254278"
+    },
+    {
+      "sha": "15de9c4d2d6f1a6edaf7f4ca1296406b6ef7867a",
+      "parents": [
+        "cf83b8bfa36b871becf2dcc8f6611f66d3b73f6b"
+      ],
+      "committed_at": "2026-11-09T12:30:26Z",
+      "message": "chore(dora): record deployment status 21763242953"
+    },
+    {
+      "sha": "cf83b8bfa36b871becf2dcc8f6611f66d3b73f6b",
+      "parents": [
+        "8af2a3d4cd3f9d42bc2d2700066927d87c4b0dd4"
+      ],
+      "committed_at": "2026-11-09T12:30:19Z",
+      "message": "chore(dora): record deployment status 21763240931"
+    },
+    {
+      "sha": "8af2a3d4cd3f9d42bc2d2700066927d87c4b0dd4",
+      "parents": [
+        "8e6745bf19b2593d1d7ca246a01ee66b7d6985f9"
+      ],
+      "committed_at": "2026-11-09T12:29:41Z",
+      "message": "chore(dora): record deployment status 21763199296"
+    },
+    {
+      "sha": "8e6745bf19b2593d1d7ca246a01ee66b7d6985f9",
+      "parents": [
+        "b3dfc2edd6fffa342cc80b9ac8926490737702aa"
+      ],
+      "committed_at": "2026-11-09T12:29:33Z",
+      "message": "chore(dora): record deployment status 21763189813"
+    },
+    {
+      "sha": "b3dfc2edd6fffa342cc80b9ac8926490737702aa",
+      "parents": [
+        "14971730999820f32e51802147e611c3c9c8de88"
+      ],
+      "committed_at": "2026-11-09T12:29:27Z",
+      "message": "chore(dora): record deployment status 21763186962"
+    },
+    {
+      "sha": "14971730999820f32e51802147e611c3c9c8de88",
+      "parents": [
+        "741175e4c5e2ba422ef6a0ebf446dd333dc8be47"
+      ],
+      "committed_at": "2026-11-09T12:28:52Z",
+      "message": "chore(dora): record deployment status 21763151445"
+    },
+    {
+      "sha": "741175e4c5e2ba422ef6a0ebf446dd333dc8be47",
+      "parents": [
+        "45883f4170f9e8197223d88a2dd124c37c2ebf1c"
+      ],
+      "committed_at": "2026-11-09T12:28:43Z",
+      "message": "chore(dora): record deployment status 21763140378"
+    },
+    {
+      "sha": "45883f4170f9e8197223d88a2dd124c37c2ebf1c",
+      "parents": [
+        "d947474c63501388a9e6846cc8571ff9e0f3dad6"
+      ],
+      "committed_at": "2026-11-09T12:28:37Z",
+      "message": "chore(dora): record deployment status 21763137709"
+    },
+    {
+      "sha": "d947474c63501388a9e6846cc8571ff9e0f3dad6",
+      "parents": [
+        "00c1612d170e4809c13e694e7e178edd0e3e0472"
+      ],
+      "committed_at": "2026-11-09T12:28:04Z",
+      "message": "chore(dora): record deployment status 21763100134"
+    },
+    {
+      "sha": "00c1612d170e4809c13e694e7e178edd0e3e0472",
+      "parents": [
+        "3be198390cc5c72605f04070c6d6ed0a5fbc1b36"
+      ],
+      "committed_at": "2026-11-09T12:27:57Z",
+      "message": "chore(dora): record deployment status 21763090732"
+    },
+    {
+      "sha": "3be198390cc5c72605f04070c6d6ed0a5fbc1b36",
+      "parents": [
+        "6592f270f44e99891fcca3f16edfa22350010eff"
+      ],
+      "committed_at": "2026-11-09T12:27:51Z",
+      "message": "chore(dora): record deployment status 21763088030"
+    },
+    {
+      "sha": "6592f270f44e99891fcca3f16edfa22350010eff",
+      "parents": [
+        "84d32a98e9e78cc2ae7625040cde1174c6352428"
+      ],
+      "committed_at": "2026-11-09T12:27:15Z",
+      "message": "chore(dora): record deployment status 21763051848"
+    },
+    {
+      "sha": "84d32a98e9e78cc2ae7625040cde1174c6352428",
+      "parents": [
+        "6bb901fc46b46bdc17f560d2062aa31b6911e4a8"
+      ],
+      "committed_at": "2026-11-09T12:27:07Z",
+      "message": "chore(dora): record deployment status 21763039360"
+    },
+    {
+      "sha": "6bb901fc46b46bdc17f560d2062aa31b6911e4a8",
+      "parents": [
+        "51f1f5a8991fcf84510e9530bd3ac71c44a84c19"
+      ],
+      "committed_at": "2026-11-09T12:27:00Z",
+      "message": "chore(dora): record deployment status 21763036373"
+    },
+    {
+      "sha": "51f1f5a8991fcf84510e9530bd3ac71c44a84c19",
+      "parents": [
+        "afba8f91b038d1352c19ff6c3f171628099644b7"
+      ],
+      "committed_at": "2026-11-09T12:26:19Z",
+      "message": "chore(dora): record deployment status 21762993561"
+    },
+    {
+      "sha": "afba8f91b038d1352c19ff6c3f171628099644b7",
+      "parents": [
+        "fbf4c301db225afda00685072c2773ecb81598c7"
+      ],
+      "committed_at": "2026-11-09T12:26:10Z",
+      "message": "chore(dora): record deployment status 21762982346"
+    },
+    {
+      "sha": "fbf4c301db225afda00685072c2773ecb81598c7",
+      "parents": [
+        "febc7ece690e29780c9ada9dca955556cce82ee8"
+      ],
+      "committed_at": "2026-11-09T12:26:04Z",
+      "message": "chore(dora): record deployment status 21762979474"
+    },
+    {
+      "sha": "febc7ece690e29780c9ada9dca955556cce82ee8",
+      "parents": [
+        "6a477c4b450c428cdd4ef3364e2e4129d2d0bf9a"
+      ],
+      "committed_at": "2026-11-09T12:25:27Z",
+      "message": "chore(dora): record deployment status 21762939935"
+    },
+    {
+      "sha": "6a477c4b450c428cdd4ef3364e2e4129d2d0bf9a",
+      "parents": [
+        "8d4a1e04e270b4f9fb2ba0f0af6a9bc79a1f4ae9"
+      ],
+      "committed_at": "2026-11-09T12:25:18Z",
+      "message": "chore(dora): record deployment status 21762926878"
+    },
+    {
+      "sha": "8d4a1e04e270b4f9fb2ba0f0af6a9bc79a1f4ae9",
+      "parents": [
+        "49d7d377c470cebd208db9c33b651b9a8f317fa3"
+      ],
+      "committed_at": "2026-11-09T12:25:11Z",
+      "message": "chore(dora): record deployment status 21762925137"
+    },
+    {
+      "sha": "49d7d377c470cebd208db9c33b651b9a8f317fa3",
+      "parents": [
+        "18308fe18618763ed7cbf13ea086bac8ebc28178"
+      ],
+      "committed_at": "2026-11-09T12:24:33Z",
+      "message": "chore(dora): record deployment status 21762881934"
+    },
+    {
+      "sha": "18308fe18618763ed7cbf13ea086bac8ebc28178",
+      "parents": [
+        "4b963c3daf7466394aaa6b88c7d2f2dcedb2024f"
+      ],
+      "committed_at": "2026-11-09T12:24:25Z",
+      "message": "chore(dora): record deployment status 21762872659"
+    },
+    {
+      "sha": "4b963c3daf7466394aaa6b88c7d2f2dcedb2024f",
+      "parents": [
+        "44b08c5c3dbbc344443182ed4ead48a66a0c515a"
+      ],
+      "committed_at": "2026-11-09T12:24:18Z",
+      "message": "chore(dora): record deployment status 21762870706"
+    },
+    {
+      "sha": "44b08c5c3dbbc344443182ed4ead48a66a0c515a",
+      "parents": [
+        "f2c55825fc414b1d12e0fcfe9be6481c69e96347",
+        "9e1f1fdc7f294268c33682284c23cc0dfb9d3210"
+      ],
+      "committed_at": "2026-11-09T12:23:42Z",
+      "message": "Merge pull request #152 from Inetiger/feat/dora-production-telemetry\n\nAdd production deployment telemetry for DORA metrics"
+    },
+    {
+      "sha": "9e1f1fdc7f294268c33682284c23cc0dfb9d3210",
+      "parents": [
+        "0d927ba56c78d99efe66ca5499fa8811d4227de4"
+      ],
+      "committed_at": "2026-11-09T12:22:06Z",
+      "message": "Clarify that Git-history release metrics are not DORA metrics"
+    },
+    {
+      "sha": "0d927ba56c78d99efe66ca5499fa8811d4227de4",
+      "parents": [
+        "ec6a8987f7c4e3f8ff1d52dcca6f2d583d886d8b"
+      ],
+      "committed_at": "2026-11-09T12:21:53Z",
+      "message": "Add structured production incident issue form"
+    },
+    {
+      "sha": "ec6a8987f7c4e3f8ff1d52dcca6f2d583d886d8b",
+      "parents": [
+        "61d8390d1f9ae57b8b2e3c051ad5001001f0e007"
+      ],
+      "committed_at": "2026-11-09T12:21:50Z",
+      "message": "Document DORA event data and metric interpretation"
+    },
+    {
+      "sha": "61d8390d1f9ae57b8b2e3c051ad5001001f0e007",
+      "parents": [
+        "f2c55825fc414b1d12e0fcfe9be6481c69e96347"
+      ],
+      "committed_at": "2026-11-09T12:21:49Z",
+      "message": "Add production deployment event capture for DORA"
+    },
+    {
+      "sha": "f2c55825fc414b1d12e0fcfe9be6481c69e96347",
+      "parents": [
+        "c6cbd28fc4c78036c3f9439a5b4db9bdd9382b05",
+        "0a54b1143b5e21b8d61df24aa1670f9b7b0639f0"
+      ],
+      "committed_at": "2026-11-09T11:34:12Z",
+      "message": "Merge pull request #139 from Inetiger/119-forbedre-visuelt-fotballpreg-og-tilgjengelighet\n\nUpdate styles for body, header, and navigation"
+    },
+    {
+      "sha": "0a54b1143b5e21b8d61df24aa1670f9b7b0639f0",
+      "parents": [
+        "9e669d32d4ab6c1beec3a17e43ff7a98a214942a"
+      ],
+      "committed_at": "2026-11-06T21:52:17Z",
+      "message": "Update match details display in script.js"
+    },
+    {
+      "sha": "9e669d32d4ab6c1beec3a17e43ff7a98a214942a",
+      "parents": [
+        "4df1bf0bfdee88e427dcbaaa98a9fc51c0c9927c"
+      ],
+      "committed_at": "2026-11-06T21:49:22Z",
+      "message": "Add hidden h3 element for detail name"
+    },
+    {
+      "sha": "4df1bf0bfdee88e427dcbaaa98a9fc51c0c9927c",
+      "parents": [
+        "3bcf2b5fcf08828c89e52d01a175b50951e70fbd"
+      ],
+      "committed_at": "2026-11-06T21:37:11Z",
+      "message": "Add styles for team lineup on match detail page\n\nIssue #140: Style club emblems on match details"
+    },
+    {
+      "sha": "3bcf2b5fcf08828c89e52d01a175b50951e70fbd",
+      "parents": [
+        "8beddbe24ff998347b0ad89913148f920a4d9ebb"
+      ],
+      "committed_at": "2026-11-06T21:30:39Z",
+      "message": "Add klubblogo function and update match details display"
+    },
+    {
+      "sha": "8beddbe24ff998347b0ad89913148f920a4d9ebb",
+      "parents": [
+        "cdd5f406a5b520b9e22485fea11bb96bb007531f"
+      ],
+      "committed_at": "2026-11-06T21:23:25Z",
+      "message": "Add team lineup section to index.html"
+    },
+    {
+      "sha": "cdd5f406a5b520b9e22485fea11bb96bb007531f",
+      "parents": [
+        "bea51b54eea25d9e874e30fa2b20b02db731c197"
+      ],
+      "committed_at": "2026-11-06T21:19:07Z",
+      "message": "Rename gossen-il.png.png to gossen-il.png"
+    },
+    {
+      "sha": "bea51b54eea25d9e874e30fa2b20b02db731c197",
+      "parents": [
+        "0579ef5865ead76dd1650362db369c4842652cbe"
+      ],
+      "committed_at": "2026-11-06T21:16:14Z",
+      "message": "Add files via upload\n\nIssue #140: Add club emblems"
+    },
+    {
+      "sha": "0579ef5865ead76dd1650362db369c4842652cbe",
+      "parents": [
+        "7f93e2818cc7301d503f50fb543526502d4edd49"
+      ],
+      "committed_at": "2026-11-06T21:12:42Z",
+      "message": "Create .gitkeep"
+    },
+    {
+      "sha": "7f93e2818cc7301d503f50fb543526502d4edd49",
+      "parents": [
+        "c6cbd28fc4c78036c3f9439a5b4db9bdd9382b05"
+      ],
+      "committed_at": "2026-11-06T20:01:41Z",
+      "message": "Update styles for body, header, and navigation"
+    },
+    {
+      "sha": "c6cbd28fc4c78036c3f9439a5b4db9bdd9382b05",
+      "parents": [
+        "c29d734f1ca066cbc58239ac07b07493bcedf912",
+        "e31e6adf494e9937652342ce502aa9bf5b756c36"
+      ],
+      "committed_at": "2026-10-28T12:26:29Z",
+      "message": "Merge pull request #137 from Inetiger/redigere_rapport\n\nRefactor Stadionhopper Deliverable 3 documentation"
+    },
+    {
+      "sha": "e31e6adf494e9937652342ce502aa9bf5b756c36",
+      "parents": [
+        "3d553c050394068e134d9c5118b6dd8ba185f419"
+      ],
+      "committed_at": "2026-10-28T11:50:17Z",
+      "message": "Kort ned rapporten ved å fjerne gjentakelser og samle beskrivelser"
+    },
+    {
+      "sha": "3d553c050394068e134d9c5118b6dd8ba185f419",
+      "parents": [
+        "6663b3a8b914436712177d0fab31102fddd1969f"
+      ],
+      "committed_at": "2026-10-28T11:42:39Z",
+      "message": "Presiser testversjon, demobegrensninger og CI/publisering i rapporten"
+    },
+    {
+      "sha": "6663b3a8b914436712177d0fab31102fddd1969f",
+      "parents": [
+        "cb78339caabe784db5c3bbf8d2cd9a6fe94b7800"
+      ],
+      "committed_at": "2026-10-28T07:54:21Z",
+      "message": "Improve documentation on automated testing process\n\nRefined the section on automated testing, emphasizing the integration of tests and their role in code validation. Removed redundant sentences and clarified the testing process related to Issue #121."
+    },
+    {
+      "sha": "cb78339caabe784db5c3bbf8d2cd9a6fe94b7800",
+      "parents": [
+        "301bfe120f1fda43ed1d93f4360e2f0baa3f0669"
+      ],
+      "committed_at": "2026-10-28T07:51:08Z",
+      "message": "Revise GitHub workflow and testing process description\n\nUpdated the section on GitHub usage to clarify task organization and integration process. Removed redundant information and streamlined the explanation of user testing and issue prioritization."
+    },
+    {
+      "sha": "301bfe120f1fda43ed1d93f4360e2f0baa3f0669",
+      "parents": [
+        "c29d734f1ca066cbc58239ac07b07493bcedf912"
+      ],
+      "committed_at": "2026-10-27T21:14:13Z",
+      "message": "Refactor Stadionhopper Deliverable 3 documentation\n\nRevise sections for clarity and conciseness, focusing on the development process and user feedback."
+    },
+    {
+      "sha": "c29d734f1ca066cbc58239ac07b07493bcedf912",
+      "parents": [
+        "05aa2cca275885e72de3187099055a8521554a7a",
+        "46b3a57f145a652f2dde77bf575b30abac5292d4"
+      ],
+      "committed_at": "2026-10-27T18:33:39Z",
+      "message": "Merge pull request #136 from Inetiger/report/dora-metrics-results\n\nDokumenter DORA-resultater i Deliverable 3"
+    },
+    {
+      "sha": "46b3a57f145a652f2dde77bf575b30abac5292d4",
+      "parents": [
+        "89bb727ea70737dfdb73c77d71c20470dcdcb96f"
+      ],
+      "committed_at": "2026-10-27T18:32:43Z",
+      "message": "Konkretiser forbedringstiltak i retrospektivet"
+    },
+    {
+      "sha": "89bb727ea70737dfdb73c77d71c20470dcdcb96f",
+      "parents": [
+        "05aa2cca275885e72de3187099055a8521554a7a"
+      ],
+      "committed_at": "2026-10-27T18:29:56Z",
+      "message": "Dokumenter DORA-resultater i rapporten"
+    },
+    {
+      "sha": "05aa2cca275885e72de3187099055a8521554a7a",
+      "parents": [
+        "73227197ef771e3935bfd8cf65f1e0150e9496a6",
+        "9ba9e6386c1d8d221e317677b84ddbe6e22f22f0"
+      ],
+      "committed_at": "2026-10-27T18:10:57Z",
+      "message": "Merge pull request #135 from Inetiger/feature/github-pages-demo-login-checkins\n\nEnable shared test login and interactive demo flows on GitHub Pages"
+    },
+    {
+      "sha": "9ba9e6386c1d8d221e317677b84ddbe6e22f22f0",
+      "parents": [
+        "3b2507c115a90b9f4b89f48b7023cda40856700a"
+      ],
+      "committed_at": "2026-10-27T18:09:15Z",
+      "message": "Fix demo status messages and check-in confirmation"
+    },
+    {
+      "sha": "3b2507c115a90b9f4b89f48b7023cda40856700a",
+      "parents": [
+        "d47653c509c55070380f2f7e045b69a0ca2a7251"
+      ],
+      "committed_at": "2026-10-27T18:08:26Z",
+      "message": "Validate demo test profiles"
+    },
+    {
+      "sha": "d47653c509c55070380f2f7e045b69a0ca2a7251",
+      "parents": [
+        "e7b12e80cf92812f6797ab9cf2b8762bea5af52f"
+      ],
+      "committed_at": "2026-10-27T18:07:52Z",
+      "message": "Test GitHub Pages demo login and check-in flow"
+    },
+    {
+      "sha": "e7b12e80cf92812f6797ab9cf2b8762bea5af52f",
+      "parents": [
+        "9cd4c8cb713875e7e092a1f7af7b1ff302f06292"
+      ],
+      "committed_at": "2026-10-27T18:07:49Z",
+      "message": "Show demo display name and favorite club"
+    },
+    {
+      "sha": "9cd4c8cb713875e7e092a1f7af7b1ff302f06292",
+      "parents": [
+        "301d761402813a92ecae66ab0c1087b0ea51ee82"
+      ],
+      "committed_at": "2026-10-27T18:06:52Z",
+      "message": "Document demo accounts and local check-ins"
+    },
+    {
+      "sha": "301d761402813a92ecae66ab0c1087b0ea51ee82",
+      "parents": [
+        "d71ad4a01db2da3b2c4d5734b1287a800e60d1d5"
+      ],
+      "committed_at": "2026-10-27T18:06:50Z",
+      "message": "Add public demo test accounts and feed examples"
+    },
+    {
+      "sha": "d71ad4a01db2da3b2c4d5734b1287a800e60d1d5",
+      "parents": [
+        "419153067e23f2467f332473b47560325f2dcf56"
+      ],
+      "committed_at": "2026-10-27T18:06:48Z",
+      "message": "Implement local GitHub Pages demo flows"
+    },
+    {
+      "sha": "419153067e23f2467f332473b47560325f2dcf56",
+      "parents": [
+        "73227197ef771e3935bfd8cf65f1e0150e9496a6"
+      ],
+      "committed_at": "2026-10-27T18:06:45Z",
+      "message": "Enable demo login and check-in UI"
+    },
+    {
+      "sha": "73227197ef771e3935bfd8cf65f1e0150e9496a6",
+      "parents": [
+        "1910ba879d447cc04f46371dbfd947f3dbe0de13",
+        "022028c7a97b93f206520208f4a382146581c07e"
+      ],
+      "committed_at": "2026-10-27T17:46:49Z",
+      "message": "Merge pull request #131 from Inetiger/deliverable-3-rapportredigering\n\nDeliverable 3 rapportredigering"
+    },
+    {
+      "sha": "1910ba879d447cc04f46371dbfd947f3dbe0de13",
+      "parents": [
+        "8d15befbcd83b82f56f5d3c6500ea7afe2cb9af0",
+        "2381900cc998c2f3287322c780abdfcb3e245c21"
+      ],
+      "committed_at": "2026-10-27T17:33:37Z",
+      "message": "Merge pull request #134 from Inetiger/fix/dora-main-branch-worktree\n\nFix DORA main ref on push workflow"
+    },
+    {
+      "sha": "2381900cc998c2f3287322c780abdfcb3e245c21",
+      "parents": [
+        "8d15befbcd83b82f56f5d3c6500ea7afe2cb9af0"
+      ],
+      "committed_at": "2026-10-27T17:32:41Z",
+      "message": "Fix DORA main ref on push workflow"
+    },
+    {
+      "sha": "8d15befbcd83b82f56f5d3c6500ea7afe2cb9af0",
+      "parents": [
+        "f9145212f46b987c1a16323adf2cb6249fd4c791",
+        "114912a6ced180bc7cf0400ae8c305415179108b"
+      ],
+      "committed_at": "2026-10-27T17:28:50Z",
+      "message": "Merge pull request #133 from Inetiger/fix/dora-main-ref\n\nFix DORA metrics main branch reference"
+    },
+    {
+      "sha": "114912a6ced180bc7cf0400ae8c305415179108b",
+      "parents": [
+        "f9145212f46b987c1a16323adf2cb6249fd4c791"
+      ],
+      "committed_at": "2026-10-27T14:10:43Z",
+      "message": "Fix DORA metrics main branch reference"
+    },
+    {
+      "sha": "022028c7a97b93f206520208f4a382146581c07e",
+      "parents": [
+        "06d2a91215ec96b5ffecb0596cc49f642fdd8df4"
+      ],
+      "committed_at": "2026-10-27T13:58:08Z",
+      "message": "Correct author name from 'Ine Botterli' to 'Ine Nybø Botterli'"
+    },
+    {
+      "sha": "f9145212f46b987c1a16323adf2cb6249fd4c791",
+      "parents": [
+        "c2a05377519e8c7e42ed04615465377720be7921",
+        "bd86a487b2f7229f97961828dfb0b7a54d083ef4"
+      ],
+      "committed_at": "2026-10-27T12:36:27Z",
+      "message": "Merge pull request #132 from Inetiger/fix/dora-metrics-workflow\n\nFix DORA metrics workflow"
+    },
+    {
+      "sha": "bd86a487b2f7229f97961828dfb0b7a54d083ef4",
+      "parents": [
+        "c2a05377519e8c7e42ed04615465377720be7921"
+      ],
+      "committed_at": "2026-10-27T11:32:24Z",
+      "message": "Fix DORA metrics workflow by building tool from source"
+    },
+    {
+      "sha": "c2a05377519e8c7e42ed04615465377720be7921",
+      "parents": [
+        "9e0bff833147467570fde983eacaef578f45d8ab"
+      ],
+      "committed_at": "2026-10-27T11:16:49Z",
+      "message": "Add automated DORA metrics step to CI workflow"
+    },
+    {
+      "sha": "06d2a91215ec96b5ffecb0596cc49f642fdd8df4",
+      "parents": [
+        "daaf5d08d1d6b493ab5be96db498ab8596d4212a"
+      ],
+      "committed_at": "2026-10-27T08:37:40Z",
+      "message": "Revise collaboration and code review practices\n\nUpdated the section on collaboration and code review practices, emphasizing the importance of clear task descriptions and dependencies. Added details about the review process for pull requests and the role of automated tests."
+    },
+    {
+      "sha": "daaf5d08d1d6b493ab5be96db498ab8596d4212a",
+      "parents": [
+        "b5f90d65bb14ac9478a9ff019f7f2021b78600a1"
+      ],
+      "committed_at": "2026-10-26T21:10:39Z",
+      "message": "Refine content for clarity and improve user focus\n\nUpdated various sections for clarity and consistency, including prioritization of user profiles, navigation improvements, and backend functionality. Enhanced descriptions of the prototype's features and user journey based on feedback."
+    },
+    {
+      "sha": "b5f90d65bb14ac9478a9ff019f7f2021b78600a1",
+      "parents": [
+        "f61e34273f1d1e6d9d35243616324cd6502a7f77"
+      ],
+      "committed_at": "2026-10-26T20:50:24Z",
+      "message": "Revise testing strategy and user feedback documentation\n\nUpdated the testing and quality assurance section to clarify the integration of automated testing and user testing, along with feedback from user testing and its impact on further development."
+    },
+    {
+      "sha": "f61e34273f1d1e6d9d35243616324cd6502a7f77",
+      "parents": [
+        "5b608f190e1ab91e2802ea33e2f5f479cb3c820b"
+      ],
+      "committed_at": "2026-10-26T20:37:23Z",
+      "message": "Revise Stadionhopper project documentation and priorities\n\nUpdated the documentation to reflect the current status of the Stadionhopper project, including details about the demo version on GitHub Pages and limitations regarding user data storage. Added information on user testing feedback and future priorities for development."
+    },
+    {
+      "sha": "5b608f190e1ab91e2802ea33e2f5f479cb3c820b",
+      "parents": [
+        "9e0bff833147467570fde983eacaef578f45d8ab"
+      ],
+      "committed_at": "2026-10-26T20:19:01Z",
+      "message": "Revise project documentation and team reflections\n\nUpdated team member names, refined project goals, and documented experiences from the sprint. Emphasized the importance of user feedback and collaboration in the development process."
+    },
+    {
+      "sha": "9e0bff833147467570fde983eacaef578f45d8ab",
+      "parents": [
+        "349daeba2b2232dcd06e88c4bd20ad244cdd2727",
+        "45f40887e1e6899a29c56b7350b1f99d5cba246f"
+      ],
+      "committed_at": "2026-10-26T19:04:31Z",
+      "message": "Merge pull request #130 from Inetiger/67-gjennomfør-retrospektiv-og-dokumenter-teamets-læring\n\n67 gjennomfør retrospektiv og dokumenter teamets læring"
+    },
+    {
+      "sha": "45f40887e1e6899a29c56b7350b1f99d5cba246f",
+      "parents": [
+        "f1cd36980d535075e3439d9c1914943b4a090ee7"
+      ],
+      "committed_at": "2026-10-26T13:20:36Z",
+      "message": "docs: forbedre Ingers forberedende refleksjon med kapasitet og læring"
+    },
+    {
+      "sha": "f1cd36980d535075e3439d9c1914943b4a090ee7",
+      "parents": [
+        "6d81ee51bf095dbd1e2df1e497a5de2a654ef3d0"
+      ],
+      "committed_at": "2026-10-26T12:54:48Z",
+      "message": "docs: fjern kildehenvisninger fra Ingers refleksjon"
+    },
+    {
+      "sha": "6d81ee51bf095dbd1e2df1e497a5de2a654ef3d0",
+      "parents": [
+        "349daeba2b2232dcd06e88c4bd20ad244cdd2727"
+      ],
+      "committed_at": "2026-10-26T12:48:42Z",
+      "message": "docs: samle Ingers retrospektiv med faglig forankring i Accelerate"
+    },
+    {
+      "sha": "349daeba2b2232dcd06e88c4bd20ad244cdd2727",
+      "parents": [
+        "dd27887c7d37af7528df3d28bb3a16f2c90529e5",
+        "0b5c949931992fce42f5c57e4639bc8d331d6f0a"
+      ],
+      "committed_at": "2026-10-26T11:50:54Z",
+      "message": "Merge pull request #126 from Inetiger/68-deliverable-3-rapport\n\n68 deliverable 3 rapport"
+    },
+    {
+      "sha": "0b5c949931992fce42f5c57e4639bc8d331d6f0a",
+      "parents": [
+        "fe866be6cabf2a0bd8d0d6dfdfe456f04fd6a10d"
+      ],
+      "committed_at": "2026-10-26T10:30:35Z",
+      "message": "Correct spelling of author's name"
+    },
+    {
+      "sha": "fe866be6cabf2a0bd8d0d6dfdfe456f04fd6a10d",
+      "parents": [
+        "f464b41f995a686696352738254b223e220b8134"
+      ],
+      "committed_at": "2026-10-26T10:30:14Z",
+      "message": "Revise Deliverable 3 with updates and improvements\n\nUpdated the document to reflect changes in authorship, testing strategies, and sprint reviews."
+    },
+    {
+      "sha": "f464b41f995a686696352738254b223e220b8134",
+      "parents": [
+        "90c67979539785233877de943ceab6afdba48e61"
+      ],
+      "committed_at": "2026-10-26T10:28:15Z",
+      "message": "Refine documentation for Stadionhopper prototype\n\nRevised text for clarity and improved user experience in the Stadionhopper project documentation. Adjusted descriptions of goals, functionalities, and user testing feedback."
+    },
+    {
+      "sha": "dd27887c7d37af7528df3d28bb3a16f2c90529e5",
+      "parents": [
+        "37c1ace6a7db82f2d1a438d604d20b1f86dfa06c",
+        "0d7221747149c16edf7629f0eaba1d3ecfa287e6"
+      ],
+      "committed_at": "2026-10-26T09:59:56Z",
+      "message": "Merge pull request #125 from Inetiger/121-forenkle-kampinformasjon\n\n121 forenkle kampinformasjon"
+    },
+    {
+      "sha": "37c1ace6a7db82f2d1a438d604d20b1f86dfa06c",
+      "parents": [
+        "00460bf888a62607d0512f98dc0b1c8f3c90024d",
+        "787404c3d95bdb47203bfe89541217321e252248"
+      ],
+      "committed_at": "2026-10-26T09:59:40Z",
+      "message": "Merge pull request #124 from Inetiger/119-forbedre-kampdetaljer\n\nGi kampdetaljkortet en diskret grønn utforming"
+    },
+    {
+      "sha": "0d7221747149c16edf7629f0eaba1d3ecfa287e6",
+      "parents": [
+        "15198609441edd212229ffdde4f2fe296ca13f2c"
+      ],
+      "committed_at": "2026-10-26T09:09:37Z",
+      "message": "Fix calendar rendering in frontend tests"
+    },
+    {
+      "sha": "787404c3d95bdb47203bfe89541217321e252248",
+      "parents": [
+        "00460bf888a62607d0512f98dc0b1c8f3c90024d"
+      ],
+      "committed_at": "2026-10-26T08:09:47Z",
+      "message": "Gi kampdetaljkortet en diskret grønn utforming"
+    },
+    {
+      "sha": "90c67979539785233877de943ceab6afdba48e61",
+      "parents": [
+        "72dda348e176f84ab65058020ac7677b59a99fba"
+      ],
+      "committed_at": "2026-10-23T20:24:23Z",
+      "message": "Update Markdown headings for improved structure"
+    },
+    {
+      "sha": "72dda348e176f84ab65058020ac7677b59a99fba",
+      "parents": [
+        "05b216328a6a1377668cd5bacbd84401b12fca8c"
+      ],
+      "committed_at": "2026-10-23T20:16:51Z",
+      "message": "Expand documentation on CI, DORA, and sprint processes\n\nAdded sections on pull requests, continuous integration, DORA metrics, and sprint reviews. Included specific examples and tasks for future improvements."
+    },
+    {
+      "sha": "05b216328a6a1377668cd5bacbd84401b12fca8c",
+      "parents": [
+        "f4775e1b1ee3a786da94f132890e295391718259"
+      ],
+      "committed_at": "2026-10-23T20:11:21Z",
+      "message": "Revise Stadionhopper Deliverable 3 with updates and feedback\n\nUpdated the document to reflect the progress and changes made in the development of the Stadionhopper prototype, including adjustments based on user feedback and testing."
+    },
+    {
+      "sha": "f4775e1b1ee3a786da94f132890e295391718259",
+      "parents": [
+        "00460bf888a62607d0512f98dc0b1c8f3c90024d"
+      ],
+      "committed_at": "2026-10-23T20:06:48Z",
+      "message": "Add Deliverable 3 report draft"
+    },
+    {
+      "sha": "15198609441edd212229ffdde4f2fe296ca13f2c",
+      "parents": [
+        "524ce5fb2084dc1dc02525395ab2a6bd6b8b417b"
+      ],
+      "committed_at": "2026-10-23T19:45:21Z",
+      "message": "Style past calendar matches in muted red"
+    },
+    {
+      "sha": "524ce5fb2084dc1dc02525395ab2a6bd6b8b417b",
+      "parents": [
+        "4e29d3b99ca1f5f09b26c97a888bafae3e9560e8"
+      ],
+      "committed_at": "2026-10-23T19:41:48Z",
+      "message": "Mark past matches in calendar"
+    },
+    {
+      "sha": "4e29d3b99ca1f5f09b26c97a888bafae3e9560e8",
+      "parents": [
+        "00460bf888a62607d0512f98dc0b1c8f3c90024d"
+      ],
+      "committed_at": "2026-10-23T19:22:19Z",
+      "message": "Improve date output formatting in kampdatoFix #121: Remove seconds from match details\n\nEnhance date formatting in kampdato function."
+    },
+    {
+      "sha": "00460bf888a62607d0512f98dc0b1c8f3c90024d",
+      "parents": [
+        "bd53b35b85de7608542e36f150d544aeb58c3568",
+        "729ca259788b4296be652deb3a6b98bdbde9ba6f"
+      ],
+      "committed_at": "2026-10-22T12:25:05Z",
+      "message": "Merge pull request #123 from Inetiger/feature/month-grid-calendar\n\nShow matches directly in seven-column monthly calendar"
+    },
+    {
+      "sha": "729ca259788b4296be652deb3a6b98bdbde9ba6f",
+      "parents": [
+        "4c08b13bcdc99e70f5cd9870c37197556cd50430"
+      ],
+      "committed_at": "2026-10-22T12:24:19Z",
+      "message": "Clarify monthly calendar match display"
+    },
+    {
+      "sha": "4c08b13bcdc99e70f5cd9870c37197556cd50430",
+      "parents": [
+        "fa14b2bf026f146559086aa2d25893707b3ca00f"
+      ],
+      "committed_at": "2026-10-22T12:24:17Z",
+      "message": "Style seven-column monthly calendar grid"
+    },
+    {
+      "sha": "fa14b2bf026f146559086aa2d25893707b3ca00f",
+      "parents": [
+        "bd53b35b85de7608542e36f150d544aeb58c3568"
+      ],
+      "committed_at": "2026-10-22T12:24:15Z",
+      "message": "Render matches directly in monthly calendar grid"
+    },
+    {
+      "sha": "bd53b35b85de7608542e36f150d544aeb58c3568",
+      "parents": [
+        "94e3794d230a9d0938446d6b7887f940aae0fe7d",
+        "67bd51752b556aa47f713d4d79ffd28630df9e34"
+      ],
+      "committed_at": "2026-10-22T12:17:29Z",
+      "message": "Merge pull request #122 from Inetiger/feature/calendar-match-overview\n\nAdd calendar-based match overview"
+    },
+    {
+      "sha": "67bd51752b556aa47f713d4d79ffd28630df9e34",
+      "parents": [
+        "c430f127d05d605955a6d6f96da70e5f62027014"
+      ],
+      "committed_at": "2026-10-22T12:16:52Z",
+      "message": "Update check-in integration test for calendar match view"
+    },
+    {
+      "sha": "c430f127d05d605955a6d6f96da70e5f62027014",
+      "parents": [
+        "c007e5f7cd1a68ef33ae3eb413a43b8699f37344"
+      ],
+      "committed_at": "2026-10-22T12:15:38Z",
+      "message": "Guard calendar aria label for test DOM"
+    },
+    {
+      "sha": "c007e5f7cd1a68ef33ae3eb413a43b8699f37344",
+      "parents": [
+        "73cc59bf7d74122463ab5c55e32aee697403d7d2"
+      ],
+      "committed_at": "2026-10-22T12:14:24Z",
+      "message": "Fix calendar rendering in test DOM"
+    },
+    {
+      "sha": "73cc59bf7d74122463ab5c55e32aee697403d7d2",
+      "parents": [
+        "945dadd3a8d4be1acc2990175abca6bd6dedc8f9"
+      ],
+      "committed_at": "2026-10-22T12:12:09Z",
+      "message": "Test selecting a day with scheduled matches"
+    },
+    {
+      "sha": "945dadd3a8d4be1acc2990175abca6bd6dedc8f9",
+      "parents": [
+        "975fca81d150d2d3a7d82e47e21a08aad0001cbe"
+      ],
+      "committed_at": "2026-10-22T12:11:48Z",
+      "message": "Restore calendar markup, styles and tests"
+    },
+    {
+      "sha": "975fca81d150d2d3a7d82e47e21a08aad0001cbe",
+      "parents": [
+        "e10dec8b48016085ea6d01880163fcbe3bd6d3e1"
+      ],
+      "committed_at": "2026-10-22T12:11:24Z",
+      "message": "Harden selected calendar day highlighting"
+    },
+    {
+      "sha": "e10dec8b48016085ea6d01880163fcbe3bd6d3e1",
+      "parents": [
+        "afdcd640e9baebe81b9833318da520951e27de80"
+      ],
+      "committed_at": "2026-10-22T12:11:06Z",
+      "message": "Adjust calendar tests for dates outside current month"
+    },
+    {
+      "sha": "afdcd640e9baebe81b9833318da520951e27de80",
+      "parents": [
+        "cf3284354a9f883b8b5e70f534f7591858893d6a"
+      ],
+      "committed_at": "2026-10-22T12:10:43Z",
+      "message": "Fix calendar selection and update date-based tests"
+    },
+    {
+      "sha": "cf3284354a9f883b8b5e70f534f7591858893d6a",
+      "parents": [
+        "94e3794d230a9d0938446d6b7887f940aae0fe7d"
+      ],
+      "committed_at": "2026-10-22T12:10:07Z",
+      "message": "Add calendar-based match overview"
+    },
+    {
+      "sha": "94e3794d230a9d0938446d6b7887f940aae0fe7d",
+      "parents": [
+        "2594ad631bf6aec53434322b1d9dde8a33c3b83c",
+        "72ed32174c91292c3b6f935233619e852dbf9355"
+      ],
+      "committed_at": "2026-10-22T12:01:49Z",
+      "message": "Merge pull request #117 from Inetiger/docs/remove-user-download-instructions\n\nRemove user download and local setup instructions"
+    },
+    {
+      "sha": "72ed32174c91292c3b6f935233619e852dbf9355",
+      "parents": [
+        "77ab0e2d600d5bee6f8312c80a6bfa52272056e0"
+      ],
+      "committed_at": "2026-10-22T12:00:14Z",
+      "message": "Update demo status assertion for browser-first copy"
+    },
+    {
+      "sha": "77ab0e2d600d5bee6f8312c80a6bfa52272056e0",
+      "parents": [
+        "32c96e790bc98e8d8479a0d0ee8fb58cadb8c762"
+      ],
+      "committed_at": "2026-10-22T11:57:08Z",
+      "message": "Remove local backend instructions from demo messages"
+    },
+    {
+      "sha": "32c96e790bc98e8d8479a0d0ee8fb58cadb8c762",
+      "parents": [
+        "e512b46273f73c7f843cd24884d0b8a2ca55b56c"
+      ],
+      "committed_at": "2026-10-22T11:57:05Z",
+      "message": "Remove local setup guidance from the public app"
+    },
+    {
+      "sha": "e512b46273f73c7f843cd24884d0b8a2ca55b56c",
+      "parents": [
+        "2594ad631bf6aec53434322b1d9dde8a33c3b83c"
+      ],
+      "committed_at": "2026-10-22T11:57:03Z",
+      "message": "Replace README with browser-first user guidance"
+    },
+    {
+      "sha": "2594ad631bf6aec53434322b1d9dde8a33c3b83c",
+      "parents": [
+        "0313bca17ec385abb2cdcbd4434afd0436474dcb"
+      ],
+      "committed_at": "2026-10-22T11:51:52Z",
+      "message": "Enable button for exploring matches without login"
+    },
+    {
+      "sha": "0313bca17ec385abb2cdcbd4434afd0436474dcb",
+      "parents": [
+        "81e6e10d67c6d4ea4d5a324e0086ace9fe91ce03"
+      ],
+      "committed_at": "2026-10-22T11:50:31Z",
+      "message": "Enable input fields for username and password"
+    },
+    {
+      "sha": "81e6e10d67c6d4ea4d5a324e0086ace9fe91ce03",
+      "parents": [
+        "17c410ff7d74472b60abeae19fc52cb8228d9eff"
+      ],
+      "committed_at": "2026-10-20T18:22:10Z",
+      "message": "Disable input fields and buttons for login"
+    },
+    {
+      "sha": "17c410ff7d74472b60abeae19fc52cb8228d9eff",
+      "parents": [
+        "38f0506a30f036613729c5a5cf582539080f92e0"
+      ],
+      "committed_at": "2026-10-20T18:18:29Z",
+      "message": "Fix background color style in input field"
+    },
+    {
+      "sha": "38f0506a30f036613729c5a5cf582539080f92e0",
+      "parents": [
+        "7254a79d2e1c0b980fec5c4916a2b3814771a57e"
+      ],
+      "committed_at": "2026-10-20T18:17:19Z",
+      "message": "Change input background color to red"
+    },
+    {
+      "sha": "7254a79d2e1c0b980fec5c4916a2b3814771a57e",
+      "parents": [
+        "3e57d38784b0657fbfa89e1b591e579e05729e9f",
+        "adaaf9f5fa804c262021608e897ac49f58e7d736"
+      ],
+      "committed_at": "2026-10-20T18:15:50Z",
+      "message": "Merge pull request #116 from Inetiger/revert-113-fix/login-unavailable-explore-mode\n\nRevert \"Make login availability and guest exploration explicit\""
+    },
+    {
+      "sha": "adaaf9f5fa804c262021608e897ac49f58e7d736",
+      "parents": [
+        "3e57d38784b0657fbfa89e1b591e579e05729e9f"
+      ],
+      "committed_at": "2026-10-20T18:15:36Z",
+      "message": "Revert \"Make login availability and guest exploration explicit\""
+    },
+    {
+      "sha": "3e57d38784b0657fbfa89e1b591e579e05729e9f",
+      "parents": [
+        "d9ae320e229803e6d72b1847284fea75bef398fc",
+        "d915e6b5fd212667deec19f2f9068252decb983c"
+      ],
+      "committed_at": "2026-10-20T18:15:08Z",
+      "message": "Merge pull request #115 from Inetiger/revert-114-fix/make-demo-login-obviously-disabled\n\nRevert \"Make disabled demo login unmistakably red\""
+    },
+    {
+      "sha": "d915e6b5fd212667deec19f2f9068252decb983c",
+      "parents": [
+        "d9ae320e229803e6d72b1847284fea75bef398fc"
+      ],
+      "committed_at": "2026-10-20T18:14:55Z",
+      "message": "Revert \"Make disabled demo login unmistakably red\""
+    },
+    {
+      "sha": "d9ae320e229803e6d72b1847284fea75bef398fc",
+      "parents": [
+        "2bd873f874e921439a1f88a046b0072170d8c846",
+        "82401454f731ad9233d318ca1657657ef36f9b2a"
+      ],
+      "committed_at": "2026-10-20T18:13:40Z",
+      "message": "Merge pull request #114 from Inetiger/fix/make-demo-login-obviously-disabled\n\nMake disabled demo login unmistakably red"
+    },
+    {
+      "sha": "82401454f731ad9233d318ca1657657ef36f9b2a",
+      "parents": [
+        "60daf9cb9bd09501a4c5dc9a2d04a9a0ee81a0ae"
+      ],
+      "committed_at": "2026-10-20T18:13:08Z",
+      "message": "Test that public demo login is disabled and clearly styled"
+    },
+    {
+      "sha": "60daf9cb9bd09501a4c5dc9a2d04a9a0ee81a0ae",
+      "parents": [
+        "a8e35a788aed0959b3c4c5200842a4b4c86edee4"
+      ],
+      "committed_at": "2026-10-20T18:12:59Z",
+      "message": "Clarify login is disabled on public demo"
+    },
+    {
+      "sha": "a8e35a788aed0959b3c4c5200842a4b4c86edee4",
+      "parents": [
+        "2bd873f874e921439a1f88a046b0072170d8c846"
+      ],
+      "committed_at": "2026-10-20T18:12:54Z",
+      "message": "Make disabled demo login visually unmistakable"
+    },
+    {
+      "sha": "2bd873f874e921439a1f88a046b0072170d8c846",
+      "parents": [
+        "bee577ee984a16c69cbdce4499a9ba09a4ee1e41",
+        "0d18d2353de026cb5b262d8621a9418aba495f1c"
+      ],
+      "committed_at": "2026-10-20T18:10:56Z",
+      "message": "Merge pull request #113 from Inetiger/fix/login-unavailable-explore-mode\n\nMake login availability and guest exploration explicit"
+    },
+    {
+      "sha": "0d18d2353de026cb5b262d8621a9418aba495f1c",
+      "parents": [
+        "7fc7a2211b2972c4405d1f7a0ded148b04ef7a60"
+      ],
+      "committed_at": "2026-10-20T18:10:20Z",
+      "message": "Fix DOM mock for disabled login demo test"
+    },
+    {
+      "sha": "7fc7a2211b2972c4405d1f7a0ded148b04ef7a60",
+      "parents": [
+        "b6a91532c35fd40e943b32e657bf07b3b994e0f7"
+      ],
+      "committed_at": "2026-10-20T18:08:49Z",
+      "message": "Style disabled login and prominent guest exploration button"
+    },
+    {
+      "sha": "b6a91532c35fd40e943b32e657bf07b3b994e0f7",
+      "parents": [
+        "a0b0d588d35a1be2c80fad65c15b380353f7d2ab"
+      ],
+      "committed_at": "2026-10-20T18:08:47Z",
+      "message": "Disable login controls on static demo"
+    },
+    {
+      "sha": "a0b0d588d35a1be2c80fad65c15b380353f7d2ab",
+      "parents": [
+        "36443320ea98b8d847c444bb5d1f26ae8f305ff7"
+      ],
+      "committed_at": "2026-10-20T18:08:45Z",
+      "message": "Prioritize guest exploration and clarify login unavailable"
+    },
+    {
+      "sha": "36443320ea98b8d847c444bb5d1f26ae8f305ff7",
+      "parents": [
+        "baaa6502231556156743f63b7a23b5fc927fd331"
+      ],
+      "committed_at": "2026-10-20T18:04:09Z",
+      "message": "Explain login failures and preserve guest access"
+    },
+    {
+      "sha": "baaa6502231556156743f63b7a23b5fc927fd331",
+      "parents": [
+        "bee577ee984a16c69cbdce4499a9ba09a4ee1e41"
+      ],
+      "committed_at": "2026-10-20T18:04:06Z",
+      "message": "Clarify login availability and guest exploration"
+    },
+    {
+      "sha": "bee577ee984a16c69cbdce4499a9ba09a4ee1e41",
+      "parents": [
+        "8a1053f05da624d8da8747c547abb94b4aac9967",
+        "a4c84061cadf8b35142d1ed3df341c964a38e36e"
+      ],
+      "committed_at": "2026-10-20T14:07:00Z",
+      "message": "Merge pull request #112 from Inetiger/frontend/56-checkin-flow-integration\n\nTest complete frontend check-in flow (#56)"
+    },
+    {
+      "sha": "8a1053f05da624d8da8747c547abb94b4aac9967",
+      "parents": [
+        "8cfd933ed38c299a94dbc327e1c8493083e613c1",
+        "7bc3fe1f7a3c53b3f0402ca7295c29a0d7f01f11"
+      ],
+      "committed_at": "2026-10-20T14:06:38Z",
+      "message": "Merge pull request #111 from Inetiger/frontend/53-profile-history-integration\n\nTest profile and check-in history integration (#53)"
+    },
+    {
+      "sha": "8cfd933ed38c299a94dbc327e1c8493083e613c1",
+      "parents": [
+        "f0edb93d7bcd2cca24176af9dcac1ef12554e4a5",
+        "22831b01d3b681bfd3b6ed632bf94ffff2162ad5"
+      ],
+      "committed_at": "2026-10-20T14:06:19Z",
+      "message": "Merge pull request #110 from Inetiger/frontend/52-login-backend-integration\n\nTest frontend login and backend session integration (#52)"
+    },
+    {
+      "sha": "a4c84061cadf8b35142d1ed3df341c964a38e36e",
+      "parents": [
+        "7bc3fe1f7a3c53b3f0402ca7295c29a0d7f01f11"
+      ],
+      "committed_at": "2026-10-20T14:04:15Z",
+      "message": "Verify check-in flow persists through the frontend (#56)"
+    },
+    {
+      "sha": "7bc3fe1f7a3c53b3f0402ca7295c29a0d7f01f11",
+      "parents": [
+        "375e3923e53c7d03fc7c0f812117d1df9ce0564f"
+      ],
+      "committed_at": "2026-10-20T14:04:07Z",
+      "message": "Use the actual second fixture stadium in profile integration test"
+    },
+    {
+      "sha": "375e3923e53c7d03fc7c0f812117d1df9ce0564f",
+      "parents": [
+        "22831b01d3b681bfd3b6ed632bf94ffff2162ad5"
+      ],
+      "committed_at": "2026-10-20T14:02:31Z",
+      "message": "Verify profile history through the frontend and session API (#53)"
+    },
+    {
+      "sha": "22831b01d3b681bfd3b6ed632bf94ffff2162ad5",
+      "parents": [
+        "af4e4af8f210dbee1cc8c0d22865709614bb0659"
+      ],
+      "committed_at": "2026-10-20T14:02:23Z",
+      "message": "Remove misleading embedded demo credentials"
+    },
+    {
+      "sha": "af4e4af8f210dbee1cc8c0d22865709614bb0659",
+      "parents": [
+        "f0edb93d7bcd2cca24176af9dcac1ef12554e4a5"
+      ],
+      "committed_at": "2026-10-20T14:01:35Z",
+      "message": "Test frontend login and logout against backend (#52)"
+    },
+    {
+      "sha": "f0edb93d7bcd2cca24176af9dcac1ef12554e4a5",
+      "parents": [
+        "c28d794c17383c63d9caa52cc5f663eb6f604887",
+        "6b32f2b482689a0313ab0a33e5b28804d8d6b3be"
+      ],
+      "committed_at": "2026-10-20T13:46:58Z",
+      "message": "Merge pull request #109 from Inetiger/backend/73-profile-history-access-tests\n\nTest tilgangskontroll for profil og historikk (#73)"
+    },
+    {
+      "sha": "c28d794c17383c63d9caa52cc5f663eb6f604887",
+      "parents": [
+        "ec879ccb57e31c0388e452301af0f317c11f6bbe",
+        "f1a9493b7f6c6955edf054e23f327a960cc1e16a"
+      ],
+      "committed_at": "2026-10-20T13:46:41Z",
+      "message": "Merge pull request #108 from Inetiger/backend/60-checkin-persistence-tests\n\nTest innsjekkingslagring og brukerhistorikk isolert (#60)"
+    },
+    {
+      "sha": "ec879ccb57e31c0388e452301af0f317c11f6bbe",
+      "parents": [
+        "8c28bc31bcd7a9c2213ace9c05e80fd9a1d02e65",
+        "0ec7199fb84e37a9e902b246d2b264e4fb42aea8"
+      ],
+      "committed_at": "2026-10-20T13:46:23Z",
+      "message": "Merge pull request #107 from Inetiger/backend/59-auth-validation-tests\n\nUtvid automatiske tester for autentisering og validering (#59)"
+    },
+    {
+      "sha": "8c28bc31bcd7a9c2213ace9c05e80fd9a1d02e65",
+      "parents": [
+        "c671bfa0e252ec9465e8fb438708682c87bec53b",
+        "95a5cd0e511f713f7eb071827c736dae1033bbb0"
+      ],
+      "committed_at": "2026-10-20T13:46:08Z",
+      "message": "Merge pull request #106 from Inetiger/backend/12-authentication-api-tests\n\nTest autentisering og brukerøkt ende til ende (#12)"
+    },
+    {
+      "sha": "c671bfa0e252ec9465e8fb438708682c87bec53b",
+      "parents": [
+        "1624db155a21750b2da195ddfb283464e12917d6",
+        "3ff918412649340972ce187fb30ba0dc7005b657"
+      ],
+      "committed_at": "2026-10-20T13:45:49Z",
+      "message": "Merge pull request #105 from Inetiger/backend/11-secure-test-users\n\nSikre lagring av testbrukere med scrypt (#11)"
+    },
+    {
+      "sha": "6b32f2b482689a0313ab0a33e5b28804d8d6b3be",
+      "parents": [
+        "f1a9493b7f6c6955edf054e23f327a960cc1e16a"
+      ],
+      "committed_at": "2026-10-20T13:41:08Z",
+      "message": "Rebase profile access tests on updated check-in tests"
+    },
+    {
+      "sha": "f1a9493b7f6c6955edf054e23f327a960cc1e16a",
+      "parents": [
+        "0ec7199fb84e37a9e902b246d2b264e4fb42aea8"
+      ],
+      "committed_at": "2026-10-20T13:40:57Z",
+      "message": "Rebase check-in tests on updated auth validation tests"
+    },
+    {
+      "sha": "0ec7199fb84e37a9e902b246d2b264e4fb42aea8",
+      "parents": [
+        "95a5cd0e511f713f7eb071827c736dae1033bbb0"
+      ],
+      "committed_at": "2026-10-20T13:40:46Z",
+      "message": "Rebase auth validation tests on updated auth API tests"
+    },
+    {
+      "sha": "95a5cd0e511f713f7eb071827c736dae1033bbb0",
+      "parents": [
+        "3ff918412649340972ce187fb30ba0dc7005b657"
+      ],
+      "committed_at": "2026-10-20T13:40:37Z",
+      "message": "Rebase auth API tests on CI-enabled secure credential base"
+    },
+    {
+      "sha": "3ff918412649340972ce187fb30ba0dc7005b657",
+      "parents": [
+        "534aba139757f55d0d596fd60fdea114fbfe2319"
+      ],
+      "committed_at": "2026-10-20T13:40:11Z",
+      "message": "Run CI for pull requests targeting feature branches"
+    },
+    {
+      "sha": "534aba139757f55d0d596fd60fdea114fbfe2319",
+      "parents": [
+        "ef8e913161746372f526bd4f148ade02bb96d270"
+      ],
+      "committed_at": "2026-10-20T13:37:52Z",
+      "message": "Align API test credentials with isolated auth fixture"
+    },
+    {
+      "sha": "ef8e913161746372f526bd4f148ade02bb96d270",
+      "parents": [
+        "1624db155a21750b2da195ddfb283464e12917d6"
+      ],
+      "committed_at": "2026-10-20T13:33:38Z",
+      "message": "Harden test-user credentials with salted scrypt hashes (#11)"
+    },
+    {
+      "sha": "1624db155a21750b2da195ddfb283464e12917d6",
+      "parents": [
+        "75a86d71b4c8f275e1c33fd3e2a51237e94a7493",
+        "1bf6eca012de2e45991835ed15c800b13c18f087"
+      ],
+      "committed_at": "2026-10-20T13:27:49Z",
+      "message": "Merge pull request #104 from Inetiger/feat/test-user-auth-session\n\nImplementer testinnlogging og sesjonsbasert tilgang (#52, #73)"
+    },
+    {
+      "sha": "1bf6eca012de2e45991835ed15c800b13c18f087",
+      "parents": [
+        "562827a95dd5a34a683bddb5aa0a94fe61fe0b54"
+      ],
+      "committed_at": "2026-10-20T13:25:54Z",
+      "message": "Ensure switching test accounts ends the current session"
+    },
+    {
+      "sha": "562827a95dd5a34a683bddb5aa0a94fe61fe0b54",
+      "parents": [
+        "b4e5c10ff85570a1edf20414524e6e2744b1836b"
+      ],
+      "committed_at": "2026-10-20T13:25:30Z",
+      "message": "Clarify server-only profile lookup"
+    },
+    {
+      "sha": "b4e5c10ff85570a1edf20414524e6e2744b1836b",
+      "parents": [
+        "d3ff29003f3473b24df27c9585f21ab9a6baf149"
+      ],
+      "committed_at": "2026-10-20T13:25:28Z",
+      "message": "Supply a test password in cancellation flow"
+    },
+    {
+      "sha": "d3ff29003f3473b24df27c9585f21ab9a6baf149",
+      "parents": [
+        "2d015b200acfdec48e98edc39fb89ce2b40b26ec"
+      ],
+      "committed_at": "2026-10-20T13:25:13Z",
+      "message": "Initialize auth store and resolve current session"
+    },
+    {
+      "sha": "2d015b200acfdec48e98edc39fb89ce2b40b26ec",
+      "parents": [
+        "845f8a8fe41914228d04c00b131f1d54a23693b1"
+      ],
+      "committed_at": "2026-10-20T13:24:36Z",
+      "message": "Document prototype test authentication and API contract"
+    },
+    {
+      "sha": "845f8a8fe41914228d04c00b131f1d54a23693b1",
+      "parents": [
+        "eb4a089766c1d0d504aae6a80f82af004d12a444"
+      ],
+      "committed_at": "2026-10-20T13:24:17Z",
+      "message": "Test prototype authentication and session expiry"
+    },
+    {
+      "sha": "eb4a089766c1d0d504aae6a80f82af004d12a444",
+      "parents": [
+        "c72b8cf8c3e97e2ba48f8541c219abb87eec226c"
+      ],
+      "committed_at": "2026-10-20T13:24:08Z",
+      "message": "Test that test accounts cannot access each other's check-ins"
+    },
+    {
+      "sha": "c72b8cf8c3e97e2ba48f8541c219abb87eec226c",
+      "parents": [
+        "2270f034d9624a677b04b9dc529ef66bd44232bb"
+      ],
+      "committed_at": "2026-10-20T13:24:05Z",
+      "message": "Add second fictional test profile fixture"
+    },
+    {
+      "sha": "2270f034d9624a677b04b9dc529ef66bd44232bb",
+      "parents": [
+        "95b1e6f754f6d971bcc23822067daefea6fa3d86"
+      ],
+      "committed_at": "2026-10-20T13:23:54Z",
+      "message": "Add a second fictional prototype test account"
+    },
+    {
+      "sha": "95b1e6f754f6d971bcc23822067daefea6fa3d86",
+      "parents": [
+        "df4bac8004a669ff6e25e384f8406f99074472ff"
+      ],
+      "committed_at": "2026-10-20T13:23:38Z",
+      "message": "Fix login test request mock"
+    },
+    {
+      "sha": "df4bac8004a669ff6e25e384f8406f99074472ff",
+      "parents": [
+        "2f0b763db9f5a63cc4f43243b650a19493a2522d"
+      ],
+      "committed_at": "2026-10-20T13:23:30Z",
+      "message": "Update frontend tests for session-based login"
+    },
+    {
+      "sha": "2f0b763db9f5a63cc4f43243b650a19493a2522d",
+      "parents": [
+        "35c8ff1588ca20d7ede40c6049feec5a7c6a1f68"
+      ],
+      "committed_at": "2026-10-20T13:23:04Z",
+      "message": "Test authenticated profile and check-in flows"
+    },
+    {
+      "sha": "35c8ff1588ca20d7ede40c6049feec5a7c6a1f68",
+      "parents": [
+        "cf16710a821d20114a85e65aa1b5f31ab087f273"
+      ],
+      "committed_at": "2026-10-20T13:22:40Z",
+      "message": "Connect frontend to login and session APIs"
+    },
+    {
+      "sha": "cf16710a821d20114a85e65aa1b5f31ab087f273",
+      "parents": [
+        "1f2490c1beb1483dbd9001bb52235125ecc8e959"
+      ],
+      "committed_at": "2026-10-20T13:22:37Z",
+      "message": "Add password field for prototype login"
+    },
+    {
+      "sha": "1f2490c1beb1483dbd9001bb52235125ecc8e959",
+      "parents": [
+        "bfcf48fe53e43377dc284faaf4aef697bdb2d0f0"
+      ],
+      "committed_at": "2026-10-20T13:22:15Z",
+      "message": "Protect profile and check-in APIs with server sessions"
+    },
+    {
+      "sha": "bfcf48fe53e43377dc284faaf4aef697bdb2d0f0",
+      "parents": [
+        "75a86d71b4c8f275e1c33fd3e2a51237e94a7493"
+      ],
+      "committed_at": "2026-10-20T13:21:38Z",
+      "message": "Add prototype test authentication and session store"
+    },
+    {
+      "sha": "75a86d71b4c8f275e1c33fd3e2a51237e94a7493",
+      "parents": [
+        "d8c4b951a9ca46ec78422714dffad4f868b845e2",
+        "1ff116434e117e6e72f4a3b6f15daee6488aabad"
+      ],
+      "committed_at": "2026-10-20T13:17:32Z",
+      "message": "Merge pull request #103 from Inetiger/56-73-koble-frontend-til-profil-og-innsjekking\n\nKoble frontend til profil- og innsjekkings-API (#56, #53, #73)"
+    },
+    {
+      "sha": "1ff116434e117e6e72f4a3b6f15daee6488aabad",
+      "parents": [
+        "57dae28e67ce29fde73dd4b2ff0179599dc66290"
+      ],
+      "committed_at": "2026-10-20T13:15:54Z",
+      "message": "Oppdater eksempler og status for integrert innsjekking"
+    },
+    {
+      "sha": "57dae28e67ce29fde73dd4b2ff0179599dc66290",
+      "parents": [
+        "247d72c1a0485a9760b1e38e0baa481e59a92d81"
+      ],
+      "committed_at": "2026-10-20T13:14:36Z",
+      "message": "Dokumenter lokal backendkobling for fiktive testprofiler"
+    },
+    {
+      "sha": "247d72c1a0485a9760b1e38e0baa481e59a92d81",
+      "parents": [
+        "738d60e8bc708732101a2be398f4f2c766ed6198"
+      ],
+      "committed_at": "2026-10-20T13:13:22Z",
+      "message": "Forvent ferdiglastet historikk i profiltest"
+    },
+    {
+      "sha": "738d60e8bc708732101a2be398f4f2c766ed6198",
+      "parents": [
+        "0db5b77b4493ff17bfe68a63be37473c5f0ea77a"
+      ],
+      "committed_at": "2026-10-20T13:12:45Z",
+      "message": "Juster asynkrone profiltester og innsjekkingsknapp"
+    },
+    {
+      "sha": "0db5b77b4493ff17bfe68a63be37473c5f0ea77a",
+      "parents": [
+        "34cd9a79f2dce05cc15c677ea70b09b8d8b19df9"
+      ],
+      "committed_at": "2026-10-20T13:12:26Z",
+      "message": "Behold profilnavn mens historikk lastes"
+    },
+    {
+      "sha": "34cd9a79f2dce05cc15c677ea70b09b8d8b19df9",
+      "parents": [
+        "ef24c2e18e2623abdf2b0c56092513f62e206161"
+      ],
+      "committed_at": "2026-10-20T13:12:12Z",
+      "message": "Oppdater frontendtester for faktisk API-integrasjon (#56, #53)"
+    },
+    {
+      "sha": "ef24c2e18e2623abdf2b0c56092513f62e206161",
+      "parents": [
+        "d8c4b951a9ca46ec78422714dffad4f868b845e2"
+      ],
+      "committed_at": "2026-10-20T13:10:58Z",
+      "message": "Koble frontend til profil- og innsjekkings-API (#56, #53, #73)"
+    },
+    {
+      "sha": "d8c4b951a9ca46ec78422714dffad4f868b845e2",
+      "parents": [
+        "e8206fe458ea77f66828b27c1dce934fc5aeaa1e",
+        "7695e466c62a2239545b2e5d0d0438e12477f094"
+      ],
+      "committed_at": "2026-10-20T13:06:39Z",
+      "message": "Merge pull request #101 from Inetiger/56-behold-kamp-ved-profilvalg\n\nFortsett innsjekking på samme kamp etter testprofilvalg (#56)"
+    },
+    {
+      "sha": "7695e466c62a2239545b2e5d0d0438e12477f094",
+      "parents": [
+        "1d1da9240ed5e25ba6b9d4b50ffa1f6ef4fe4904",
+        "e8206fe458ea77f66828b27c1dce934fc5aeaa1e"
+      ],
+      "committed_at": "2026-10-20T13:06:15Z",
+      "message": "Merge branch 'main' into 56-behold-kamp-ved-profilvalg"
+    },
+    {
+      "sha": "1d1da9240ed5e25ba6b9d4b50ffa1f6ef4fe4904",
+      "parents": [
+        "f5b397dc44354673d82a2a6842d0b069db061451"
+      ],
+      "committed_at": "2026-10-20T13:05:05Z",
+      "message": "Resolve README conflict with profile check-in API documentation"
+    },
+    {
+      "sha": "e8206fe458ea77f66828b27c1dce934fc5aeaa1e",
+      "parents": [
+        "b97c4635385474dddfe2a2d9fa2e2d6e57540357",
+        "df541ce7966b1d2dcbbc97220eeac13c36495d2d"
+      ],
+      "committed_at": "2026-10-20T13:03:35Z",
+      "message": "Merge pull request #102 from Inetiger/fix/profile-checkin-api\n\nFiks prototyp-API for profil og innsjekking (#55, #73)"
+    },
+    {
+      "sha": "df541ce7966b1d2dcbbc97220eeac13c36495d2d",
+      "parents": [
+        "3d4f9b1da98c029c029862b2a66f0e9f0338fd19"
+      ],
+      "committed_at": "2026-10-20T13:02:35Z",
+      "message": "Legg til tom innsjekkingshistorikk for testfixture"
+    },
+    {
+      "sha": "3d4f9b1da98c029c029862b2a66f0e9f0338fd19",
+      "parents": [
+        "9e6d0a6fa6ee83cf879fe4dabcb7ae3435e7dcd7"
+      ],
+      "committed_at": "2026-10-20T13:02:32Z",
+      "message": "Test ugyldig JSON-objekt i innsjekkings-API"
+    },
+    {
+      "sha": "9e6d0a6fa6ee83cf879fe4dabcb7ae3435e7dcd7",
+      "parents": [
+        "9326b0fe85e824e7ceae3a44c9a51ae05fac1c16"
+      ],
+      "committed_at": "2026-10-20T13:02:29Z",
+      "message": "Valider JSON-objekt i innsjekkings-API"
+    },
+    {
+      "sha": "9326b0fe85e824e7ceae3a44c9a51ae05fac1c16",
+      "parents": [
+        "2a4d0db36d772f5385e13573a62288cce60d0922"
+      ],
+      "committed_at": "2026-10-20T13:01:25Z",
+      "message": "Dokumenter prototyp-API for profil og innsjekking"
+    },
+    {
+      "sha": "2a4d0db36d772f5385e13573a62288cce60d0922",
+      "parents": [
+        "b7f0cef420e41f673c9429c56f7242149be9f4da"
+      ],
+      "committed_at": "2026-10-20T13:01:21Z",
+      "message": "Test profil-API og persistering av innsjekking"
+    },
+    {
+      "sha": "b7f0cef420e41f673c9429c56f7242149be9f4da",
+      "parents": [
+        "b97c4635385474dddfe2a2d9fa2e2d6e57540357"
+      ],
+      "committed_at": "2026-10-20T13:01:18Z",
+      "message": "Implementer prototyp-API for profil og innsjekking"
+    },
+    {
+      "sha": "f5b397dc44354673d82a2a6842d0b069db061451",
+      "parents": [
+        "b97c4635385474dddfe2a2d9fa2e2d6e57540357"
+      ],
+      "committed_at": "2026-10-20T13:01:00Z",
+      "message": "Behold valgt kamp gjennom testprofilvalg (#56)"
+    },
+    {
+      "sha": "b97c4635385474dddfe2a2d9fa2e2d6e57540357",
+      "parents": [
+        "b121dacf5a9208aec9309b095a4c9ab2e914cf18",
+        "523e75623b1157e7b88c6f35d59ca608c3abd692"
+      ],
+      "committed_at": "2026-10-20T12:44:24Z",
+      "message": "Merge pull request #99 from Inetiger/56-innsjekking-frontend\n\nKlargjør innsjekkingsflyt og feilhåndtering før backend-integrasjon (#56)"
+    },
+    {
+      "sha": "523e75623b1157e7b88c6f35d59ca608c3abd692",
+      "parents": [
+        "f006f72e5f858ddaaed5ff85083cdd27015bf1c2"
+      ],
+      "committed_at": "2026-10-20T12:38:48Z",
+      "message": "Dokumenter den avgrensede lagringskoblingen (#56)"
+    },
+    {
+      "sha": "f006f72e5f858ddaaed5ff85083cdd27015bf1c2",
+      "parents": [
+        "77c24c2754105ec84a4a09d99d344353190f8a87"
+      ],
+      "committed_at": "2026-10-20T12:38:27Z",
+      "message": "Begrens README-endringen til innsjekkingsarbeidet (#56)"
+    },
+    {
+      "sha": "77c24c2754105ec84a4a09d99d344353190f8a87",
+      "parents": [
+        "b121dacf5a9208aec9309b095a4c9ab2e914cf18"
+      ],
+      "committed_at": "2026-10-20T12:37:40Z",
+      "message": "Klargjør bekreftelsesflyt og feilhåndtering for innsjekking (#56)"
+    },
+    {
+      "sha": "b121dacf5a9208aec9309b095a4c9ab2e914cf18",
+      "parents": [
+        "a803f096f3028cd45d64218050fc1f662b5c8f3c",
+        "60a8848b76d5efe301217cceed887c42627e40e7"
+      ],
+      "committed_at": "2026-10-20T12:32:37Z",
+      "message": "Merge pull request #98 from Inetiger/52-testprofil-frontend\n\nAktiver brukernavn som midlertidig testprofil uten autentisering (#52)"
+    },
+    {
+      "sha": "60a8848b76d5efe301217cceed887c42627e40e7",
+      "parents": [
+        "a803f096f3028cd45d64218050fc1f662b5c8f3c"
+      ],
+      "committed_at": "2026-10-20T12:30:21Z",
+      "message": "Aktiver midlertidig testprofil uten passord (#52)"
+    },
+    {
+      "sha": "a803f096f3028cd45d64218050fc1f662b5c8f3c",
+      "parents": [
+        "be1d7c0d6776593de59804218ba114d39f77f055"
+      ],
+      "committed_at": "2026-10-20T12:23:43Z",
+      "message": "Fix frontend test closure after conflict resolution\n\nRestore the missing test closure in test/frontend.test.js. CI passed."
+    },
+    {
+      "sha": "be1d7c0d6776593de59804218ba114d39f77f055",
+      "parents": [
+        "c35dfbf6e94788c942a5a07c56ca9641b3b37434",
+        "9cc7460939a2ec81a80eb41008c79dd326d9b974"
+      ],
+      "committed_at": "2026-10-20T12:21:46Z",
+      "message": "Merge pull request #95 from Inetiger/53-profilvisning-frontend\n\nForbered profil og historikk uten å foregripe backend-kontrakten (#53)"
+    },
+    {
+      "sha": "9cc7460939a2ec81a80eb41008c79dd326d9b974",
+      "parents": [
+        "f7f5d1bbc7c8a5c225edfc1173aea730ae5aa523",
+        "c35dfbf6e94788c942a5a07c56ca9641b3b37434"
+      ],
+      "committed_at": "2026-10-20T12:21:36Z",
+      "message": "Merge branch 'main' into 53-profilvisning-frontend"
+    },
+    {
+      "sha": "c35dfbf6e94788c942a5a07c56ca9641b3b37434",
+      "parents": [
+        "df71a43983e17548c61df8df8b801c9e000a1dd8",
+        "41c38fac2e9623768a21a3c8d721d57c6f534099"
+      ],
+      "committed_at": "2026-10-20T12:20:43Z",
+      "message": "Merge pull request #96 from Inetiger/93-pages-demo-current-main\n\n93 Fiks GitHub Pages-demo uten å overskrive sosial feed"
+    },
+    {
+      "sha": "41c38fac2e9623768a21a3c8d721d57c6f534099",
+      "parents": [
+        "8034388137d69e2b88cf57e90225edbdb9f98cca"
+      ],
+      "committed_at": "2026-10-20T12:18:20Z",
+      "message": "Test GitHub Pages demo mode end to end"
+    },
+    {
+      "sha": "8034388137d69e2b88cf57e90225edbdb9f98cca",
+      "parents": [
+        "18782d72074b20ce5852c1617c618b0cd0d5b4e0"
+      ],
+      "committed_at": "2026-10-20T12:18:00Z",
+      "message": "Keep frontend tests in local API mode"
+    },
+    {
+      "sha": "18782d72074b20ce5852c1617c618b0cd0d5b4e0",
+      "parents": [
+        "1ccf0806479202dc086bbf1fe6440b0bbd7e66be"
+      ],
+      "committed_at": "2026-10-20T12:17:21Z",
+      "message": "Test static demo data schema"
+    },
+    {
+      "sha": "1ccf0806479202dc086bbf1fe6440b0bbd7e66be",
+      "parents": [
+        "2da7cde1aedc18c54a07fc03dff1f56b967c9487"
+      ],
+      "committed_at": "2026-10-20T12:17:15Z",
+      "message": "Add clearly labeled static demo data for GitHub Pages"
+    },
+    {
+      "sha": "2da7cde1aedc18c54a07fc03dff1f56b967c9487",
+      "parents": [
+        "3b0ceba91c6eebb2ec8e08bb5076d8465a983968"
+      ],
+      "committed_at": "2026-10-20T12:17:12Z",
+      "message": "Document static Pages demo and local API"
+    },
+    {
+      "sha": "3b0ceba91c6eebb2ec8e08bb5076d8465a983968",
+      "parents": [
+        "7706e224594b6ef2bc06bbac7cbc040b3a307c6c"
+      ],
+      "committed_at": "2026-10-20T12:17:10Z",
+      "message": "Add visible GitHub Pages demo notice"
+    },
+    {
+      "sha": "7706e224594b6ef2bc06bbac7cbc040b3a307c6c",
+      "parents": [
+        "df71a43983e17548c61df8df8b801c9e000a1dd8"
+      ],
+      "committed_at": "2026-10-20T12:17:07Z",
+      "message": "Fix Pages data loading while preserving API feed"
+    },
+    {
+      "sha": "f7f5d1bbc7c8a5c225edfc1173aea730ae5aa523",
+      "parents": [
+        "df71a43983e17548c61df8df8b801c9e000a1dd8"
+      ],
+      "committed_at": "2026-10-20T12:10:11Z",
+      "message": "Forbered profilvisning og historikk med isolerte tester (#53)"
+    },
+    {
+      "sha": "df71a43983e17548c61df8df8b801c9e000a1dd8",
+      "parents": [
+        "fe4231ea71934e4671f4f250df6f76c0423256fa",
+        "c63edbc20c4b0feaeb92202578151ebaa33bc505"
+      ],
+      "committed_at": "2026-10-20T12:00:41Z",
+      "message": "Merge pull request #92 from Inetiger/57-sosial-feed-frontend\n\nVis sosial feed fra API med tom- og feiltilstander (#57)"
+    },
+    {
+      "sha": "c63edbc20c4b0feaeb92202578151ebaa33bc505",
+      "parents": [
+        "fe4231ea71934e4671f4f250df6f76c0423256fa"
+      ],
+      "committed_at": "2026-10-20T11:47:14Z",
+      "message": "Hent sosial feed fra API med tom- og feiltilstander (#57)"
+    },
+    {
+      "sha": "fe4231ea71934e4671f4f250df6f76c0423256fa",
+      "parents": [
+        "ef686d32b966baf6f98c040a3c70c89efb004de1"
+      ],
+      "committed_at": "2026-10-20T11:44:59Z",
+      "message": "Update README.md"
+    },
+    {
+      "sha": "ef686d32b966baf6f98c040a3c70c89efb004de1",
+      "parents": [
+        "ddb178f697c2735ab7241249ce15e6826000d24d",
+        "85b1205aa80a43e3672d562493ba26b1443b0e93"
+      ],
+      "committed_at": "2026-10-20T11:43:13Z",
+      "message": "Merge pull request #91 from Inetiger/54-kampoversikt-frontend\n\nHent kampoversikt og kampdetaljer fra API (#54)"
+    },
+    {
+      "sha": "85b1205aa80a43e3672d562493ba26b1443b0e93",
+      "parents": [
+        "ddb178f697c2735ab7241249ce15e6826000d24d"
+      ],
+      "committed_at": "2026-10-20T11:37:35Z",
+      "message": "Hent kampoversikt og detaljer fra API med tester (#54)"
+    },
+    {
+      "sha": "ddb178f697c2735ab7241249ce15e6826000d24d",
+      "parents": [
+        "d6f1323fe5a3984b6414e0065510d0394099666a",
+        "75fab4cd0a9d791adee0a735742012d4c181d5d9"
+      ],
+      "committed_at": "2026-10-20T11:32:42Z",
+      "message": "Merge pull request #90 from Inetiger/89-docs-audit\n\n89 Rett dokumentasjonsavvik etter kodegjennomgang"
+    },
+    {
+      "sha": "75fab4cd0a9d791adee0a735742012d4c181d5d9",
+      "parents": [
+        "caa070a66015753f05ee8980e74c36fd2ce529d7"
+      ],
+      "committed_at": "2026-10-20T11:22:57Z",
+      "message": "Issue #89: correct check-in table filename"
+    },
+    {
+      "sha": "caa070a66015753f05ee8980e74c36fd2ce529d7",
+      "parents": [
+        "d6f1323fe5a3984b6414e0065510d0394099666a"
+      ],
+      "committed_at": "2026-10-20T11:22:55Z",
+      "message": "Issue #89: document social feed endpoint"
+    },
+    {
+      "sha": "d6f1323fe5a3984b6414e0065510d0394099666a",
+      "parents": [
+        "15ff2e652786a2e6278603f4589c5c201ec312ee",
+        "4538b458d4a434b23e6c508e9ea5fd5f9475a19d"
+      ],
+      "committed_at": "2026-10-20T11:19:27Z",
+      "message": "Merge pull request #88 from Inetiger/10-brukernavn-frontend\n\nTilpass testprofilskjema med brukernavn og passordplassholder"
+    },
+    {
+      "sha": "15ff2e652786a2e6278603f4589c5c201ec312ee",
+      "parents": [
+        "70c0d2e4e03ae65fea693106ea24564be6dae37e",
+        "126c7c3b0e7408405044293c91f84528d492b5ed"
+      ],
+      "committed_at": "2026-10-20T11:18:10Z",
+      "message": "Merge pull request #82 from Inetiger/50-project-setup\n\n50 Klargjør prosjektoppsett og dokumenterer oppstart"
+    },
+    {
+      "sha": "126c7c3b0e7408405044293c91f84528d492b5ed",
+      "parents": [
+        "baa066205182c7b13900f0e0f7c9845b3a153970",
+        "70c0d2e4e03ae65fea693106ea24564be6dae37e"
+      ],
+      "committed_at": "2026-10-20T11:18:01Z",
+      "message": "Merge branch 'main' into 50-project-setup"
+    },
+    {
+      "sha": "70c0d2e4e03ae65fea693106ea24564be6dae37e",
+      "parents": [
+        "1a021b4721efd86ef93583d5c966b80482c84b87",
+        "84e2b2a10ff2c782f014841e3a8a842709a59c24"
+      ],
+      "committed_at": "2026-10-20T11:15:35Z",
+      "message": "Merge pull request #83 from Inetiger/51-data-model\n\n51 Dokumenter datamodell og relasjoner"
+    },
+    {
+      "sha": "1a021b4721efd86ef93583d5c966b80482c84b87",
+      "parents": [
+        "72f6a0d4d487c8510621f4c69476a150441d15f0",
+        "257661c47548770fc9ca15c66dde7a7a3bf8cd98"
+      ],
+      "committed_at": "2026-10-20T11:14:20Z",
+      "message": "Merge pull request #84 from Inetiger/58-test-setup\n\n58 Sett opp repeterbar kommando for automatiske tester"
+    },
+    {
+      "sha": "4538b458d4a434b23e6c508e9ea5fd5f9475a19d",
+      "parents": [
+        "72f6a0d4d487c8510621f4c69476a150441d15f0"
+      ],
+      "committed_at": "2026-10-20T11:13:37Z",
+      "message": "Tilpass testprofilskjema med brukernavn og deaktivert passord (#10)"
+    },
+    {
+      "sha": "72f6a0d4d487c8510621f4c69476a150441d15f0",
+      "parents": [
+        "4dbab2e44b4b9b3dd9915bc8c18cd0e02b1f7a26",
+        "645bdcb8943b4ec9c73be36a8517a419f413b6af"
+      ],
+      "committed_at": "2026-10-20T11:12:11Z",
+      "message": "Merge pull request #85 from Inetiger/61-github-actions-ci\n\n61 Konfigurer GitHub Actions for bygg og tester"
+    },
+    {
+      "sha": "4dbab2e44b4b9b3dd9915bc8c18cd0e02b1f7a26",
+      "parents": [
+        "ff6c94fe17886726d0a8c371f1a0ae11b20ee46a",
+        "e83df8afa1c975b6855f5b31e9ac7c6d7f4c1328"
+      ],
+      "committed_at": "2026-10-20T11:08:37Z",
+      "message": "Merge pull request #86 from Inetiger/74-social-feed-api\n\n74 Implementer lesetilgang for sosial feed"
+    },
+    {
+      "sha": "ff6c94fe17886726d0a8c371f1a0ae11b20ee46a",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c",
+        "068f8ee08d599584ac46eeff0555e9aec2d2f1e1"
+      ],
+      "committed_at": "2026-10-20T11:06:47Z",
+      "message": "Merge pull request #87 from Inetiger/7-match-test-fixtures\n\n7 Opprett gjenbrukbare testdata for kampoversikten"
+    },
+    {
+      "sha": "e83df8afa1c975b6855f5b31e9ac7c6d7f4c1328",
+      "parents": [
+        "91049b32b358da6a37be6538c70457e458e535a5"
+      ],
+      "committed_at": "2026-10-20T11:00:47Z",
+      "message": "Issue #74: test rejection of unknown post authors"
+    },
+    {
+      "sha": "91049b32b358da6a37be6538c70457e458e535a5",
+      "parents": [
+        "43796319b6e971c4de61cee05343619d47d3107c"
+      ],
+      "committed_at": "2026-10-20T11:00:40Z",
+      "message": "Issue #74: cover posts with unknown authors"
+    },
+    {
+      "sha": "43796319b6e971c4de61cee05343619d47d3107c",
+      "parents": [
+        "0371f23f0f066632c6288ed2a0c7fb50955d6f6e"
+      ],
+      "committed_at": "2026-10-20T11:00:37Z",
+      "message": "Issue #74: filter posts with unknown authors"
+    },
+    {
+      "sha": "068f8ee08d599584ac46eeff0555e9aec2d2f1e1",
+      "parents": [
+        "0e2278b23a41e28e35d97c378de52ee94e08858b"
+      ],
+      "committed_at": "2026-10-20T10:59:40Z",
+      "message": "Issue #7: verify reusable match fixture dataset"
+    },
+    {
+      "sha": "0e2278b23a41e28e35d97c378de52ee94e08858b",
+      "parents": [
+        "01ef0dccbd57171e0a0e5f40e4f8018c5d150a71"
+      ],
+      "committed_at": "2026-10-20T10:59:38Z",
+      "message": "Issue #7: add reusable match test fixtures"
+    },
+    {
+      "sha": "01ef0dccbd57171e0a0e5f40e4f8018c5d150a71",
+      "parents": [
+        "3f317c97925ae24eb291ace42820e6351b55d212"
+      ],
+      "committed_at": "2026-10-20T10:59:35Z",
+      "message": "Issue #7: add reusable stadium test fixtures"
+    },
+    {
+      "sha": "3f317c97925ae24eb291ace42820e6351b55d212",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:59:33Z",
+      "message": "Issue #7: add reusable club test fixtures"
+    },
+    {
+      "sha": "0371f23f0f066632c6288ed2a0c7fb50955d6f6e",
+      "parents": [
+        "75dcc6a1fcb658fea38fca43c99c800095f00237"
+      ],
+      "committed_at": "2026-10-20T10:58:21Z",
+      "message": "Issue #74: test social feed response and validation"
+    },
+    {
+      "sha": "75dcc6a1fcb658fea38fca43c99c800095f00237",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:58:18Z",
+      "message": "Issue #74: add read-only social feed endpoint"
+    },
+    {
+      "sha": "baa066205182c7b13900f0e0f7c9845b3a153970",
+      "parents": [
+        "07a510667adabbc7e01d1688cc115643beb915f1"
+      ],
+      "committed_at": "2026-10-20T10:58:04Z",
+      "message": "Issue #50: document setup and run instructions"
+    },
+    {
+      "sha": "645bdcb8943b4ec9c73be36a8517a419f413b6af",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:57:34Z",
+      "message": "Issue #61: add Node.js checks to GitHub Actions"
+    },
+    {
+      "sha": "257661c47548770fc9ca15c66dde7a7a3bf8cd98",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:57:30Z",
+      "message": "Issue #58: add repeatable Node test command"
+    },
+    {
+      "sha": "84e2b2a10ff2c782f014841e3a8a842709a59c24",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:57:28Z",
+      "message": "Issue #51: document core data model and validation rules"
+    },
+    {
+      "sha": "07a510667adabbc7e01d1688cc115643beb915f1",
+      "parents": [
+        "a444d9f54ccf3aa0265362229642ec5d89bbd74c"
+      ],
+      "committed_at": "2026-10-20T10:57:24Z",
+      "message": "Issue #50: make API server startable"
+    },
+    {
+      "sha": "a444d9f54ccf3aa0265362229642ec5d89bbd74c",
+      "parents": [
+        "23a5cd30641093742d9b2f1ed875a1e1a9ed650a",
+        "48b7745892b472e66a391fa352bb082ddfb3965a"
+      ],
+      "committed_at": "2026-10-20T10:55:08Z",
+      "message": "Merge pull request #78 from Inetiger/77-fix-frontend-asset-links\n\n77 Rett HTML-struktur og kobling til CSS/JavaScript"
+    },
+    {
+      "sha": "23a5cd30641093742d9b2f1ed875a1e1a9ed650a",
+      "parents": [
+        "7d700118f04914a95559e3641c7190e7c42f3f15"
+      ],
+      "committed_at": "2026-10-20T10:54:14Z",
+      "message": "Rename stil.css to style.css"
+    },
+    {
+      "sha": "48b7745892b472e66a391fa352bb082ddfb3965a",
+      "parents": [
+        "92824e8ad0602354f1863230b177bb806731f747"
+      ],
+      "committed_at": "2026-10-20T10:53:04Z",
+      "message": "Change stylesheet link from stil.css to style.css"
+    },
+    {
+      "sha": "7d700118f04914a95559e3641c7190e7c42f3f15",
+      "parents": [
+        "b851e9b60a233b4741d7b5cd6ca7c7b0b7074616",
+        "4a497ff6b3fc3e8d9036fb45d1cc7ca3bc07835c"
+      ],
+      "committed_at": "2026-10-20T10:48:10Z",
+      "message": "Merge pull request #81 from Inetiger/72-match-api\n\n72 Implementer datatilgang for kampoversikt og kampdetaljer"
+    },
+    {
+      "sha": "4a497ff6b3fc3e8d9036fb45d1cc7ca3bc07835c",
+      "parents": [
+        "c21381b6f77a478469dfc5fb56a3a4875bd233ef"
+      ],
+      "committed_at": "2026-10-20T10:41:25Z",
+      "message": "Test match API with isolated fixtures for issue #72"
+    },
+    {
+      "sha": "c21381b6f77a478469dfc5fb56a3a4875bd233ef",
+      "parents": [
+        "b851e9b60a233b4741d7b5cd6ca7c7b0b7074616"
+      ],
+      "committed_at": "2026-10-20T10:41:23Z",
+      "message": "Add match read API for issue #72"
+    },
+    {
+      "sha": "92824e8ad0602354f1863230b177bb806731f747",
+      "parents": [
+        "b851e9b60a233b4741d7b5cd6ca7c7b0b7074616"
+      ],
+      "committed_at": "2026-10-20T10:26:44Z",
+      "message": "Fix frontend markup and asset links (#77)"
+    },
+    {
+      "sha": "b851e9b60a233b4741d7b5cd6ca7c7b0b7074616",
+      "parents": [
+        "cbdd8ec0d46db7e15176d07cc19f5e64487fb7ed",
+        "c8e26853d44dda3f86c2d04c8240b5d1975de46d"
+      ],
+      "committed_at": "2026-10-20T10:19:06Z",
+      "message": "Merge pull request #71 from Inetiger/70-lage-kjørbar-nettside-som-har-elementene-i-wireframes\n\n70 lage kjørbar nettside som har elementene i wireframes"
+    },
+    {
+      "sha": "c8e26853d44dda3f86c2d04c8240b5d1975de46d",
+      "parents": [
+        "11402f305b6dbdee8fc2f1d9fd7fea39a866dcd2"
+      ],
+      "committed_at": "2026-10-19T12:03:20Z",
+      "message": "Expand index.html with new sections and content\n\nAdded sections for login, upcoming matches, check-in, profile, social feed, events, and stadium map with relevant details."
+    },
+    {
+      "sha": "11402f305b6dbdee8fc2f1d9fd7fea39a866dcd2",
+      "parents": [
+        "689dfdf4d9970af9b6e43dec9efd3737ed5bc68f"
+      ],
+      "committed_at": "2026-10-19T11:23:03Z",
+      "message": "Add files via upload"
+    },
+    {
+      "sha": "689dfdf4d9970af9b6e43dec9efd3737ed5bc68f",
+      "parents": [
+        "cbdd8ec0d46db7e15176d07cc19f5e64487fb7ed"
+      ],
+      "committed_at": "2026-10-19T11:22:02Z",
+      "message": "Revamp index.html with new layout and sections"
+    },
+    {
+      "sha": "cbdd8ec0d46db7e15176d07cc19f5e64487fb7ed",
+      "parents": [
+        "d0dd235d04e7f79451848476bc98f52e69870b59"
+      ],
+      "committed_at": "2026-10-13T11:54:29Z",
+      "message": "Delete Issues"
+    },
+    {
+      "sha": "d0dd235d04e7f79451848476bc98f52e69870b59",
+      "parents": [
+        "7c54da3b301ddcd7c664c2a0824b9c3171b7b6f1"
+      ],
+      "committed_at": "2026-10-13T10:29:15Z",
+      "message": "Add suggestions for GitHub issues for Deliverable 3\n\nAdded suggestions for GitHub issues related to Deliverable 3, including milestones, tasks, and definitions of done for various features and improvements."
+    },
+    {
+      "sha": "7c54da3b301ddcd7c664c2a0824b9c3171b7b6f1",
+      "parents": [
+        "1cc6b42692c3adbf87a527a99c8543e874d827a1"
+      ],
+      "committed_at": "2026-10-07T12:59:01Z",
+      "message": "Fix typos and enhance clarity in documentation\n\nCorrected various typos and improved phrasing for clarity throughout the document."
+    },
+    {
+      "sha": "1cc6b42692c3adbf87a527a99c8543e874d827a1",
+      "parents": [
+        "644465686166181b9f4eb4fcb63ea47bf9a0d3b9",
+        "e9b05fff84b7ae10a476a766064fd1d756e446c7"
+      ],
+      "committed_at": "2026-10-07T12:10:59Z",
+      "message": "Merge pull request #49 from Inetiger/21-lage-wireframesprototype\n\n21 lage wireframesprototype"
+    },
+    {
+      "sha": "644465686166181b9f4eb4fcb63ea47bf9a0d3b9",
+      "parents": [
+        "38e18f53ae4e1c80b071e4ab463b6f8695b6b581",
+        "db5516341e372bc1dbeb806777a4a1f3a388bd86"
+      ],
+      "committed_at": "2026-10-07T12:08:24Z",
+      "message": "Merge pull request #48 from Inetiger/38-13-fjerne-kildehenvisning-kap-8\n\nRefine Git workflow section by removing redundancy"
+    },
+    {
+      "sha": "e9b05fff84b7ae10a476a766064fd1d756e446c7",
+      "parents": [
+        "71d71727acdfbd5abd9155583e66dea30b8e53d8",
+        "35c4ec869848d4aa988c9f74abf011aa104f5ae8"
+      ],
+      "committed_at": "2026-10-07T12:04:08Z",
+      "message": "Merge pull request #47 from Inetiger/fargekatten-patch-1\n\nRevise wireframes and user flow for clarity"
+    },
+    {
+      "sha": "db5516341e372bc1dbeb806777a4a1f3a388bd86",
+      "parents": [
+        "38e18f53ae4e1c80b071e4ab463b6f8695b6b581"
+      ],
+      "committed_at": "2026-10-07T11:52:27Z",
+      "message": "Refine Git workflow section by removing redundancy\n\nRemoved redundant explanation about Git workflow practices and their adaptation for student groups."
+    },
+    {
+      "sha": "35c4ec869848d4aa988c9f74abf011aa104f5ae8",
+      "parents": [
+        "eb692218564ac8a22a3f188af4796f682d5b4875"
+      ],
+      "committed_at": "2026-10-07T09:35:23Z",
+      "message": "Revise wireframes and user flow for clarity\n\nUpdated wireframes and user flow descriptions to clarify MVP functionality and user navigation. Adjusted content to reflect feedback and improve understanding of features."
+    },
+    {
+      "sha": "38e18f53ae4e1c80b071e4ab463b6f8695b6b581",
+      "parents": [
+        "6e317f8ff5f78349f641d4da1fa3a471926a93a8"
+      ],
+      "committed_at": "2026-10-07T09:17:44Z",
+      "message": "Delete domenemodell.md"
+    },
+    {
+      "sha": "6e317f8ff5f78349f641d4da1fa3a471926a93a8",
+      "parents": [
+        "119a93a6318d9b03e1647a2a5d96b5cb5c4ece7b"
+      ],
+      "committed_at": "2026-10-07T09:15:24Z",
+      "message": "Delete gammel"
+    },
+    {
+      "sha": "119a93a6318d9b03e1647a2a5d96b5cb5c4ece7b",
+      "parents": [
+        "8708a8a2faea074e807e0dd3018b93b989491fbd"
+      ],
+      "committed_at": "2026-10-07T09:15:12Z",
+      "message": "Delete Arkitektur.md"
+    },
+    {
+      "sha": "71d71727acdfbd5abd9155583e66dea30b8e53d8",
+      "parents": [
+        "eb692218564ac8a22a3f188af4796f682d5b4875"
+      ],
+      "committed_at": "2026-10-07T09:13:36Z",
+      "message": "Revise domain model description and implementation details\n\nUpdated domain model section to clarify the basis of the model and its implementation in the project. Added details about JSON files and their role in the data structure."
+    },
+    {
+      "sha": "8708a8a2faea074e807e0dd3018b93b989491fbd",
+      "parents": [
+        "b4bc124f09cf575444656e44d65479359edd3cbe"
+      ],
+      "committed_at": "2026-10-07T08:28:25Z",
+      "message": "Add files via upload"
+    },
+    {
+      "sha": "b4bc124f09cf575444656e44d65479359edd3cbe",
+      "parents": [
+        "66b67a60752744fc80c68e2d7639dba173ba28e7"
+      ],
+      "committed_at": "2026-10-07T08:22:27Z",
+      "message": "Create Events.json with event structure\n\nAdd initial structure for events in JSON format."
+    },
+    {
+      "sha": "66b67a60752744fc80c68e2d7639dba173ba28e7",
+      "parents": [
+        "d0789aaf1f7d8cb921482dfc769ebb5600a9d231"
+      ],
+      "committed_at": "2026-10-07T08:20:19Z",
+      "message": "Add initial structure for Stadiums.json"
+    },
+    {
+      "sha": "d0789aaf1f7d8cb921482dfc769ebb5600a9d231",
+      "parents": [
+        "825d1bb33616c76d0c7fcb0c5b07a2bd57aa0752"
+      ],
+      "committed_at": "2026-10-07T08:18:34Z",
+      "message": "Add initial structure for Clubs.json"
+    },
+    {
+      "sha": "825d1bb33616c76d0c7fcb0c5b07a2bd57aa0752",
+      "parents": [
+        "a80f53e07be58efc1e20db38905df874b545c1a8"
+      ],
+      "committed_at": "2026-10-07T08:17:59Z",
+      "message": "Add initial structure for Matches.json"
+    },
+    {
+      "sha": "a80f53e07be58efc1e20db38905df874b545c1a8",
+      "parents": [
+        "094cb95a2b6144f369537d0de0788f01d9eb99e5"
+      ],
+      "committed_at": "2026-10-07T08:16:51Z",
+      "message": "Add initial structure for Check_ins.json"
+    },
+    {
+      "sha": "094cb95a2b6144f369537d0de0788f01d9eb99e5",
+      "parents": [
+        "ae2addafe581b0c0d0e1af89c455ec92ae5c5f11"
+      ],
+      "committed_at": "2026-10-07T08:15:08Z",
+      "message": "Add initial structure for Posts.json"
+    },
+    {
+      "sha": "ae2addafe581b0c0d0e1af89c455ec92ae5c5f11",
+      "parents": [
+        "eb692218564ac8a22a3f188af4796f682d5b4875"
+      ],
+      "committed_at": "2026-10-07T08:14:14Z",
+      "message": "Add initial structure for Users.json"
+    },
+    {
+      "sha": "eb692218564ac8a22a3f188af4796f682d5b4875",
+      "parents": [
+        "46949b08ecba52d182795b0a84f4322d2f95a2c5",
+        "d2453c0a6e70decfdd5aa18c67d61e3b561b2fdf"
+      ],
+      "committed_at": "2026-10-07T07:03:27Z",
+      "message": "Merge pull request #43 from Inetiger/34-93-build-og-deployment\n\n34 93 build og deployment"
+    },
+    {
+      "sha": "46949b08ecba52d182795b0a84f4322d2f95a2c5",
+      "parents": [
+        "dfb0b11e8f69352b963a63688c4b0dcb6e25ac51",
+        "d6d063abdff72652c3b4e438c349c8c913fd9d3b"
+      ],
+      "committed_at": "2026-10-07T07:02:55Z",
+      "message": "Merge pull request #45 from Inetiger/33-92-testing-og-automatisering\n\nDocument testing and automation strategy"
+    },
+    {
+      "sha": "dfb0b11e8f69352b963a63688c4b0dcb6e25ac51",
+      "parents": [
+        "df2c08a98e3dd9ecf12aedf43360f27bafb42a6b",
+        "1dffc76955ad3ceb93cd4cb3a03b9ba7f7171c54"
+      ],
+      "committed_at": "2026-10-07T07:00:46Z",
+      "message": "Merge pull request #44 from Inetiger/32-91-continuous-integration\n\nDocument CI/CD strategy with GitHub Actions"
+    },
+    {
+      "sha": "df2c08a98e3dd9ecf12aedf43360f27bafb42a6b",
+      "parents": [
+        "6a1663f215f76f3a114717e5a461915991bdccb8",
+        "23281955084826a99cf344ca41921988d50b32a4"
+      ],
+      "committed_at": "2026-10-07T06:58:22Z",
+      "message": "Merge pull request #42 from Inetiger/35-10-risiko-avhengigheter-og-teknisk-gjeld\n\nDelete section 10 on risks and dependencies"
+    },
+    {
+      "sha": "1dffc76955ad3ceb93cd4cb3a03b9ba7f7171c54",
+      "parents": [
+        "18a32b3ed2116cd7e089b4687ba77639b6721616"
+      ],
+      "committed_at": "2026-10-07T06:43:11Z",
+      "message": "Update Stadionhopper_Deliverable_2_HELE_TEKSTEN.md"
+    },
+    {
+      "sha": "d2453c0a6e70decfdd5aa18c67d61e3b561b2fdf",
+      "parents": [
+        "e031c2be9b61eeafbaeae7f607c274cf9c986d81"
+      ],
+      "committed_at": "2026-10-06T11:25:49Z",
+      "message": "Remove backticks from deployment workflow description"
+    },
+    {
+      "sha": "e031c2be9b61eeafbaeae7f607c274cf9c986d81",
+      "parents": [
+        "6a1663f215f76f3a114717e5a461915991bdccb8"
+      ],
+      "committed_at": "2026-10-06T10:53:58Z",
+      "message": "Document build and deployment strategy\n\nAdded build and deployment strategy details for Stadionhopper project, outlining CI workflow and future pipeline development."
+    },
+    {
+      "sha": "23281955084826a99cf344ca41921988d50b32a4",
+      "parents": [
+        "605c77d91acfe9bf3d0d9adb7dca4343091d14b8"
+      ],
+      "committed_at": "2026-10-06T10:42:22Z",
+      "message": "Delete sections on prototype, reflection, and references\n\nRemoved sections 11 to 13 from the document."
+    },
+    {
+      "sha": "605c77d91acfe9bf3d0d9adb7dca4343091d14b8",
+      "parents": [
+        "29d4e36d4ff574e06b403a98a895b7a139cdaa50"
+      ],
+      "committed_at": "2026-10-06T10:28:12Z",
+      "message": "Delete section 10 on risks and dependencies\n\nRemoved section on risks, dependencies, and technical debt.\r\nJeg klarer ikke å se at eksamensoppgaven inneholder dette som punkter vi skal skrive om."
+    },
+    {
+      "sha": "d6d063abdff72652c3b4e438c349c8c913fd9d3b",
+      "parents": [
+        "6a1663f215f76f3a114717e5a461915991bdccb8"
+      ],
+      "committed_at": "2026-10-06T10:22:19Z",
+      "message": "Document testing and automation strategy\n\nAdded a detailed testing and automation strategy for Stadionhopper, outlining the types of tests to be implemented and their integration into the CI workflow."
+    },
+    {
+      "sha": "18a32b3ed2116cd7e089b4687ba77639b6721616",
+      "parents": [
+        "6a1663f215f76f3a114717e5a461915991bdccb8"
+      ],
+      "committed_at": "2026-10-06T10:20:39Z",
+      "message": "Document CI/CD strategy with GitHub Actions\n\nAdded a detailed CI strategy using GitHub Actions, outlining the workflow steps for Continuous Integration, including code checkout, environment setup, build process, automated testing, quality checks, and reporting."
+    },
+    {
+      "sha": "6a1663f215f76f3a114717e5a461915991bdccb8",
+      "parents": [
+        "c15cebc144c3f2b6e7169cba3fcc9d7e97b0596e"
+      ],
+      "committed_at": "2026-10-06T10:08:27Z",
+      "message": "Create Events.json"
+    },
+    {
+      "sha": "c15cebc144c3f2b6e7169cba3fcc9d7e97b0596e",
+      "parents": [
+        "66fbe9c7a01b04004c70ddd5da4edf52c4b27521"
+      ],
+      "committed_at": "2026-10-06T10:08:10Z",
+      "message": "Create Posts.json"
+    },
+    {
+      "sha": "66fbe9c7a01b04004c70ddd5da4edf52c4b27521",
+      "parents": [
+        "1f8fa574d6b991f5eb197f91d5d99845b6b105bf"
+      ],
+      "committed_at": "2026-10-06T10:07:50Z",
+      "message": "Create Check_ins.json"
+    },
+    {
+      "sha": "1f8fa574d6b991f5eb197f91d5d99845b6b105bf",
+      "parents": [
+        "1ee80bca5ab57683ad0918a3deb8a15209fee095"
+      ],
+      "committed_at": "2026-10-06T10:06:26Z",
+      "message": "Create Matches.json"
+    },
+    {
+      "sha": "1ee80bca5ab57683ad0918a3deb8a15209fee095",
+      "parents": [
+        "95af2ffcd440b1773aadbc8e65ac65f81496226d"
+      ],
+      "committed_at": "2026-10-06T10:05:50Z",
+      "message": "Create Clubs.json"
+    },
+    {
+      "sha": "95af2ffcd440b1773aadbc8e65ac65f81496226d",
+      "parents": [
+        "2f73c26f876b0cb33be4a416a7d70b68aa6d51c8"
+      ],
+      "committed_at": "2026-10-06T10:05:34Z",
+      "message": "Rename Stadium.json to Stadiums.json"
+    },
+    {
+      "sha": "2f73c26f876b0cb33be4a416a7d70b68aa6d51c8",
+      "parents": [
+        "5e8f64c170344ac8906029b32eca0f094e7aba59"
+      ],
+      "committed_at": "2026-10-06T10:05:22Z",
+      "message": "Rename User.json to Users.json"
+    },
+    {
+      "sha": "5e8f64c170344ac8906029b32eca0f094e7aba59",
+      "parents": [
+        "43305de9222167a2fe2e66c2c7331d55e6c47632"
+      ],
+      "committed_at": "2026-10-06T10:02:45Z",
+      "message": "Create Stadium.json"
+    },
+    {
+      "sha": "43305de9222167a2fe2e66c2c7331d55e6c47632",
+      "parents": [
+        "9432553c43fddf62d3e33d87554cdff6d2d16c0f"
+      ],
+      "committed_at": "2026-10-06T10:02:19Z",
+      "message": "Create User.json"
+    },
+    {
+      "sha": "9432553c43fddf62d3e33d87554cdff6d2d16c0f",
+      "parents": [
+        "8c15fd54e39d6a4418f3dbc145347ae079f2884c"
+      ],
+      "committed_at": "2026-10-06T10:02:00Z",
+      "message": "Delete Database"
+    },
+    {
+      "sha": "8c15fd54e39d6a4418f3dbc145347ae079f2884c",
+      "parents": [
+        "82689d5779332d38c58dbdb7fa9739f3874ddd06"
+      ],
+      "committed_at": "2026-10-06T10:01:16Z",
+      "message": "Delete Users.json"
+    },
+    {
+      "sha": "82689d5779332d38c58dbdb7fa9739f3874ddd06",
+      "parents": [
+        "29d4e36d4ff574e06b403a98a895b7a139cdaa50"
+      ],
+      "committed_at": "2026-10-06T09:59:42Z",
+      "message": "Create Users.json"
+    },
+    {
+      "sha": "29d4e36d4ff574e06b403a98a895b7a139cdaa50",
+      "parents": [
+        "7021495530a681309ac47f52ca489f21acd0ebba"
+      ],
+      "committed_at": "2026-10-06T09:51:50Z",
+      "message": "Create Database"
+    },
+    {
+      "sha": "7021495530a681309ac47f52ca489f21acd0ebba",
+      "parents": [
+        "800b0fe79f098b9cd0fffe7e362d3ec1f48417ce",
+        "36c8555996a3c365ce4c5a834d6154dd77953055"
+      ],
+      "committed_at": "2026-10-06T09:31:48Z",
+      "message": "Merge pull request #40 from Inetiger/copilot/update-git-workflow-chapter\n\nDokumenter planlagt Git-workflow"
+    },
+    {
+      "sha": "800b0fe79f098b9cd0fffe7e362d3ec1f48417ce",
+      "parents": [
+        "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7",
+        "b9fcf3cfc0fe3d2dafba78bb4265e0465fb29fe8"
+      ],
+      "committed_at": "2026-10-06T09:28:23Z",
+      "message": "Merge pull request #41 from Inetiger/39-noen-endring-i-teksten\n\n39 noen endring i teksten"
+    },
+    {
+      "sha": "b9fcf3cfc0fe3d2dafba78bb4265e0465fb29fe8",
+      "parents": [
+        "87bf1c7f55e2d1e59079547f5f3aa7c9f938e617",
+        "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7"
+      ],
+      "committed_at": "2026-10-06T09:27:13Z",
+      "message": "Merge branch 'main' into 39-noen-endring-i-teksten"
+    },
+    {
+      "sha": "87bf1c7f55e2d1e59079547f5f3aa7c9f938e617",
+      "parents": [
+        "1e78c407d0fc9d898222421bf3bb9ec35be074ed"
+      ],
+      "committed_at": "2026-10-06T09:24:36Z",
+      "message": "Clarify central entities and relationships in document\n\nUpdated the document to clarify the central entities and their relationships in Stadionhopper, including detailed descriptions and a visual representation of the domain model."
+    },
+    {
+      "sha": "36c8555996a3c365ce4c5a834d6154dd77953055",
+      "parents": [
+        "35e245336633a5c1ba2dbe9997ade4a6ab45bfa1"
+      ],
+      "committed_at": "2026-10-06T08:44:53Z",
+      "message": "Revise Git workflow documentation\n\nUpdated Git workflow section to clarify branching, pull requests, and review process. Added details on issue management and collaboration practices."
+    },
+    {
+      "sha": "35e245336633a5c1ba2dbe9997ade4a6ab45bfa1",
+      "parents": [
+        "a70d15e6cf2f43dd3a32eac5621578b70be6ac38"
+      ],
+      "committed_at": "2026-10-06T08:06:18Z",
+      "message": "Gjør Git-workflow mer praktisk\n\nCo-authored-by: fargekatten <170368773+fargekatten@users.noreply.github.com>"
+    },
+    {
+      "sha": "a70d15e6cf2f43dd3a32eac5621578b70be6ac38",
+      "parents": [
+        "59d2bd9781e48660c8f69d00b96ef11533affd99"
+      ],
+      "committed_at": "2026-10-06T07:50:56Z",
+      "message": "Skriv kapittel 8 om Git-workflow\n\nCo-authored-by: fargekatten <170368773+fargekatten@users.noreply.github.com>"
+    },
+    {
+      "sha": "59d2bd9781e48660c8f69d00b96ef11533affd99",
+      "parents": [
+        "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7"
+      ],
+      "committed_at": "2026-10-06T07:49:08Z",
+      "message": "Initial plan"
+    },
+    {
+      "sha": "4ae3fd325f7cd87c6286401de1aeaf551c4dd6c7",
+      "parents": [
+        "7c9c8c873cd1e5419bae33f31116b5cedfea84aa"
+      ],
+      "committed_at": "2026-10-06T07:44:36Z",
+      "message": "Legg inn plassholdere og mellomrom i kapittel 8-13, fjern eget DoD-kapittel"
+    },
+    {
+      "sha": "1e78c407d0fc9d898222421bf3bb9ec35be074ed",
+      "parents": [
+        "7c9c8c873cd1e5419bae33f31116b5cedfea84aa"
+      ],
+      "committed_at": "2026-10-05T20:23:01Z",
+      "message": "Revise document for updated user stories and terminology\n\nUpdated names, terminology, and descriptions throughout the document to reflect changes in user stories and functionality. Adjusted acceptance criteria and domain model to align with the latest project requirements.\r\n\r\nJeg har endret ganske drastisk på mye innenfor dokumentet, dette er noe alle må være enige om og komme til en beslutning."
+    },
+    {
+      "sha": "7c9c8c873cd1e5419bae33f31116b5cedfea84aa",
+      "parents": [
+        "f2c7f0db1526f70306e557079daaeb46ea9394fd"
+      ],
+      "committed_at": "2026-10-05T12:54:54Z",
+      "message": "gammel feil i dokument"
+    },
+    {
+      "sha": "f2c7f0db1526f70306e557079daaeb46ea9394fd",
+      "parents": [
+        "a67ea104e8a302ef463d3ce143282936c2894d3f"
+      ],
+      "committed_at": "2026-10-05T12:52:06Z",
+      "message": "Add files via upload"
+    },
+    {
+      "sha": "a67ea104e8a302ef463d3ce143282936c2894d3f",
+      "parents": [
+        "dda9525b3680c4c9dbd633407e752b0b7ce11a88"
+      ],
+      "committed_at": "2026-10-05T12:47:43Z",
+      "message": "Add files via upload"
+    },
+    {
+      "sha": "dda9525b3680c4c9dbd633407e752b0b7ce11a88",
+      "parents": [
+        "7da1a29f6967f0d84a487181be2a71736cfad8ae"
+      ],
+      "committed_at": "2026-10-05T12:41:17Z",
+      "message": "Rename Arkitektur to Arkitektur.md"
+    },
+    {
+      "sha": "7da1a29f6967f0d84a487181be2a71736cfad8ae",
+      "parents": [
+        "d9b7c3628eaff90d70359921e432fdec0dfcdad5",
+        "c429513519068be46586ccb2c08b8518d165d7fa"
+      ],
+      "committed_at": "2026-10-05T09:41:20Z",
+      "message": "Merge pull request #27 from Inetiger/20-ferdigstille-arkitekturdiagram\n\nAdd initial architecture documentation for Stadionhopper"
+    },
+    {
+      "sha": "c429513519068be46586ccb2c08b8518d165d7fa",
+      "parents": [
+        "d9b7c3628eaff90d70359921e432fdec0dfcdad5"
+      ],
+      "committed_at": "2026-10-05T08:32:53Z",
+      "message": "Add initial architecture documentation for Stadionhopper"
+    },
+    {
+      "sha": "d9b7c3628eaff90d70359921e432fdec0dfcdad5",
+      "parents": [
+        "00867902ae1eaab68387ee9efe986b5949d99730",
+        "72221bd2c708b2dc4aff9a3b5295922f84ae1994"
+      ],
+      "committed_at": "2026-10-05T08:02:34Z",
+      "message": "Merge pull request #26 from Inetiger/19-ferdigstille-domenemodell\n\nFerdigstille domenemodell"
+    },
+    {
+      "sha": "72221bd2c708b2dc4aff9a3b5295922f84ae1994",
+      "parents": [
+        "00867902ae1eaab68387ee9efe986b5949d99730"
+      ],
+      "committed_at": "2026-10-05T07:25:27Z",
+      "message": "Add domain model documentation for Stadionhopper\n\nIntroduced a domain model for Stadionhopper, detailing entities and their relationships."
+    },
+    {
+      "sha": "00867902ae1eaab68387ee9efe986b5949d99730",
+      "parents": [
+        "5a4d58b74764f15984da981ad03e2d50bb801c9e"
+      ],
+      "committed_at": "2026-09-22T09:36:50Z",
+      "message": "Update README with project URL\n\nAdd project URL to README"
+    },
+    {
+      "sha": "5a4d58b74764f15984da981ad03e2d50bb801c9e",
+      "parents": [
+        "d1f3f7a0c72f49674834788bb1913ebefa50f60d"
+      ],
+      "committed_at": "2026-09-22T09:33:12Z",
+      "message": "Add introductory paragraph to index.html"
+    },
+    {
+      "sha": "d1f3f7a0c72f49674834788bb1913ebefa50f60d",
+      "parents": [
+        "4357373774d825d237e09fad42940609e5773236"
+      ],
+      "committed_at": "2026-09-22T09:31:50Z",
+      "message": "Add HTML5 boilerplate structure to index.html"
+    },
+    {
+      "sha": "4357373774d825d237e09fad42940609e5773236",
+      "parents": [
+        "9adbc2b4ec5f42d388e4e7555d54f0bedc368067"
+      ],
+      "committed_at": "2026-09-22T09:29:08Z",
+      "message": "Create index.html"
+    },
+    {
+      "sha": "9adbc2b4ec5f42d388e4e7555d54f0bedc368067",
+      "parents": [],
+      "committed_at": "2026-09-21T10:46:53Z",
+      "message": "Initial commit"
+    }
+  ]
 }
