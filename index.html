@@ -28,6 +28,8 @@
     <section id="kamper" class="side">
       <h1>Finn en lokal kamp</h1>
       <p>Tid og sted, samlet på ett sted.</p>
+      <button type="button" class="mork" id="nykampknapp" onclick="startNyKamp()">+ Legg til en kamp</button>
+      <p>Vet du om en kamp? Del lag, tidspunkt og spillested med andre.</p>
       <p>Månedskalender · kampene vises direkte på datoene de spilles. Bruk pilene for å bytte måned.</p>
       <div class="kalenderkontroller" aria-label="Kalendernavigasjon">
         <button type="button" id="forrigemnd" aria-label="Forrige måned">←</button>
@@ -43,6 +45,29 @@
       <button type="button" onclick="hentKamper()">Last kampene på nytt</button>
       <button onclick="visSide('kart')">Finn stadion på kart</button>
       <p>Du kan utforske uten å logge inn.</p>
+    </section>
+
+    <section id="leggtilkamp" class="side">
+      <h1>Legg til en kamp</h1>
+      <p>Du trenger ikke representere en klubb. Kampen merkes som brukerregistrert og er ikke bekreftet av klubben.</p>
+      <p id="nykampmodus"></p>
+      <form id="nykampskjema">
+        <p id="klubbhjelp">Velg en klubb fra forslagene, eller skriv inn et nytt klubb- eller lagnavn. Nye navn legges til når du lagrer kampen.</p>
+        <label for="nytthjemmelag">Hjemmelag</label>
+        <input id="nytthjemmelag" name="home_club_name" list="klubbforslag" aria-describedby="klubbhjelp" required minlength="2" maxlength="100" placeholder="Velg forslag eller skriv et nytt lag">
+        <label for="nyttbortelag">Bortelag</label>
+        <input id="nyttbortelag" name="away_club_name" list="klubbforslag" aria-describedby="klubbhjelp" required minlength="2" maxlength="100" placeholder="For eksempel Gossen IL J15">
+        <datalist id="klubbforslag"></datalist>
+        <label for="nytttidspunkt">Dato og klokkeslett</label>
+        <input id="nytttidspunkt" name="match_date" type="datetime-local" required>
+        <p id="nykamptidssone"></p>
+        <label for="nyttspillested">Spillested</label>
+        <input id="nyttspillested" name="stadium_name" list="stadionforslag" required minlength="2" maxlength="100" placeholder="Bane eller stadion, gjerne med stedsnavn">
+        <datalist id="stadionforslag"></datalist>
+        <p id="nykampstatus" role="status" aria-live="polite"></p>
+        <button type="submit" class="mork" id="lagrekampknapp">Legg kampen i kalenderen</button>
+      </form>
+      <button type="button" onclick="visSide('kamper')">Avbryt og gå til kalenderen</button>
     </section>
 
     <section id="kampdetaljer" class="side">
@@ -67,6 +92,7 @@
 
   <p id="detaljdato"></p>
   <p id="detaljstadion"></p>
+  <p id="detaljkilde"></p>
 </article>
       <button id="besokknapp" onclick="visValgtBesok()" disabled>Se besøk →</button>
     </section>

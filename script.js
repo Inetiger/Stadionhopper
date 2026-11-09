@@ -131,6 +131,11 @@ function velgKalenderdag(nokkel, ikkeRender) {
       knapp.disabled = kamp.match_id == null;
       knapp.onclick = function() { hentKamp(kamp.match_id); };
       kort.appendChild(navn); kort.appendChild(info); kort.appendChild(knapp);
+      if (kamp.source === 'community') {
+        var kilde = document.createElement('p');
+        kilde.textContent = 'Brukerregistrert · ikke bekreftet av klubb';
+        kort.appendChild(kilde);
+      }
       liste.appendChild(kort);
     });
   }
@@ -194,10 +199,10 @@ function kampdato(kamp) {
 
 
 // GitHub Pages serverer bare statiske filer, ikke Node-API-et.
-var demomodus = location.hostname === 'inetiger.github.io';
+var demomodus = location.hostname === 'inetiger.github.io' || /(?:^\?|&)demo=1(?:&|$)/.test(location.search || '');
 if (demomodus) {
   document.getElementById('demostatus').textContent =
-    'Demo · fiktive eksempeldata og testkontoer · innsjekkinger lagres i denne nettleseren.';
+    'Demo · fiktive eksempeldata og testkontoer · kamper og innsjekkinger lagres bare i denne nettleseren.';
 }
 
 // Dette er med vilje en offentlig demo: aldri bruk ekte passord eller personopplysninger her.
@@ -230,10 +235,11 @@ function hentData(adresse) {
     return svar.json();
   }).then(function(data) {
     if (!demomodus) return data;
-    if (adresse === '/api/matches') return { matches: data.matches };
+    var alleKamper = (data.matches || []).concat(demoLesKamper());
+    if (adresse === '/api/matches') return { matches: alleKamper };
     if (adresse === '/api/posts') return { posts: data.posts };
     var id = decodeURIComponent(adresse.split('/').pop());
-    var kamp = data.matches.find(function(kamp) { return String(kamp.match_id) === id; });
+    var kamp = alleKamper.find(function(kamp) { return String(kamp.match_id) === id; });
     if (!kamp) throw new Error('Fant ikke kampen');
     return { match: kamp };
   });
@@ -250,7 +256,7 @@ function hentKamper() {
   var kall = ++listekall;
   var status = document.getElementById('kampstatus');
   status.textContent = 'Laster kamper …';
-  hentData('/api/matches').then(function(data) {
+  return hentData('/api/matches').then(function(data) {
     if (kall !== listekall) return;
     if (!Array.isArray(data.matches)) throw new Error('Ugyldig kampliste');
     kamper = data.matches.slice().filter(function(kamp) {
@@ -296,6 +302,8 @@ if (hjemmelogoFil) hjemmelogo.src = hjemmelogoFil;
 if (bortelogoFil) bortelogo.src = bortelogoFil;
     document.getElementById('detaljdato').textContent = kampdato(valgtKamp);
     document.getElementById('detaljstadion').textContent = valgtKamp.stadium_name || 'Stadion mangler';
+    document.getElementById('detaljkilde').textContent = valgtKamp.source === 'community' ?
+      'Brukerregistrert av ' + (valgtKamp.submitted_by || 'en bruker') + ' · Ikke bekreftet av klubb.' : '';
     document.getElementById('detaljkort').style.display = 'block';
     document.getElementById('detaljstatus').textContent = '';
     document.getElementById('besokknapp').disabled = false;
@@ -437,7 +445,8 @@ async function velgTestprofil() {
       profilstatus('Innlogget testkonto · fiktiv profil for demonstrasjon.');
       document.getElementById('profilnavn').textContent = aktivBruker.display_name +
         (aktivBruker.favorite_club ? ' · Favorittlag: ' + aktivBruker.favorite_club : '');
-      if (ventendeBesok && valgtKamp) { ventendeBesok = false; visValgtBesok(); }
+      if (ventendeKamp) { ventendeKamp = false; startNyKamp(); }
+      else if (ventendeBesok && valgtKamp) { ventendeBesok = false; visValgtBesok(); }
       else visSide('profil');
     } catch (feil) { aktivBruker = null; status.textContent = feil.message || 'Kunne ikke logge inn.'; }
     return;
@@ -456,7 +465,10 @@ async function velgTestprofil() {
     document.getElementById('passord').value = '';
     profilstatus('Innlogget testkonto. Økten håndteres av backend.');
     document.getElementById('profilnavn').textContent = aktivBruker.username;
-    if (ventendeBesok && valgtKamp) {
+    if (ventendeKamp) {
+      ventendeKamp = false;
+      startNyKamp();
+    } else if (ventendeBesok && valgtKamp) {
       ventendeBesok = false;
       visValgtBesok();
     } else visSide('profil');
@@ -488,6 +500,7 @@ async function hentProfilHistorikk() {
 }
 
 async function avsluttTestprofil() {
+  ventendeKamp = false;
   ventendeBesok = false;
   valgtKamp = null;
   try {
@@ -575,6 +588,7 @@ async function bekreftBesok() {
 
 function avbrytBesok() {
   ventendeBesok = false;
+  ventendeKamp = false;
   visSide('kamper');
 }
 
@@ -594,3 +608,141 @@ async function gjenopprettOkt() {
   }
 }
 gjenopprettOkt();
+
+// Brukerinnmeldte kamper: samme brukerreise med delt backend eller lokal Pages-demo.
+var ventendeKamp = false;
+var lagrerKamp = false;
+function demoLesKamper() {
+  try {
+    var data = typeof localStorage !== 'undefined' && localStorage.getItem('stadionhopper-demo-matches');
+    if (!data) return [];
+    var liste = JSON.parse(data);
+    return Array.isArray(liste) ? liste.filter(function(kamp) {
+      return kamp && kamp.source === 'community' && kamp.match_id != null;
+    }) : [];
+  } catch (feil) { return []; }
+}
+
+function kampNokkel(navn) {
+  return navn.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase('nb-NO');
+}
+
+async function startNyKamp() {
+  if (!aktivBruker) {
+    ventendeKamp = true;
+    ventendeBesok = false;
+    visSide('innlogging');
+    document.getElementById('brukerstatus').textContent = 'Logg inn med en testkonto for å legge til en kamp.';
+    return;
+  }
+  visSide('leggtilkamp');
+  document.getElementById('nykampmodus').textContent = demomodus ?
+    'Lokal demo: kampen blir bare synlig i denne nettleseren, også etter omlasting. Den deles ikke med andre.' :
+    'Kampen deles med andre som bruker samme server.';
+  var sone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  document.getElementById('nykamptidssone').textContent = 'Tidspunktet tolkes i din tidssone: ' + sone + '.';
+  document.getElementById('nykampstatus').textContent = 'Laster forslag …';
+  try {
+    var klubber, stadioner;
+    if (demomodus) {
+      var data = await hentData('/api/matches');
+      klubber = []; stadioner = [];
+      data.matches.forEach(function(kamp) {
+        klubber.push(kamp.home_club_name, kamp.away_club_name);
+        stadioner.push(kamp.stadium_name);
+      });
+    } else {
+      var svar = await fetch('/api/match-options');
+      if (!svar.ok) throw new Error('Kunne ikke hente forslag.');
+      var valg = await svar.json();
+      klubber = valg.clubs.map(function(klubb) { return klubb.name; });
+      stadioner = valg.stadiums.map(function(stadion) { return stadion.name; });
+    }
+    [[klubber, 'klubbforslag'], [stadioner, 'stadionforslag']].forEach(function(valg) {
+      var liste = document.getElementById(valg[1]);
+      liste.textContent = '';
+      valg[0].filter(function(navn, indeks, alle) {
+        return navn && alle.indexOf(navn) === indeks;
+      }).forEach(function(navn) {
+        var forslag = document.createElement('option');
+        forslag.value = navn; liste.appendChild(forslag);
+      });
+    });
+    document.getElementById('nykampstatus').textContent = '';
+  } catch (feil) {
+    document.getElementById('nykampstatus').textContent = 'Kunne ikke hente forslag. Du kan fortsatt skrive lag og spillested selv.';
+  }
+}
+
+async function lagreNyKamp(event) {
+  if (event) event.preventDefault();
+  if (lagrerKamp) return;
+  var status = document.getElementById('nykampstatus');
+  if (!aktivBruker) { status.textContent = 'Logg inn før du legger til en kamp.'; return; }
+  var bruker = aktivBruker;
+  var kamp = {
+    home_club_name: document.getElementById('nytthjemmelag').value.trim(),
+    away_club_name: document.getElementById('nyttbortelag').value.trim(),
+    stadium_name: document.getElementById('nyttspillested').value.trim()
+  };
+  var navn = [kamp.home_club_name, kamp.away_club_name, kamp.stadium_name];
+  if (navn.some(function(verdi) { return verdi.length < 2 || verdi.length > 100 || /[<>\x00-\x1f\x7f]/.test(verdi); })) {
+    status.textContent = 'Skriv lag og spillested med 2–100 tegn uten HTML eller kontrolltegn.'; return;
+  }
+  if (kampNokkel(kamp.home_club_name) === kampNokkel(kamp.away_club_name)) {
+    status.textContent = 'Hjemmelag og bortelag må være forskjellige.'; return;
+  }
+  var tid = document.getElementById('nytttidspunkt').value;
+  var dato = new Date(tid);
+  if (!tid || isNaN(dato.getTime())) { status.textContent = 'Oppgi en gyldig dato og et klokkeslett.'; return; }
+  kamp.match_date = dato.toISOString();
+  lagrerKamp = true;
+  document.getElementById('lagrekampknapp').disabled = true;
+  status.textContent = 'Lagrer kampen …';
+  try {
+    var lagret;
+    if (demomodus) {
+      var data = await hentData('/api/matches');
+      if (data.matches.some(function(eksisterende) {
+        return kampNokkel(eksisterende.home_club_name || '') === kampNokkel(kamp.home_club_name) &&
+          kampNokkel(eksisterende.away_club_name || '') === kampNokkel(kamp.away_club_name) &&
+          new Date(eksisterende.match_date).getTime() === dato.getTime();
+      })) throw new Error('Denne kampen finnes allerede. Se kampen i kalenderen.');
+      lagret = Object.assign({}, kamp, {
+        match_id: data.matches.reduce(function(max, rad) { return Math.max(max, Number(rad.match_id) || 0); }, 0) + 1,
+        source: 'community', verification_status: 'unverified', created_by: bruker.user_id,
+        submitted_by: bruker.username, created_at: new Date().toISOString(), status: 'scheduled'
+      });
+      if (typeof localStorage === 'undefined') throw new Error('Nettleseren tillater ikke lagring. Kampen er ikke lagret.');
+      localStorage.setItem('stadionhopper-demo-matches', JSON.stringify(demoLesKamper().concat([lagret])));
+    } else {
+      var svar = await fetch('/api/matches', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(kamp)
+      });
+      var data = await svar.json();
+      if (!svar.ok || !data.match) throw new Error(data.error || 'Kunne ikke lagre kampen.');
+      lagret = data.match;
+    }
+    if (aktivBruker !== bruker) return;
+    // Add the confirmed response immediately; a failed refresh must not suggest a failed save.
+    listekall++;
+    kamper.push(lagret);
+    kalenderMaaned = new Date(dato.getFullYear(), dato.getMonth(), 1);
+    valgtDato = datoNokkel(dato);
+    ['nytthjemmelag', 'nyttbortelag', 'nyttspillested', 'nytttidspunkt'].forEach(function(id) {
+      document.getElementById(id).value = '';
+    });
+    renderKalender();
+    visSide('kamper');
+    document.getElementById('kampstatus').textContent = demomodus ?
+      'Kampen er lagret i denne nettleseren. Den deles ikke med andre.' : 'Kampen er lagt til og kan ses av andre på samme server.';
+  } catch (feil) {
+    status.textContent = feil.name === 'QuotaExceededError' || feil.name === 'SecurityError' ?
+      'Nettleseren tillater ikke lagring. Kampen er ikke lagret.' : feil.message || 'Kunne ikke lagre kampen. Prøv igjen.';
+  } finally {
+    lagrerKamp = false;
+    document.getElementById('lagrekampknapp').disabled = false;
+  }
+}
+document.getElementById('nykampskjema').onsubmit = lagreNyKamp;

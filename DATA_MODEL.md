@@ -1,5 +1,15 @@
 # Stadionhopper data model
 
+## Community match registration (#155)
+
+`POST /api/matches` accepts `home_club_name`, `away_club_name`, `stadium_name` (2–100 characters) and `match_date` (ISO UTC with seconds). It requires an existing server session. Creator, ID, timestamps, status and verification state are assigned by the server, not trusted from the client.
+
+`GET /api/match-options` exposes existing club and stadium names as suggestions. Unknown valid names are supported: clubs, stadiums and matches are saved together in one strict JSON document, `Community.json`, with arrays `clubs`, `stadiums`, `matches`. IDs are numeric and allocated above the current maximum across original and community records. Reads join both sources. Existing `Database/` records are not overwritten by match registration.
+
+Community matches include `source: "community"`, `verification_status: "unverified"`, `created_by`, `submitted_by` (test username) and `created_at`. Duplicate home/away names are normalized (Unicode NFKC, whitespace and case); the same teams and kickoff are rejected regardless of entered stadium. Different kickoffs remain separate matches. This cannot recognize every real-world duplicate or club alias.
+
+Writes are serialized per database directory within one Node process and use a temporary file plus atomic rename. Multi-process deployment requires transactional storage. The existing file names and the legacy schema below remain supported. Pages stores flattened community match records separately in localStorage and is not shared backend storage.
+
 This document separates the **current repository shape** from the **target model** needed for the prototype. The files in `Database/` are templates/placeholders today; they are not a populated test dataset.
 
 ## Current tables
