@@ -11,7 +11,7 @@ used interchangeably.
 environment. It appends one JSON object per unique deployment-status event to
 `metrics/dora/deployments.jsonl` on `main`.
 
-The ledger preserves the deployment ID, status ID, environment, ref, commit
+The dedicated data branch prevents each ledger update from triggering another Pages build. The ledger preserves the deployment ID, status ID, environment, ref, commit
 SHA, state, timestamps, actor, and available deployment/log URLs. Duplicate
 webhook deliveries are ignored. The workflow serializes writes to avoid
 concurrent updates.
