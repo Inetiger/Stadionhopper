@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   test:
-    name: Syntax checks, tests and DORA metrics
+    name: Syntax checks, tests and historical release classification
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -53,7 +53,7 @@ jobs:
             git branch -f main origin/main
           fi
 
-      - name: Calculate release metrics
+      - name: Calculate historical release-classification metrics (not DORA)
         run: |
           mkdir -p metrics
           docker run --rm \
@@ -61,11 +61,11 @@ jobs:
             --volume "$GITHUB_WORKSPACE/.git:/app/.git" \
             stadionhopper-dora:ci --calculate-metrics -e True
 
-      - name: Upload DORA metrics
+      - name: Upload historical release-classification artifact
         if: always() && hashFiles('metrics/**') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: dora-metrics
+          name: historical-release-classification
           path: metrics/
           if-no-files-found: warn
           retention-days: 30
