@@ -30,25 +30,15 @@ Senere gjennomførte vi brukertesting, der vi mottok syv svar. Tilbakemeldingene
 
 ### 3.1 Systemarkitektur
 
-Stadionhopper er utviklet med en frontend basert på HTML, CSS og JavaScript og en backend basert på Node.js. Arkitekturen skiller mellom brukergrensesnittet og håndteringen av data og applikasjonslogikk.
-
-I planleggingen av prosjektet valgte vi en enkel, filbasert løsning med JSON-filer for datalagring. Dette gjorde det mulig å arbeide med sentrale deler av systemet uten å etablere en full database fra starten.
-
-Domenemodellen omfatter blant annet brukere, klubber, stadioner, kamper, innsjekkinger, innlegg og arrangementer. Disse representerer sentrale deler av funksjonaliteten som Stadionhopper skal kunne tilby.
-
-Demonstrasjonsversjonen er publisert gjennom GitHub Pages. Siden GitHub Pages benyttes til statisk publisering, kjører ikke Node.js-backenden som en del av denne løsningen. I stedet brukes lokal nettleserlagring og fiktive data for å demonstrere funksjonaliteten.
+Stadionhopper er utviklet med en frontend basert på HTML, CSS og JavaScript og en backend basert på Node.js. Arkitekturen skiller mellom brukergrensesnittet og håndteringen av data og applikasjonslogikk. I planleggingen av prosjektet valgte vi en enkel, filbasert løsning med JSON-filer for datalagring. Dette gjorde det mulig å arbeide med sentrale deler av systemet uten å etablere en full database fra starten. Domenemodellen omfatter blant annet brukere, klubber, stadioner, kamper, innsjekkinger, innlegg og arrangementer. Disse representerer sentrale deler av funksjonaliteten som Stadionhopper skal kunne tilby. Demonstrasjonsversjonen er publisert gjennom GitHub Pages. Siden GitHub Pages benyttes til statisk publisering, kjører ikke Node.js-backenden som en del av denne løsningen. I stedet brukes lokal nettleserlagring og fiktive data for å demonstrere funksjonaliteten.
 
 *** Sett inn en enkel arkitekturfigur som viser frontend, backend, datalagring og GitHub Pages. Marker tydelig hvilke deler som inngår i den publiserte demonstrasjonen.
 
 ### 3.2 Vurdering av tekniske valg
 
-De tekniske valgene har vært preget av prosjektets omfang og tilgjengelige ressurser. En enkel frontend og filbasert datalagring har gjort det mulig å komme raskt i gang med utviklingen og teste sentrale brukerreiser.
+De tekniske valgene har vært preget av prosjektets omfang og tilgjengelige ressurser. En enkel frontend og filbasert datalagring har gjort det mulig å komme raskt i gang med utviklingen og teste sentrale brukerreiser. Samtidig har arbeidet vist at det er forskjell på en prototype og en løsning som kan brukes i ordinær drift. Den publiserte demonstrasjonen har begrensninger knyttet til felles datalagring, reell autentisering og samhandling mellom brukere.
 
-Samtidig har arbeidet vist at det er forskjell på en prototype og en løsning som kan brukes i ordinær drift. Den publiserte demonstrasjonen har begrensninger knyttet til felles datalagring, reell autentisering og samhandling mellom brukere.
-
-Vi har også erfart at tekniske avhengigheter kan påvirke fremdriften. Under utviklingen oppstod det utfordringer fordi frontend- og backend-arbeidet var avhengig av hverandre, samtidig som ansvarsfordelingen og rekkefølgen på enkelte oppgaver ikke var tilstrekkelig avklart.
-
-Dette ble fulgt opp gjennom felles diskusjoner og tydeligere oppgavefordeling. Erfaringen viste oss at arkitektur og arbeidsorganisering henger tett sammen. Selv en forholdsvis enkel løsning krever at teamet har en felles forståelse av hvordan komponentene skal fungere sammen.
+Vi har også erfart at tekniske avhengigheter kan påvirke fremdriften. Under utviklingen oppstod det utfordringer fordi frontend- og backend-arbeidet var avhengig av hverandre, samtidig som ansvarsfordelingen og rekkefølgen på enkelte oppgaver ikke var tilstrekkelig avklart. Dette ble fulgt opp gjennom felles diskusjoner og tydeligere oppgavefordeling. Erfaringen viste oss at arkitektur og arbeidsorganisering henger tett sammen. Selv en forholdsvis enkel løsning krever at teamet har en felles forståelse av hvordan komponentene skal fungere sammen.
 
 Dersom Stadionhopper skulle videreutvikles, ville vi måtte vurdere både datalagring, sikkerhet, autentisering og hvordan applikasjonen skal publiseres og driftes.
 
@@ -224,6 +214,8 @@ Dersom vi skulle gjennomført prosjektet på nytt, ville vi ønsket å etablere 
 Dette kunne gjort det enklere å oppdage avhengigheter og integrasjonsproblemer tidligere, samtidig som vi hadde fått raskere tilbakemeldinger på funksjonaliteten.
 
 I ettertid ser vi også at vi med fordel kunne gjennomført flere brukertester underveis i utviklingsprosessen. Vi gjennomførte brukertesting og brukte tilbakemeldingene til å forbedre løsningen, men vi testet ikke systematisk med brukere etter hver forbedringsrunde. En mer smidig tilnærming ville vært å teste mindre endringer fortløpende, for eksempel etter at vi hadde rettet noen feil eller forbedret en funksjon. Da kunne vi raskere undersøkt om endringene faktisk løste problemene brukerne opplevde, eller om det fortsatt var behov for justeringer. Dette ville gitt oss kortere tilbakemeldingssløyfer og gjort det enklere å utvikle løsningen i tråd med brukernes behov.
+
+I starten av prosjektet hadde vi en ganske tydelig fordeling av roller og arbeidsoppgaver. Dette ga oss struktur og gjorde det enklere å vite hvem som hadde ansvar for hva. Etter hvert erfarte vi imidlertid at en så tydelig oppdeling også skapte utfordringer. Flere oppgaver var avhengige av at andre først fullførte sitt arbeid, noe som førte til venting og perioder med mindre fremdrift. Underveis endret vi derfor arbeidsformen og begynte å samarbeide mer på tvers av de opprinnelige ansvarsområdene. I stedet for at hver person hovedsakelig arbeidet med sin del, bidro vi i større grad der det var behov. Dette reduserte avhengighetene mellom oss og ga bedre flyt i utviklingsarbeidet. Samtidig fikk vi større innsikt i hverandres oppgaver og en bedre felles forståelse av løsningen. I ettertid ser vi at denne fleksibiliteten burde vært en del av arbeidsformen vår fra starten. Erfaringen har vist oss at tydelig ansvarsfordeling er nyttig, men at for rigide roller kan begrense samarbeidet i et lite team. Ved å tilpasse arbeidsformen underveis fikk vi erfare hvordan smidige prinsipper også kan brukes til å forbedre selve utviklingsprosessen.
 
 *** Diskuter dette i gruppen: Hvilke konkrete endringer i arbeidsformen har hatt størst betydning for fremdriften? Hva ville dere prioritert annerledes dersom dere startet på nytt?
 
