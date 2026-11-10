@@ -97,8 +97,9 @@ Gjennom prosjektet har vi også erfart at pull requests og automatiserte tester 
 
 ## 5. DORA-analyse
 
-### 5.1 Datagrunnlag og målemetode
+### 5.1 Avgrensning og datagrunnlag
 
+Vi undersøker leveranser av den publiserte GitHub Pages-prototypen. Denne er prosjektets tilgjengelige testmiljø og brukes som produksjonsreferanse i analysen. Målingene gjelder derfor ikke en fullstendig driftssatt Node.js-backend, deling mellom brukernes nettlesere eller verdien brukerne får av produktet.
 DORA (DevOps Research and Assessment) brukes til å evaluere programvareleveranser gjennom målinger av hastighet og stabilitet. De fire målingene vi undersøker er Deployment Frequency, Lead Time for Changes, Change Failure Rate og Mean Time to Restore. Formålet med analysen er å undersøke hvordan utviklings- og leveranseprosessen vår har fungert, og hvilke forbedringer vi kan ta med oss videre. Datagrunnlaget hentes fra GitHub, der vi har dokumentasjon på commits, pull requests, GitHub Actions og publiseringer gjennom GitHub Pages. Eventuelle feilregistreringer i Issues kan også bidra til analysen.
 
 I Deliverable 3 benyttet vi et automatisert verktøy for å hente data fra GitHub-historikken. Verktøyet rapporterte blant annet 55 releases, 2 feature releases og 6 bugfix releases. Samtidig inneholdt `release.yaml` bare én registrert release, datert 27. oktober 2026. Disse tallene var ikke umiddelbart sammenfallende. Vi kan derfor ikke uten videre bruke dem som grunnlag for DORA-analysen. Det er nødvendig å kontrollere hva verktøyet faktisk har telt, og skille mellom commits, pull requests, releases og faktiske deployeringer. Vi må også skille mellom feil som oppdages under utvikling og testing, og feil som oppstår etter at en ny versjon er publisert.
@@ -114,8 +115,9 @@ I Deliverable 3 benyttet vi et automatisert verktøy for å hente data fra GitHu
 | Change Failure Rate | *** | Deployeringer og dokumenterte feil | *** |
 | Mean Time to Restore | *** | Dokumenterte driftshendelser | *** |
 
-### 5.2 Deployment Frequency – publiseringsfrekvens
+Hos oss har merge til `main` vært veien til publisering: endringer integreres etter pull request, og Pages publiserer fra hovedbranchen. I praktisk arbeid har vi derfor omtalt dette som å levere. Måleteknisk er merge likevel ikke identisk med deployment. Vi teller en publisering først når Pages faktisk har levert versjonen. En merge kan vente på publisering, og en kjøring kan bli avbrutt eller erstattet av en nyere. CI-kjøringer og commits telles ikke som publiseringer.
 
+Øyeblikksbildet dekker **22. september 2026 kl. 09:30:51 UTC til 10. november 2026 kl. 09:17:11 UTC, eksklusiv slutt**: omtrent 48,99 døgn. Det strekker seg fra første dokumenterte publisering til siste publisering ved uttrekket, ikke til prosjektets fremtidige slutt. Planlegging og utvikling før første publisering inngår ikke i perioden.
 Deployment Frequency måler hvor ofte en ny versjon av programvaren blir publisert. Målingen kan gi innsikt i hvor hyppig teamet leverer endringer til brukerne. For Stadionhopper er det relevant å undersøke antall vellykkede publiseringer gjennom GitHub Pages i den valgte perioden. Det er viktig å skille mellom kodeendringer og faktiske publiseringer. En commit eller pull request innebærer ikke nødvendigvis at en ny versjon er publisert. Vi må derfor ta utgangspunkt i publiseringshistorikken og undersøke hvilke workflows som faktisk har resultert i en vellykket deployering.
 
 *** Legg inn antall vellykkede publiseringer og beregnet frekvens, for eksempel antall publiseringer per uke.
@@ -124,8 +126,14 @@ Deployment Frequency måler hvor ofte en ny versjon av programvaren blir publise
 
 Publiseringsfrekvensen må tolkes i lys av at Stadionhopper er et studentprosjekt. Arbeidsmengden har variert som følge av andre studieforpliktelser og innleveringsfrister. En ujevn publiseringsfrekvens vil derfor ikke nødvendigvis bety at utviklingsprosessen har vært ineffektiv. Samtidig sier ikke hyppige publiseringer alene noe om kvaliteten eller brukerverdien til endringene. Målingen må derfor vurderes sammen med de øvrige DORA-målingene og resultatene fra brukertestingen.
 
-### 5.3 Lead Time for Changes – ledetid for endringer
+Vi har kombinert det historiske uttrekket i PR #154 med nyere deployment-hendelser fra branchen `dora-data`, deploy-jobber i GitHub Actions og commit-historikken fra `main`. Historiske tall er beregnet på nytt, og nyere publiseringer er lagt til uten doble run-ID-er. Datagrunnlaget og beregningsskriptet følger denne rapportendringen:
 
+- [Øyeblikksbilde med publiseringer og commit-graf](metrics/dora/analysis-2026-11-10.json)
+- [Skript for å gjenskape resultatene](scripts/summarize-dora-analysis.js)
+
+### 5.2 Resultater for de fem målingene
+
+Oppgaveteksten bruker de klassiske fire målene. I tråd med #142 vurderer vi også Deployment Rework Rate og bruker Failed Deployment Recovery Time for gjenoppretting etter en feilutløsende leveranse.
 Lead Time for Changes måler tiden fra en kodeendring blir gjort til den er publisert. Målingen kan gi innsikt i hvor raskt teamet klarer å få endringer gjennom utviklings- og leveranseprosessen.
 
 I vårt prosjekt har vi i hovedsak arbeidet med egne branches og pull requests før endringer ble integrert i `main`. GitHub-historikken gir dermed mulighet til å undersøke tidspunktet for kodeendringer, integrasjon og publisering.
@@ -160,8 +168,15 @@ Dersom vi ikke finner dokumenterte hendelser, betyr ikke dette nødvendigvis at 
 
 Vi må derfor være forsiktige med å tolke manglende feilregistreringer som dokumentasjon på høy stabilitet.
 
-### 5.5 Mean Time to Restore – tid til gjenoppretting
+| Måling | Resultat i uttrekket | Beregning og begrensning |
+| --- | --- | --- |
+| Deployment Frequency | **90 dokumenterte publiseringer; 12,86 per uke** | Antall observerte publiseringer delt på periodens lengde i uker. Inkluderer dokumentasjons- og konfigurasjonsendringer som faktisk ble publisert. |
+| Change Lead Time | **Median 5 minutter og 56,5 sekunder; 230 commits** | Fra committer-tidspunkt til første observerte publisering som inneholder commiten. Måler ikke hele brukerhistoriens gjennomløpstid. |
+| Failed Deployment Recovery Time | **Ikke beregnbar med tilstrekkelig sikkerhet** | Krever dokumentert feilutløsende leveranse, start på påvirkning og bekreftet gjenoppretting. |
+| Change Fail Rate | **Ikke beregnbar med tilstrekkelig sikkerhet** | Antall publiseringer som krever umiddelbar korrigering, delt på relevante publiseringer. Hendelsene er ikke systematisk klassifisert. |
+| Deployment Rework Rate | **Ikke beregnbar med tilstrekkelig sikkerhet** | Antall uplanlagte publiseringer for å håndtere produksjonshendelser, delt på relevante publiseringer. Formålet med slike leveranser er ikke tilstrekkelig registrert. |
 
+Manglende hendelsesdata betyr ikke 0 % feil eller 0 minutter gjenoppretting. Det betyr at vi ikke har et pålitelig grunnlag for disse beregningene.
 Mean Time to Restore (MTTR) måler hvor lang tid det tar å gjenopprette en tjeneste etter en feil.
 
 For Stadionhopper vil dette innebære å undersøke om det har oppstått hendelser der den publiserte demonstrasjonsversjonen har vært utilgjengelig eller sentral funksjonalitet har sluttet å virke.
@@ -176,8 +191,69 @@ Vi har dokumentert feil som ble oppdaget gjennom automatiserte tester, men disse
 
 I en løsning med aktive brukere ville vi hatt behov for bedre rutiner for registrering og oppfølging av slike hendelser. Dette ville gjort det mulig å undersøke både hvor raskt feil blir oppdaget, og hvor lang tid det tar før tjenesten fungerer igjen.
 
-### 5.6 Samlet tolkning og begrensninger
+### 5.3 Publiseringsfrekvens og ledetid gjennom prosjektet
 
+Det historiske materialet frem til 9. november kl. 12:21:49 UTC inneholder **83 publiseringer**, tilsvarende **12,07 per uke**, og median ledetid **6 minutter og 16,5 sekunder** for **218 commits**. Det nyere uttrekket tilfører sju dokumenterte publiseringer og tolv kvalifiserende commits. To publiseringer ligger i overgangsperioden da DORA-logging til `main` utløste ekstra Pages-aktivitet; én av dem publiserte en automatisk logger-commit. De fem øvrige fulgte etter rettingen som flyttet loggingen til `dora-data`. Derfor viser vi både historisk og utvidet resultat, fremfor å tolke økningen som større produktivitet.
+
+Publiseringer dedupliseres etter Actions run-ID. Slutten på steget «Deploy to GitHub Pages» brukes som leveringstidspunkt, med deploy-jobbens slutt som reserve. Nye statuslinjer for samme deployment er ikke nye leveranser. En av de nyere workflowene er samlet markert som kansellert, men har både en vellykket deploy-jobb og en vellykket deployment-status. Den er derfor inkludert som en faktisk publisering. Historisk uttrekk valgte derimot vellykkede workflow-kjøringer; eventuelle tilsvarende tilfeller blant eldre kansellerte kjøringer kan være utelatt. De 90 er dermed dokumenterte observasjoner, ikke en garanti for at all historisk publiseringsaktivitet er fanget opp.
+
+Ledetiden kobles til commit-grafen, ikke bare til siste merge. Merge-commits, automatiske logger-commits og commits som allerede inngikk i første observerte publisering, utelates fra ledetidsutvalget. Alle nødvendige forfedre finnes i dette materialet. Formelen er publiseringstidspunkt minus committer-tidspunkt, og medianen beregnes over de kvalifiserende commitene.
+
+Den korte medianen viser at mange registrerte endringer har kommet raskt ut på testsiden. Den sier lite om tid brukt før første commit, venting mellom frontend og backend eller samlet arbeid med en funksjon. Arbeid som committes sent i utviklingen kan ha kort målt ledetid selv om oppgaven tok lang tid. Dokumentasjonsendringer, KI-støttet arbeid og korte endringer påvirker også utvalget. Vi bruker derfor tallene som utgangspunkt for refleksjon over egen leveranseprosess, ikke som en rangering av gruppemedlemmer eller bevis på moden produksjonsdrift.
+
+### 5.4 Feil, gjenoppretting og omarbeiding
+
+Tester og gjennomgang i pull requests skal avdekke feil før merge. Dette er forebyggende kvalitetssikring. En test som feiler i en PR, blir rettet og aldri publiseres, er ikke en produksjonsfeil i DORA-analysen. Beståtte tester viser samtidig bare at de undersøkte egenskapene består; de dokumenterer ikke at alle brukerreiser fungerer etter publisering.
+
+Som et supplerende prosessmål undersøkte vi CI-kjøringer utløst av opprettelse eller oppdatering av pull requests. Uttrekket omfatter 140 kjøringer opprettet fra 19. oktober til 10. november 2026, med siste kjøring opprettet kl. 09:27:54 UTC. Dette uttrekket er litt nyere enn publiseringsuttrekket i punkt 5.1.
+
+| Siste registrerte resultat per CI-kjøring | Antall |
+| --- | ---: |
+| Vellykket | 101 |
+| Feil i steget «Run automated tests» | 37 |
+| Feil i beregningen av release-målinger | 2 |
+| Totalt | 140 |
+
+39 av 140 kjøringer, omtrent 27,9 %, endte med feil. Dette er en CI-feilandel, ikke DORAs Change Fail Rate. Flere kjøringer kan gjelde samme PR og samme underliggende problem. Ved omkjøring viser uttrekket siste resultat per run-ID; tidligere forsøk er ikke telt separat. Vi har kontrollert hvilket steg som feilet, men ikke klassifisert alle årsakene inne i teststeget. Tallene dokumenterer dermed ikke 37 forskjellige applikasjonsfeil eller at 39 feilaktige versjoner ble publisert.
+
+Resultatene viser at automatiserte kontroller har avdekket problemer under PR-arbeidet. Kalenderarbeidet 22. oktober inneholder for eksempel en [feilet testkjøring](https://github.com/Inetiger/Stadionhopper/actions/runs/39776893877) og en [senere vellykket kjøring](https://github.com/Inetiger/Stadionhopper/actions/runs/39777058000). Det støtter refleksjonen om tidlige tilbakemeldinger og mulighet til å rette før integrasjon, men dokumenterer ikke alene at alle feil ble stoppet før publisering. Feilene i release-verktøyet viser også at røde pipeline-kjøringer kan skyldes måleoppsettet fremfor selve appen.
+
+En vellykket Pages-publisering kan inneholde en feil som først oppdages manuelt. Dersom en ny versjon for eksempel gjør at en innlogget bruker ikke kan registrere kamp, og dette krever en rask feilretting, kan hendelsen inngå i analysen. Vi må da kjenne den berørte publiseringen, påvirkningens start, rettingspubliseringen og tidspunktet da brukerreisen igjen er bekreftet fungerende. Change Fail Rate knyttes til den opprinnelige leveransen, mens Deployment Rework Rate knyttes til den uplanlagte korrigerende leveransen.
+
+Et ønske fra brukertesting om bedre navn eller navigasjon er ikke automatisk en slik hendelse. Det må skilles mellom en feil som svekker avtalt funksjonalitet og krever korrigering, og ordinær læring eller videreutvikling av produktet. Testene i #141 viste dessuten at manglende deling mellom nettlesere er en akseptert prototypebegrensning. Dette skal ikke registreres som en ny feilutløsende deployment.
+
+Statusene `error` og `failure` i Actions eller deployment-loggen er heller ikke alene tilstrekkelige: de må undersøkes for faktisk påvirkning og behov for gjenoppretting. Tid fra et vilkårlig bug-issue opprettes til det lukkes, måler saksbehandlingstid, ikke nødvendigvis gjenoppretting. Vi har ikke registrert disse sammenhengene konsekvent nok til å rekonstruere de tre hendelsesbaserte målene. Eventuelle senere estimater må merkes tydelig og begrunnes hendelse for hendelse.
+
+Feil oppdaget ved faktisk bruk eller manuell testing er ikke systematisk merket og koblet til publiseringer i vår historikk. En etterfølgende kartlegging krever derfor manuell gjennomgang av issues, beskrivelser, kommentarer og relevante PR-er. Vi må i hvert tilfelle vurdere om saken gjaldt en publisert feil, et forbedringsønske eller en kjent begrensning, og forsøke å finne berørt og korrigerende leveranse. Tidspunktene kan fortsatt være ukjente selv om vi finner riktig issue. CI-dataene er derfor langt lettere å hente ut enn praktiske feil i bruk. Denne skjevheten i registreringen gjør at vi vet mer om automatiserte kontroller enn om den faktiske stabiliteten brukerne opplevde; den gir ikke grunnlag for å anta at feil utenfor testene ikke forekom.
+
+### 5.5 Kritisk refleksjon over målingene
+
+Målingene gir et skjevt, men nyttig bilde av arbeidet: Vi kan dokumentere leveransehastighet bedre enn stabilitet. Det skyldes blant annet at GitHub automatisk registrerer commits, CI og publiseringer, mens feil oppdaget i bruk i større grad ble diskutert i fritekst i issues og Teams. Manglende tall for feilrate, gjenoppretting og hendelsesdrevet omarbeiding er derfor først og fremst en begrensning ved registreringen. De er ikke dokumentasjon på at slike problemer ikke oppstod.
+
+Medianen på 5 minutter og 56,5 sekunder må også tolkes sammen med variasjonen. Av 230 commits hadde 25 ledetid under ett minutt, 154 fra ett minutt til og med én time og 51 over én time. Blant de siste hadde 16 ledetid på minst ett døgn. Medianen er dermed forenlig med at enkelte endringer ventet i flere dager. Korte observasjoner omfatter også dokumentasjon og filendringer som raskt ble publisert. Vi kan ikke utlede en effekt av KI fra disse tallene: Arbeid før commit er ikke med, og sen committing kan gi kort målt ledetid uavhengig av hvor lang tid oppgaven tok.
+
+En etterfølgende gjennomgang gir likevel konkrete eksempler som belyser feil og omarbeiding:
+
+| Historisk spor | Hva som kan underbygges | Forbehold |
+| --- | --- | --- |
+| #70 / PR #71 → #77 / PR #78 | Etter publisering av HTML-prototypen måtte manglende JavaScript-referanse, CSS-kobling og HTML-struktur korrigeres. Den historiske HTML-versjonen bekrefter manglende scriptlasting. | En relevant kandidat til feilretting etter publisering. Problemer med knapper var også meldt før merge; hendelsen viser derfor en svakhet i oppfølgingen av testobservasjoner. |
+| #54 / PR #91 → #93 / PR #96 | Kampoversikten ble koblet til et API som GitHub Pages ikke kjører. En egen demomodus ble deretter laget for den publiserte testlenken. | Underbygger et integrasjonsproblem mellom lokalt testmiljø og publiseringsmiljø. |
+| PR #114 → #115 og PR #113 → #116 | Publiserte endringer ble tilbakeført. | Tilbakeføringene er dokumentert, men vi mangler sikker begrunnelse for å klassifisere dem som hendelsesdrevet rollback. |
+| PR #97 og #133–#134 | Testkode etter konfliktløsing og oppsettet for måleverktøyet måtte korrigeres. | Dette er omarbeiding i utviklings-/leveranseprosessen, uten dokumentert brukerrettet driftsfeil. |
+
+For de to første kandidatene er intervallene fra relevant publisering til publisert rettelse henholdsvis **36 minutter og 11 sekunder** og **37 minutter og 32 sekunder** den 20. oktober. Dette er rekonstruerte intervaller, ikke bekreftede gjenopprettingstider: Vi mangler samtidig verifikasjon av når funksjonene fungerte igjen for brukerne. Issue-lukking kan heller ikke erstatte dette tidspunktet. Eksempelvis ble #121 lukket 9. november, mens den tilhørende rettingen ble merget 26. oktober. En lukkedato kan gjelde administrativ opprydding.
+
+Teams-utdraget fra perioden 19.–21. oktober viser at testinvitasjonen uttrykkelig opplyste at innlogging manglet. Dette støtter at manglende innlogging i denne testversjonen var en kommunisert avgrensning. Innspill om uklare navigasjonsbegreper og kalender førte videre til produktforbedringer. Slike endringer kan innebære omarbeiding i vanlig språkbruk, men er ikke automatisk Deployment Rework Rate: Vi må kunne knytte dem til en relevant produksjonshendelse. En senere, upresis omtale av tilgang uten å trykke «Utforsk» kan ikke klassifiseres sikkert og er utelatt fra hendelsesberegninger.
+
+Vi har dermed nok materiale til å drøfte alle fem målingene, men ikke til å beregne sikre verdier for alle. En prosent basert bare på feilene vi tilfeldigvis finner igjen, kan undervurdere feilomfanget. På samme måte kan intervaller basert på publiseringstid gi et mer presist inntrykk enn dokumentasjonen tillater. Eksemplene brukes derfor kvalitativt, og de tre hendelsesbaserte målene beholdes som ukjente. Den korte prosjektperioden, begrensede brukergruppen og ufullstendige hendelseshistorikken gjør også sammenligning med modne driftsteam lite meningsfull.
+
+### 5.6 Videre forbedring av datagrunnlaget
+
+Det gamle CI-verktøyets release-/bugfix-klassifisering brukes ikke som erstatning for faktiske produksjonshendelser. Deploy-loggen er en hendelsesliste, ikke et ferdig dashboard; filen på `main` er eldre historikk, mens videre logging skjer på `dora-data`.
+
+Vi ville bygget videre på eksisterende issues og PR-er. Når en relevant feil oppdages i bruk, registreres berørt publisering, påvirkning, tidspunkt og koblet rettings-PR i samme issue, gjerne med den eksisterende Production incident-malen. Rettelsen testes før merge og bekreftes etter publisering. Hvis starttidspunktet er ukjent, registreres oppdagelsestidspunktet som en uttrykkelig avgrenset tilnærming. Det trengs ingen parallell feilrapport for hver måling.
+
+Et felles dashboard kan beregne publiseringsfrekvens og ledetid automatisk og vise hendelsesbaserte mål med datamangler. GitHub Projects kan supplere med arbeidsstatus og venting, men er ikke nødvendig for selve registreringen eller beregningen. Løsningen bør inngå i gruppas løpende prioritering og retrospektiv, sammen med brukerinnspill. Slik blir målingene et grunnlag for forbedring av flyt og kvalitet, fremfor et vedlegg som først leses ved innlevering.
 DORA-målingene må vurderes i lys av prosjektets rammer. Stadionhopper er utviklet av en liten studentgruppe over en begrenset periode, og demonstrasjonsversjonen er ikke en fullstendig produksjonsløsning med aktive brukere og systematisk driftsovervåking.
 
 Dette påvirker særlig muligheten til å måle Change Failure Rate og Mean Time to Restore. Dersom feil etter publisering ikke er registrert systematisk, vil det være vanskelig å beregne disse målingene på en pålitelig måte.
