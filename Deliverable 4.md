@@ -1,4 +1,6 @@
-# Disposisjon – Stadionhopper: DORA-analyse og sluttrefleksjon
+# Deliverable 4
+
+## Disposisjon – DORA-analyse og sluttrefleksjon
 
 **Ramme:** Maksimalt 10 sider. Forslaget under gir omtrent 9 sider, med litt plass til figurer og tabeller. Video og lysbilder leveres separat.
 

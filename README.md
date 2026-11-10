@@ -28,10 +28,6 @@ Demoen inneholder **12 nye, fiktive eksempelkamper fra 11. november til 6. desem
 
 Eksempeldataene ligger i `demo/data.json` og brukes også når en ny lokal pilot opprettes. En eksisterende `.pilot-data/` oppdateres ikke automatisk, slik at innlagte pilotdata blir bevart. Bruk en ny datamappe via `STADIONHOPPER_DB_DIR` hvis dere trenger en separat, fersk pilot.
 
-## Skriftlig sluttleveranse
-
-[Disposisjon for DORA-analyse og sluttrefleksjon](docs/Stadionhopper_DORA_disposisjon.md) inneholder overskrifter, stikkord og forslag til sidefordeling innenfor oppgavens grense på 10 sider.
-
 ## Brukere legger inn kamper
 
 Velg **Kamper → Legg til en kamp**, logg inn med en testkonto og oppgi hjemme- og bortelag, dato/klokkeslett og spillested. Du kan velge eksisterende navn som forslag eller skrive inn nye lag og baner, også utenfor de opprinnelige klubbene. Bruk gjerne by/sted i banenavnet og aldersklasse i lagnavnet. Tidspunktet tolkes i nettleserens tidssone, som vises ved feltet, og lagres i UTC.
