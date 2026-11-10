@@ -13,6 +13,33 @@ I denne siste leveransen evaluerer vi produktet og utviklingsprosessen. Vi gjenn
 ### 2.1 Funksjonalitet i den leverte løsningen
 
 Vi har utviklet en nettbasert prototype av Stadionhopper med HTML, CSS og JavaScript i frontend og Node.js i backend. Den publiserte demonstrasjonsversjonen er tilgjengelig gjennom GitHub Pages og benytter fiktive data og lokal nettleserlagring. En sentral brukerreise vi har laget er å finne en kommende fotballkamp, se informasjon om kampen og stadionet, og registrere et kampbesøk. Prototypen inneholder blant annet kampoversikt med kalendervisning, kampdetaljer, stadioninformasjon, innlogging med testkontoer, brukerprofil og innsjekkinger. Vi har også arbeidet med sosiale funksjoner, som å lage arrangement og bringe folk sammen og dele fotballinteressen.
+## 2. Produktet og oppnådde resultater
+
+### 2.1 Gjennomførte brukerreiser
+
+Statusgjennomgangen i [issue #141](https://github.com/Inetiger/Stadionhopper/issues/141) tok utgangspunkt i den publiserte GitHub Pages-demoen. Inger gjennomførte manuelle tester på PC, først fra et privat nettleservindu, og kontrollerte den grunnleggende kalenderreisen på mobil. Testresultatene bygger på hennes rapporterte observasjoner, ikke bare på at funksjonene er implementert.
+
+| Brukerreise eller kontroll | Observert resultat |
+| --- | --- |
+| Utforske uten innlogging | Appen åpnes, og kamper kan finnes i kalenderen. |
+| Kalender og kampdetaljer | Månedsbytte mellom november og desember fungerer. Kampdetaljene viser riktig dato, klokkeslett og stadion. |
+| Mobilvisning | Finne kamp, åpne detaljer og gå tilbake fungerer med samme resultat som på PC. Innholdet holder seg innenfor skjermbredden. |
+| Innlogging og brukerbytte | Gyldig testkonto kan logge inn. Feil innloggingsopplysninger avvises med en forståelig melding. Alex sine innsjekkinger vises ikke på Sams profil. |
+| Registrere kamp | Nye kamper beholdes i den aktuelle nettleseren og vises riktig. Nye klubbnavn og spillesteder utenfor forslagene kan også brukes. |
+| Obligatoriske felt | Ufullstendig skjema stoppes; fokus flyttes til feltet som mangler, med veiledning om hva som må fylles ut. |
+| Duplikatkamp | Samme lag og tidspunkt gir beskjed om at kampen finnes allerede; ingen ekstra kamp opprettes. |
+| Innsjekking | Innsjekkingen vises i historikken. Knappen deaktiveres etter første trykk og hindrer gjentatt innsending i samme skjermbilde. |
+| Sosial feed | Innsjekkingen vises én gang med riktig bruker og kamp. |
+
+Ingen blokkerende feil ble rapportert i disse testene. Dette gir grunnlag for å beskrive de undersøkte brukerreisene som fungerende innenfor demoens rammer, men er ikke en fullstendig kompatibilitets-, sikkerhets- eller brukervennlighetstest. Alle kontrollene er heller ikke gjentatt på både PC og mobil. Nettleserversjon, operativsystem og eksakt publisert commit ble ikke registrert, noe som begrenser etterprøvbarheten. Ved senere testing bør disse opplysningene registreres sammen med forventet og faktisk resultat.
+
+### 2.2 Avtalte avgrensninger
+
+Gruppa har avklart at prototypen først og fremst skal være tilgjengelig og testbar. Lokal nettleserlagring er derfor akseptert for denne leveransen. En innledende mistanke om manglende lagring ble avklart da den registrerte kampen fortsatt lå i opprinnelig nettleser. Et annet gruppemedlem så ikke kampen i sin nettleser. Innsjekkingene fulgte heller ikke med til en ny separat privatøkt.
+
+Kamper og innsjekkinger deles dermed ikke mellom brukere eller enheter, og data kan gå tapt når privatøkten avsluttes eller nettleserdata slettes. Dette gjør det mulig å teste registrering og innsjekking individuelt, men ikke en sammenhengende sosial brukerreise der én bruker publiserer en kamp og en annen finner den på en annen enhet. Felles, varig lagring må på plass før en slik bruk kan prøves realistisk.
+
+Gruppa har også akseptert kartplassholderen, statiske arrangementer og manglende liveoppdatering av kamper som avgrensninger i sluttversjonen. Disse beskrives derfor ikke som ferdige funksjoner. Gjennomgangen skiller slik mellom det som er testet og fungerer, og det som bevisst er utsatt. Et annet gruppemedlem skal kvalitetssikre resultatene og avgrensningene gjennom pull requesten før statusgjennomgangen regnes som ferdig.
 
 Backend er utviklet for blant annet autentisering, brukerøkter, kampdata og innsjekkinger. Denne er imidlertid ikke koblet til demonstrasjonsversjonen som er publisert gjennom GitHub Pages. Den publiserte løsningen kan derfor demonstrere flere av brukerreisene, men har ikke felles datalagring mellom ulike brukere og nettlesere. Dette er en viktig begrensning ved prototypen. Selv om flere funksjoner kan testes i demonstrasjonen, betyr det ikke at de er ferdig utviklet for en løsning med reelle brukere.
 
