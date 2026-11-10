@@ -179,47 +179,19 @@ Samlet sett har prosjektet gitt oss en bedre forståelse av hvorfor smidige prin
 
 ### 7.1 Produkt og teknisk videreutvikling
 
-Dersom Stadionhopper skulle videreutvikles, ville vi først prioritert å ferdigstille og forbedre kjernefunksjonene i MVP-en.
+Dersom Stadionhopper skulle videreutvikles, ville vi først prioritert å ferdigstille kjernefunksjonene i MVP-en og gjøre løsningen klar for testing med reelle brukere. Brukerundersøkelsen viste at oversikt over kommende kamper var viktig for flere av respondentene, mens brukertestingen avdekket forbedringsmuligheter knyttet til navigasjon, begrepsbruk og presentasjon av informasjon. Vi ville derfor fortsatt arbeidet med den sentrale brukerreisen fra å finne en kamp til å registrere et besøk. Samtidig ville vi lagt større vekt på hyppig brukertesting, der mindre forbedringer testes fortløpende. Dette ville gitt oss et bedre grunnlag for å prioritere videre utvikling ut fra faktiske brukerbehov.
 
-Brukerundersøkelsen viste at oversikt over kommende kamper var viktig for flere av respondentene. Samtidig viste brukertestingen at det fortsatt var behov for forbedringer i navigasjon, begrepsbruk og presentasjon av informasjon.
+En annen viktig prioritering ville vært å videreutvikle den tekniske løsningen. Prototypen inneholder fortsatt hardkodede elementer, og den publiserte versjonen mangler en tilkoblet backend med felles datalagring. For å gjøre Stadionhopper tilgjengelig for reelle brukere ville vi derfor hatt behov for en fungerende databaseløsning, slik at brukerkontoer, kamper, stadioner og registrerte besøk kunne lagres og deles mellom brukere. Dette ville også krevd videre arbeid med autentisering, tilgangskontroll, sikkerhet og behandling av personopplysninger. I tillegg ville vi videreutviklet CI/CD-prosessen slik at automatiserte tester må bestås før nye versjoner publiseres.
 
-En naturlig videreutvikling ville derfor være å gjøre kampoversikten mer oversiktlig og forbedre brukerreisen fra å finne en kamp til å registrere et besøk.
+Et særtrekk ved Stadionhopper er at vi har valgt en løsning der brukerne selv kan bidra med kampinformasjon, fremfor å basere oss på et eksternt API. Dette gir fleksibilitet fordi plattformen ikke er begrenset til kampene og divisjonene som finnes i en bestemt datakilde. På sikt kan det åpne for at løsningen også brukes innen barne- og ungdomsfotball, i andre geografiske områder eller i andre idretter. Vi ser også et potensial for at brukere med interesse for flere idretter kan samle aktivitetene sine på én plattform. En slik videreutvikling ville krevd tilpasninger og testing, men den brukerstyrte tilnærmingen gjør det mulig å utforske flere bruksområder uten å være avhengig av tilgang til eksterne kampdata. Samtidig innebærer denne løsningen utfordringer knyttet til datakvalitet, duplikater og feilaktig informasjon. Det ville derfor vært nødvendig å utvikle gode rutiner for registrering, kontroll og eventuell moderering av brukerinnhold.
 
-Vi har også tidligere diskutert muligheten for at brukere selv kan registrere kamper og bidra med oppdatert kampinformasjon. Dette kan være interessant dersom automatisk tilgang til kampdata fortsatt er utfordrende. Samtidig ville en slik løsning kreve vurderinger av datakvalitet, moderering og hvordan feilaktig informasjon skal håndteres.
+Videreutvikling ville også krevd mer tid og økonomiske ressurser enn vi har hatt tilgjengelig i dette prosjektet. Etablering og drift av database, serverløsning og nødvendig sikkerhet ville medført kostnader, i tillegg til arbeidet med utvikling, testing og vedlikehold. I første omgang ville vi prioritert å utvikle en stabil og brukervennlig versjon som kunne prøves ut av en mindre gruppe brukere. Målet ville vært å undersøke om løsningen faktisk skaper verdi og om brukerne ønsker å fortsette å benytte den. Dersom vi kunne dokumentert interesse og nytte gjennom praktisk bruk, ville dette gitt et bedre utgangspunkt for å involvere lokale klubber, fotballkretsen eller andre potensielle samarbeidspartnere i videre utvikling. På lengre sikt kunne vi også vurdert sosiale funksjoner som å følge andre brukere og planlegge kampbesøk sammen, men først etter at de grunnleggende funksjonene fungerer godt.
 
-På lengre sikt kunne vi videreutviklet sosiale funksjoner som å følge andre brukere, dele stadionopplevelser og planlegge kampbesøk sammen. Disse funksjonene inngår i den opprinnelige produktvisjonen, men ble prioritert lavere i MVP-en.
-
-Før videre utvikling ville vi ønsket å gjennomføre mer brukertesting og undersøke hvilke funksjoner som faktisk bidrar til at flere oppsøker lokale fotballkamper.
-
-Teknisk ville en viktig forbedring være å etablere en publisert løsning med fungerende backend og felles datalagring. Dette ville gjøre det mulig å håndtere reelle brukerkontoer og lagre data på tvers av enheter.
-
-En videreutviklet løsning ville også kreve større oppmerksomhet på sikkerhet, tilgangskontroll og behandling av personopplysninger. Dersom antallet brukere øker, måtte vi vurdere om den filbaserte dataløsningen fortsatt er hensiktsmessig, eller om en database ville være et bedre alternativ.
-
-Vi ville også ønsket å videreutvikle CI/CD-prosessen slik at automatiserte tester må bestå før en ny versjon publiseres.
-
-På lengre sikt kunne et samarbeid med fotballkretsen og lokale klubber vært aktuelt for å undersøke om løsningen faktisk skaper verdi. En begrenset pilot med reelle brukere kunne gitt bedre grunnlag for videre prioriteringer.
-
-*** Diskuter og prioriter de tre viktigste forbedringene for versjon 2. Begrunn hvorfor akkurat disse bør gjennomføres først.
-
-*** Vurder hvilke ressurser, tekniske endringer og samarbeidspartnere som ville vært nødvendige for videre utvikling.
+Ved at brukerne selv bidrar med innhold, kan plattformen også utvikle seg i takt med deres interesser og behov. Dette gir mulighet for en mer personlig opplevelse, der brukerne i større grad kan påvirke hvilke kamper, arenaer og idretter som blir representert.
 
 ### 7.2 Systematisk måling og forbedring
 
-DORA-analysen har vist betydningen av å ha et tydelig datagrunnlag for å kunne evaluere leveranseprosessen.
-
-Dersom Stadionhopper skulle videreutvikles til en tjeneste med aktive brukere, ville vi ønsket å etablere mer systematisk registrering av deployeringer og feil.
-
-En mulig løsning ville være å knytte kodeendringer og pull requests til faktiske publiseringer. Dette kunne gjort det enklere å beregne Deployment Frequency og Lead Time for Changes automatisk.
-
-Vi ville også etablert en tydelig prosess for registrering av feil som oppstår etter publisering. En enkel Issue-mal kunne inneholdt informasjon om hvilken versjon feilen gjelder, når den ble oppdaget, hvordan den påvirker brukerne, og hvilke tiltak som ble gjennomført.
-
-Ved å registrere tidspunktet for gjenoppretting kunne vi også fått et bedre grunnlag for å beregne Change Failure Rate og Mean Time to Restore.
-
-Et felles dashboard kunne gjort målingene tilgjengelige for utviklingsteamet og gitt bedre oversikt over utviklingen over tid.
-
-Målingene burde brukes som grunnlag for felles diskusjon og forbedring, ikke som et verktøy for å sammenligne enkeltpersoners arbeidsinnsats. Målet ville vært å identifisere flaskehalser, forbedre kvaliteten og gjøre leveranseprosessen mer forutsigbar.
-
-Vi ville også kombinert DORA-målingene med brukertilbakemeldinger og informasjon om faktisk bruk av løsningen. På denne måten kunne vi vurdert både hvor effektivt vi leverer programvare, og om endringene gir verdi for brukerne.
+DORA-analysen har vist betydningen av å ha et tydelig datagrunnlag for å kunne evaluere leveranseprosessen. Dersom Stadionhopper skulle videreutvikles til en tjeneste med aktive brukere, ville vi ønsket å etablere mer systematisk registrering av deployeringer og feil. En mulig løsning ville være å knytte kodeendringer og pull requests til faktiske publiseringer. Dette kunne gjort det enklere å beregne Deployment Frequency og Lead Time for Changes automatisk. Vi ville også etablert en tydelig prosess for registrering av feil som oppstår etter publisering. En enkel Issue-mal kunne inneholdt informasjon om hvilken versjon feilen gjelder, når den ble oppdaget, hvordan den påvirker brukerne, og hvilke tiltak som ble gjennomført. Ved å registrere tidspunktet for gjenoppretting kunne vi også fått et bedre grunnlag for å beregne Change Failure Rate og Mean Time to Restore. Et felles dashboard kunne gjort målingene tilgjengelige for utviklingsteamet og gitt bedre oversikt over utviklingen over tid. Målingene burde brukes som grunnlag for felles diskusjon og forbedring, ikke som et verktøy for å sammenligne enkeltpersoners arbeidsinnsats. Målet ville vært å identifisere flaskehalser, forbedre kvaliteten og gjøre leveranseprosessen mer forutsigbar. Vi ville også kombinert DORA-målingene med brukertilbakemeldinger og informasjon om faktisk bruk av løsningen. På denne måten kunne vi vurdert både hvor effektivt vi leverer programvare, og om endringene gir verdi for brukerne.
 
 ## 8. Avslutning
 
