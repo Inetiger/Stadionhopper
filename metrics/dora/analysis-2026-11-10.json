@@ -4174,5 +4174,1754 @@
       "repository": "Inetiger/Stadionhopper"
     }
   ],
-  "recalculation_command": "node scripts/summarize-dora-analysis.js metrics/dora/analysis-2026-11-10.json"
+  "recalculation_command": "node scripts/summarize-dora-analysis.js metrics/dora/analysis-2026-11-10.json",
+  "pr_ci_analysis": {
+    "source": "GitHub REST actions/runs?event=pull_request&per_page=100 (pages 1 and 2), plus jobs for failure runs",
+    "scope": "Latest recorded result per run ID, not each attempt or only initial PR creation",
+    "first_run_created_at": "2026-10-19T18:38:08Z",
+    "last_run_created_at": "2026-11-10T09:27:54Z",
+    "summary": {
+      "runs": 140,
+      "success": 101,
+      "automated_test_step_failure": 37,
+      "release_metric_step_failure": 2
+    },
+    "runs": [
+      {
+        "run_id": 42790925797,
+        "created_at": "2026-11-10T09:27:54Z",
+        "event": "pull_request",
+        "head_branch": "142-dora-analyse-deliverable4",
+        "head_sha": "5f94d477bc688713ca10ad60ecec5606f3266ec3",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42790925797",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42788595911,
+        "created_at": "2026-11-10T09:11:21Z",
+        "event": "pull_request",
+        "head_branch": "141-dokumenter-statusgjennomgang",
+        "head_sha": "8b919c343d4747500468d84cf25eedc0d0512d31",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42788595911",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42783769230,
+        "created_at": "2026-11-10T08:35:00Z",
+        "event": "pull_request",
+        "head_branch": "161-klargjor-demo-og-disposisjon",
+        "head_sha": "ea0f2efc42dfdb157ef908d15652c7d7c1eea1ce",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42783769230",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42782797670,
+        "created_at": "2026-11-10T08:27:33Z",
+        "event": "pull_request",
+        "head_branch": "161-klargjor-demo-og-disposisjon",
+        "head_sha": "259c2c2708cb51cffcbfc09d686c338c63cb2748",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42782797670",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42780761764,
+        "created_at": "2026-11-10T08:12:03Z",
+        "event": "pull_request",
+        "head_branch": "158-dempet-fotballtema",
+        "head_sha": "04590c5f8ece029e9b70885d4e1144ab37e59f26",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42780761764",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42780744836,
+        "created_at": "2026-11-10T08:11:54Z",
+        "event": "pull_request",
+        "head_branch": "157-kamp-fra-kalenderdag",
+        "head_sha": "3ccb78e3333be12e8876a7a7d9bed4aca4f18233",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42780744836",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42632676897,
+        "created_at": "2026-11-09T14:14:09Z",
+        "event": "pull_request",
+        "head_branch": "155-brukerregistrerte-kamper",
+        "head_sha": "74a906d28132576efa5d9156f77df77fdabea1fc",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42632676897",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42618464733,
+        "created_at": "2026-11-09T12:36:46Z",
+        "event": "pull_request",
+        "head_branch": "fix-dora-artifacts-and-history",
+        "head_sha": "9f391c589fcbf90df57b2d5b92dbbc9d6edb0815",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42618464733",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42617884835,
+        "created_at": "2026-11-09T12:32:37Z",
+        "event": "pull_request",
+        "head_branch": "fix/dora-ledger-no-pages-loop",
+        "head_sha": "9ca63f7271df967814c422e167c5e6bd28e8e736",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42617884835",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42616499428,
+        "created_at": "2026-11-09T12:22:41Z",
+        "event": "pull_request",
+        "head_branch": "feat/dora-production-telemetry",
+        "head_sha": "9e1f1fdc7f294268c33682284c23cc0dfb9d3210",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42616499428",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42300242944,
+        "created_at": "2026-11-06T21:52:22Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "0a54b1143b5e21b8d61df24aa1670f9b7b0639f0",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42300242944",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42299858842,
+        "created_at": "2026-11-06T21:49:28Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "9e669d32d4ab6c1beec3a17e43ff7a98a214942a",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42299858842",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 128174518552
+          }
+        ]
+      },
+      {
+        "run_id": 42298234277,
+        "created_at": "2026-11-06T21:37:18Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "4df1bf0bfdee88e427dcbaaa98a9fc51c0c9927c",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42298234277",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 128168935401
+          }
+        ]
+      },
+      {
+        "run_id": 42297319580,
+        "created_at": "2026-11-06T21:30:44Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "3bcf2b5fcf08828c89e52d01a175b50951e70fbd",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42297319580",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 128165825622
+          }
+        ]
+      },
+      {
+        "run_id": 42296334645,
+        "created_at": "2026-11-06T21:23:31Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "8beddbe24ff998347b0ad89913148f920a4d9ebb",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42296334645",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 128162430223
+          }
+        ]
+      },
+      {
+        "run_id": 42295731256,
+        "created_at": "2026-11-06T21:19:13Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "cdd5f406a5b520b9e22485fea11bb96bb007531f",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42295731256",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42295336706,
+        "created_at": "2026-11-06T21:16:21Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "bea51b54eea25d9e874e30fa2b20b02db731c197",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42295336706",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42294845902,
+        "created_at": "2026-11-06T21:12:47Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "0579ef5865ead76dd1650362db369c4842652cbe",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42294845902",
+        "failed_steps": []
+      },
+      {
+        "run_id": 42285694089,
+        "created_at": "2026-11-06T20:07:57Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-visuelt-fotballpreg-og-tilgjengelighet",
+        "head_sha": "7f93e2818cc7301d503f50fb543526502d4edd49",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/42285694089",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40683046431,
+        "created_at": "2026-10-28T11:50:23Z",
+        "event": "pull_request",
+        "head_branch": "redigere_rapport",
+        "head_sha": "e31e6adf494e9937652342ce502aa9bf5b756c36",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40683046431",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40682068061,
+        "created_at": "2026-10-28T11:42:45Z",
+        "event": "pull_request",
+        "head_branch": "redigere_rapport",
+        "head_sha": "3d553c050394068e134d9c5118b6dd8ba185f419",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40682068061",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40653099757,
+        "created_at": "2026-10-28T07:54:27Z",
+        "event": "pull_request",
+        "head_branch": "redigere_rapport",
+        "head_sha": "6663b3a8b914436712177d0fab31102fddd1969f",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40653099757",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40652753458,
+        "created_at": "2026-10-28T07:51:14Z",
+        "event": "pull_request",
+        "head_branch": "redigere_rapport",
+        "head_sha": "cb78339caabe784db5c3bbf8d2cd9a6fe94b7800",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40652753458",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40585209997,
+        "created_at": "2026-10-27T21:15:20Z",
+        "event": "pull_request",
+        "head_branch": "redigere_rapport",
+        "head_sha": "301bfe120f1fda43ed1d93f4360e2f0baa3f0669",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40585209997",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40560976804,
+        "created_at": "2026-10-27T18:32:49Z",
+        "event": "pull_request",
+        "head_branch": "report/dora-metrics-results",
+        "head_sha": "46b3a57f145a652f2dde77bf575b30abac5292d4",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40560976804",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40560543113,
+        "created_at": "2026-10-27T18:30:02Z",
+        "event": "pull_request",
+        "head_branch": "report/dora-metrics-results",
+        "head_sha": "89bb727ea70737dfdb73c77d71c20470dcdcb96f",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40560543113",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40557290735,
+        "created_at": "2026-10-27T18:09:21Z",
+        "event": "pull_request",
+        "head_branch": "feature/github-pages-demo-login-checkins",
+        "head_sha": "9ba9e6386c1d8d221e317677b84ddbe6e22f22f0",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40557290735",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40557173074,
+        "created_at": "2026-10-27T18:08:35Z",
+        "event": "pull_request",
+        "head_branch": "feature/github-pages-demo-login-checkins",
+        "head_sha": "3b2507c115a90b9f4b89f48b7023cda40856700a",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40557173074",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 122376223355
+          }
+        ]
+      },
+      {
+        "run_id": 40551610100,
+        "created_at": "2026-10-27T17:32:49Z",
+        "event": "pull_request",
+        "head_branch": "fix/dora-main-branch-worktree",
+        "head_sha": "2381900cc998c2f3287322c780abdfcb3e245c21",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40551610100",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40518656898,
+        "created_at": "2026-10-27T14:10:55Z",
+        "event": "pull_request",
+        "head_branch": "fix/dora-main-ref",
+        "head_sha": "114912a6ced180bc7cf0400ae8c305415179108b",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40518656898",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40516768462,
+        "created_at": "2026-10-27T13:58:15Z",
+        "event": "pull_request",
+        "head_branch": "deliverable-3-rapportredigering",
+        "head_sha": "022028c7a97b93f206520208f4a382146581c07e",
+        "conclusion": "failure",
+        "run_attempt": 6,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40516768462",
+        "failed_steps": [
+          {
+            "name": "Calculate release metrics",
+            "job": 122363667001
+          }
+        ]
+      },
+      {
+        "run_id": 40496920089,
+        "created_at": "2026-10-27T11:32:31Z",
+        "event": "pull_request",
+        "head_branch": "fix/dora-metrics-workflow",
+        "head_sha": "bd86a487b2f7229f97961828dfb0b7a54d083ef4",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40496920089",
+        "failed_steps": [
+          {
+            "name": "Calculate release metrics",
+            "job": 122164582747
+          }
+        ]
+      },
+      {
+        "run_id": 40474835929,
+        "created_at": "2026-10-27T08:37:45Z",
+        "event": "pull_request",
+        "head_branch": "deliverable-3-rapportredigering",
+        "head_sha": "06d2a91215ec96b5ffecb0596cc49f642fdd8df4",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40474835929",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40403521410,
+        "created_at": "2026-10-26T21:20:29Z",
+        "event": "pull_request",
+        "head_branch": "deliverable-3-rapportredigering",
+        "head_sha": "daaf5d08d1d6b493ab5be96db498ab8596d4212a",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40403521410",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40331715574,
+        "created_at": "2026-10-26T13:34:10Z",
+        "event": "pull_request",
+        "head_branch": "67-gjennomfør-retrospektiv-og-dokumenter-teamets-læring",
+        "head_sha": "45f40887e1e6899a29c56b7350b1f99d5cba246f",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40331715574",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40308467637,
+        "created_at": "2026-10-26T10:34:29Z",
+        "event": "pull_request",
+        "head_branch": "68-deliverable-3-rapport",
+        "head_sha": "0b5c949931992fce42f5c57e4639bc8d331d6f0a",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40308467637",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40297424750,
+        "created_at": "2026-10-26T09:09:43Z",
+        "event": "pull_request",
+        "head_branch": "121-forenkle-kampinformasjon",
+        "head_sha": "0d7221747149c16edf7629f0eaba1d3ecfa287e6",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40297424750",
+        "failed_steps": []
+      },
+      {
+        "run_id": 40291109086,
+        "created_at": "2026-10-26T08:16:22Z",
+        "event": "pull_request",
+        "head_branch": "121-forenkle-kampinformasjon",
+        "head_sha": "15198609441edd212229ffdde4f2fe296ca13f2c",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40291109086",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 121466120740
+          }
+        ]
+      },
+      {
+        "run_id": 40290691180,
+        "created_at": "2026-10-26T08:12:45Z",
+        "event": "pull_request",
+        "head_branch": "119-forbedre-kampdetaljer",
+        "head_sha": "787404c3d95bdb47203bfe89541217321e252248",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/40290691180",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39778079665,
+        "created_at": "2026-10-22T12:24:28Z",
+        "event": "pull_request",
+        "head_branch": "feature/month-grid-calendar",
+        "head_sha": "729ca259788b4296be652deb3a6b98bdbde9ba6f",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39778079665",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39777058000,
+        "created_at": "2026-10-22T12:16:57Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "67bd51752b556aa47f713d4d79ffd28630df9e34",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39777058000",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39776893877,
+        "created_at": "2026-10-22T12:15:45Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "c430f127d05d605955a6d6f96da70e5f62027014",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776893877",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119818006369
+          }
+        ]
+      },
+      {
+        "run_id": 39776721392,
+        "created_at": "2026-10-22T12:14:29Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "c007e5f7cd1a68ef33ae3eb413a43b8699f37344",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776721392",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119817427666
+          }
+        ]
+      },
+      {
+        "run_id": 39776430323,
+        "created_at": "2026-10-22T12:12:17Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "73cc59bf7d74122463ab5c55e32aee697403d7d2",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776430323",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119816437449
+          }
+        ]
+      },
+      {
+        "run_id": 39776384029,
+        "created_at": "2026-10-22T12:11:56Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "945dadd3a8d4be1acc2990175abca6bd6dedc8f9",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776384029",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119816283715
+          }
+        ]
+      },
+      {
+        "run_id": 39776330081,
+        "created_at": "2026-10-22T12:11:30Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "975fca81d150d2d3a7d82e47e21a08aad0001cbe",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776330081",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119816097395
+          }
+        ]
+      },
+      {
+        "run_id": 39776294173,
+        "created_at": "2026-10-22T12:11:13Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "e10dec8b48016085ea6d01880163fcbe3bd6d3e1",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776294173",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119815973404
+          }
+        ]
+      },
+      {
+        "run_id": 39776246985,
+        "created_at": "2026-10-22T12:10:52Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "afdcd640e9baebe81b9833318da520951e27de80",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776246985",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119815813503
+          }
+        ]
+      },
+      {
+        "run_id": 39776173516,
+        "created_at": "2026-10-22T12:10:18Z",
+        "event": "pull_request",
+        "head_branch": "feature/calendar-match-overview",
+        "head_sha": "cf3284354a9f883b8b5e70f534f7591858893d6a",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39776173516",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119815567986
+          }
+        ]
+      },
+      {
+        "run_id": 39774864287,
+        "created_at": "2026-10-22T12:00:19Z",
+        "event": "pull_request",
+        "head_branch": "docs/remove-user-download-instructions",
+        "head_sha": "72ed32174c91292c3b6f935233619e852dbf9355",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39774864287",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39774488394,
+        "created_at": "2026-10-22T11:57:21Z",
+        "event": "pull_request",
+        "head_branch": "docs/remove-user-download-instructions",
+        "head_sha": "77ab0e2d600d5bee6f8312c80a6bfa52272056e0",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39774488394",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 119809890892
+          }
+        ]
+      },
+      {
+        "run_id": 39473212441,
+        "created_at": "2026-10-20T18:15:47Z",
+        "event": "pull_request",
+        "head_branch": "revert-113-fix/login-unavailable-explore-mode",
+        "head_sha": "adaaf9f5fa804c262021608e897ac49f58e7d736",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39473212441",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39473103611,
+        "created_at": "2026-10-20T18:15:04Z",
+        "event": "pull_request",
+        "head_branch": "revert-114-fix/make-demo-login-obviously-disabled",
+        "head_sha": "d915e6b5fd212667deec19f2f9068252decb983c",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39473103611",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39472842946,
+        "created_at": "2026-10-20T18:13:18Z",
+        "event": "pull_request",
+        "head_branch": "fix/make-demo-login-obviously-disabled",
+        "head_sha": "82401454f731ad9233d318ca1657657ef36f9b2a",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472842946",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39472427821,
+        "created_at": "2026-10-20T18:10:25Z",
+        "event": "pull_request",
+        "head_branch": "fix/login-unavailable-explore-mode",
+        "head_sha": "0d18d2353de026cb5b262d8621a9418aba495f1c",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472427821",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39472213527,
+        "created_at": "2026-10-20T18:08:55Z",
+        "event": "pull_request",
+        "head_branch": "fix/login-unavailable-explore-mode",
+        "head_sha": "7fc7a2211b2972c4405d1f7a0ded148b04ef7a60",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472213527",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118798890151
+          }
+        ]
+      },
+      {
+        "run_id": 39472202282,
+        "created_at": "2026-10-20T18:08:50Z",
+        "event": "pull_request",
+        "head_branch": "fix/login-unavailable-explore-mode",
+        "head_sha": "b6a91532c35fd40e943b32e657bf07b3b994e0f7",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39472202282",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118798851626
+          }
+        ]
+      },
+      {
+        "run_id": 39471552347,
+        "created_at": "2026-10-20T18:04:21Z",
+        "event": "pull_request",
+        "head_branch": "fix/login-unavailable-explore-mode",
+        "head_sha": "36443320ea98b8d847c444bb5d1f26ae8f305ff7",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39471552347",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39435957033,
+        "created_at": "2026-10-20T14:04:24Z",
+        "event": "pull_request",
+        "head_branch": "frontend/56-checkin-flow-integration",
+        "head_sha": "a4c84061cadf8b35142d1ed3df341c964a38e36e",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435957033",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39435928443,
+        "created_at": "2026-10-20T14:04:13Z",
+        "event": "pull_request",
+        "head_branch": "frontend/53-profile-history-integration",
+        "head_sha": "7bc3fe1f7a3c53b3f0402ca7295c29a0d7f01f11",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435928443",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39435799143,
+        "created_at": "2026-10-20T14:03:20Z",
+        "event": "pull_request",
+        "head_branch": "frontend/56-checkin-flow-integration",
+        "head_sha": "e7bb8186ef07f435bf1c314c17f6c06a54d8a3f1",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435799143",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118672350542
+          }
+        ]
+      },
+      {
+        "run_id": 39435709758,
+        "created_at": "2026-10-20T14:02:44Z",
+        "event": "pull_request",
+        "head_branch": "frontend/53-profile-history-integration",
+        "head_sha": "375e3923e53c7d03fc7c0f812117d1df9ce0564f",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435709758",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118672037256
+          }
+        ]
+      },
+      {
+        "run_id": 39435677033,
+        "created_at": "2026-10-20T14:02:30Z",
+        "event": "pull_request",
+        "head_branch": "frontend/52-login-backend-integration",
+        "head_sha": "22831b01d3b681bfd3b6ed632bf94ffff2162ad5",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435677033",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39435563683,
+        "created_at": "2026-10-20T14:01:45Z",
+        "event": "pull_request",
+        "head_branch": "frontend/52-login-backend-integration",
+        "head_sha": "af4e4af8f210dbee1cc8c0d22865709614bb0659",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39435563683",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432567697,
+        "created_at": "2026-10-20T13:41:20Z",
+        "event": "pull_request",
+        "head_branch": "backend/73-profile-history-access-tests",
+        "head_sha": "6b32f2b482689a0313ab0a33e5b28804d8d6b3be",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432567697",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432539506,
+        "created_at": "2026-10-20T13:41:08Z",
+        "event": "pull_request",
+        "head_branch": "backend/60-checkin-persistence-tests",
+        "head_sha": "f1a9493b7f6c6955edf054e23f327a960cc1e16a",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432539506",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432508375,
+        "created_at": "2026-10-20T13:40:55Z",
+        "event": "pull_request",
+        "head_branch": "backend/59-auth-validation-tests",
+        "head_sha": "0ec7199fb84e37a9e902b246d2b264e4fb42aea8",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432508375",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432485732,
+        "created_at": "2026-10-20T13:40:46Z",
+        "event": "pull_request",
+        "head_branch": "backend/12-authentication-api-tests",
+        "head_sha": "95a5cd0e511f713f7eb071827c736dae1033bbb0",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432485732",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432421373,
+        "created_at": "2026-10-20T13:40:20Z",
+        "event": "pull_request",
+        "head_branch": "backend/11-secure-test-users",
+        "head_sha": "3ff918412649340972ce187fb30ba0dc7005b657",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432421373",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39432089100,
+        "created_at": "2026-10-20T13:38:03Z",
+        "event": "pull_request",
+        "head_branch": "backend/11-secure-test-users",
+        "head_sha": "534aba139757f55d0d596fd60fdea114fbfe2319",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39432089100",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39431470795,
+        "created_at": "2026-10-20T13:33:47Z",
+        "event": "pull_request",
+        "head_branch": "backend/11-secure-test-users",
+        "head_sha": "ef8e913161746372f526bd4f148ade02bb96d270",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39431470795",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118657327868
+          }
+        ]
+      },
+      {
+        "run_id": 39430335530,
+        "created_at": "2026-10-20T13:25:59Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "1bf6eca012de2e45991835ed15c800b13c18f087",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430335530",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39430279392,
+        "created_at": "2026-10-20T13:25:35Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "562827a95dd5a34a683bddb5aa0a94fe61fe0b54",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430279392",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39430243374,
+        "created_at": "2026-10-20T13:25:20Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "d3ff29003f3473b24df27c9585f21ab9a6baf149",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430243374",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118653096101
+          }
+        ]
+      },
+      {
+        "run_id": 39430151405,
+        "created_at": "2026-10-20T13:24:41Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "2d015b200acfdec48e98edc39fb89ce2b40b26ec",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430151405",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652777814
+          }
+        ]
+      },
+      {
+        "run_id": 39430107319,
+        "created_at": "2026-10-20T13:24:22Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "845f8a8fe41914228d04c00b131f1d54a23693b1",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430107319",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652621929
+          }
+        ]
+      },
+      {
+        "run_id": 39430086426,
+        "created_at": "2026-10-20T13:24:14Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "eb4a089766c1d0d504aae6a80f82af004d12a444",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430086426",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652550849
+          }
+        ]
+      },
+      {
+        "run_id": 39430055474,
+        "created_at": "2026-10-20T13:24:00Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "2270f034d9624a677b04b9dc529ef66bd44232bb",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430055474",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652445805
+          }
+        ]
+      },
+      {
+        "run_id": 39430014393,
+        "created_at": "2026-10-20T13:23:43Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "95b1e6f754f6d971bcc23822067daefea6fa3d86",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39430014393",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652305622
+          }
+        ]
+      },
+      {
+        "run_id": 39429992765,
+        "created_at": "2026-10-20T13:23:34Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "df4bac8004a669ff6e25e384f8406f99074472ff",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429992765",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652229333
+          }
+        ]
+      },
+      {
+        "run_id": 39429934257,
+        "created_at": "2026-10-20T13:23:10Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "2f0b763db9f5a63cc4f43243b650a19493a2522d",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429934257",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118652025948
+          }
+        ]
+      },
+      {
+        "run_id": 39429879299,
+        "created_at": "2026-10-20T13:22:47Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "35c8ff1588ca20d7ede40c6049feec5a7c6a1f68",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429879299",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118651837769
+          }
+        ]
+      },
+      {
+        "run_id": 39429820634,
+        "created_at": "2026-10-20T13:22:22Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "1f2490c1beb1483dbd9001bb52235125ecc8e959",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429820634",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118651634133
+          }
+        ]
+      },
+      {
+        "run_id": 39429731871,
+        "created_at": "2026-10-20T13:21:45Z",
+        "event": "pull_request",
+        "head_branch": "feat/test-user-auth-session",
+        "head_sha": "bfcf48fe53e43377dc284faaf4aef697bdb2d0f0",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39429731871",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39428926276,
+        "created_at": "2026-10-20T13:15:59Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "1ff116434e117e6e72f4a3b6f15daee6488aabad",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428926276",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39428743377,
+        "created_at": "2026-10-20T13:14:42Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "57dae28e67ce29fde73dd4b2ff0179599dc66290",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428743377",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39428569945,
+        "created_at": "2026-10-20T13:13:27Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "247d72c1a0485a9760b1e38e0baa481e59a92d81",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428569945",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39428483185,
+        "created_at": "2026-10-20T13:12:50Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "738d60e8bc708732101a2be398f4f2c766ed6198",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428483185",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118646999014
+          }
+        ]
+      },
+      {
+        "run_id": 39428439318,
+        "created_at": "2026-10-20T13:12:30Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "0db5b77b4493ff17bfe68a63be37473c5f0ea77a",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428439318",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118646844957
+          }
+        ]
+      },
+      {
+        "run_id": 39428407296,
+        "created_at": "2026-10-20T13:12:17Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "34cd9a79f2dce05cc15c677ea70b09b8d8b19df9",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428407296",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118646732625
+          }
+        ]
+      },
+      {
+        "run_id": 39428247919,
+        "created_at": "2026-10-20T13:11:09Z",
+        "event": "pull_request",
+        "head_branch": "56-73-koble-frontend-til-profil-og-innsjekking",
+        "head_sha": "ef24c2e18e2623abdf2b0c56092513f62e206161",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39428247919",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118646190293
+          }
+        ]
+      },
+      {
+        "run_id": 39427585980,
+        "created_at": "2026-10-20T13:06:20Z",
+        "event": "pull_request",
+        "head_branch": "56-behold-kamp-ved-profilvalg",
+        "head_sha": "7695e466c62a2239545b2e5d0d0438e12477f094",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39427585980",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39427076207,
+        "created_at": "2026-10-20T13:02:41Z",
+        "event": "pull_request",
+        "head_branch": "fix/profile-checkin-api",
+        "head_sha": "df541ce7966b1d2dcbbc97220eeac13c36495d2d",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39427076207",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39427064310,
+        "created_at": "2026-10-20T13:02:36Z",
+        "event": "pull_request",
+        "head_branch": "fix/profile-checkin-api",
+        "head_sha": "3d4f9b1da98c029c029862b2a66f0e9f0338fd19",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39427064310",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39426933287,
+        "created_at": "2026-10-20T13:01:39Z",
+        "event": "pull_request",
+        "head_branch": "fix/profile-checkin-api",
+        "head_sha": "9326b0fe85e824e7ceae3a44c9a51ae05fac1c16",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39426933287",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39426920498,
+        "created_at": "2026-10-20T13:01:34Z",
+        "event": "pull_request",
+        "head_branch": "56-behold-kamp-ved-profilvalg",
+        "head_sha": "f5b397dc44354673d82a2a6842d0b069db061451",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39426920498",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39424064220,
+        "created_at": "2026-10-20T12:40:16Z",
+        "event": "pull_request",
+        "head_branch": "prototype/checkins-profile-api",
+        "head_sha": "ebdbd3a0bb8ad729f4942a6f10d31030c28471fe",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39424064220",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118632021463
+          }
+        ]
+      },
+      {
+        "run_id": 39423881836,
+        "created_at": "2026-10-20T12:38:52Z",
+        "event": "pull_request",
+        "head_branch": "56-innsjekking-frontend",
+        "head_sha": "523e75623b1157e7b88c6f35d59ca608c3abd692",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39423881836",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39423837415,
+        "created_at": "2026-10-20T12:38:32Z",
+        "event": "pull_request",
+        "head_branch": "56-innsjekking-frontend",
+        "head_sha": "f006f72e5f858ddaaed5ff85083cdd27015bf1c2",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39423837415",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39423794406,
+        "created_at": "2026-10-20T12:38:12Z",
+        "event": "pull_request",
+        "head_branch": "56-innsjekking-frontend",
+        "head_sha": "77c24c2754105ec84a4a09d99d344353190f8a87",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39423794406",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39422852621,
+        "created_at": "2026-10-20T12:30:58Z",
+        "event": "pull_request",
+        "head_branch": "52-testprofil-frontend",
+        "head_sha": "60a8848b76d5efe301217cceed887c42627e40e7",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39422852621",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39421851173,
+        "created_at": "2026-10-20T12:23:15Z",
+        "event": "pull_request",
+        "head_branch": "fix/close-profile-test-before-pages-test",
+        "head_sha": "b4accc21e01cc6887b3c25b7b67b64f93b3a1884",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421851173",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39421656890,
+        "created_at": "2026-10-20T12:21:41Z",
+        "event": "pull_request",
+        "head_branch": "53-profilvisning-frontend",
+        "head_sha": "9cc7460939a2ec81a80eb41008c79dd326d9b974",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421656890",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118623834616
+          }
+        ]
+      },
+      {
+        "run_id": 39421257061,
+        "created_at": "2026-10-20T12:18:26Z",
+        "event": "pull_request",
+        "head_branch": "93-pages-demo-current-main",
+        "head_sha": "41c38fac2e9623768a21a3c8d721d57c6f534099",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421257061",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39421214727,
+        "created_at": "2026-10-20T12:18:06Z",
+        "event": "pull_request",
+        "head_branch": "93-pages-demo-current-main",
+        "head_sha": "8034388137d69e2b88cf57e90225edbdb9f98cca",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421214727",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39421145067,
+        "created_at": "2026-10-20T12:17:33Z",
+        "event": "pull_request",
+        "head_branch": "93-pages-demo-current-main",
+        "head_sha": "18782d72074b20ce5852c1617c618b0cd0d5b4e0",
+        "conclusion": "failure",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39421145067",
+        "failed_steps": [
+          {
+            "name": "Run automated tests",
+            "job": 118622098019
+          }
+        ]
+      },
+      {
+        "run_id": 39420307202,
+        "created_at": "2026-10-20T12:10:50Z",
+        "event": "pull_request",
+        "head_branch": "53-profilvisning-frontend",
+        "head_sha": "f7f5d1bbc7c8a5c225edfc1173aea730ae5aa523",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39420307202",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39418948665,
+        "created_at": "2026-10-20T11:59:53Z",
+        "event": "pull_request",
+        "head_branch": "93-github-pages-demo",
+        "head_sha": "e930464933f03a5f18a3449ec657b48e9074b3cc",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39418948665",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39417515176,
+        "created_at": "2026-10-20T11:47:49Z",
+        "event": "pull_request",
+        "head_branch": "57-sosial-feed-frontend",
+        "head_sha": "c63edbc20c4b0feaeb92202578151ebaa33bc505",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39417515176",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39416371694,
+        "created_at": "2026-10-20T11:38:18Z",
+        "event": "pull_request",
+        "head_branch": "54-kampoversikt-frontend",
+        "head_sha": "85b1205aa80a43e3672d562493ba26b1443b0e93",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39416371694",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39414561575,
+        "created_at": "2026-10-20T11:23:06Z",
+        "event": "pull_request",
+        "head_branch": "89-docs-audit",
+        "head_sha": "75fab4cd0a9d791adee0a735742012d4c181d5d9",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39414561575",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39413969038,
+        "created_at": "2026-10-20T11:18:07Z",
+        "event": "pull_request",
+        "head_branch": "50-project-setup",
+        "head_sha": "126c7c3b0e7408405044293c91f84528d492b5ed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413969038",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39413531478,
+        "created_at": "2026-10-20T11:14:26Z",
+        "event": "pull_request",
+        "head_branch": "10-brukernavn-frontend",
+        "head_sha": "4538b458d4a434b23e6c508e9ea5fd5f9475a19d",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39413531478",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39411705426,
+        "created_at": "2026-10-20T10:58:48Z",
+        "event": "pull_request",
+        "head_branch": "61-github-actions-ci",
+        "head_sha": "645bdcb8943b4ec9c73be36a8517a419f413b6af",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39411705426",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39306003044,
+        "created_at": "2026-10-19T18:51:11Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "c982e5c872a93a98a357dacd4e08fb7220c8b44a",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39306003044",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305960398,
+        "created_at": "2026-10-19T18:50:52Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "ae9e83edca22cb963f83775ee903bfcc0ec3f3d3",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305960398",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305948651,
+        "created_at": "2026-10-19T18:50:48Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "8e22cff471d3ec07cbfb5ac48399216001a1b073",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305948651",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305934806,
+        "created_at": "2026-10-19T18:50:42Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "258bd108f36885b93f499fb784a2168cd40826ce",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305934806",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305924285,
+        "created_at": "2026-10-19T18:50:37Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "4e53726d40ad45cbd9c422d99cd1510a2cd243b0",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305924285",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305917619,
+        "created_at": "2026-10-19T18:50:34Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "62fcd1b44fec3afbb0cc8f114614188b85b0cfc1",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305917619",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305907958,
+        "created_at": "2026-10-19T18:50:30Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "f3dc63844619f59deff79dbf0617e4ecd0423f84",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305907958",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305876512,
+        "created_at": "2026-10-19T18:50:17Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "20f7c0d78f1971792088133e96223a23471368c2",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305876512",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305861328,
+        "created_at": "2026-10-19T18:50:11Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "907078914ca4524e2d2988071f313c7b822ec896",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305861328",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305852138,
+        "created_at": "2026-10-19T18:50:08Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "5e3fb36ec5fe6503e1238b19c1e49e0b0c5a3314",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305852138",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305833578,
+        "created_at": "2026-10-19T18:50:00Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "012f422f78ee1ccabb16b73fe255f0125143d644",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305833578",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39305060967,
+        "created_at": "2026-10-19T18:44:32Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "dca2dbb73d39f9170910785b8dbbfe14c95e45d5",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39305060967",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304917408,
+        "created_at": "2026-10-19T18:43:31Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "a651d151d9d208f9396ede27f6a890c27eed0788",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304917408",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304886313,
+        "created_at": "2026-10-19T18:43:18Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "9971f14baa900b8760687c69ff6138e951b2f3f8",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304886313",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304860102,
+        "created_at": "2026-10-19T18:43:07Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "fdaa484d69512b307fab539b5f190bd1e916892d",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304860102",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304843727,
+        "created_at": "2026-10-19T18:43:00Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "90ea887775499f76ab9cfef7f1199c5254127df6",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304843727",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304768876,
+        "created_at": "2026-10-19T18:42:28Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "ca5299fafa1ef4de5a6aefc9ebfbbdd42a75d6e4",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304768876",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304722989,
+        "created_at": "2026-10-19T18:42:09Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "03e1f48c727926c2dd64f54cd06617ebc3a8b177",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304722989",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304695515,
+        "created_at": "2026-10-19T18:41:57Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "775500147effc85c11c15f45abc36bf8f8caef18",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304695515",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304558347,
+        "created_at": "2026-10-19T18:40:59Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "f618c810dbc9eb463937cef8034d304915521089",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304558347",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304530197,
+        "created_at": "2026-10-19T18:40:47Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "af6df9afb101f237941737adedf99053f98fa4fd",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304530197",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304459374,
+        "created_at": "2026-10-19T18:40:17Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "bcc61db91a0fc10cd7cf57277965b1c570a59a7d",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304459374",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304434539,
+        "created_at": "2026-10-19T18:40:07Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "3ae11f062f17398bcb3e6df732ec7a633b48e4b9",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304434539",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304408018,
+        "created_at": "2026-10-19T18:39:57Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "5f81e0380a9547941e356522e0aca1e890534bf4",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304408018",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304394712,
+        "created_at": "2026-10-19T18:39:51Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "ec8eb858dc7c78807a4c33df97d40917505ea6e2",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304394712",
+        "failed_steps": []
+      },
+      {
+        "run_id": 39304136741,
+        "created_at": "2026-10-19T18:38:08Z",
+        "event": "pull_request",
+        "head_branch": "feature/inetiger-json-backend-tests-ci",
+        "head_sha": "01f8e02af61116288b43f92383185f23438b36bc",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/Inetiger/Stadionhopper/actions/runs/39304136741",
+        "failed_steps": []
+      }
+    ]
+  }
 }

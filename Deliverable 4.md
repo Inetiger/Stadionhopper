@@ -92,11 +92,26 @@ Den korte medianen viser at mange registrerte endringer har kommet raskt ut på 
 
 Tester og gjennomgang i pull requests skal avdekke feil før merge. Dette er forebyggende kvalitetssikring. En test som feiler i en PR, blir rettet og aldri publiseres, er ikke en produksjonsfeil i DORA-analysen. Beståtte tester viser samtidig bare at de undersøkte egenskapene består; de dokumenterer ikke at alle brukerreiser fungerer etter publisering.
 
+Som et supplerende prosessmål undersøkte vi CI-kjøringer utløst av opprettelse eller oppdatering av pull requests. Uttrekket omfatter 140 kjøringer opprettet fra 19. oktober til 10. november 2026, med siste kjøring opprettet kl. 09:27:54 UTC. Dette uttrekket er litt nyere enn publiseringsuttrekket i punkt 5.1.
+
+| Siste registrerte resultat per CI-kjøring | Antall |
+| --- | ---: |
+| Vellykket | 101 |
+| Feil i steget «Run automated tests» | 37 |
+| Feil i beregningen av release-målinger | 2 |
+| Totalt | 140 |
+
+39 av 140 kjøringer, omtrent 27,9 %, endte med feil. Dette er en CI-feilandel, ikke DORAs Change Fail Rate. Flere kjøringer kan gjelde samme PR og samme underliggende problem. Ved omkjøring viser uttrekket siste resultat per run-ID; tidligere forsøk er ikke telt separat. Vi har kontrollert hvilket steg som feilet, men ikke klassifisert alle årsakene inne i teststeget. Tallene dokumenterer dermed ikke 37 forskjellige applikasjonsfeil eller at 39 feilaktige versjoner ble publisert.
+
+Resultatene viser at automatiserte kontroller har avdekket problemer under PR-arbeidet. Kalenderarbeidet 22. oktober inneholder for eksempel en [feilet testkjøring](https://github.com/Inetiger/Stadionhopper/actions/runs/39776893877) og en [senere vellykket kjøring](https://github.com/Inetiger/Stadionhopper/actions/runs/39777058000). Det støtter refleksjonen om tidlige tilbakemeldinger og mulighet til å rette før integrasjon, men dokumenterer ikke alene at alle feil ble stoppet før publisering. Feilene i release-verktøyet viser også at røde pipeline-kjøringer kan skyldes måleoppsettet fremfor selve appen.
+
 En vellykket Pages-publisering kan inneholde en feil som først oppdages manuelt. Dersom en ny versjon for eksempel gjør at en innlogget bruker ikke kan registrere kamp, og dette krever en rask feilretting, kan hendelsen inngå i analysen. Vi må da kjenne den berørte publiseringen, påvirkningens start, rettingspubliseringen og tidspunktet da brukerreisen igjen er bekreftet fungerende. Change Fail Rate knyttes til den opprinnelige leveransen, mens Deployment Rework Rate knyttes til den uplanlagte korrigerende leveransen.
 
 Et ønske fra brukertesting om bedre navn eller navigasjon er ikke automatisk en slik hendelse. Det må skilles mellom en feil som svekker avtalt funksjonalitet og krever korrigering, og ordinær læring eller videreutvikling av produktet. Testene i #141 viste dessuten at manglende deling mellom nettlesere er en akseptert prototypebegrensning. Dette skal ikke registreres som en ny feilutløsende deployment.
 
 Statusene `error` og `failure` i Actions eller deployment-loggen er heller ikke alene tilstrekkelige: de må undersøkes for faktisk påvirkning og behov for gjenoppretting. Tid fra et vilkårlig bug-issue opprettes til det lukkes, måler saksbehandlingstid, ikke nødvendigvis gjenoppretting. Vi har ikke registrert disse sammenhengene konsekvent nok til å rekonstruere de tre hendelsesbaserte målene. Eventuelle senere estimater må merkes tydelig og begrunnes hendelse for hendelse.
+
+Feil oppdaget ved faktisk bruk eller manuell testing er ikke systematisk merket og koblet til publiseringer i vår historikk. En etterfølgende kartlegging krever derfor manuell gjennomgang av issues, beskrivelser, kommentarer og relevante PR-er. Vi må i hvert tilfelle vurdere om saken gjaldt en publisert feil, et forbedringsønske eller en kjent begrensning, og forsøke å finne berørt og korrigerende leveranse. Tidspunktene kan fortsatt være ukjente selv om vi finner riktig issue. CI-dataene er derfor langt lettere å hente ut enn praktiske feil i bruk. Denne skjevheten i registreringen gjør at vi vet mer om automatiserte kontroller enn om den faktiske stabiliteten brukerne opplevde; den gir ikke grunnlag for å anta at feil utenfor testene ikke forekom.
 
 ### 5.5 Tolkning og videre forbedring
 
