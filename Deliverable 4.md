@@ -48,13 +48,9 @@ Dersom Stadionhopper skulle videreutvikles, ville vi måtte vurdere både datala
 
 ### 4.1 Arbeidsflyt og versjonskontroll
 
-Vi har brukt Scrum som utgangspunkt for organiseringen av utviklingsarbeidet, med ukentlige møter, prioritering av oppgaver og jevnlig oppfølging av fremdriften.
+Vi har brukt Scrum som utgangspunkt for organiseringen av utviklingsarbeidet, med ukentlige møter, prioritering av oppgaver og jevnlig oppfølging av fremdriften. GitHub har vært brukt til versjonskontroll, oppgavehåndtering og samarbeid. Arbeidsoppgavene har vært organisert gjennom Issues, og kodeendringer har i hovedsak blitt utviklet i egne branches før de ble integrert i `main` gjennom pull requests.
 
-GitHub har vært brukt til versjonskontroll, oppgavehåndtering og samarbeid. Arbeidsoppgavene har vært organisert gjennom Issues, og kodeendringer har i hovedsak blitt utviklet i egne branches før de ble integrert i `main` gjennom pull requests.
-
-Gjennom prosjektet har vi erfart at en tydelig oppgavestruktur er viktig for å opprettholde fremdrift. I starten var enkelte Issues for omfattende eller hadde uklare avhengigheter. Dette gjorde det vanskeligere å vite hvilke oppgaver som kunne løses uavhengig av hverandre.
-
-Etter hvert arbeidet vi med å dele opp oppgavene og tydeliggjøre ansvaret. Vi fikk også erfaring med at KI-genererte Issues måtte gjennomgås kritisk og tilpasses det faktiske utviklingsarbeidet.
+I starten hadde vi en tydelig fordeling av roller og arbeidsoppgaver. Dette ga oss struktur, men førte også til at enkelte oppgaver ble avhengige av at andre først fullførte sitt arbeid. Vi erfarte samtidig at noen Issues var for omfattende eller hadde uklare avhengigheter, noe som gjorde det vanskeligere å planlegge og gjennomføre arbeidet effektivt. Etter hvert begynte vi å dele opp oppgavene i mindre deler og samarbeide mer på tvers av de opprinnelige ansvarsområdene. Dette ga oss større fleksibilitet og gjorde det enklere å bidra der det var behov. Vi fikk også erfaring med at KI-genererte Issues måtte gjennomgås kritisk og tilpasses det faktiske utviklingsarbeidet.
 
 ### 4.2 Testing og kvalitetssikring
 
