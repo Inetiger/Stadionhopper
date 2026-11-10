@@ -11,10 +11,33 @@
 - Stadionhoppers formål, målgruppe og prosjektets rammer: tre studenter, begrenset tid og flere parallelle fag.
 - Rapportens formål: vurdere produktet og leveranseprosessen. Avgrens hvilken periode og hvilken publisert løsning DORA-analysen gjelder.
 
-## 2. Produktet og oppnådde resultater (ca. 1 side)
+## 2. Produktet og oppnådde resultater
 
-- Hva den leverte versjonen faktisk støtter; demonstrer gjerne én sammenhengende brukerreise, som å finne og registrere en kamp.
-- Prioriteringer, brukerinnspill og gjenstående begrensninger. Skill mellom implementert, testet og planlagt funksjonalitet.
+### 2.1 Gjennomførte brukerreiser
+
+Statusgjennomgangen i [issue #141](https://github.com/Inetiger/Stadionhopper/issues/141) tok utgangspunkt i den publiserte GitHub Pages-demoen. Inger gjennomførte manuelle tester på PC, først fra et privat nettleservindu, og kontrollerte den grunnleggende kalenderreisen på mobil. Testresultatene bygger på hennes rapporterte observasjoner, ikke bare på at funksjonene er implementert.
+
+| Brukerreise eller kontroll | Observert resultat |
+| --- | --- |
+| Utforske uten innlogging | Appen åpnes, og kamper kan finnes i kalenderen. |
+| Kalender og kampdetaljer | Månedsbytte mellom november og desember fungerer. Kampdetaljene viser riktig dato, klokkeslett og stadion. |
+| Mobilvisning | Finne kamp, åpne detaljer og gå tilbake fungerer med samme resultat som på PC. Innholdet holder seg innenfor skjermbredden. |
+| Innlogging og brukerbytte | Gyldig testkonto kan logge inn. Feil innloggingsopplysninger avvises med en forståelig melding. Alex sine innsjekkinger vises ikke på Sams profil. |
+| Registrere kamp | Nye kamper beholdes i den aktuelle nettleseren og vises riktig. Nye klubbnavn og spillesteder utenfor forslagene kan også brukes. |
+| Obligatoriske felt | Ufullstendig skjema stoppes; fokus flyttes til feltet som mangler, med veiledning om hva som må fylles ut. |
+| Duplikatkamp | Samme lag og tidspunkt gir beskjed om at kampen finnes allerede; ingen ekstra kamp opprettes. |
+| Innsjekking | Innsjekkingen vises i historikken. Knappen deaktiveres etter første trykk og hindrer gjentatt innsending i samme skjermbilde. |
+| Sosial feed | Innsjekkingen vises én gang med riktig bruker og kamp. |
+
+Ingen blokkerende feil ble rapportert i disse testene. Dette gir grunnlag for å beskrive de undersøkte brukerreisene som fungerende innenfor demoens rammer, men er ikke en fullstendig kompatibilitets-, sikkerhets- eller brukervennlighetstest. Alle kontrollene er heller ikke gjentatt på både PC og mobil. Nettleserversjon, operativsystem og eksakt publisert commit ble ikke registrert, noe som begrenser etterprøvbarheten. Ved senere testing bør disse opplysningene registreres sammen med forventet og faktisk resultat.
+
+### 2.2 Avtalte avgrensninger
+
+Gruppa har avklart at prototypen først og fremst skal være tilgjengelig og testbar. Lokal nettleserlagring er derfor akseptert for denne leveransen. En innledende mistanke om manglende lagring ble avklart da den registrerte kampen fortsatt lå i opprinnelig nettleser. Et annet gruppemedlem så ikke kampen i sin nettleser. Innsjekkingene fulgte heller ikke med til en ny separat privatøkt.
+
+Kamper og innsjekkinger deles dermed ikke mellom brukere eller enheter, og data kan gå tapt når privatøkten avsluttes eller nettleserdata slettes. Dette gjør det mulig å teste registrering og innsjekking individuelt, men ikke en sammenhengende sosial brukerreise der én bruker publiserer en kamp og en annen finner den på en annen enhet. Felles, varig lagring må på plass før en slik bruk kan prøves realistisk.
+
+Gruppa har også akseptert kartplassholderen, statiske arrangementer og manglende liveoppdatering av kamper som avgrensninger i sluttversjonen. Disse beskrives derfor ikke som ferdige funksjoner. Gjennomgangen skiller slik mellom det som er testet og fungerer, og det som bevisst er utsatt. Et annet gruppemedlem skal kvalitetssikre resultatene og avgrensningene gjennom pull requesten før statusgjennomgangen regnes som ferdig.
 
 ## 3. Arkitektur og tekniske valg (ca. 1 side)
 
