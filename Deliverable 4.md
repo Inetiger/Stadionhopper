@@ -33,6 +33,8 @@ Statusgjennomgangen i [issue #141](https://github.com/Inetiger/Stadionhopper/iss
 
 Ingen blokkerende feil ble rapportert i disse testene. Dette gir grunnlag for å beskrive de undersøkte brukerreisene som fungerende innenfor demoens rammer, men er ikke en fullstendig kompatibilitets-, sikkerhets- eller brukervennlighetstest. Alle kontrollene er heller ikke gjentatt på både PC og mobil. Nettleserversjon, operativsystem og eksakt publisert commit ble ikke registrert, noe som begrenser etterprøvbarheten. Ved senere testing bør disse opplysningene registreres sammen med forventet og faktisk resultat.
 
+I den siste sprinten har vi gjort flere mindre forbedringer av prototypen. Vi har videreutviklet det visuelle designet, lagt inn flere eksempelkamper slik at kalenderfunksjonen blir enklere å demonstrere, og lagt til en knapp for å registrere nye kamper. Endringene har hatt som mål å gjøre løsningen mer oversiktlig og gi et bedre grunnlag for å demonstrere de sentrale brukerreisene.
+
 ### 2.2 Avtalte avgrensninger
 
 Gruppa har avklart at prototypen først og fremst skal være tilgjengelig og testbar. Lokal nettleserlagring er derfor akseptert for denne leveransen. En innledende mistanke om manglende lagring ble avklart da den registrerte kampen fortsatt lå i opprinnelig nettleser. Et annet gruppemedlem så ikke kampen i sin nettleser. Innsjekkingene fulgte heller ikke med til en ny separat privatøkt.
@@ -78,6 +80,8 @@ Dersom Stadionhopper skulle videreutvikles, ville vi måtte vurdere både datala
 Vi har brukt Scrum som utgangspunkt for organiseringen av utviklingsarbeidet, med ukentlige møter, prioritering av oppgaver og jevnlig oppfølging av fremdriften. GitHub har vært brukt til versjonskontroll, oppgavehåndtering og samarbeid. Arbeidsoppgavene har vært organisert gjennom Issues, og kodeendringer har i hovedsak blitt utviklet i egne branches før de ble integrert i `main` gjennom pull requests.
 
 I starten hadde vi en tydelig fordeling av roller og arbeidsoppgaver. Dette ga oss struktur, men førte også til at enkelte oppgaver ble avhengige av at andre først fullførte sitt arbeid. Vi erfarte samtidig at noen Issues var for omfattende eller hadde uklare avhengigheter, noe som gjorde det vanskeligere å planlegge og gjennomføre arbeidet effektivt. Etter hvert begynte vi å dele opp oppgavene i mindre deler og samarbeide mer på tvers av de opprinnelige ansvarsområdene. Dette ga oss større fleksibilitet og gjorde det enklere å bidra der det var behov. Vi fikk også erfaring med at KI-genererte Issues måtte gjennomgås kritisk og tilpasses det faktiske utviklingsarbeidet.
+
+I den siste sprinten har vi videreført den etablerte arbeidsflyten med branches og pull requests, både for forbedringer av prototypen og for arbeidet med sluttrapporten. Rapporten er skrevet og redigert i GitHub, slik at gruppemedlemmene kan gjennomgå endringer og gi tilbakemeldinger før de integreres i `main`. Dette har gjort det mulig å bruke den samme samarbeidsstrukturen for dokumentasjon som for utvikling av programvaren.
 
 ### 4.2 Testing og kvalitetssikring
 
