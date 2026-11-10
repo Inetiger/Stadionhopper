@@ -113,9 +113,30 @@ Statusene `error` og `failure` i Actions eller deployment-loggen er heller ikke 
 
 Feil oppdaget ved faktisk bruk eller manuell testing er ikke systematisk merket og koblet til publiseringer i vår historikk. En etterfølgende kartlegging krever derfor manuell gjennomgang av issues, beskrivelser, kommentarer og relevante PR-er. Vi må i hvert tilfelle vurdere om saken gjaldt en publisert feil, et forbedringsønske eller en kjent begrensning, og forsøke å finne berørt og korrigerende leveranse. Tidspunktene kan fortsatt være ukjente selv om vi finner riktig issue. CI-dataene er derfor langt lettere å hente ut enn praktiske feil i bruk. Denne skjevheten i registreringen gjør at vi vet mer om automatiserte kontroller enn om den faktiske stabiliteten brukerne opplevde; den gir ikke grunnlag for å anta at feil utenfor testene ikke forekom.
 
-### 5.5 Tolkning og videre forbedring
+### 5.5 Kritisk refleksjon over målingene
 
-Analysen gir best dekning av leveransehastighet, mens stabilitet er svakere dokumentert. En kort studentperiode, få brukere og begrenset testing kan gjøre feil mindre synlige. Det gamle CI-verktøyets release-/bugfix-klassifisering brukes derfor ikke som erstatning for faktiske produksjonshendelser. Deploy-loggen er en hendelsesliste, ikke et ferdig dashboard; filen på `main` er eldre historikk, mens videre logging skjer på `dora-data`.
+Målingene gir et skjevt, men nyttig bilde av arbeidet: Vi kan dokumentere leveransehastighet bedre enn stabilitet. Det skyldes blant annet at GitHub automatisk registrerer commits, CI og publiseringer, mens feil oppdaget i bruk i større grad ble diskutert i fritekst i issues og Teams. Manglende tall for feilrate, gjenoppretting og hendelsesdrevet omarbeiding er derfor først og fremst en begrensning ved registreringen. De er ikke dokumentasjon på at slike problemer ikke oppstod.
+
+Medianen på 5 minutter og 56,5 sekunder må også tolkes sammen med variasjonen. Av 230 commits hadde 25 ledetid under ett minutt, 154 fra ett minutt til og med én time og 51 over én time. Blant de siste hadde 16 ledetid på minst ett døgn. Medianen er dermed forenlig med at enkelte endringer ventet i flere dager. Korte observasjoner omfatter også dokumentasjon og filendringer som raskt ble publisert. Vi kan ikke utlede en effekt av KI fra disse tallene: Arbeid før commit er ikke med, og sen committing kan gi kort målt ledetid uavhengig av hvor lang tid oppgaven tok.
+
+En etterfølgende gjennomgang gir likevel konkrete eksempler som belyser feil og omarbeiding:
+
+| Historisk spor | Hva som kan underbygges | Forbehold |
+| --- | --- | --- |
+| #70 / PR #71 → #77 / PR #78 | Etter publisering av HTML-prototypen måtte manglende JavaScript-referanse, CSS-kobling og HTML-struktur korrigeres. Den historiske HTML-versjonen bekrefter manglende scriptlasting. | En relevant kandidat til feilretting etter publisering. Problemer med knapper var også meldt før merge; hendelsen viser derfor en svakhet i oppfølgingen av testobservasjoner. |
+| #54 / PR #91 → #93 / PR #96 | Kampoversikten ble koblet til et API som GitHub Pages ikke kjører. En egen demomodus ble deretter laget for den publiserte testlenken. | Underbygger et integrasjonsproblem mellom lokalt testmiljø og publiseringsmiljø. |
+| PR #114 → #115 og PR #113 → #116 | Publiserte endringer ble tilbakeført. | Tilbakeføringene er dokumentert, men vi mangler sikker begrunnelse for å klassifisere dem som hendelsesdrevet rollback. |
+| PR #97 og #133–#134 | Testkode etter konfliktløsing og oppsettet for måleverktøyet måtte korrigeres. | Dette er omarbeiding i utviklings-/leveranseprosessen, uten dokumentert brukerrettet driftsfeil. |
+
+For de to første kandidatene er intervallene fra relevant publisering til publisert rettelse henholdsvis **36 minutter og 11 sekunder** og **37 minutter og 32 sekunder** den 20. oktober. Dette er rekonstruerte intervaller, ikke bekreftede gjenopprettingstider: Vi mangler samtidig verifikasjon av når funksjonene fungerte igjen for brukerne. Issue-lukking kan heller ikke erstatte dette tidspunktet. Eksempelvis ble #121 lukket 9. november, mens den tilhørende rettingen ble merget 26. oktober. En lukkedato kan gjelde administrativ opprydding.
+
+Teams-utdraget fra perioden 19.–21. oktober viser at testinvitasjonen uttrykkelig opplyste at innlogging manglet. Dette støtter at manglende innlogging i denne testversjonen var en kommunisert avgrensning. Innspill om uklare navigasjonsbegreper og kalender førte videre til produktforbedringer. Slike endringer kan innebære omarbeiding i vanlig språkbruk, men er ikke automatisk Deployment Rework Rate: Vi må kunne knytte dem til en relevant produksjonshendelse. En senere, upresis omtale av tilgang uten å trykke «Utforsk» kan ikke klassifiseres sikkert og er utelatt fra hendelsesberegninger.
+
+Vi har dermed nok materiale til å drøfte alle fem målingene, men ikke til å beregne sikre verdier for alle. En prosent basert bare på feilene vi tilfeldigvis finner igjen, kan undervurdere feilomfanget. På samme måte kan intervaller basert på publiseringstid gi et mer presist inntrykk enn dokumentasjonen tillater. Eksemplene brukes derfor kvalitativt, og de tre hendelsesbaserte målene beholdes som ukjente. Den korte prosjektperioden, begrensede brukergruppen og ufullstendige hendelseshistorikken gjør også sammenligning med modne driftsteam lite meningsfull.
+
+### 5.6 Videre forbedring av datagrunnlaget
+
+Det gamle CI-verktøyets release-/bugfix-klassifisering brukes ikke som erstatning for faktiske produksjonshendelser. Deploy-loggen er en hendelsesliste, ikke et ferdig dashboard; filen på `main` er eldre historikk, mens videre logging skjer på `dora-data`.
 
 Vi ville bygget videre på eksisterende issues og PR-er. Når en relevant feil oppdages i bruk, registreres berørt publisering, påvirkning, tidspunkt og koblet rettings-PR i samme issue, gjerne med den eksisterende Production incident-malen. Rettelsen testes før merge og bekreftes etter publisering. Hvis starttidspunktet er ukjent, registreres oppdagelsestidspunktet som en uttrykkelig avgrenset tilnærming. Det trengs ingen parallell feilrapport for hver måling.
 
