@@ -58,17 +58,11 @@ Vi har benyttet både automatiserte tester og manuell brukertesting for å kvali
 
 Dette viste oss hvordan automatiserte tester kan bidra til å oppdage feil tidlig i utviklingsprosessen.
 
-Samtidig har brukertestingen gitt en annen type innsikt. De automatiserte testene undersøker om funksjoner oppfører seg som forventet, mens brukertestingen har vist hvordan personer utenfor utviklingsgruppen opplever løsningen.
-
-Vi har derfor erfart at teknisk testing og brukertesting utfyller hverandre. En løsning kan fungere teknisk uten at den nødvendigvis er enkel å forstå eller bruke.
+Samtidig har brukertestingen gitt en annen type innsikt. De automatiserte testene undersøker om funksjoner oppfører seg som forventet, mens brukertestingen har vist hvordan personer utenfor utviklingsgruppen opplever løsningen. Vi har derfor erfart at teknisk testing og brukertesting utfyller hverandre. En løsning kan fungere teknisk uten at den nødvendigvis er enkel å forstå eller bruke.
 
 ### 4.3 CI/CD og publisering
 
-Vi har etablert en CI-prosess gjennom GitHub Actions, der JavaScript-syntaks og automatiserte tester kontrolleres ved pull requests og endringer i `main`.
-
-Vi har også benyttet GitHub Pages til å publisere demonstrasjonsversjonen. Publiseringen skjer gjennom en separat workflow og er ikke direkte avhengig av at alle CI-kontrollene er bestått.
-
-Dette innebærer at en vellykket publisering ikke nødvendigvis dokumenterer at alle tester har bestått. Vi har dermed fått erfaring med både kontinuerlig integrasjon og automatisert publisering, men har ikke etablert en fullstendig leveranseprosess der beståtte tester er et krav før produksjonssetting.
+Vi har etablert en CI-prosess gjennom GitHub Actions, der JavaScript-syntaks og automatiserte tester kontrolleres ved pull requests og endringer i `main`. Vi har også benyttet GitHub Pages til å publisere demonstrasjonsversjonen. Publiseringen skjer gjennom en separat workflow og er ikke direkte avhengig av at alle CI-kontrollene er bestått. Dette innebærer at en vellykket publisering ikke nødvendigvis dokumenterer at alle tester har bestått. Vi har dermed fått erfaring med både kontinuerlig integrasjon og automatisert publisering, men har ikke etablert en fullstendig leveranseprosess der beståtte tester er et krav før produksjonssetting.
 
 Gjennom prosjektet har vi også erfart at pull requests og automatiserte tester ikke erstatter behovet for kodegjennomgang. Vi har i hovedsak kontrollert beskrivelser og testresultater, og i mindre grad gjennomført systematiske gjennomganger av selve koden.
 
@@ -78,17 +72,9 @@ Gjennom prosjektet har vi også erfart at pull requests og automatiserte tester 
 
 ### 5.1 Datagrunnlag og målemetode
 
-DORA (DevOps Research and Assessment) brukes til å evaluere programvareleveranser gjennom målinger av hastighet og stabilitet. De fire målingene vi undersøker er Deployment Frequency, Lead Time for Changes, Change Failure Rate og Mean Time to Restore.
+DORA (DevOps Research and Assessment) brukes til å evaluere programvareleveranser gjennom målinger av hastighet og stabilitet. De fire målingene vi undersøker er Deployment Frequency, Lead Time for Changes, Change Failure Rate og Mean Time to Restore. Formålet med analysen er å undersøke hvordan utviklings- og leveranseprosessen vår har fungert, og hvilke forbedringer vi kan ta med oss videre. Datagrunnlaget hentes fra GitHub, der vi har dokumentasjon på commits, pull requests, GitHub Actions og publiseringer gjennom GitHub Pages. Eventuelle feilregistreringer i Issues kan også bidra til analysen.
 
-Formålet med analysen er å undersøke hvordan utviklings- og leveranseprosessen vår har fungert, og hvilke forbedringer vi kan ta med oss videre.
-
-Datagrunnlaget hentes fra GitHub, der vi har dokumentasjon på commits, pull requests, GitHub Actions og publiseringer gjennom GitHub Pages. Eventuelle feilregistreringer i Issues kan også bidra til analysen.
-
-I Deliverable 3 benyttet vi et automatisert verktøy for å hente data fra GitHub-historikken. Verktøyet rapporterte blant annet 55 releases, 2 feature releases og 6 bugfix releases. Samtidig inneholdt `release.yaml` bare én registrert release, datert 27. oktober 2026.
-
-Disse tallene var ikke umiddelbart sammenfallende. Vi kan derfor ikke uten videre bruke dem som grunnlag for DORA-analysen. Det er nødvendig å kontrollere hva verktøyet faktisk har telt, og skille mellom commits, pull requests, releases og faktiske deployeringer.
-
-Vi må også skille mellom feil som oppdages under utvikling og testing, og feil som oppstår etter at en ny versjon er publisert.
+I Deliverable 3 benyttet vi et automatisert verktøy for å hente data fra GitHub-historikken. Verktøyet rapporterte blant annet 55 releases, 2 feature releases og 6 bugfix releases. Samtidig inneholdt `release.yaml` bare én registrert release, datert 27. oktober 2026. Disse tallene var ikke umiddelbart sammenfallende. Vi kan derfor ikke uten videre bruke dem som grunnlag for DORA-analysen. Det er nødvendig å kontrollere hva verktøyet faktisk har telt, og skille mellom commits, pull requests, releases og faktiske deployeringer. Vi må også skille mellom feil som oppdages under utvikling og testing, og feil som oppstår etter at en ny versjon er publisert.
 
 *** Beskriv nøyaktig hvordan dere har hentet ut data, hvilken periode som undersøkes, og hvilke definisjoner dere bruker for de fire målingene.
 
@@ -103,19 +89,13 @@ Vi må også skille mellom feil som oppdages under utvikling og testing, og feil
 
 ### 5.2 Deployment Frequency – publiseringsfrekvens
 
-Deployment Frequency måler hvor ofte en ny versjon av programvaren blir publisert. Målingen kan gi innsikt i hvor hyppig teamet leverer endringer til brukerne.
-
-For Stadionhopper er det relevant å undersøke antall vellykkede publiseringer gjennom GitHub Pages i den valgte perioden.
-
-Det er viktig å skille mellom kodeendringer og faktiske publiseringer. En commit eller pull request innebærer ikke nødvendigvis at en ny versjon er publisert. Vi må derfor ta utgangspunkt i publiseringshistorikken og undersøke hvilke workflows som faktisk har resultert i en vellykket deployering.
+Deployment Frequency måler hvor ofte en ny versjon av programvaren blir publisert. Målingen kan gi innsikt i hvor hyppig teamet leverer endringer til brukerne. For Stadionhopper er det relevant å undersøke antall vellykkede publiseringer gjennom GitHub Pages i den valgte perioden. Det er viktig å skille mellom kodeendringer og faktiske publiseringer. En commit eller pull request innebærer ikke nødvendigvis at en ny versjon er publisert. Vi må derfor ta utgangspunkt i publiseringshistorikken og undersøke hvilke workflows som faktisk har resultert i en vellykket deployering.
 
 *** Legg inn antall vellykkede publiseringer og beregnet frekvens, for eksempel antall publiseringer per uke.
 
 *** Beskriv om publiseringene har vært jevnt fordelt, eller om aktiviteten har variert gjennom prosjektperioden.
 
-Publiseringsfrekvensen må tolkes i lys av at Stadionhopper er et studentprosjekt. Arbeidsmengden har variert som følge av andre studieforpliktelser og innleveringsfrister. En ujevn publiseringsfrekvens vil derfor ikke nødvendigvis bety at utviklingsprosessen har vært ineffektiv.
-
-Samtidig sier ikke hyppige publiseringer alene noe om kvaliteten eller brukerverdien til endringene. Målingen må derfor vurderes sammen med de øvrige DORA-målingene og resultatene fra brukertestingen.
+Publiseringsfrekvensen må tolkes i lys av at Stadionhopper er et studentprosjekt. Arbeidsmengden har variert som følge av andre studieforpliktelser og innleveringsfrister. En ujevn publiseringsfrekvens vil derfor ikke nødvendigvis bety at utviklingsprosessen har vært ineffektiv. Samtidig sier ikke hyppige publiseringer alene noe om kvaliteten eller brukerverdien til endringene. Målingen må derfor vurderes sammen med de øvrige DORA-målingene og resultatene fra brukertestingen.
 
 ### 5.3 Lead Time for Changes – ledetid for endringer
 
