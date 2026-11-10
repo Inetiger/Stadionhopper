@@ -54,11 +54,7 @@ I starten hadde vi en tydelig fordeling av roller og arbeidsoppgaver. Dette ga o
 
 ### 4.2 Testing og kvalitetssikring
 
-Vi har benyttet både automatiserte tester og manuell brukertesting for å kvalitetssikre løsningen.
-
-De automatiserte testene har blant annet kontrollert autentisering, brukerøkter, tilgangskontroll, kampinformasjon og innsjekkinger. Testene har vært kjørt gjennom GitHub Actions som en del av CI-prosessen.
-
-Et konkret eksempel på nytten av dette oppstod under arbeidet med kalenderfunksjonaliteten. Etter en kodeendring viste GitHub Actions at to av 41 tester feilet. Feilene ble undersøkt og rettet, og etter en ny commit bestod alle testene før endringene ble integrert i `main`.
+Vi har benyttet både automatiserte tester og manuell brukertesting for å kvalitetssikre løsningen. De automatiserte testene har blant annet kontrollert autentisering, brukerøkter, tilgangskontroll, kampinformasjon og innsjekkinger. Testene har vært kjørt gjennom GitHub Actions som en del av CI-prosessen. Et konkret eksempel på nytten av dette oppstod under arbeidet med kalenderfunksjonaliteten. Etter en kodeendring viste GitHub Actions at to av 41 tester feilet. Feilene ble undersøkt og rettet, og etter en ny commit bestod alle testene før endringene ble integrert i `main`. ***fjerne eksempelet?
 
 Dette viste oss hvordan automatiserte tester kan bidra til å oppdage feil tidlig i utviklingsprosessen.
 
