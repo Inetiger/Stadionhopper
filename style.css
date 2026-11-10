@@ -2,25 +2,27 @@
 * { box-sizing: border-box; }
 body {
   font-family: Arial, sans-serif;
-  color: #192B20;
-  background: #2E9B49;
-  max-width: 430px;
+  color: #23362E;
+  background: #F3F4EF;
+  max-width: 640px;
   min-height: 100vh;
   margin: auto;
-  border: 1px solid #333;
+  border: 1px solid #D8DED5;
+  box-shadow: 0 12px 40px #173B2D0D;
   display: flex;
   flex-direction: column;
 }
 header, main { padding: 20px; }
 
 header {
-  background: #176B35;
+  background: #193D30;
   color: white;
-  border-bottom: 1px solid #145C32;
+  border-bottom: 3px solid #AF9668;
+  letter-spacing: 0.13em;
 }
 
 main {
-  background: #2E9B49;
+  background: #F3F4EF;
 }
 main { flex: 1; }
 main h1,
@@ -29,46 +31,46 @@ main h3,
 main > p,
 main > small,
 main > label {
-  color: white;
+  color: #23362E;
 }
 
 article {
   background: #FFFFFF;
-  color: #192B20;
-  border: 1px solid #D6E8D9;
+  color: #23362E;
+  border: 1px solid #D8DED5;
   border-radius: 8px;
 }
 
 input {
   background: #FFFFFF;
-  color: #192B20;
+  color: #23362E;
 }
 h1 { font-size: 26px; }
 h2 { font-size: 22px; margin-top: 30px; }
 h3 { font-size: 18px; margin: 0 0 10px; }
 p { line-height: 1.6; }
-small { color: #555; line-height: 1.5; }
-button, input { font: inherit; padding: 14px; border: 1px solid #999; }
-button { background: #fafafa; color: inherit; cursor: pointer; font-weight: bold; }
+small { color: #526359; line-height: 1.5; }
+button, input { font: inherit; padding: 14px; border: 1px solid #C5CFC3; }
+button { border-radius: 8px; background: #FFFFFF; color: inherit; cursor: pointer; font-weight: bold; }
 .side > button { display: block; width: 100%; margin: 20px 0; text-align: left; }
-button:hover { background: #ddd; }
+button:hover { background: #E7ECE3; }
 button:disabled { cursor: not-allowed; }
 .mork {
-  background: #145C32;
+  background: #234D3C;
   color: white;
 }
 
 .mork:hover {
-  background: #104A28;
+  background: #193D30;
 }
 label { display: block; margin: 25px 0 8px; font-weight: bold; }
-input { width: 100%; }
-article { border: 1px solid #999; background: #fafafa; padding: 14px; margin: 20px 0; }
+input { width: 100%; border-radius: 6px; }
+article { border: 1px solid #D8DED5; background: #FFFFFF; padding: 14px; margin: 20px 0; }
 /* Kampdetaljer – diskret fotballgrønn utforming */
 #detaljkort {
-  background: #f2f8f4;
-  border: 1px solid #c6e4d0;
-  border-left: 4px solid #246b45;
+  background: #EDF1E9;
+  border: 1px solid #CDD8C9;
+  border-left: 4px solid #365E47;
   border-radius: 6px;
 }
 /* Klubbemblemer på kampdetaljsiden */
@@ -105,7 +107,7 @@ article { border: 1px solid #999; background: #fafafa; padding: 14px; margin: 20
   flex-shrink: 0;
   font-size: 18px;
   font-weight: bold;
-  color: #246b45;
+  color: #365E47;
 }
 article button { border: 0; padding: 8px 0; background: none; text-align: left; }
 summary { cursor: pointer; font-weight: bold; }
@@ -114,8 +116,8 @@ summary { cursor: pointer; font-weight: bold; }
 nav {
   position: sticky;
   bottom: 0;
-  background: #176B35;
-  border-top: 1px solid #145C32;
+  background: #FFFFFF;
+  border-top: 1px solid #D8DED5;
   padding: 6px;
 }
 
@@ -123,15 +125,15 @@ nav button {
   border: 0;
   padding: 14px 4px;
   font-size: 13px;
-  background: #176B35;
-  color: white;
+  background: #FFFFFF;
+  color: #234D3C;
 }
 
 nav button:hover {
-  background: #145C32;
+  background: #EDF1E9;
 }
 nav button { border: 0; padding: 14px 4px; font-size: 13px; }
-.bilde { background: #eee; border: 1px solid #999; padding: 45px 10px; text-align: center; }
+.bilde { background: #eee; border: 1px solid #C5CFC3; padding: 45px 10px; text-align: center; }
 .side, #tidligere { display: none; }
 
 #innlegg p { overflow-wrap: anywhere; white-space: pre-wrap; }
@@ -144,18 +146,18 @@ nav button { border: 0; padding: 14px 4px; font-size: 13px; }
 .kalenderkontroller button { padding: 10px 14px; }
 .kampkalender { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; margin: 12px 0 22px; }
 .ukedag { text-align: center; font-size: 12px; font-weight: bold; padding: 8px 0; }
-.kalenderdag { min-width: 0; min-height: 96px; padding: 4px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 4px; border: 1px solid #c5cbd0; border-radius: 4px; background: #fff; }
+.kalenderdag { min-width: 0; min-height: 96px; padding: 4px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 4px; border: 1px solid #D8DED5; border-radius: 4px; background: #fff; }
 .kalenderdag.tom { border: 0; background: transparent; }
-.kalenderdag.valgt-dag { outline: 2px solid #246b45; outline-offset: -2px; background: #f2f8f4; }
+.kalenderdag.valgt-dag { outline: 2px solid #365E47; outline-offset: -2px; background: #EDF1E9; }
 .kalenderdato { align-self: flex-start; border: 0; padding: 3px 5px; background: transparent; font-size: 13px; }
-.kalenderkamp { width: 100%; min-width: 0; padding: 4px; border: 0; border-radius: 3px; background: #dcefe2; color: #174a2b; text-align: left; font-size: 10px; line-height: 1.3; overflow-wrap: anywhere; }
-.kalenderkamp:hover { background: #c6e4d0; }
+.kalenderkamp { width: 100%; min-width: 0; padding: 4px; border: 0; border-radius: 3px; background: #E3EBDD; color: #234D3C; text-align: left; font-size: 10px; line-height: 1.3; overflow-wrap: anywhere; }
+.kalenderkamp:hover { background: #CDD8C9; }
 .kalenderkamp-tidligere {
-    background: #F5DDDD;
-    color: #693838;
+    background: #EEE8E1;
+    color: #594D43;
 }
 .kalenderkamp-tidligere:hover {
-    background: #EBCACA;
+    background: #E1D8CC;
 }
 
 #dagenskamper { margin-top: 12px; }
@@ -173,17 +175,40 @@ nav button { border: 0; padding: 14px 4px; font-size: 13px; }
 /* Brukerregistrering deler samme enkle uttrykk som resten av prototypen. */
 #nykampskjema {
   background: #fff;
-  color: #192B20;
+  color: #23362E;
   padding: 16px;
   border-radius: 8px;
 }
 #nykampskjema label:first-child { margin-top: 0; }
 #nykampskjema input { min-width: 0; }
-#nykampskjema p { color: #192B20; }
+#nykampskjema p { color: #23362E; }
 #lagrekampknapp { width: 100%; border-radius: 6px; }
-#nykampstatus:not(:empty) { padding: 10px; border-left: 4px solid #246b45; background: #f2f8f4; }
+#nykampstatus:not(:empty) { padding: 10px; border-left: 4px solid #365E47; background: #EDF1E9; }
 #nykampmodus, #nykamptidssone { font-size: 14px; }
 #detaljkilde { font-size: 14px; color: #395444; }
-#dagliste h3 { color: #192B20; }
+#dagliste h3 { color: #23362E; }
 #nykampknapp { border-radius: 6px; }
-button:focus-visible, input:focus-visible { outline: 3px solid #ffda55; outline-offset: 2px; }
+button:focus-visible, input:focus-visible { outline: 3px solid #365E47; outline-offset: 2px; }
+
+/* Rolig stadionpalett: papir, skoggrønt og en diskret messingdetalj. */
+body { line-height: 1.45; }
+header { padding: 24px 20px; }
+main { padding-top: 24px; }
+h1 { font-size: 28px; letter-spacing: -0.025em; margin-bottom: 10px; }
+h2 { letter-spacing: -0.015em; }
+.side > p { color: #526359; }
+#demostatus { display: block; font-size: 12px; margin-bottom: 24px; }
+.side > button { margin: 14px 0; }
+button { transition: background-color 120ms ease; }
+button:disabled { opacity: 0.6; }
+.kalenderkontroller { margin-top: 24px; }
+.kalenderdag { border-radius: 6px; }
+.ukedag { color: #526359; }
+.kalenderkamp { border-radius: 4px; }
+#dagenskamper { border-top: 1px solid #D8DED5; padding-top: 22px; }
+#nykampskjema { border: 1px solid #D8DED5; padding: 20px; }
+#detaljkort { background: #FFFFFF; }
+nav { gap: 4px; }
+nav button { border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }
+@media (max-width: 400px) { header, main { padding-left: 14px; padding-right: 14px; } }
