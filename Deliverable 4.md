@@ -12,9 +12,7 @@ I denne siste leveransen evaluerer vi produktet og utviklingsprosessen. Vi gjenn
 
 ### 2.1 Funksjonalitet i den leverte løsningen
 
-Vi har utviklet en nettbasert prototype av Stadionhopper med HTML, CSS og JavaScript i frontend og Node.js i backend. Den publiserte demonstrasjonsversjonen er tilgjengelig gjennom GitHub Pages og benytter fiktive data og lokal nettleserlagring.
-
-En sentral brukerreise vi har laget er å finne en kommende fotballkamp, se informasjon om kampen og stadionet, og registrere et kampbesøk. Prototypen inneholder blant annet kampoversikt med kalendervisning, kampdetaljer, stadioninformasjon, innlogging med testkontoer, brukerprofil og innsjekkinger. Vi har også arbeidet med sosiale funksjoner, som å lage arrangement og bringe folk sammen og dele fotballinteressen.
+Vi har utviklet en nettbasert prototype av Stadionhopper med HTML, CSS og JavaScript i frontend og Node.js i backend. Den publiserte demonstrasjonsversjonen er tilgjengelig gjennom GitHub Pages og benytter fiktive data og lokal nettleserlagring. En sentral brukerreise vi har laget er å finne en kommende fotballkamp, se informasjon om kampen og stadionet, og registrere et kampbesøk. Prototypen inneholder blant annet kampoversikt med kalendervisning, kampdetaljer, stadioninformasjon, innlogging med testkontoer, brukerprofil og innsjekkinger. Vi har også arbeidet med sosiale funksjoner, som å lage arrangement og bringe folk sammen og dele fotballinteressen.
 
 Backend er utviklet for blant annet autentisering, brukerøkter, kampdata og innsjekkinger. Denne er imidlertid ikke koblet til demonstrasjonsversjonen som er publisert gjennom GitHub Pages. Den publiserte løsningen kan derfor demonstrere flere av brukerreisene, men har ikke felles datalagring mellom ulike brukere og nettlesere. Dette er en viktig begrensning ved prototypen. Selv om flere funksjoner kan testes i demonstrasjonen, betyr det ikke at de er ferdig utviklet for en løsning med reelle brukere.
 
@@ -22,15 +20,9 @@ Backend er utviklet for blant annet autentisering, brukerøkter, kampdata og inn
 
 ### 2.2 Brukerbehov og prioriteringer
 
-I starten av prosjektet definerte vi en MVP med innlogging og brukerprofil, stadionoversikt, kommende kamper, innsjekkinger og personlig historikk. Mer omfattende sosiale funksjoner ble prioritert lavere for å sikre at vi kunne konsentrere oss om de viktigste brukerbehovene.
+I starten av prosjektet definerte vi en MVP med innlogging og brukerprofil, stadionoversikt, kommende kamper, innsjekkinger og personlig historikk. Mer omfattende sosiale funksjoner ble prioritert lavere for å sikre at vi kunne konsentrere oss om de viktigste brukerbehovene for å få laget en fungerende applikasjon. Vi gjennomførte en brukerundersøkelse med 19 respondenter. Her svarte 9 at det å finne kommende kamper var den viktigste funksjonen. Dette støttet prioriteringen av kampoversikten som en sentral del av løsningen.
 
-Vi gjennomførte en brukerundersøkelse med 19 respondenter. Her svarte 9 at det å finne kommende kamper var den viktigste funksjonen. Dette støttet prioriteringen av kampoversikten som en sentral del av løsningen.
-
-Senere gjennomførte vi brukertesting, der vi mottok syv svar. Tilbakemeldingene viste at brukerne i hovedsak klarte å navigere i løsningen, men også at enkelte deler kunne bli tydeligere. Vi fikk blant annet innspill om navigasjon, fargebruk, begreper, kalendervisning og presentasjon av kamptidspunkter.
-
-Disse tilbakemeldingene bidro til at vi prioriterte forbedringer av eksisterende funksjonalitet fremfor å legge til stadig flere funksjoner.
-
-Gjennom arbeidet har vi erfart at en funksjon ikke nødvendigvis gir brukerverdi bare fordi den er teknisk implementert. Den må også være forståelig, tilgjengelig og nyttig for dem som skal bruke løsningen.
+Senere gjennomførte vi brukertesting, der vi mottok syv svar. Tilbakemeldingene viste at brukerne i hovedsak klarte å navigere i løsningen, men også at enkelte deler kunne bli tydeligere. Vi fikk blant annet innspill om navigasjon, fargebruk, begreper, kalendervisning og presentasjon av kamptidspunkter. Disse tilbakemeldingene bidro til at vi prioriterte forbedringer av eksisterende funksjonalitet fremfor å legge til stadig flere funksjoner. Gjennom arbeidet har vi erfart at en funksjon ikke nødvendigvis gir brukerverdi bare fordi den er teknisk implementert. Den må også være forståelig, tilgjengelig og nyttig for dem som skal bruke løsningen.
 
 *** Vurder hvor godt den leverte prototypen oppfyller den opprinnelige MVP-en. Hva fungerer etter hensikten, hva er delvis ferdig, og hva mangler?
 
@@ -230,6 +222,8 @@ Vi har også erfart at automatiserte tester kan bidra til tryggere integrasjon a
 Dersom vi skulle gjennomført prosjektet på nytt, ville vi ønsket å etablere en tydeligere arbeidsflyt tidligere. Vi ville også lagt større vekt på mindre, sammenhengende leveranser, der frontend og backend utvikles og testes sammen etter hvert.
 
 Dette kunne gjort det enklere å oppdage avhengigheter og integrasjonsproblemer tidligere, samtidig som vi hadde fått raskere tilbakemeldinger på funksjonaliteten.
+
+I ettertid ser vi også at vi med fordel kunne gjennomført flere brukertester underveis i utviklingsprosessen. Vi gjennomførte brukertesting og brukte tilbakemeldingene til å forbedre løsningen, men vi testet ikke systematisk med brukere etter hver forbedringsrunde. En mer smidig tilnærming ville vært å teste mindre endringer fortløpende, for eksempel etter at vi hadde rettet noen feil eller forbedret en funksjon. Da kunne vi raskere undersøkt om endringene faktisk løste problemene brukerne opplevde, eller om det fortsatt var behov for justeringer. Dette ville gitt oss kortere tilbakemeldingssløyfer og gjort det enklere å utvikle løsningen i tråd med brukernes behov.
 
 *** Diskuter dette i gruppen: Hvilke konkrete endringer i arbeidsformen har hatt størst betydning for fremdriften? Hva ville dere prioritert annerledes dersom dere startet på nytt?
 
