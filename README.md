@@ -4,7 +4,9 @@ Stadionhopper gjør det enklere å oppdage fotballkamper, utforske stadioner og 
 
 ## Åpne Stadionhopper
 
-Bruk appen direkte i nettleseren: https://inetiger.github.io/Stadionhopper/
+[Åpne den publiserte Stadionhopper-demoen](https://inetiger.github.io/Stadionhopper/?demo=1&v=20261110-2)
+
+Lenken åpner GitHub Pages-demoen fra `main`, ikke en eldre forhåndsvisning fra en branch. Nye endringer vises etter at de er merget og Pages-publiseringen er ferdig. Hvis du fortsatt ser den gamle utformingen, bruk **Ctrl + Shift + R** (Windows) eller **Cmd + Shift + R** (Mac) for å laste siden på nytt uten gammel nettleserkopi.
 
 Du trenger ikke å laste ned eller installere noe.
 
@@ -19,6 +21,16 @@ Den publiserte demoen bruker bare fiktive testdata. Du kan logge inn med en av t
 | `maria` | `stadion123` |
 
 Innsjekkinger lagres i `localStorage` i nettleseren du bruker, og vises i profilen og feeden for denne nettleseren. Data deles ikke automatisk med andre brukeres nettlesere. Testkontoene og passordene er offentlige og skal aldri brukes til ekte kontoer eller sensitive data.
+
+### Eksempelkamper i kalenderen
+
+Demoen inneholder **12 nye, fiktive eksempelkamper fra 11. november til 6. desember 2026**, i tillegg til de tidligere kampene. Dette er testdata, ikke klubbenes faktiske terminliste. Bruk månedspilene for å se desember. Datoene er faste og må oppdateres ved senere testperioder.
+
+Eksempeldataene ligger i `demo/data.json` og brukes også når en ny lokal pilot opprettes. En eksisterende `.pilot-data/` oppdateres ikke automatisk, slik at innlagte pilotdata blir bevart. Bruk en ny datamappe via `STADIONHOPPER_DB_DIR` hvis dere trenger en separat, fersk pilot.
+
+## Skriftlig sluttleveranse
+
+[Disposisjon for DORA-analyse og sluttrefleksjon](docs/Stadionhopper_DORA_disposisjon.md) inneholder overskrifter, stikkord og forslag til sidefordeling innenfor oppgavens grense på 10 sider.
 
 ## Brukere legger inn kamper
 
