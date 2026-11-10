@@ -99,6 +99,41 @@ function fill(ui, input = valid) {
   ui.felter.nytttidspunkt.value = '2027-04-10T15:30';
 }
 
+test('selected calendar day prefills match date and preserves the existing time', async () => {
+  const ui = frontend(async url => ({ ok: true, json: async () =>
+    url === '/api/match-options' ? { clubs: [], stadiums: [] } : { matches: [] } }));
+  await ui.context.hentKamper();
+  ui.context.aktivBruker = { user_id: 1, username: 'alex' };
+  ui.context.kalenderMaaned = new Date(2027, 3, 1);
+  ui.context.velgKalenderdag('2027-04-21');
+  await ui.felter.leggtilvalgtkamp.onclick();
+  assert.equal(ui.felter.nytttidspunkt.value, '2027-04-21T18:00');
+  assert.equal(ui.felter.leggtilkamp.style.display, 'block');
+  ui.felter.nytttidspunkt.value = '2027-04-21T12:45';
+  ui.context.visSide('kamper');
+  ui.context.velgKalenderdag('2027-04-22');
+  await ui.felter.leggtilvalgtkamp.onclick();
+  assert.equal(ui.felter.nytttidspunkt.value, '2027-04-22T12:45');
+});
+
+test('selected calendar day survives login and is cleared when login is cancelled', async t => {
+  const { base } = await startTestServer(t);
+  const ui = frontend(createCookieFetch(base));
+  await ui.context.hentKamper();
+  ui.context.velgKalenderdag('2027-04-23');
+  await ui.felter.leggtilvalgtkamp.onclick();
+  assert.equal(ui.felter.innlogging.style.display, 'block');
+  ui.felter.brukernavn.value = 'Testbruker'; ui.felter.passord.value = 'test-only-password-one';
+  await ui.context.velgTestprofil();
+  await waitFor(() => ui.felter.leggtilkamp.style.display === 'block');
+  assert.equal(ui.felter.nytttidspunkt.value, '2027-04-23T18:00');
+  await ui.context.avsluttTestprofil();
+  await ui.context.startNyKamp('2027-04-24');
+  ui.context.avbrytBesok();
+  assert.equal(ui.context.ventendeKampDato, '');
+  assert.equal(ui.context.ventendeKamp, false);
+});
+
 test('frontend registers through the API and selects the new calendar date and details', async t => {
   const { base } = await startTestServer(t);
   const request = createCookieFetch(base);

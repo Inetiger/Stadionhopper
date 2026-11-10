@@ -110,6 +110,9 @@ function velgKalenderdag(nokkel, ikkeRender) {
   var dag = new Date(nokkel + 'T12:00:00');
   document.getElementById('dagstitel').textContent =
     dag.toLocaleDateString('nb-NO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  var leggTil = document.getElementById('leggtilvalgtkamp');
+  leggTil.textContent = '+ Legg til kamp ' + dag.toLocaleDateString('nb-NO', { day: 'numeric', month: 'long' });
+  leggTil.onclick = function() { startNyKamp(nokkel); };
   var liste = document.getElementById('dagliste');
   liste.textContent = '';
   var funnet = kamper.filter(function(kamp) {
@@ -501,6 +504,7 @@ async function hentProfilHistorikk() {
 
 async function avsluttTestprofil() {
   ventendeKamp = false;
+  ventendeKampDato = '';
   ventendeBesok = false;
   valgtKamp = null;
   try {
@@ -589,6 +593,7 @@ async function bekreftBesok() {
 function avbrytBesok() {
   ventendeBesok = false;
   ventendeKamp = false;
+  ventendeKampDato = '';
   visSide('kamper');
 }
 
@@ -611,6 +616,7 @@ gjenopprettOkt();
 
 // Brukerinnmeldte kamper: samme brukerreise med delt backend eller lokal Pages-demo.
 var ventendeKamp = false;
+var ventendeKampDato = '';
 var lagrerKamp = false;
 function demoLesKamper() {
   try {
@@ -627,7 +633,8 @@ function kampNokkel(navn) {
   return navn.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase('nb-NO');
 }
 
-async function startNyKamp() {
+async function startNyKamp(dag) {
+  if (typeof dag === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(dag)) ventendeKampDato = dag;
   if (!aktivBruker) {
     ventendeKamp = true;
     ventendeBesok = false;
@@ -636,6 +643,13 @@ async function startNyKamp() {
     return;
   }
   visSide('leggtilkamp');
+  if (ventendeKampDato) {
+    // Prefill only the date, keeping an already entered time if the user has one.
+    var felt = document.getElementById('nytttidspunkt');
+    var klokkeslett = (felt.value || '').split('T')[1] || '18:00';
+    felt.value = ventendeKampDato + 'T' + klokkeslett;
+    ventendeKampDato = '';
+  }
   document.getElementById('nykampmodus').textContent = demomodus ?
     'Lokal demo: kampen blir bare synlig i denne nettleseren, også etter omlasting. Den deles ikke med andre.' :
     'Kampen deles med andre som bruker samme server.';
