@@ -169,3 +169,21 @@ nav button { border: 0; padding: 14px 4px; font-size: 13px; }
   .kalenderdato { padding: 2px; font-size: 11px; }
   .kalenderkamp { padding: 3px 2px; font-size: 9px; }
 }
+
+/* Brukerregistrering deler samme enkle uttrykk som resten av prototypen. */
+#nykampskjema {
+  background: #fff;
+  color: #192B20;
+  padding: 16px;
+  border-radius: 8px;
+}
+#nykampskjema label:first-child { margin-top: 0; }
+#nykampskjema input { min-width: 0; }
+#nykampskjema p { color: #192B20; }
+#lagrekampknapp { width: 100%; border-radius: 6px; }
+#nykampstatus:not(:empty) { padding: 10px; border-left: 4px solid #246b45; background: #f2f8f4; }
+#nykampmodus, #nykamptidssone { font-size: 14px; }
+#detaljkilde { font-size: 14px; color: #395444; }
+#dagliste h3 { color: #192B20; }
+#nykampknapp { border-radius: 6px; }
+button:focus-visible, input:focus-visible { outline: 3px solid #ffda55; outline-offset: 2px; }
