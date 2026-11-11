@@ -10,9 +10,7 @@ I denne siste leveransen evaluerer vi produktet og utviklingsprosessen. Vi gjenn
 
 ### 2.1 Den leverte prototypen
 
-Den publiserte demonstrasjonsversjonen er tilgjengelig gjennom GitHub Pages og benytter eksempeldata og lokal nettleserlagring. En sentral brukerreise er å finne en kommende fotballkamp, se informasjon om kampen og stadionet, og registrere et kampbesøk. Prototypen inneholder blant annet kampoversikt med kalendervisning, kampdetaljer, stadioninformasjon, innlogging med testkontoer, brukerprofil og innsjekkinger. Arrangementene er statiske eksempelvisninger; den sosiale feeden viser blant annet innsjekkinger.
-
-I den siste sprinten har vi videreutviklet det visuelle designet og lagt inn flere eksempelkamper. Brukere kan nå registrere kamper med eksisterende eller nye klubbnavn og spillesteder, også fra en valgt kalenderdag. Registreringen og lagringen er testet som beskrevet i punkt 2.2.
+Den publiserte demonstrasjonsversjonen er tilgjengelig gjennom GitHub Pages og benytter eksempeldata og lokal nettleserlagring. En sentral brukerreise er å finne en kommende fotballkamp, se informasjon om kampen og stadionet, og registrere et kampbesøk. Denne reisen kan anses som relativt vanlig og forventet, og man finner det i apper som StikkUt!. Vi har i denne siste leveransen jobbet med få til en brukerreise vi er nysgjerrige på om er interessant. En bruker vet om at to klubber skal spille kamp, men finner den ikke i kampoversikten og legger den inn selv. Denne brukerreisen går det nå an å teste med prototypen. Prototypen inneholder i tillegg til nevnte funksjoner (kampoversikt med kalendervisning, kampdetaljer, stadioninformasjon og innsjekking), så har den innlogging med testkontoer, brukerprofil og arrangementer som er statiske eksempelvisninger. I den siste sprinten har vi også videreutviklet det visuelle designet og lagt inn flere eksempelkamper. Brukere kan nå registrere kamper med eksisterende eller nye klubbnavn og spillesteder.
 
 ### 2.2 Gjennomførte brukerreiser
 
@@ -30,41 +28,30 @@ Statusgjennomgangen i [issue #141](https://github.com/Inetiger/Stadionhopper/iss
 | Innsjekking | Innsjekkingen vises i historikken. Knappen deaktiveres etter første trykk og hindrer gjentatt innsending i samme skjermbilde. |
 | Sosial feed | Innsjekkingen vises én gang med riktig bruker og kamp. |
 
-Ingen blokkerende feil ble rapportert i disse testene. Dette gir grunnlag for å beskrive de undersøkte brukerreisene som fungerende innenfor demonstrasjonsversjonens rammer, men er ikke en fullstendig test av kompatibilitet, sikkerhet eller brukervennlighet. Alle kontrollene er heller ikke gjentatt på både PC og mobil. Nettleserversjon, operativsystem og eksakt publisert commit ble ikke registrert, noe som begrenser etterprøvbarheten.
+Alle funksjonene fungerte der de ble testet, med de begrensningene som er beskrevet.
 
 ### 2.3 Brukerbehov og prioriteringer
 
-I starten av prosjektet definerte vi en MVP med innlogging og brukerprofil, stadionoversikt, kommende kamper, innsjekkinger og personlig historikk. Mer omfattende sosiale funksjoner ble prioritert lavere for å konsentrere arbeidet om de viktigste brukerbehovene og utvikle en fungerende prototype. Vi gjennomførte en brukerundersøkelse med 19 respondenter, der 9 svarte at det å finne kommende kamper var den viktigste funksjonen. Dette støttet prioriteringen av kampoversikten som en sentral del av løsningen.
-
-Senere gjennomførte vi brukertesting, der vi mottok syv svar. Tilbakemeldingene viste at brukerne i hovedsak klarte å navigere i løsningen, men også at enkelte deler kunne bli tydeligere. Vi fikk blant annet innspill om navigasjon, fargebruk, begreper, kalendervisning og presentasjon av kamptidspunkter. Disse tilbakemeldingene bidro til at vi prioriterte forbedringer av eksisterende funksjonalitet fremfor å legge til stadig flere funksjoner.
+I starten av prosjektet definerte vi en MVP med innlogging og brukerprofil, stadionoversikt, kommende kamper, innsjekkinger og personlig historikk. Mer omfattende sosiale funksjoner ble prioritert lavere for å konsentrere arbeidet om det vi tenkte var de viktigste brukerbehovene og å utvikle en fungerende prototype. Vi gjennomførte en spørreundersøkelse med 19 respondenter, der 9 svarte at det å finne kommende kamper var den viktigste funksjonen. Vi implementerte derfor en listevisning av kommende kamper. Senere gjennomførte vi brukertesting, der vi mottok syv svar. Tilbakemeldingene viste at brukerne i hovedsak klarte å navigere i løsningen, men også at enkelte deler kunne bli tydeligere. Vi fikk blant annet innspill om navigasjon, fargebruk, begreper, og presentasjon av kamptidspunkter. Disse tilbakemeldingene bidro til at vi prioriterte forbedringer av eksisterende funksjonalitet fremfor å legge til stadig flere funksjoner. Vi byttet for eksempel ut listevisning av kamper med en kalendervisning.
 
 ### 2.4 Avgrensninger i den leverte løsningen
 
-Gruppa har avklart at prototypen først og fremst skal være tilgjengelig og testbar. Lokal nettleserlagring er derfor akseptert for denne leveransen.
-
-Kamper og innsjekkinger deles dermed ikke mellom brukere eller enheter, og data kan gå tapt når privatøkten avsluttes eller nettleserdata slettes. Dette gjør det mulig å teste registrering og innsjekking individuelt, men ikke en sammenhengende sosial brukerreise der én bruker publiserer en kamp og en annen finner den på en annen enhet.
-
-Backend er utviklet for blant annet autentisering, brukerøkter, kampdata og innsjekkinger, men er ikke koblet til demonstrasjonsversjonen som er publisert gjennom GitHub Pages. Gruppa har også akseptert kartplassholderen, statiske arrangementer og manglende liveoppdatering av kamper som avgrensninger i sluttversjonen. Disse beskrives derfor ikke som ferdige funksjoner. Prototypen demonstrerer flere av de planlagte brukerreisene, men felles datalagring og videre teknisk utvikling er nødvendig før løsningen kan tas i bruk av reelle brukere.
+For å ha fokus på å teste funksjoner vi lurer på om er nyttige har gruppen blitt enige om å legge vekt på en tilgjengelig og testbar løsning, fremfor en løsning som kunne blitt tatt i bruk allerede nå. Vi har derfor valgt å benytte oss av lokal nettleserlagring for å teste funksjoner, fremfor å ha en løsning på database nå. Kamper og innsjekkinger deles dermed ikke mellom brukere eller enheter, og data kan gå tapt når privatøkten avsluttes eller nettleserdata slettes. Dette gjør det mulig å teste registrering og innsjekking individuelt, men ikke en sammenhengende sosial brukerreise der én bruker publiserer en kamp og en annen finner den på en annen enhet. Vi tror det er viktigere å få bekreftet av vi jobber med rett funksjoner før vi invester mer tid i backend og database. Backend er derimot utviklet for blant annet autentisering, brukerøkter, kampdata og innsjekkinger, men er ikke koblet til demonstrasjonsversjonen som er publisert gjennom GitHub Pages. Gruppa har også akseptert kartplassholderen, statiske arrangementer og manglende liveoppdatering av kamper som avgrensninger i sluttversjonen. Disse beskrives derfor ikke som ferdige funksjoner. Prototypen demonstrerer flere av de planlagte brukerreisene, men felles datalagring og videre teknisk utvikling er nødvendig før løsningen kan tas i bruk av reelle brukere.
 
 ## 3. Arkitektur og tekniske valg
 
-### 3.1 Systemarkitektur
-
-Stadionhopper er utviklet med en frontend basert på HTML, CSS og JavaScript og en backend basert på Node.js. Arkitekturen skiller mellom brukergrensesnittet og håndteringen av data og applikasjonslogikk. I planleggingen av prosjektet valgte vi en enkel, filbasert løsning med JSON-filer for datalagring. Dette gjorde det mulig å arbeide med sentrale deler av systemet uten å etablere en full database fra starten.
+Stadionhopper er utviklet med en frontend basert på HTML, CSS og JavaScript og en backend basert på Node.js. Arkitekturen skiller mellom brukergrensesnittet og håndteringen av data og applikasjonslogikk. I planleggingen av prosjektet valgte vi en enkel, filbasert løsning med JSON-filer for datalagring. Dette gjorde det mulig å arbeide med sentrale deler av systemet uten å etablere en full database fra starten. Det viste seg derimot at det ikke var mulig å lagre inputen fra brukere med denne løsningen. Derfor er den midlertidige løsningen er publisering via GitHub Pages, som leser eksempeldata fra en statisk JSON-fil og lagrer brukerregistrerte data i nettleseren. Node.js-backenden kan kjøres separat, men kjører ikke på Pages. 
 
 Domenemodellen omfatter blant annet brukere, klubber, stadioner, kamper, innsjekkinger, innlegg og arrangementer.
 
-GitHub Pages leverer frontend-filene, som leser eksempeldata fra en statisk JSON-fil og lagrer brukerregistrerte data i nettleseren. Node.js-backenden kan kjøres separat, men kjører ikke på Pages. Begrensningene for brukerne er beskrevet i punkt 2.4.
-
-### 3.2 Vurdering av tekniske valg
-
-En enkel frontend og filbasert datalagring har gjort det mulig å komme raskt i gang med utviklingen og teste sentrale deler av systemet. Valget av statisk publisering på Pages gjorde demoen tilgjengelig uten serverdrift, men avgrenset den til lokale brukerreiser som beskrevet i punkt 2.4.
-
-Dersom Stadionhopper skulle videreutvikles, ville vi måtte vurdere felles, varig lagring, sikker autentisering og hvordan applikasjonen skal publiseres og driftes. Disse behovene omtales nærmere i kapittel 7.
 
 ## 4. Arbeidsprosess, testing og CI/CD
 
 ### 4.1 Arbeidsflyt og versjonskontroll
+
+Gjennom hele prosjektet har Agile metoder vært grunnlaget for hvordan vi har hatt som mål å jobbe. Dette har vært en læringsprosess og vi har endret arbeidsmetode etter hvert som vi har gjort oss erfaringer underveis. Det som har vært med fra start til slutt er vårt ukentlige møte, inspirert av scrum. Vi har gått fra å jobbe delvis i Teams med word, til å gjøre alt skrivearbeid i Github slik at vi også har versjonskontroll på skrivearbeidet. Når vi tok i bruk Github startet vi også med issues, her har vi prøvd ulike løsninger. I starten laget vi issues selv, dette tok en del tid, så en tydelig definition of done ble ikke implementert i første omgang. Etter dette prøvde vi å lage issues ved hjelp av KI, vi fikk da issues som blandet ulike roller, var vanskelig å forstå
+
+*** Fortsett her
 
 Vi har brukt Scrum som utgangspunkt for organiseringen av utviklingsarbeidet, med ukentlige møter, prioritering av oppgaver og jevnlig oppfølging av fremdriften. GitHub har vært brukt til versjonskontroll, oppgavehåndtering og samarbeid. Arbeidsoppgavene har vært organisert gjennom Issues, og kodeendringer har i hovedsak blitt utviklet i egne branches før de ble integrert i `main` gjennom pull requests.
 
