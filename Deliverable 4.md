@@ -49,25 +49,34 @@ Domenemodellen omfatter blant annet brukere, klubber, stadioner, kamper, innsjek
 
 ### 4.1 Arbeidsflyt og versjonskontroll
 
-Gjennom hele prosjektet har Agile metoder vært grunnlaget for hvordan vi har hatt som mål å jobbe. Dette har vært en læringsprosess og vi har endret arbeidsmetode etter hvert som vi har gjort oss erfaringer underveis. Det som har vært med fra start til slutt er vårt ukentlige møte, inspirert av scrum. Vi har gått fra å jobbe delvis i Teams med word, til å gjøre alt skrivearbeid i Github slik at vi også har versjonskontroll på skrivearbeidet. Når vi begynte i Github ble vi enige om arbeidsflyten issue → branch → PR → gjennomgang → merge. I starten var issuesene brukt for å tydeliggjøre hvem som jobbet med hva, vi skrev og opprettet issues selv, dette tok en del tid, og en tydelig definition of done ble ikke implementert i første omgang. Etter dette prøvde vi å lage issues ved hjelp av KI, vi fikk da issues som blandet ulike roller, var vanskelig å forstå, og hadde mye mer tekst enn noen av oss var interesserte i å lese. Vi justerte litt tilbake og ønsket å dele opp i mindre frister. Denne gangen prøvde vi å ta over mer av kontrollen selv, samtidig knytte de til milepæler og implementere automatisk testing. Mileælene delte opp arbeidet i mindre og mer overkommelige bolker, men vi hadde fortsatt trøbbel med issues som gikk over i hverandre og var utydelige.
-
-*** Fortsett her
-
-
-
-Vi har brukt Scrum som utgangspunkt for organiseringen av utviklingsarbeidet, med ukentlige møter, prioritering av oppgaver og jevnlig oppfølging av fremdriften. GitHub har vært brukt til versjonskontroll, oppgavehåndtering og samarbeid. Arbeidsoppgavene har vært organisert gjennom Issues, og kodeendringer har i hovedsak blitt utviklet i egne branches før de ble integrert i `main` gjennom pull requests.
-
-I den siste sprinten har vi videreført den etablerte arbeidsflyten med branches og pull requests, både for forbedringer av prototypen og for arbeidet med sluttrapporten. Rapporten er skrevet og redigert i GitHub, slik at gruppemedlemmene kan gjennomgå endringer og gi tilbakemeldinger før de integreres i `main`.
+Gjennom hele prosjektet har Agile metoder vært grunnlaget for hvordan vi har hatt som mål å jobbe. Dette har vært en læringsprosess og vi har endret arbeidsmetode etter hvert som vi har gjort oss erfaringer underveis. Det som har vært med fra start til slutt er vårt ukentlige møte, inspirert av scrum. Vi har gått fra å jobbe delvis i Teams med word, til å gjøre alt skrivearbeid i Github slik at vi også har versjonskontroll på skrivearbeidet. Når vi begynte i Github ble vi enige om arbeidsflyten issue → branch → PR → gjennomgang → merge. I starten var issuesene brukt for å tydeliggjøre hvem som jobbet med hva, vi skrev og opprettet issues selv, dette tok en del tid, og en tydelig definition of done ble ikke implementert i første omgang. Etter dette prøvde vi å lage issues ved hjelp av KI, vi fikk da issues som blandet ulike roller, var vanskelig å forstå, og hadde mye mer tekst enn noen av oss var interesserte i å lese. Vi justerte litt tilbake og ønsket å dele opp i mindre frister. Denne gangen prøvde vi å ta over mer av kontrollen selv, samtidig knytte issuene til milepæler, prøvde å vise avhengighet med labels og implementere automatisk testing. Mileælene delte opp arbeidet i mindre frister, men vi fikk utfordringer med at avhengighetene KI definerte ikke stemte helt med det praktiske arbeidet. Denne gangen har vi skrelt det tilbake til enklere issues, og heller lagt mer vekt på jevn kommunikasjon på Teams, inkludert at gruppemedlemmer har hatt en åpen Teams-samtale for små avklaringer underveis. Vi merker at det nærmer seg eksamen, men alle prøver å være tilgjengelige, svare hverandre raskt og jobbe så mye med oppgaven vi rekker. 
 
 ### 4.2 Testing og kvalitetssikring
 
-Vi har benyttet både automatiserte tester og manuell brukertesting for å kvalitetssikre løsningen. De automatiserte testene har blant annet kontrollert autentisering, brukerøkter, tilgangskontroll, kampinformasjon og innsjekkinger. Testene har vært kjørt gjennom GitHub Actions som en del av CI-prosessen.
+Det ble laget automatiske tester til forrige innlevering. Disse dekker funksjoner og utvalgte brukerreiser. Testene kjører i et lukket miljø og er ikke en garanti for at det virker, vi har oppdaget feil underveis. Manuell testing på ulike enheter er derfor fortsatt viktig, også når de automatiske testene i CI-pipelinen passerer. Når vi har utviklet nye funksjoner med hjelp av KI, har vi også utvidet og tilpasset testene, blant annet for registrering av kamper fra kalenderen. Testen dekker følgende områder:
 
-Et konkret eksempel på nytten av dette oppstod under arbeidet med kalenderfunksjonaliteten. Etter en kodeendring viste GitHub Actions at to av 41 tester feilet. Feilene ble undersøkt og rettet, og ved en senere kjøring bestod alle testene.
+| Område | Hva testene konkret kontrollerer |
+|---|---|
+| **Innlogging og utlogging** | Riktig brukernavn og passord gir innlogging. Feil eller manglende opplysninger avvises. Innlogging oppretter en sesjon, og utlogging gjør den ugyldig. |
+| **Tilgang til brukerdata** | Profil og historikk krever gyldig sesjon. En bruker kan ikke få en annens historikk ved å sende inn et annet brukernavn. Utløpte sesjoner avvises. |
+| **Kamper og kalender** | Kamper hentes og sorteres etter dato, kobles til riktige klubber og stadioner og vises på valgt kalenderdag. Valg av kamp åpner riktige detaljer. |
+| **Registrering av nye kamper** | Gyldige kamper lagres. Eksisterende klubber gjenbrukes, og nye klubber og spillesteder opprettes. Manglende opplysninger, ugyldige datoer og duplikater avvises. Samtidige registreringer testes for tap av data. |
+| **Registrering fra kalenderen** | Valgt dato følger med til skjemaet. Datoen beholdes hvis brukeren må logge inn først. Et allerede valgt klokkeslett beholdes ved bytte av dag. |
+| **Innsjekking** | Brukeren kan velge kamp, bekrefte innsjekking og få besøket lagret og vist i historikken. Samme innsjekking kan ikke registreres to ganger. |
+| **Bytte mellom brukere** | Forrige brukers profil og historikk fjernes når en annen logger inn. Innsjekkingene holdes adskilt. |
+| **Sosial feed** | Innlegg vises med forfatter og tidspunkt, med nyeste først. Tomme eller ugyldige innlegg håndteres. Innhold som ligner HTML, behandles som tekst. |
+| **Feilhåndtering i grensesnittet** | Nettverksfeil, tomme svar og ugyldige data gir statusmeldinger. Ved mislykket lagring beholdes utfylte opplysninger, og brukeren kan prøve igjen. Dobbeltklikk skal ikke sende samme registrering flere ganger. |
+| **GitHub Pages-versjonen** | Eksempeldata lastes fra den statiske filen. Testinnlogging, lokal innsjekking, historikk og feed kontrolleres. Nye kamper beholdes ved simulert ny innlasting med samme nettleserlagring. Hvis lagring ikke virker, skal appen ikke melde at kampen er lagret. |
+| **Filer og testdata** | Serveren leverer HTML, CSS og JavaScript. Utvalgte interne filer er utilgjengelige via serveren. Eksempeldata inneholder nødvendige felter og gyldige datoer. |
 
-Samtidig har brukertestingen gitt en annen type innsikt. De automatiserte testene undersøker om funksjoner oppfører seg som forventet, mens brukertestingen har vist hvordan personer utenfor utviklingsgruppen opplever løsningen.
+Manuell testing har vist seg nødvendig f.eks når det gjelder lagring av brukerdata. Vi planla først å lagre brukerdata i JSON-filer gjennom en Node.js-backend. De automatiske testene kontrollerer at denne lagringen fungerer når backenden kjører. Utfordringen oppstod ved publisering på GitHub Pages, som bare leverer statiske filer og ikke kjører Node.js-backenden. Den publiserte prototypen kunne derfor ikke bruke den planlagte løsningen til å lagre nye brukerdata. Vi valgte nettleserlagring som en midlertidig løsning for å gjøre brukerreisene testbare. Dataene beholdes i den aktuelle nettleseren, men deles ikke mellom brukere på ulike enheter.
 
-### 4.3 CI/CD og publisering
+Testene har og avdekket feil som har blitt rettet før publisering. Et konkret eksempel på nytten av dette oppstod under arbeidet med kalenderfunksjonaliteten. Etter en kodeendring viste GitHub Actions at to av 41 tester feilet. Feilene ble undersøkt og rettet, og ved en senere kjøring bestod alle testene.
+
+Sist, men ikke minst har brukertesting vært verdifullt. Det hjelper oss både å få svar på om funksjonene vi utvikler har en verdi for brukeren, men også å oppdage feil. Personer som ikke har jobbet med utviklingen vil sannsynligvis misforstå hvordan det er meningen at man skal navigere og bruke funksjonene, og dermed prøve løsninger som ikke er planlagt fra utviklernes side. De kan og gi beskjed hvis man har fjernet eller endret på funksjoner som var brukt på en måte utviklerne ikke har forutsett. For å få en robust løsning vil brukertesting være nødvendig, både når det gjelder funksjoner man tester, og for å oppdage feil.
+
+### 4.3 Kan dette flettes inn i det over?
+Litt mer om CI/CD og publisering
 
 Vi har etablert en CI-prosess gjennom GitHub Actions, der JavaScript-syntaks og automatiserte tester kontrolleres ved pull requests og endringer i `main`. Vi har også benyttet GitHub Pages til å publisere demonstrasjonsversjonen. Publiseringen skjer gjennom en separat workflow og er ikke direkte avhengig av at alle CI-kontrollene er bestått. Dette innebærer at en vellykket publisering ikke nødvendigvis dokumenterer at alle tester har bestått.
 
