@@ -86,11 +86,9 @@ Gjennom prosjektet har vi også erfart at pull requests og automatiserte tester 
 
 ### 5.1 Avgrensning, datagrunnlag og hovedresultater
 
-Vi bruker DORA til å undersøke leveransehastighet og stabilitet i prosjektet. Produksjonsreferansen er den publiserte GitHub Pages-prototypen som testbrukerne har tilgang til, ikke en fullstendig driftssatt backend. Oppgaveteksten etterspør fire målinger, inkludert Mean Time to Restore. Vi behandler gjenoppretting av feilutløsende leveranser gjennom det mer avgrensede Failed Deployment Recovery Time og vurderer i tillegg Deployment Rework Rate, slik #142 legger opp til.
+Vi bruker DORA til å undersøke leveransehastighet og stabilitet i prosjektet. Produksjonsreferansen er den publiserte GitHub Pages-prototypen som testbrukerne har tilgang til, ikke en fullstendig driftssatt backend. Måleperioden for disse tallene er 22. september 2026 til 10. november 2026. Perioden på omtrent 49 døgn går fra første dokumenterte publisering til siste publisering ved uttrekket. Arbeid før første publisering og senere endringer inngår ikke. Resultatene er et fast øyeblikksbilde, ikke en løpende total.
 
-Måleperioden er **22. september 2026 kl. 11.30.51 til 10. november 2026 kl. 10.17.11 norsk tid, eksklusiv slutt** (09:30:51 UTC og 09:17:11 UTC). Perioden på omtrent 48,99 døgn går fra første dokumenterte publisering til siste publisering ved uttrekket. Arbeid før første publisering og senere endringer inngår ikke. Resultatene er et fast øyeblikksbilde, ikke en løpende total.
-
-Vi har kombinert historisk uttrekk fra PR #154, nyere deployment-hendelser på `dora-data`, deploy-jobber i GitHub Actions og commit-grafen fra `main`. Beregningene kan gjenskapes med `node scripts/summarize-dora-analysis.js metrics/dora/analysis-2026-11-10.json`. [Datagrunnlaget](metrics/dora/analysis-2026-11-10.json) inneholder publiseringsreferanser, commit-graf og et separat CI-uttrekk; [skriptet](scripts/summarize-dora-analysis.js) beregner publiseringsfrekvens og ledetid.
+Vi har kombinert gjennomgang av historiske issues, commits og merges med nyere deployment-hendelser på `dora-data` (atuomatiske DORA målinger), deploy-jobber i GitHub Actions og commit-grafen fra `main`. Beregningene kan gjenskapes med `node scripts/summarize-dora-analysis.js metrics/dora/analysis-2026-11-10.json`. [Datagrunnlaget](metrics/dora/analysis-2026-11-10.json) inneholder publiseringsreferanser, commit-graf og et separat CI-uttrekk; [skriptet](scripts/summarize-dora-analysis.js) beregner publiseringsfrekvens og ledetid.
 
 | DORA-måling | Resultat | Datagrunnlag og usikkerhet |
 | --- | --- | --- |
